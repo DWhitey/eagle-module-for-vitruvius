@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Instance#getPart <em>Part</em>}</li>
  *   <li>{@link eaglemodel.Instance#getGate <em>Gate</em>}</li>
@@ -23,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Instance#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.Instance#getAttribute <em>Attribute</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getInstance()
  * @model

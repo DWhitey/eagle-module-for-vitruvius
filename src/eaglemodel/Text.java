@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Text#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.Text#getY <em>Y</em>}</li>
@@ -27,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Text#getDistance <em>Distance</em>}</li>
  *   <li>{@link eaglemodel.Text#getPcdata <em>Pcdata</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getText()
  * @model

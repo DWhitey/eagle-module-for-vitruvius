@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.HoleImpl#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.impl.HoleImpl#getY <em>Y</em>}</li>
  *   <li>{@link eaglemodel.impl.HoleImpl#getDrill <em>Drill</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

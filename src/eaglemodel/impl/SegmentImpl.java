@@ -25,13 +25,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.SegmentImpl#getPinref <em>Pinref</em>}</li>
  *   <li>{@link eaglemodel.impl.SegmentImpl#getWire <em>Wire</em>}</li>
  *   <li>{@link eaglemodel.impl.SegmentImpl#getJunction <em>Junction</em>}</li>
  *   <li>{@link eaglemodel.impl.SegmentImpl#getLabel <em>Label</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

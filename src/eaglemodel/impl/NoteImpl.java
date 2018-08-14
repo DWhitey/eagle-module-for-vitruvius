@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.NoteImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link eaglemodel.impl.NoteImpl#getSeverity <em>Severity</em>}</li>
  *   <li>{@link eaglemodel.impl.NoteImpl#getPcdata <em>Pcdata</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

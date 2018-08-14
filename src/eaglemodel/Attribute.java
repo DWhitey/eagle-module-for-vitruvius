@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Attribute#getValue <em>Value</em>}</li>
@@ -28,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Attribute#getDisplay <em>Display</em>}</li>
  *   <li>{@link eaglemodel.Attribute#isConstant <em>Constant</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getAttribute()
  * @model

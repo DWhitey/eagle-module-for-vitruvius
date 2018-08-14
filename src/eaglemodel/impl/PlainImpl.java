@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PlainImpl#getPolygon <em>Polygon</em>}</li>
  *   <li>{@link eaglemodel.impl.PlainImpl#getWire <em>Wire</em>}</li>
@@ -40,6 +39,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.PlainImpl#getFrame <em>Frame</em>}</li>
  *   <li>{@link eaglemodel.impl.PlainImpl#getHole <em>Hole</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

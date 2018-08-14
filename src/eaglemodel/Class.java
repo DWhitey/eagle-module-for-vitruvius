@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Class#getNumber <em>Number</em>}</li>
  *   <li>{@link eaglemodel.Class#getName <em>Name</em>}</li>
@@ -21,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Class#getDrill <em>Drill</em>}</li>
  *   <li>{@link eaglemodel.Class#getClearance <em>Clearance</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getClass_()
  * @model

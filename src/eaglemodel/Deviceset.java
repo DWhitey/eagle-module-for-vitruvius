@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Deviceset#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Deviceset#getPrefix <em>Prefix</em>}</li>
@@ -22,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Deviceset#getGates <em>Gates</em>}</li>
  *   <li>{@link eaglemodel.Deviceset#getDevices <em>Devices</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDeviceset()
  * @model

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.SMDImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.SMDImpl#getX <em>X</em>}</li>
@@ -32,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.SMDImpl#isThermals <em>Thermals</em>}</li>
  *   <li>{@link eaglemodel.impl.SMDImpl#isCream <em>Cream</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

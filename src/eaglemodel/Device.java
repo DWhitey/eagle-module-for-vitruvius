@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Device#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Device#getPackage <em>Package</em>}</li>
  *   <li>{@link eaglemodel.Device#getConnects <em>Connects</em>}</li>
  *   <li>{@link eaglemodel.Device#getTechnologies <em>Technologies</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDevice()
  * @model

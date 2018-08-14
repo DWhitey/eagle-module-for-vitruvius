@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Dimension#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.Dimension#getY1 <em>Y1</em>}</li>
@@ -34,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Dimension#getPrecision <em>Precision</em>}</li>
  *   <li>{@link eaglemodel.Dimension#isVisible <em>Visible</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDimension()
  * @model

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Label#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.Label#getY <em>Y</em>}</li>
@@ -24,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Label#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.Label#isXref <em>Xref</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getLabel()
  * @model

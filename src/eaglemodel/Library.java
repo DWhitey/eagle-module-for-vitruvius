@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Library#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Library#getDescription <em>Description</em>}</li>
@@ -21,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Library#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link eaglemodel.Library#getDevicesets <em>Devicesets</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getLibrary()
  * @model

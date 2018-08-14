@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.InstanceImpl#getPart <em>Part</em>}</li>
  *   <li>{@link eaglemodel.impl.InstanceImpl#getGate <em>Gate</em>}</li>
@@ -35,6 +34,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.InstanceImpl#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.impl.InstanceImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Connect#getGate <em>Gate</em>}</li>
  *   <li>{@link eaglemodel.Connect#getPin <em>Pin</em>}</li>
  *   <li>{@link eaglemodel.Connect#getPad <em>Pad</em>}</li>
  *   <li>{@link eaglemodel.Connect#getRoute <em>Route</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getConnect()
  * @model

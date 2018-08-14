@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PadImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.PadImpl#getX <em>X</em>}</li>
@@ -34,6 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.PadImpl#isThermals <em>Thermals</em>}</li>
  *   <li>{@link eaglemodel.impl.PadImpl#isFirst <em>First</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

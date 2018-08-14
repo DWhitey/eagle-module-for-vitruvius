@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Setting#isAlwaysvectorfont <em>Alwaysvectorfont</em>}</li>
  *   <li>{@link eaglemodel.Setting#getVerticaltext <em>Verticaltext</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getSetting()
  * @model

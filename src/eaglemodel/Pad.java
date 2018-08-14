@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Pad#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Pad#getX <em>X</em>}</li>
@@ -26,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Pad#isThermals <em>Thermals</em>}</li>
  *   <li>{@link eaglemodel.Pad#isFirst <em>First</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPad()
  * @model

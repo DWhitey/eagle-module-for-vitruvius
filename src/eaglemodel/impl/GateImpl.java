@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.GateImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.GateImpl#getSymbol <em>Symbol</em>}</li>
@@ -30,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.GateImpl#getAddlevel <em>Addlevel</em>}</li>
  *   <li>{@link eaglemodel.impl.GateImpl#getSwaplevel <em>Swaplevel</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

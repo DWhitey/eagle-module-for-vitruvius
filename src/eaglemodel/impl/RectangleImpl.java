@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.RectangleImpl#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.impl.RectangleImpl#getY1 <em>Y1</em>}</li>
@@ -27,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.RectangleImpl#getLayer <em>Layer</em>}</li>
  *   <li>{@link eaglemodel.impl.RectangleImpl#getRot <em>Rot</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Segment#getPinref <em>Pinref</em>}</li>
  *   <li>{@link eaglemodel.Segment#getWire <em>Wire</em>}</li>
  *   <li>{@link eaglemodel.Segment#getJunction <em>Junction</em>}</li>
  *   <li>{@link eaglemodel.Segment#getLabel <em>Label</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getSegment()
  * @model

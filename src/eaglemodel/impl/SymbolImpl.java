@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.SymbolImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.SymbolImpl#getDescription <em>Description</em>}</li>
@@ -47,6 +46,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.SymbolImpl#getRectangle <em>Rectangle</em>}</li>
  *   <li>{@link eaglemodel.impl.SymbolImpl#getFrame <em>Frame</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

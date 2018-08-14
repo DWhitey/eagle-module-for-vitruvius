@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Plain#getPolygon <em>Polygon</em>}</li>
  *   <li>{@link eaglemodel.Plain#getWire <em>Wire</em>}</li>
@@ -24,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Plain#getFrame <em>Frame</em>}</li>
  *   <li>{@link eaglemodel.Plain#getHole <em>Hole</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPlain()
  * @model

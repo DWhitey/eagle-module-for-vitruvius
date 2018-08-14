@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Layer#getNumber <em>Number</em>}</li>
  *   <li>{@link eaglemodel.Layer#getName <em>Name</em>}</li>
@@ -20,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Layer#isVisible <em>Visible</em>}</li>
  *   <li>{@link eaglemodel.Layer#isActive <em>Active</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getLayer()
  * @model

@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.ConnectImpl#getGate <em>Gate</em>}</li>
  *   <li>{@link eaglemodel.impl.ConnectImpl#getPin <em>Pin</em>}</li>
  *   <li>{@link eaglemodel.impl.ConnectImpl#getPad <em>Pad</em>}</li>
  *   <li>{@link eaglemodel.impl.ConnectImpl#getRoute <em>Route</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

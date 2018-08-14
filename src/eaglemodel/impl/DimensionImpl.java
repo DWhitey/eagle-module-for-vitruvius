@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DimensionImpl#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.impl.DimensionImpl#getY1 <em>Y1</em>}</li>
@@ -41,6 +40,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.DimensionImpl#getPrecision <em>Precision</em>}</li>
  *   <li>{@link eaglemodel.impl.DimensionImpl#isVisible <em>Visible</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

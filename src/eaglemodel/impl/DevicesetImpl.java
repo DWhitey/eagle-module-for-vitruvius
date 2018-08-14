@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DevicesetImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.DevicesetImpl#getPrefix <em>Prefix</em>}</li>
@@ -37,6 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.DevicesetImpl#getGates <em>Gates</em>}</li>
  *   <li>{@link eaglemodel.impl.DevicesetImpl#getDevices <em>Devices</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

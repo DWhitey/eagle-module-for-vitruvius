@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Part#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Part#getLibrary <em>Library</em>}</li>
@@ -24,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Part#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link eaglemodel.Part#getVariant <em>Variant</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPart()
  * @model

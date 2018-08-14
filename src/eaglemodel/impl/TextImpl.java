@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.TextImpl#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.impl.TextImpl#getY <em>Y</em>}</li>
@@ -35,6 +34,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.TextImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link eaglemodel.impl.TextImpl#getPcdata <em>Pcdata</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

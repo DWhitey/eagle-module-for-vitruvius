@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Gate#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Gate#getSymbol <em>Symbol</em>}</li>
@@ -22,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Gate#getAddlevel <em>Addlevel</em>}</li>
  *   <li>{@link eaglemodel.Gate#getSwaplevel <em>Swaplevel</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getGate()
  * @model

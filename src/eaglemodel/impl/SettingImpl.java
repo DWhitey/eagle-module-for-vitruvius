@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.SettingImpl#isAlwaysvectorfont <em>Alwaysvectorfont</em>}</li>
  *   <li>{@link eaglemodel.impl.SettingImpl#getVerticaltext <em>Verticaltext</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

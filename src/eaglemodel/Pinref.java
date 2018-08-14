@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Pinref#getPart <em>Part</em>}</li>
  *   <li>{@link eaglemodel.Pinref#getGate <em>Gate</em>}</li>
  *   <li>{@link eaglemodel.Pinref#getPin <em>Pin</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPinref()
  * @model

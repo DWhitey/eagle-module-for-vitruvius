@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Drawing#getSettings <em>Settings</em>}</li>
  *   <li>{@link eaglemodel.Drawing#getGrid <em>Grid</em>}</li>
  *   <li>{@link eaglemodel.Drawing#getLayers <em>Layers</em>}</li>
  *   <li>{@link eaglemodel.Drawing#getSchematic <em>Schematic</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDrawing()
  * @model

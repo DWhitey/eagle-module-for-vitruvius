@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Polygon#getWidth <em>Width</em>}</li>
  *   <li>{@link eaglemodel.Polygon#getLayer <em>Layer</em>}</li>
@@ -27,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Polygon#getRank <em>Rank</em>}</li>
  *   <li>{@link eaglemodel.Polygon#getVertex <em>Vertex</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPolygon()
  * @model

@@ -185,7 +185,7 @@ public class EnumsPackageImpl extends EPackageImpl implements EnumsPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link EnumsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -199,14 +199,12 @@ public class EnumsPackageImpl extends EPackageImpl implements EnumsPackage {
 		if (isInited) return (EnumsPackage)EPackage.Registry.INSTANCE.getEPackage(EnumsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredEnumsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		EnumsPackageImpl theEnumsPackage = registeredEnumsPackage instanceof EnumsPackageImpl ? (EnumsPackageImpl)registeredEnumsPackage : new EnumsPackageImpl();
+		EnumsPackageImpl theEnumsPackage = (EnumsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EnumsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EnumsPackageImpl());
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(EaglemodelPackage.eNS_URI);
-		EaglemodelPackageImpl theEaglemodelPackage = (EaglemodelPackageImpl)(registeredPackage instanceof EaglemodelPackageImpl ? registeredPackage : EaglemodelPackage.eINSTANCE);
+		EaglemodelPackageImpl theEaglemodelPackage = (EaglemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EaglemodelPackage.eNS_URI) instanceof EaglemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EaglemodelPackage.eNS_URI) : EaglemodelPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theEnumsPackage.createPackageContents();
@@ -219,6 +217,7 @@ public class EnumsPackageImpl extends EPackageImpl implements EnumsPackage {
 		// Mark meta-data to indicate it can't be changed
 		theEnumsPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EnumsPackage.eNS_URI, theEnumsPackage);
 		return theEnumsPackage;

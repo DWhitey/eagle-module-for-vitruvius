@@ -29,13 +29,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DrawingImpl#getSettings <em>Settings</em>}</li>
  *   <li>{@link eaglemodel.impl.DrawingImpl#getGrid <em>Grid</em>}</li>
  *   <li>{@link eaglemodel.impl.DrawingImpl#getLayers <em>Layers</em>}</li>
  *   <li>{@link eaglemodel.impl.DrawingImpl#getSchematic <em>Schematic</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

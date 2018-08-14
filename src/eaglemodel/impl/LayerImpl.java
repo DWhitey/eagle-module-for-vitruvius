@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.LayerImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link eaglemodel.impl.LayerImpl#getName <em>Name</em>}</li>
@@ -27,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.LayerImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link eaglemodel.impl.LayerImpl#isActive <em>Active</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

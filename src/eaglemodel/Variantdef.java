@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Variantdef#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Variantdef#isCurrent <em>Current</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getVariantdef()
  * @model

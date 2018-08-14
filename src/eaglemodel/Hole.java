@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Hole#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.Hole#getY <em>Y</em>}</li>
  *   <li>{@link eaglemodel.Hole#getDrill <em>Drill</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getHole()
  * @model

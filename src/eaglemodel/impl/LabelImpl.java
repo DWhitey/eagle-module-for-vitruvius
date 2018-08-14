@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.LabelImpl#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.impl.LabelImpl#getY <em>Y</em>}</li>
@@ -32,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.LabelImpl#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.impl.LabelImpl#isXref <em>Xref</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

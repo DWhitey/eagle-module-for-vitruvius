@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.EagleImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link eaglemodel.impl.EagleImpl#getCompatibility <em>Compatibility</em>}</li>
  *   <li>{@link eaglemodel.impl.EagleImpl#getDrawing <em>Drawing</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

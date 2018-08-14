@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.CircleImpl#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.impl.CircleImpl#getY <em>Y</em>}</li>
@@ -26,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.CircleImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link eaglemodel.impl.CircleImpl#getLayer <em>Layer</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

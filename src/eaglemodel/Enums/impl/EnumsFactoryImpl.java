@@ -28,7 +28,7 @@ public class EnumsFactoryImpl extends EFactoryImpl implements EnumsFactory {
 	 */
 	public static EnumsFactory init() {
 		try {
-			EnumsFactory theEnumsFactory = (EnumsFactory)EPackage.Registry.INSTANCE.getEFactory(EnumsPackage.eNS_URI);
+			EnumsFactory theEnumsFactory = (EnumsFactory)EPackage.Registry.INSTANCE.getEFactory("http://org/eclipse/eagle/eaglemodel/enums"); 
 			if (theEnumsFactory != null) {
 				return theEnumsFactory;
 			}

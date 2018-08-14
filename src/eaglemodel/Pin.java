@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Pin#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Pin#getX <em>X</em>}</li>
@@ -28,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Pin#getSwaplevel <em>Swaplevel</em>}</li>
  *   <li>{@link eaglemodel.Pin#getRot <em>Rot</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPin()
  * @model

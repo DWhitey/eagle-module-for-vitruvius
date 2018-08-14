@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.ClassImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link eaglemodel.impl.ClassImpl#getName <em>Name</em>}</li>
@@ -32,6 +31,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.ClassImpl#getDrill <em>Drill</em>}</li>
  *   <li>{@link eaglemodel.impl.ClassImpl#getClearance <em>Clearance</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

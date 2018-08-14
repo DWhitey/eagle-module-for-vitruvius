@@ -18,13 +18,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.VariantImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.VariantImpl#isPopulate <em>Populate</em>}</li>
  *   <li>{@link eaglemodel.impl.VariantImpl#getValue <em>Value</em>}</li>
  *   <li>{@link eaglemodel.impl.VariantImpl#getTechnology <em>Technology</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

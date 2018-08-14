@@ -70,7 +70,7 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 */
 	public static EaglemodelFactory init() {
 		try {
-			EaglemodelFactory theEaglemodelFactory = (EaglemodelFactory)EPackage.Registry.INSTANCE.getEFactory(EaglemodelPackage.eNS_URI);
+			EaglemodelFactory theEaglemodelFactory = (EaglemodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://org/eclipse/eagle/eaglemodel"); 
 			if (theEaglemodelFactory != null) {
 				return theEaglemodelFactory;
 			}

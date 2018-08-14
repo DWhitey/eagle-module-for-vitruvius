@@ -26,12 +26,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.NetImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.NetImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link eaglemodel.impl.NetImpl#getSegment <em>Segment</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

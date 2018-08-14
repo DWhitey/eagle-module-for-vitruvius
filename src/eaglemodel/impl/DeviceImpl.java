@@ -26,13 +26,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DeviceImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.DeviceImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link eaglemodel.impl.DeviceImpl#getConnects <em>Connects</em>}</li>
  *   <li>{@link eaglemodel.impl.DeviceImpl#getTechnologies <em>Technologies</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

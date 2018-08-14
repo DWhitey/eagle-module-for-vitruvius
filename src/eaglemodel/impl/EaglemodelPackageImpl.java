@@ -409,7 +409,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
+	 * 
 	 * <p>This method is used to initialize {@link EaglemodelPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -423,14 +423,12 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		if (isInited) return (EaglemodelPackage)EPackage.Registry.INSTANCE.getEPackage(EaglemodelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		Object registeredEaglemodelPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		EaglemodelPackageImpl theEaglemodelPackage = registeredEaglemodelPackage instanceof EaglemodelPackageImpl ? (EaglemodelPackageImpl)registeredEaglemodelPackage : new EaglemodelPackageImpl();
+		EaglemodelPackageImpl theEaglemodelPackage = (EaglemodelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EaglemodelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EaglemodelPackageImpl());
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(EnumsPackage.eNS_URI);
-		EnumsPackageImpl theEnumsPackage = (EnumsPackageImpl)(registeredPackage instanceof EnumsPackageImpl ? registeredPackage : EnumsPackage.eINSTANCE);
+		EnumsPackageImpl theEnumsPackage = (EnumsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EnumsPackage.eNS_URI) instanceof EnumsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EnumsPackage.eNS_URI) : EnumsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theEaglemodelPackage.createPackageContents();
@@ -443,6 +441,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		// Mark meta-data to indicate it can't be changed
 		theEaglemodelPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EaglemodelPackage.eNS_URI, theEaglemodelPackage);
 		return theEaglemodelPackage;

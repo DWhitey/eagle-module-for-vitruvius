@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.FrameImpl#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.impl.FrameImpl#getY1 <em>Y1</em>}</li>
@@ -32,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.FrameImpl#isBorderright <em>Borderright</em>}</li>
  *   <li>{@link eaglemodel.impl.FrameImpl#isBorderbottom <em>Borderbottom</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

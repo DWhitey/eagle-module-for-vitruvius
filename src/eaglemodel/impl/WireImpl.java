@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.WireImpl#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.impl.WireImpl#getY1 <em>Y1</em>}</li>
@@ -35,6 +34,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.WireImpl#getCurve <em>Curve</em>}</li>
  *   <li>{@link eaglemodel.impl.WireImpl#getCap <em>Cap</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

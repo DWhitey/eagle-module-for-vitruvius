@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PolygonImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link eaglemodel.impl.PolygonImpl#getLayer <em>Layer</em>}</li>
@@ -40,6 +39,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.PolygonImpl#getRank <em>Rank</em>}</li>
  *   <li>{@link eaglemodel.impl.PolygonImpl#getVertex <em>Vertex</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

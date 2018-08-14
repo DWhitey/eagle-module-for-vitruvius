@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Net#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Net#getClass_ <em>Class</em>}</li>
  *   <li>{@link eaglemodel.Net#getSegment <em>Segment</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getNet()
  * @model

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Schematic#getXreflabel <em>Xreflabel</em>}</li>
  *   <li>{@link eaglemodel.Schematic#getXrefpart <em>Xrefpart</em>}</li>
@@ -26,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Schematic#getSheets <em>Sheets</em>}</li>
  *   <li>{@link eaglemodel.Schematic#getErrors <em>Errors</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getSchematic()
  * @model

@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PartImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.PartImpl#getLibrary <em>Library</em>}</li>
@@ -37,6 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.PartImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link eaglemodel.impl.PartImpl#getVariant <em>Variant</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

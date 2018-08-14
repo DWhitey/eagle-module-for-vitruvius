@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PinImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.PinImpl#getX <em>X</em>}</li>
@@ -36,6 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.PinImpl#getSwaplevel <em>Swaplevel</em>}</li>
  *   <li>{@link eaglemodel.impl.PinImpl#getRot <em>Rot</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

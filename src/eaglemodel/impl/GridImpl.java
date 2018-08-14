@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.GridImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link eaglemodel.impl.GridImpl#getUnitdist <em>Unitdist</em>}</li>
@@ -34,6 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.GridImpl#getAltunitdist <em>Altunitdist</em>}</li>
  *   <li>{@link eaglemodel.impl.GridImpl#getAltunit <em>Altunit</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Grid#getDistance <em>Distance</em>}</li>
  *   <li>{@link eaglemodel.Grid#getUnitdist <em>Unitdist</em>}</li>
@@ -26,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Grid#getAltunitdist <em>Altunitdist</em>}</li>
  *   <li>{@link eaglemodel.Grid#getAltunit <em>Altunit</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getGrid()
  * @model

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Wire#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.Wire#getY1 <em>Y1</em>}</li>
@@ -27,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Wire#getCurve <em>Curve</em>}</li>
  *   <li>{@link eaglemodel.Wire#getCap <em>Cap</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getWire()
  * @model

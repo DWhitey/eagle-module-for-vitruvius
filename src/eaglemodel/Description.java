@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Description#getLanguage <em>Language</em>}</li>
  *   <li>{@link eaglemodel.Description#getPcdata <em>Pcdata</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDescription()
  * @model

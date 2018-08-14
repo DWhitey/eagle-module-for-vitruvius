@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.Variant#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Variant#isPopulate <em>Populate</em>}</li>
  *   <li>{@link eaglemodel.Variant#getValue <em>Value</em>}</li>
  *   <li>{@link eaglemodel.Variant#getTechnology <em>Technology</em>}</li>
  * </ul>
+ * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getVariant()
  * @model

@@ -35,7 +35,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.PackageImpl#getDescription <em>Description</em>}</li>
@@ -50,6 +49,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.PackageImpl#getPad <em>Pad</em>}</li>
  *   <li>{@link eaglemodel.impl.PackageImpl#getSmd <em>Smd</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
