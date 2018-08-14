@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated eagle -->
+      <package
+            uri="http://org/eclipse/eagle/eaglemodel"
+            class="eaglemodel.EaglemodelPackage"
+            genModel="model/eagle.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated eagle -->
+      <package
+            uri="http://org/eclipse/eagle/eaglemodel/enums"
+            class="eaglemodel.Enums.EnumsPackage"
+            genModel="model/eagle.genmodel"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Eagle/src" modelPluginID="Eagle" modelName="Eagle"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    copyrightFields="false" operationReflection="false" importOrganizing="true">
+  <foreignModel>eagle.ecore</foreignModel>
+  <genPackages prefix="Eaglemodel" disposableProviderFactory="true" ecorePackage="eagle.ecore#/">
+    <genClasses ecoreClass="eagle.ecore#//Eagle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Eagle/version"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Eagle/compatibility"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Eagle/drawing"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="eagle.ecore#//Compatibility">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Compatibility/note"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Note">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Note/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Note/severity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Note/pcdata"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Drawing">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Drawing/settings"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Drawing/grid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Drawing/layers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Drawing/schematic"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Setting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Setting/alwaysvectorfont"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Setting/verticaltext"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Grid">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/unitdist"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/style"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/multiple"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/display"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/altdistance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/altunitdist"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Grid/altunit"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Layer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Layer/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Layer/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Layer/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Layer/fill"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Layer/visible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Layer/active"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Schematic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Schematic/xreflabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Schematic/xrefpart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Schematic/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Schematic/libraries"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Schematic/attributes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Schematic/variantdefs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Schematic/classes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Schematic/parts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Schematic/sheets"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Schematic/errors"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Description/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Description/pcdata"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Library">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Library/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Library/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Library/packages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Library/symbols"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Library/devicesets"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/font"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/ratio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/rot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/display"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Attribute/constant"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Variantdef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Variantdef/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Variantdef/current"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Variant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Variant/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Variant/populate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Variant/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Variant/technology"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Class/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Class/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Class/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Class/drill"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Class/clearance"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Clearance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Clearance/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Clearance/value"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Part">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/library"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/deviceset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/technology"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Part/attribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Part/variant"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Sheet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Sheet/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Sheet/plain"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Sheet/instances"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Sheet/busses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Sheet/nets"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Package/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/polygon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/wire"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/dimension"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/circle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/rectangle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/frame"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/hole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/pad"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Package/smd"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Symbol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Symbol/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/polygon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/wire"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/dimension"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/pin"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/circle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/rectangle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Symbol/frame"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Deviceset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Deviceset/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Deviceset/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Deviceset/uservalue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Deviceset/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Deviceset/gates"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Deviceset/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Polygon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Polygon/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Polygon/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Polygon/spacing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Polygon/pour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Polygon/isolate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Polygon/orphans"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Polygon/thermals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Polygon/rank"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Polygon/vertex"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Vertex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Vertex/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Vertex/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Vertex/curve"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Wire">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/x1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/y1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/x2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/y2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/extent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/style"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/curve"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Wire/cap"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/font"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/ratio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/rot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/align"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Text/pcdata"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Dimension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/x1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/y1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/x2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/y2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/x3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/y3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/dtype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/extwidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/extlength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/extoffset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/textsize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/textratio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Dimension/visible"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Pin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/visible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/function"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/swaplevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pin/rot"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Circle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Circle/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Circle/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Circle/radius"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Circle/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Circle/layer"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Rectangle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Rectangle/x1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Rectangle/y1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Rectangle/x2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Rectangle/y2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Rectangle/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Rectangle/rot"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Frame">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/x1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/y1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/x2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/y2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/columns"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/rows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/borderleft"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/bordertop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/borderright"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Frame/borderbottom"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Hole">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Hole/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Hole/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Hole/drill"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Pad">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/drill"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/diameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/shape"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/rot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/stop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/thermals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pad/first"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//SMD">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/dx"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/dy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/roundness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/rot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/stop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/thermals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//SMD/cream"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Gate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Gate/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Gate/symbol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Gate/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Gate/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Gate/addlevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Gate/swaplevel"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Device/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Device/package"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Device/connects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Device/technologies"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Connect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Connect/gate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Connect/pin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Connect/pad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Connect/route"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Technology">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Technology/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Technology/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Plain">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Plain/polygon"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Plain/wire"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Plain/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Plain/dimension"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Plain/circle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Plain/rectangle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Plain/frame"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Plain/hole"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Instance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Instance/part"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Instance/gate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Instance/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Instance/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Instance/smashed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Instance/rot"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Instance/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Bus">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Bus/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Bus/segment"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Net">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Net/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Net/class"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Net/segment"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Segment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Segment/pinref"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Segment/wire"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Segment/junction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference eagle.ecore#//Segment/label"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Pinref">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pinref/part"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pinref/gate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Pinref/pin"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Junction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Junction/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Junction/y"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Label/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Label/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Label/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Label/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Label/font"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Label/ratio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Label/rot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Label/xref"/>
+    </genClasses>
+    <genClasses ecoreClass="eagle.ecore#//Approved">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Approved/hash"/>
+    </genClasses>
+    <nestedGenPackages prefix="Enums" disposableProviderFactory="true" ecorePackage="eagle.ecore#//Enums">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/GateAddLevel">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GateAddLevel/must"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GateAddLevel/can"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GateAddLevel/next"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GateAddLevel/request"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GateAddLevel/always"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/WireStyle">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/WireStyle/continuous"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/WireStyle/longdash"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/WireStyle/shortdash"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/WireStyle/dashdot"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/WireCap">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/WireCap/flat"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/WireCap/round"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/DimensionType">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/DimensionType/parallel"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/DimensionType/horizontal"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/DimensionType/vertical"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/DimensionType/radius"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/DimensionType/diameter"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/DimensionType/leader"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/GridUnit">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GridUnit/mic"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GridUnit/mm"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GridUnit/mil"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GridUnit/inch"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/GridStyle">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GridStyle/lines"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/GridStyle/dots"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/TextFont">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/TextFont/vector"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/TextFont/proportional"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/TextFont/fixed"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/Align">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/bottomleft"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/bottomcenter"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/bottomright"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/centerleft"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/center"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/centerright"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/topleft"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/topcenter"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/Align/topright"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/PadShape">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PadShape/square"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PadShape/round"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PadShape/octagon"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PadShape/long"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PadShape/offset"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/PolygonPour">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PolygonPour/solid"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PolygonPour/hatch"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PolygonPour/cutout"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/PinVisible">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinVisible/off"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinVisible/pad"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinVisible/pin"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinVisible/both"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/PinLength">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinLength/point"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinLength/short"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinLength/middle"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinLength/long"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/PinDirection">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/nc"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/in"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/out"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/io"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/oc"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/pwr"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/pas"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/hiz"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinDirection/sup"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/PinFunction">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinFunction/none"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinFunction/dot"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinFunction/clk"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/PinFunction/dotclk"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/ContactRoute">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/ContactRoute/all"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/ContactRoute/any"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/AttributeDisplay">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/AttributeDisplay/off"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/AttributeDisplay/value"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/AttributeDisplay/name"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/AttributeDisplay/both"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Enums/VerticalText">
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/VerticalText/up"/>
+        <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Enums/VerticalText/down"/>
+      </genEnums>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
