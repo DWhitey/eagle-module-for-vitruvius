@@ -2,58 +2,90 @@
  */
 package eaglemodel.impl;
 
+import eaglemodel.Align;
 import eaglemodel.Approved;
 import eaglemodel.Attribute;
+import eaglemodel.AttributeDisplay;
+import eaglemodel.Attributes;
 import eaglemodel.Bus;
+import eaglemodel.Busses;
 import eaglemodel.Circle;
+import eaglemodel.Classes;
 import eaglemodel.Clearance;
 import eaglemodel.Compatibility;
 import eaglemodel.Connect;
+import eaglemodel.Connects;
+import eaglemodel.ContactRoute;
 import eaglemodel.Description;
 import eaglemodel.Device;
+import eaglemodel.Devices;
 import eaglemodel.Deviceset;
+import eaglemodel.Devicesets;
 import eaglemodel.Dimension;
+import eaglemodel.DimensionType;
 import eaglemodel.Drawing;
 import eaglemodel.Eagle;
 import eaglemodel.EaglemodelFactory;
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.EnumsPackage;
-
-import eaglemodel.Enums.impl.EnumsPackageImpl;
-
+import eaglemodel.Errors;
 import eaglemodel.Frame;
 import eaglemodel.Gate;
+import eaglemodel.GateAddLevel;
+import eaglemodel.Gates;
 import eaglemodel.Grid;
+import eaglemodel.GridStyle;
+import eaglemodel.GridUnit;
 import eaglemodel.Hole;
 import eaglemodel.Instance;
+import eaglemodel.Instances;
 import eaglemodel.Junction;
 import eaglemodel.Label;
 import eaglemodel.Layer;
+import eaglemodel.Layers;
+import eaglemodel.Libraries;
 import eaglemodel.Library;
 import eaglemodel.Net;
+import eaglemodel.Nets;
 import eaglemodel.Note;
+import eaglemodel.Packages;
 import eaglemodel.Pad;
+import eaglemodel.PadShape;
 import eaglemodel.Part;
+import eaglemodel.Parts;
 import eaglemodel.Pin;
+import eaglemodel.PinDirection;
+import eaglemodel.PinFunction;
+import eaglemodel.PinLength;
+import eaglemodel.PinVisible;
 import eaglemodel.Pinref;
 import eaglemodel.Plain;
 import eaglemodel.Polygon;
+import eaglemodel.PolygonPour;
 import eaglemodel.Rectangle;
 import eaglemodel.Schematic;
 import eaglemodel.Segment;
 import eaglemodel.Setting;
+import eaglemodel.Settings;
 import eaglemodel.Sheet;
+import eaglemodel.Sheets;
 import eaglemodel.Symbol;
+import eaglemodel.Symbols;
+import eaglemodel.Technologies;
 import eaglemodel.Technology;
 import eaglemodel.Text;
+import eaglemodel.TextFont;
 import eaglemodel.Variant;
 import eaglemodel.Variantdef;
+import eaglemodel.Variantdefs;
 import eaglemodel.Vertex;
+import eaglemodel.VerticalText;
 import eaglemodel.Wire;
+import eaglemodel.WireCap;
+import eaglemodel.WireStyle;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -99,6 +131,13 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass settingsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass settingEClass = null;
 
 	/**
@@ -107,6 +146,13 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * @generated
 	 */
 	private EClass gridEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass layersEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +180,13 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass librariesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass libraryEClass = null;
 
 	/**
@@ -141,7 +194,21 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass attributesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass attributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variantdefsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,6 +229,13 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass classesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass classEClass = null;
 
 	/**
@@ -176,7 +250,21 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass partsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass partEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sheetsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,6 +278,20 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass errorsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass packagesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass packageEClass = null;
 
 	/**
@@ -197,7 +299,21 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass symbolsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass symbolEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass devicesetsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -295,7 +411,21 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass gatesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass gateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass devicesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,7 +439,21 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass connectsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass connectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass technologiesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -330,6 +474,13 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass instancesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass instanceEClass = null;
 
 	/**
@@ -337,7 +488,21 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass bussesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass busEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass netsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -382,6 +547,125 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	private EClass approvedEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum gateAddLevelEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum wireStyleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum wireCapEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dimensionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum gridUnitEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum gridStyleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum textFontEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum alignEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum padShapeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum polygonPourEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum pinVisibleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum pinLengthEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum pinDirectionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum pinFunctionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum contactRouteEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum attributeDisplayEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum verticalTextEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -409,7 +693,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link EaglemodelPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -423,25 +707,20 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		if (isInited) return (EaglemodelPackage)EPackage.Registry.INSTANCE.getEPackage(EaglemodelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		EaglemodelPackageImpl theEaglemodelPackage = (EaglemodelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EaglemodelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EaglemodelPackageImpl());
+		Object registeredEaglemodelPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		EaglemodelPackageImpl theEaglemodelPackage = registeredEaglemodelPackage instanceof EaglemodelPackageImpl ? (EaglemodelPackageImpl)registeredEaglemodelPackage : new EaglemodelPackageImpl();
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		EnumsPackageImpl theEnumsPackage = (EnumsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EnumsPackage.eNS_URI) instanceof EnumsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EnumsPackage.eNS_URI) : EnumsPackage.eINSTANCE);
-
 		// Create package meta-data objects
 		theEaglemodelPackage.createPackageContents();
-		theEnumsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theEaglemodelPackage.initializePackageContents();
-		theEnumsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theEaglemodelPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EaglemodelPackage.eNS_URI, theEaglemodelPackage);
 		return theEaglemodelPackage;
@@ -533,7 +812,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNote_Pcdata() {
+	public EAttribute getNote_Value() {
 		return (EAttribute)noteEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -580,6 +859,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 */
 	public EReference getDrawing_Schematic() {
 		return (EReference)drawingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSettings() {
+		return settingsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSettings_Settings() {
+		return (EReference)settingsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -697,6 +994,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 */
 	public EAttribute getGrid_Altunit() {
 		return (EAttribute)gridEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLayers() {
+		return layersEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLayers_Layers() {
+		return (EReference)layersEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -884,8 +1199,26 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDescription_Pcdata() {
+	public EAttribute getDescription_Value() {
 		return (EAttribute)descriptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLibraries() {
+		return librariesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibraries_Library() {
+		return (EReference)librariesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -940,6 +1273,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 */
 	public EReference getLibrary_Devicesets() {
 		return (EReference)libraryEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAttributes() {
+		return attributesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAttributes_Attribute() {
+		return (EReference)attributesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1055,6 +1406,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getVariantdefs() {
+		return variantdefsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariantdefs_Variantdef() {
+		return (EReference)variantdefsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariantdef() {
 		return variantdefEClass;
 	}
@@ -1120,6 +1489,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 */
 	public EAttribute getVariant_Technology() {
 		return (EAttribute)variantEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getClasses() {
+		return classesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClasses_Class() {
+		return (EReference)classesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1208,6 +1595,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getParts() {
+		return partsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParts_Part() {
+		return (EReference)partsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPart() {
 		return partEClass;
 	}
@@ -1289,6 +1694,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSheets() {
+		return sheetsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSheets_Sheet() {
+		return (EReference)sheetsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSheet() {
 		return sheetEClass;
 	}
@@ -1336,6 +1759,42 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 */
 	public EReference getSheet_Nets() {
 		return (EReference)sheetEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getErrors() {
+		return errorsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getErrors_Error() {
+		return (EReference)errorsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPackages() {
+		return packagesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPackages_Package() {
+		return (EReference)packagesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1460,6 +1919,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSymbols() {
+		return symbolsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSymbols_Symbol() {
+		return (EReference)symbolsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSymbol() {
 		return symbolEClass;
 	}
@@ -1552,6 +2029,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 */
 	public EReference getSymbol_Frame() {
 		return (EReference)symbolEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDevicesets() {
+		return devicesetsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDevicesets_Deviceset() {
+		return (EReference)devicesetsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1937,7 +2432,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getText_Pcdata() {
+	public EAttribute getText_Value() {
 		return (EAttribute)textEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -2666,6 +3161,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGates() {
+		return gatesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGates_Gate() {
+		return (EReference)gatesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGate() {
 		return gateEClass;
 	}
@@ -2729,6 +3242,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDevices() {
+		return devicesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDevices_Device() {
+		return (EReference)devicesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDevice() {
 		return deviceEClass;
 	}
@@ -2774,6 +3305,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConnects() {
+		return connectsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnects_Connect() {
+		return (EReference)connectsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConnect() {
 		return connectEClass;
 	}
@@ -2812,6 +3361,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 */
 	public EAttribute getConnect_Route() {
 		return (EAttribute)connectEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTechnologies() {
+		return technologiesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTechnologies_Technology() {
+		return (EReference)technologiesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2927,6 +3494,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getInstances() {
+		return instancesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInstances_Instance() {
+		return (EReference)instancesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInstance() {
 		return instanceEClass;
 	}
@@ -2999,6 +3584,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBusses() {
+		return bussesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBusses_Bus() {
+		return (EReference)bussesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBus() {
 		return busEClass;
 	}
@@ -3019,6 +3622,24 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 */
 	public EReference getBus_Segment() {
 		return (EReference)busEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNets() {
+		return netsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNets_Net() {
+		return (EReference)netsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3269,6 +3890,159 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getGateAddLevel() {
+		return gateAddLevelEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getWireStyle() {
+		return wireStyleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getWireCap() {
+		return wireCapEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDimensionType() {
+		return dimensionTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGridUnit() {
+		return gridUnitEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGridStyle() {
+		return gridStyleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTextFont() {
+		return textFontEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAlign() {
+		return alignEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPadShape() {
+		return padShapeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPolygonPour() {
+		return polygonPourEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPinVisible() {
+		return pinVisibleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPinLength() {
+		return pinLengthEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPinDirection() {
+		return pinDirectionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getPinFunction() {
+		return pinFunctionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getContactRoute() {
+		return contactRouteEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAttributeDisplay() {
+		return attributeDisplayEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getVerticalText() {
+		return verticalTextEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EaglemodelFactory getEaglemodelFactory() {
 		return (EaglemodelFactory)getEFactoryInstance();
 	}
@@ -3303,13 +4077,16 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		noteEClass = createEClass(NOTE);
 		createEAttribute(noteEClass, NOTE__VERSION);
 		createEAttribute(noteEClass, NOTE__SEVERITY);
-		createEAttribute(noteEClass, NOTE__PCDATA);
+		createEAttribute(noteEClass, NOTE__VALUE);
 
 		drawingEClass = createEClass(DRAWING);
 		createEReference(drawingEClass, DRAWING__SETTINGS);
 		createEReference(drawingEClass, DRAWING__GRID);
 		createEReference(drawingEClass, DRAWING__LAYERS);
 		createEReference(drawingEClass, DRAWING__SCHEMATIC);
+
+		settingsEClass = createEClass(SETTINGS);
+		createEReference(settingsEClass, SETTINGS__SETTINGS);
 
 		settingEClass = createEClass(SETTING);
 		createEAttribute(settingEClass, SETTING__ALWAYSVECTORFONT);
@@ -3325,6 +4102,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(gridEClass, GRID__ALTDISTANCE);
 		createEAttribute(gridEClass, GRID__ALTUNITDIST);
 		createEAttribute(gridEClass, GRID__ALTUNIT);
+
+		layersEClass = createEClass(LAYERS);
+		createEReference(layersEClass, LAYERS__LAYERS);
 
 		layerEClass = createEClass(LAYER);
 		createEAttribute(layerEClass, LAYER__NUMBER);
@@ -3348,7 +4128,10 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 
 		descriptionEClass = createEClass(DESCRIPTION);
 		createEAttribute(descriptionEClass, DESCRIPTION__LANGUAGE);
-		createEAttribute(descriptionEClass, DESCRIPTION__PCDATA);
+		createEAttribute(descriptionEClass, DESCRIPTION__VALUE);
+
+		librariesEClass = createEClass(LIBRARIES);
+		createEReference(librariesEClass, LIBRARIES__LIBRARY);
 
 		libraryEClass = createEClass(LIBRARY);
 		createEAttribute(libraryEClass, LIBRARY__NAME);
@@ -3356,6 +4139,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEReference(libraryEClass, LIBRARY__PACKAGES);
 		createEReference(libraryEClass, LIBRARY__SYMBOLS);
 		createEReference(libraryEClass, LIBRARY__DEVICESETS);
+
+		attributesEClass = createEClass(ATTRIBUTES);
+		createEReference(attributesEClass, ATTRIBUTES__ATTRIBUTE);
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__NAME);
@@ -3370,6 +4156,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(attributeEClass, ATTRIBUTE__DISPLAY);
 		createEAttribute(attributeEClass, ATTRIBUTE__CONSTANT);
 
+		variantdefsEClass = createEClass(VARIANTDEFS);
+		createEReference(variantdefsEClass, VARIANTDEFS__VARIANTDEF);
+
 		variantdefEClass = createEClass(VARIANTDEF);
 		createEAttribute(variantdefEClass, VARIANTDEF__NAME);
 		createEAttribute(variantdefEClass, VARIANTDEF__CURRENT);
@@ -3379,6 +4168,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(variantEClass, VARIANT__POPULATE);
 		createEAttribute(variantEClass, VARIANT__VALUE);
 		createEAttribute(variantEClass, VARIANT__TECHNOLOGY);
+
+		classesEClass = createEClass(CLASSES);
+		createEReference(classesEClass, CLASSES__CLASS);
 
 		classEClass = createEClass(CLASS);
 		createEAttribute(classEClass, CLASS__NUMBER);
@@ -3391,6 +4183,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(clearanceEClass, CLEARANCE__CLASS);
 		createEAttribute(clearanceEClass, CLEARANCE__VALUE);
 
+		partsEClass = createEClass(PARTS);
+		createEReference(partsEClass, PARTS__PART);
+
 		partEClass = createEClass(PART);
 		createEAttribute(partEClass, PART__NAME);
 		createEAttribute(partEClass, PART__LIBRARY);
@@ -3401,12 +4196,21 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEReference(partEClass, PART__ATTRIBUTE);
 		createEReference(partEClass, PART__VARIANT);
 
+		sheetsEClass = createEClass(SHEETS);
+		createEReference(sheetsEClass, SHEETS__SHEET);
+
 		sheetEClass = createEClass(SHEET);
 		createEReference(sheetEClass, SHEET__DESCRIPTION);
 		createEReference(sheetEClass, SHEET__PLAIN);
 		createEReference(sheetEClass, SHEET__INSTANCES);
 		createEReference(sheetEClass, SHEET__BUSSES);
 		createEReference(sheetEClass, SHEET__NETS);
+
+		errorsEClass = createEClass(ERRORS);
+		createEReference(errorsEClass, ERRORS__ERROR);
+
+		packagesEClass = createEClass(PACKAGES);
+		createEReference(packagesEClass, PACKAGES__PACKAGE);
 
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
@@ -3422,6 +4226,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEReference(packageEClass, PACKAGE__PAD);
 		createEReference(packageEClass, PACKAGE__SMD);
 
+		symbolsEClass = createEClass(SYMBOLS);
+		createEReference(symbolsEClass, SYMBOLS__SYMBOL);
+
 		symbolEClass = createEClass(SYMBOL);
 		createEAttribute(symbolEClass, SYMBOL__NAME);
 		createEReference(symbolEClass, SYMBOL__DESCRIPTION);
@@ -3433,6 +4240,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEReference(symbolEClass, SYMBOL__CIRCLE);
 		createEReference(symbolEClass, SYMBOL__RECTANGLE);
 		createEReference(symbolEClass, SYMBOL__FRAME);
+
+		devicesetsEClass = createEClass(DEVICESETS);
+		createEReference(devicesetsEClass, DEVICESETS__DEVICESET);
 
 		devicesetEClass = createEClass(DEVICESET);
 		createEAttribute(devicesetEClass, DEVICESET__NAME);
@@ -3480,7 +4290,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(textEClass, TEXT__ROT);
 		createEAttribute(textEClass, TEXT__ALIGN);
 		createEAttribute(textEClass, TEXT__DISTANCE);
-		createEAttribute(textEClass, TEXT__PCDATA);
+		createEAttribute(textEClass, TEXT__VALUE);
 
 		dimensionEClass = createEClass(DIMENSION);
 		createEAttribute(dimensionEClass, DIMENSION__X1);
@@ -3570,6 +4380,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(smdEClass, SMD__THERMALS);
 		createEAttribute(smdEClass, SMD__CREAM);
 
+		gatesEClass = createEClass(GATES);
+		createEReference(gatesEClass, GATES__GATE);
+
 		gateEClass = createEClass(GATE);
 		createEAttribute(gateEClass, GATE__NAME);
 		createEAttribute(gateEClass, GATE__SYMBOL);
@@ -3578,17 +4391,26 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(gateEClass, GATE__ADDLEVEL);
 		createEAttribute(gateEClass, GATE__SWAPLEVEL);
 
+		devicesEClass = createEClass(DEVICES);
+		createEReference(devicesEClass, DEVICES__DEVICE);
+
 		deviceEClass = createEClass(DEVICE);
 		createEAttribute(deviceEClass, DEVICE__NAME);
 		createEAttribute(deviceEClass, DEVICE__PACKAGE);
 		createEReference(deviceEClass, DEVICE__CONNECTS);
 		createEReference(deviceEClass, DEVICE__TECHNOLOGIES);
 
+		connectsEClass = createEClass(CONNECTS);
+		createEReference(connectsEClass, CONNECTS__CONNECT);
+
 		connectEClass = createEClass(CONNECT);
 		createEAttribute(connectEClass, CONNECT__GATE);
 		createEAttribute(connectEClass, CONNECT__PIN);
 		createEAttribute(connectEClass, CONNECT__PAD);
 		createEAttribute(connectEClass, CONNECT__ROUTE);
+
+		technologiesEClass = createEClass(TECHNOLOGIES);
+		createEReference(technologiesEClass, TECHNOLOGIES__TECHNOLOGY);
 
 		technologyEClass = createEClass(TECHNOLOGY);
 		createEAttribute(technologyEClass, TECHNOLOGY__NAME);
@@ -3604,6 +4426,9 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEReference(plainEClass, PLAIN__FRAME);
 		createEReference(plainEClass, PLAIN__HOLE);
 
+		instancesEClass = createEClass(INSTANCES);
+		createEReference(instancesEClass, INSTANCES__INSTANCE);
+
 		instanceEClass = createEClass(INSTANCE);
 		createEAttribute(instanceEClass, INSTANCE__PART);
 		createEAttribute(instanceEClass, INSTANCE__GATE);
@@ -3613,9 +4438,15 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(instanceEClass, INSTANCE__ROT);
 		createEReference(instanceEClass, INSTANCE__ATTRIBUTE);
 
+		bussesEClass = createEClass(BUSSES);
+		createEReference(bussesEClass, BUSSES__BUS);
+
 		busEClass = createEClass(BUS);
 		createEAttribute(busEClass, BUS__NAME);
 		createEReference(busEClass, BUS__SEGMENT);
+
+		netsEClass = createEClass(NETS);
+		createEReference(netsEClass, NETS__NET);
 
 		netEClass = createEClass(NET);
 		createEAttribute(netEClass, NET__NAME);
@@ -3649,6 +4480,25 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 
 		approvedEClass = createEClass(APPROVED);
 		createEAttribute(approvedEClass, APPROVED__HASH);
+
+		// Create enums
+		gateAddLevelEEnum = createEEnum(GATE_ADD_LEVEL);
+		wireStyleEEnum = createEEnum(WIRE_STYLE);
+		wireCapEEnum = createEEnum(WIRE_CAP);
+		dimensionTypeEEnum = createEEnum(DIMENSION_TYPE);
+		gridUnitEEnum = createEEnum(GRID_UNIT);
+		gridStyleEEnum = createEEnum(GRID_STYLE);
+		textFontEEnum = createEEnum(TEXT_FONT);
+		alignEEnum = createEEnum(ALIGN);
+		padShapeEEnum = createEEnum(PAD_SHAPE);
+		polygonPourEEnum = createEEnum(POLYGON_POUR);
+		pinVisibleEEnum = createEEnum(PIN_VISIBLE);
+		pinLengthEEnum = createEEnum(PIN_LENGTH);
+		pinDirectionEEnum = createEEnum(PIN_DIRECTION);
+		pinFunctionEEnum = createEEnum(PIN_FUNCTION);
+		contactRouteEEnum = createEEnum(CONTACT_ROUTE);
+		attributeDisplayEEnum = createEEnum(ATTRIBUTE_DISPLAY);
+		verticalTextEEnum = createEEnum(VERTICAL_TEXT);
 	}
 
 	/**
@@ -3674,48 +4524,52 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		EnumsPackage theEnumsPackage = (EnumsPackage)EPackage.Registry.INSTANCE.getEPackage(EnumsPackage.eNS_URI);
+		// Create type parameters
 
-		// Add subpackages
-		getESubpackages().add(theEnumsPackage);
+		// Set bounds for type parameters
 
 		// Add supertypes to classes
 
-		// Initialize classes and features; add operations and parameters
+		// Initialize classes, features, and operations; add parameters
 		initEClass(eagleEClass, Eagle.class, "Eagle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEagle_Version(), ecorePackage.getEString(), "version", null, 1, 1, Eagle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEagle_Compatibility(), this.getCompatibility(), null, "compatibility", null, 0, 1, Eagle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEagle_Drawing(), this.getDrawing(), null, "drawing", null, 1, 1, Eagle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEagle_Compatibility(), this.getCompatibility(), null, "compatibility", null, 0, 1, Eagle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEagle_Drawing(), this.getDrawing(), null, "drawing", null, 1, 1, Eagle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(compatibilityEClass, Compatibility.class, "Compatibility", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompatibility_Note(), this.getNote(), null, "note", null, 0, -1, Compatibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(compatibilityEClass, Compatibility.class, "Compatibility", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompatibility_Note(), this.getNote(), null, "note", null, 0, -1, Compatibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNote_Version(), ecorePackage.getEString(), "version", null, 1, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNote_Severity(), ecorePackage.getEString(), "severity", null, 1, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNote_Pcdata(), ecorePackage.getEString(), "pcdata", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Value(), ecorePackage.getEString(), "value", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(drawingEClass, Drawing.class, "Drawing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDrawing_Settings(), this.getSetting(), null, "settings", null, 0, -1, Drawing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDrawing_Grid(), this.getGrid(), null, "grid", null, 0, 1, Drawing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDrawing_Layers(), this.getLayer(), null, "layers", null, 1, -1, Drawing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDrawing_Schematic(), this.getSchematic(), null, "schematic", null, 1, 1, Drawing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDrawing_Settings(), this.getSettings(), null, "settings", null, 0, 1, Drawing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDrawing_Grid(), this.getGrid(), null, "grid", null, 0, 1, Drawing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDrawing_Layers(), this.getLayers(), null, "layers", null, 1, 1, Drawing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDrawing_Schematic(), this.getSchematic(), null, "schematic", null, 1, 1, Drawing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(settingsEClass, Settings.class, "Settings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSettings_Settings(), this.getSetting(), null, "settings", null, 0, -1, Settings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(settingEClass, Setting.class, "Setting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSetting_Alwaysvectorfont(), ecorePackage.getEBoolean(), "alwaysvectorfont", null, 0, 1, Setting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSetting_Verticaltext(), theEnumsPackage.getVerticalText(), "verticaltext", "up", 0, 1, Setting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetting_Verticaltext(), this.getVerticalText(), "verticaltext", "up", 0, 1, Setting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gridEClass, Grid.class, "Grid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGrid_Distance(), ecorePackage.getEDouble(), "distance", null, 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGrid_Unitdist(), theEnumsPackage.getGridUnit(), "unitdist", "mic", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGrid_Unit(), theEnumsPackage.getGridUnit(), "unit", "mic", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGrid_Style(), theEnumsPackage.getGridStyle(), "style", "lines", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGrid_Unitdist(), this.getGridUnit(), "unitdist", "mic", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGrid_Unit(), this.getGridUnit(), "unit", "mic", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGrid_Style(), this.getGridStyle(), "style", "lines", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGrid_Multiple(), ecorePackage.getEInt(), "multiple", "1", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGrid_Display(), ecorePackage.getEBoolean(), "display", "false", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGrid_Altdistance(), ecorePackage.getEDouble(), "altdistance", null, 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGrid_Altunitdist(), theEnumsPackage.getGridUnit(), "altunitdist", "mic", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGrid_Altunit(), theEnumsPackage.getGridUnit(), "altunit", "mic", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGrid_Altunitdist(), this.getGridUnit(), "altunitdist", "mic", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGrid_Altunit(), this.getGridUnit(), "altunit", "mic", 0, 1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(layersEClass, Layers.class, "Layers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLayers_Layers(), this.getLayer(), null, "layers", null, 1, -1, Layers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLayer_Number(), ecorePackage.getEInt(), "number", null, 1, 1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3728,25 +4582,31 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEClass(schematicEClass, Schematic.class, "Schematic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSchematic_Xreflabel(), ecorePackage.getEString(), "xreflabel", null, 0, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchematic_Xrefpart(), ecorePackage.getEString(), "xrefpart", null, 0, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchematic_Description(), this.getDescription(), null, "description", null, 0, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchematic_Libraries(), this.getLibrary(), null, "libraries", null, 0, -1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchematic_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchematic_Variantdefs(), this.getVariantdef(), null, "variantdefs", null, 0, -1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchematic_Classes(), this.getClass_(), null, "classes", null, 0, -1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchematic_Parts(), this.getPart(), null, "parts", null, 0, -1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchematic_Sheets(), this.getSheet(), null, "sheets", null, 0, -1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchematic_Errors(), this.getApproved(), null, "errors", null, 0, -1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchematic_Description(), this.getDescription(), null, "description", null, 0, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchematic_Libraries(), this.getLibraries(), null, "libraries", null, 1, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchematic_Attributes(), this.getAttributes(), null, "attributes", null, 1, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchematic_Variantdefs(), this.getVariantdefs(), null, "variantdefs", null, 1, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchematic_Classes(), this.getClasses(), null, "classes", null, 1, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchematic_Parts(), this.getParts(), null, "parts", null, 1, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchematic_Sheets(), this.getSheets(), null, "sheets", null, 1, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchematic_Errors(), this.getErrors(), null, "errors", null, 0, 1, Schematic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDescription_Language(), ecorePackage.getEString(), "language", "en", 1, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDescription_Pcdata(), ecorePackage.getEString(), "pcdata", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDescription_Value(), ecorePackage.getEString(), "value", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(librariesEClass, Libraries.class, "Libraries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLibraries_Library(), this.getLibrary(), null, "library", null, 0, -1, Libraries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLibrary_Name(), ecorePackage.getEString(), "name", null, 1, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLibrary_Description(), this.getDescription(), null, "description", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLibrary_Packages(), this.getPackage(), null, "packages", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLibrary_Symbols(), this.getSymbol(), null, "symbols", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLibrary_Devicesets(), this.getDeviceset(), null, "devicesets", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Description(), this.getDescription(), null, "description", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Packages(), this.getPackages(), null, "packages", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Symbols(), this.getSymbols(), null, "symbols", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Devicesets(), this.getDevicesets(), null, "devicesets", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(attributesEClass, Attributes.class, "Attributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttributes_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3755,11 +4615,14 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getAttribute_Y(), ecorePackage.getEDouble(), "y", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Size(), ecorePackage.getEDouble(), "size", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Layer(), ecorePackage.getEInt(), "layer", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttribute_Font(), theEnumsPackage.getTextFont(), "font", "vector", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Font(), this.getTextFont(), "font", "vector", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Ratio(), ecorePackage.getEInt(), "ratio", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Rot(), ecorePackage.getEDouble(), "rot", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttribute_Display(), theEnumsPackage.getAttributeDisplay(), "display", "value", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Display(), this.getAttributeDisplay(), "display", "value", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Constant(), ecorePackage.getEBoolean(), "constant", "false", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(variantdefsEClass, Variantdefs.class, "Variantdefs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariantdefs_Variantdef(), this.getVariantdef(), null, "variantdef", null, 0, -1, Variantdefs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variantdefEClass, Variantdef.class, "Variantdef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariantdef_Name(), ecorePackage.getEString(), "name", null, 1, 1, Variantdef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3771,16 +4634,22 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getVariant_Value(), ecorePackage.getEString(), "value", null, 0, 1, Variant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariant_Technology(), ecorePackage.getEString(), "technology", null, 0, 1, Variant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(classesEClass, Classes.class, "Classes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClasses_Class(), this.getClass_(), null, "class", null, 0, -1, Classes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(classEClass, eaglemodel.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClass_Number(), ecorePackage.getEInt(), "number", null, 1, 1, eaglemodel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClass_Name(), ecorePackage.getEString(), "name", null, 1, 1, eaglemodel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClass_Width(), ecorePackage.getEDouble(), "width", null, 0, 1, eaglemodel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClass_Drill(), ecorePackage.getEDouble(), "drill", null, 0, 1, eaglemodel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClass_Clearance(), this.getClearance(), null, "clearance", null, 0, -1, eaglemodel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClass_Clearance(), this.getClearance(), null, "clearance", null, 0, -1, eaglemodel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(clearanceEClass, Clearance.class, "Clearance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClearance_Class(), ecorePackage.getEInt(), "class", null, 1, 1, Clearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClearance_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, Clearance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(partsEClass, Parts.class, "Parts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParts_Part(), this.getPart(), null, "part", null, 0, -1, Parts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(partEClass, Part.class, "Part", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPart_Name(), ecorePackage.getEString(), "name", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3789,60 +4658,75 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getPart_Device(), ecorePackage.getEString(), "device", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPart_Technology(), ecorePackage.getEString(), "technology", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPart_Value(), ecorePackage.getEString(), "value", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPart_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPart_Variant(), this.getVariant(), null, "variant", null, 0, -1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPart_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPart_Variant(), this.getVariant(), null, "variant", null, 0, -1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sheetsEClass, Sheets.class, "Sheets", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSheets_Sheet(), this.getSheet(), null, "sheet", null, 0, -1, Sheets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sheetEClass, Sheet.class, "Sheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSheet_Description(), this.getDescription(), null, "description", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSheet_Plain(), this.getPlain(), null, "plain", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSheet_Instances(), this.getInstance(), null, "instances", null, 0, -1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSheet_Busses(), this.getBus(), null, "busses", null, 0, -1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSheet_Nets(), this.getNet(), null, "nets", null, 0, -1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSheet_Description(), this.getDescription(), null, "description", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSheet_Plain(), this.getPlain(), null, "plain", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSheet_Instances(), this.getInstances(), null, "instances", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSheet_Busses(), this.getBusses(), null, "busses", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSheet_Nets(), this.getNets(), null, "nets", null, 0, 1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(errorsEClass, Errors.class, "Errors", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getErrors_Error(), this.getApproved(), null, "error", null, 0, -1, Errors.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(packagesEClass, Packages.class, "Packages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackages_Package(), this.getPackage(), null, "package", null, 0, -1, Packages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageEClass, eaglemodel.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 1, 1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Description(), this.getDescription(), null, "description", null, 0, 1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Polygon(), this.getPolygon(), null, "polygon", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Wire(), this.getWire(), null, "wire", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Text(), this.getText(), null, "text", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Dimension(), this.getDimension(), null, "dimension", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Circle(), this.getCircle(), null, "circle", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Rectangle(), this.getRectangle(), null, "rectangle", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Frame(), this.getFrame(), null, "frame", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Hole(), this.getHole(), null, "hole", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Pad(), this.getPad(), null, "pad", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_Smd(), this.getSMD(), null, "smd", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Description(), this.getDescription(), null, "description", null, 0, 1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Polygon(), this.getPolygon(), null, "polygon", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Wire(), this.getWire(), null, "wire", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Text(), this.getText(), null, "text", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Dimension(), this.getDimension(), null, "dimension", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Circle(), this.getCircle(), null, "circle", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Rectangle(), this.getRectangle(), null, "rectangle", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Frame(), this.getFrame(), null, "frame", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Hole(), this.getHole(), null, "hole", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Pad(), this.getPad(), null, "pad", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Smd(), this.getSMD(), null, "smd", null, 0, -1, eaglemodel.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(symbolsEClass, Symbols.class, "Symbols", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSymbols_Symbol(), this.getSymbol(), null, "symbol", null, 0, -1, Symbols.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSymbol_Name(), ecorePackage.getEString(), "name", null, 1, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Description(), this.getDescription(), null, "description", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Polygon(), this.getPolygon(), null, "polygon", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Wire(), this.getWire(), null, "wire", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Text(), this.getText(), null, "text", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Dimension(), this.getDimension(), null, "dimension", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Pin(), this.getPin(), null, "pin", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Circle(), this.getCircle(), null, "circle", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Rectangle(), this.getRectangle(), null, "rectangle", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSymbol_Frame(), this.getFrame(), null, "frame", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Description(), this.getDescription(), null, "description", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Polygon(), this.getPolygon(), null, "polygon", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Wire(), this.getWire(), null, "wire", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Text(), this.getText(), null, "text", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Dimension(), this.getDimension(), null, "dimension", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Pin(), this.getPin(), null, "pin", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Circle(), this.getCircle(), null, "circle", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Rectangle(), this.getRectangle(), null, "rectangle", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSymbol_Frame(), this.getFrame(), null, "frame", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(devicesetsEClass, Devicesets.class, "Devicesets", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDevicesets_Deviceset(), this.getDeviceset(), null, "deviceset", null, 0, -1, Devicesets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(devicesetEClass, Deviceset.class, "Deviceset", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeviceset_Name(), ecorePackage.getEString(), "name", null, 1, 1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeviceset_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeviceset_Uservalue(), ecorePackage.getEBoolean(), "uservalue", "false", 0, 1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeviceset_Description(), this.getDescription(), null, "description", null, 0, 1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeviceset_Gates(), this.getGate(), null, "gates", null, 1, -1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeviceset_Devices(), this.getDevice(), null, "devices", null, 1, -1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeviceset_Description(), this.getDescription(), null, "description", null, 0, 1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeviceset_Gates(), this.getGates(), null, "gates", null, 0, 1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeviceset_Devices(), this.getDevices(), null, "devices", null, 0, 1, Deviceset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(polygonEClass, Polygon.class, "Polygon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPolygon_Width(), ecorePackage.getEDouble(), "width", null, 1, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolygon_Layer(), ecorePackage.getEInt(), "layer", null, 1, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolygon_Spacing(), ecorePackage.getEDouble(), "spacing", null, 0, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPolygon_Pour(), theEnumsPackage.getPolygonPour(), "pour", "solid", 0, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPolygon_Pour(), this.getPolygonPour(), "pour", "solid", 0, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolygon_Isolate(), ecorePackage.getEDouble(), "isolate", null, 0, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolygon_Orphans(), ecorePackage.getEBoolean(), "orphans", "false", 0, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolygon_Thermals(), ecorePackage.getEBoolean(), "thermals", "true", 0, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPolygon_Rank(), ecorePackage.getEInt(), "rank", null, 0, 1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPolygon_Vertex(), this.getVertex(), null, "vertex", null, 0, -1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPolygon_Vertex(), this.getVertex(), null, "vertex", null, 0, -1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(vertexEClass, Vertex.class, "Vertex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVertex_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Vertex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3857,21 +4741,21 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getWire_Width(), ecorePackage.getEDouble(), "width", null, 1, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWire_Layer(), ecorePackage.getEInt(), "layer", null, 1, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWire_Extent(), ecorePackage.getEString(), "extent", null, 0, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWire_Style(), theEnumsPackage.getWireStyle(), "style", "continuous", 0, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWire_Style(), this.getWireStyle(), "style", "continuous", 0, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWire_Curve(), ecorePackage.getEDouble(), "curve", null, 0, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWire_Cap(), theEnumsPackage.getWireCap(), "cap", "round", 0, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWire_Cap(), this.getWireCap(), "cap", "round", 0, 1, Wire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getText_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getText_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getText_Size(), ecorePackage.getEDouble(), "size", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getText_Layer(), ecorePackage.getEInt(), "layer", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getText_Font(), theEnumsPackage.getTextFont(), "font", "proportional", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getText_Font(), this.getTextFont(), "font", "proportional", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getText_Ratio(), ecorePackage.getEInt(), "ratio", "8", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getText_Rot(), ecorePackage.getEDouble(), "rot", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getText_Align(), theEnumsPackage.getAlign(), "align", "bottom-left", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getText_Align(), this.getAlign(), "align", "bottom-left", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getText_Distance(), ecorePackage.getEInt(), "distance", "50", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getText_Pcdata(), ecorePackage.getEString(), "pcdata", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getText_Value(), ecorePackage.getEString(), "value", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dimensionEClass, Dimension.class, "Dimension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDimension_X1(), ecorePackage.getEDouble(), "x1", null, 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3881,14 +4765,14 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getDimension_X3(), ecorePackage.getEDouble(), "x3", null, 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Y3(), ecorePackage.getEDouble(), "y3", null, 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Layer(), ecorePackage.getEInt(), "layer", null, 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDimension_Dtype(), theEnumsPackage.getDimensionType(), "dtype", "parallel", 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDimension_Dtype(), this.getDimensionType(), "dtype", "parallel", 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Width(), ecorePackage.getEDouble(), "width", null, 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Extwidth(), ecorePackage.getEDouble(), "extwidth", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Extlength(), ecorePackage.getEDouble(), "extlength", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Extoffset(), ecorePackage.getEDouble(), "extoffset", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Textsize(), ecorePackage.getEDouble(), "textsize", null, 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Textratio(), ecorePackage.getEInt(), "textratio", "8", 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDimension_Unit(), theEnumsPackage.getGridUnit(), "unit", "mm", 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDimension_Unit(), this.getGridUnit(), "unit", "mm", 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Precision(), ecorePackage.getEInt(), "precision", "2", 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDimension_Visible(), ecorePackage.getEBoolean(), "visible", "false", 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3896,10 +4780,10 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getPin_Name(), ecorePackage.getEString(), "name", null, 1, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPin_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPin_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPin_Visible(), theEnumsPackage.getPinVisible(), "visible", "both", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPin_Length(), theEnumsPackage.getPinLength(), "length", "long", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPin_Direction(), theEnumsPackage.getPinDirection(), "direction", "io", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPin_Function(), theEnumsPackage.getPinFunction(), "function", "none", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPin_Visible(), this.getPinVisible(), "visible", "both", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPin_Length(), this.getPinLength(), "length", "long", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPin_Direction(), this.getPinDirection(), "direction", "io", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPin_Function(), this.getPinFunction(), "function", "none", 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPin_Swaplevel(), ecorePackage.getEInt(), "swaplevel", null, 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPin_Rot(), ecorePackage.getEDouble(), "rot", null, 0, 1, Pin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3942,7 +4826,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getPad_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Pad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPad_Drill(), ecorePackage.getEDouble(), "drill", null, 1, 1, Pad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPad_Diameter(), ecorePackage.getEDouble(), "diameter", null, 0, 1, Pad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPad_Shape(), theEnumsPackage.getPadShape(), "shape", "round", 0, 1, Pad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPad_Shape(), this.getPadShape(), "shape", "round", 0, 1, Pad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPad_Rot(), ecorePackage.getEDouble(), "rot", null, 0, 1, Pad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPad_Stop(), ecorePackage.getEBoolean(), "stop", "true", 0, 1, Pad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPad_Thermals(), ecorePackage.getEBoolean(), "thermals", "true", 0, 1, Pad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3961,39 +4845,54 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getSMD_Thermals(), ecorePackage.getEBoolean(), "thermals", "true", 0, 1, eaglemodel.SMD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSMD_Cream(), ecorePackage.getEBoolean(), "cream", "true", 0, 1, eaglemodel.SMD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(gatesEClass, Gates.class, "Gates", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGates_Gate(), this.getGate(), null, "gate", null, 0, -1, Gates.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(gateEClass, Gate.class, "Gate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGate_Name(), ecorePackage.getEString(), "name", null, 1, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGate_Symbol(), ecorePackage.getEString(), "symbol", null, 1, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGate_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGate_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGate_Addlevel(), theEnumsPackage.getGateAddLevel(), "addlevel", "next", 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGate_Addlevel(), this.getGateAddLevel(), "addlevel", "next", 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGate_Swaplevel(), ecorePackage.getEInt(), "swaplevel", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(devicesEClass, Devices.class, "Devices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDevices_Device(), this.getDevices(), null, "device", null, 0, -1, Devices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deviceEClass, Device.class, "Device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDevice_Name(), ecorePackage.getEString(), "name", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDevice_Package(), ecorePackage.getEString(), "package", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDevice_Connects(), this.getConnect(), null, "connects", null, 0, -1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDevice_Technologies(), this.getTechnology(), null, "technologies", null, 0, -1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDevice_Connects(), this.getConnects(), null, "connects", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDevice_Technologies(), this.getTechnologies(), null, "technologies", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(connectsEClass, Connects.class, "Connects", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConnects_Connect(), this.getConnect(), null, "connect", null, 0, -1, Connects.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectEClass, Connect.class, "Connect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConnect_Gate(), ecorePackage.getEString(), "gate", null, 1, 1, Connect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnect_Pin(), ecorePackage.getEString(), "pin", null, 1, 1, Connect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnect_Pad(), ecorePackage.getEString(), "pad", null, 1, 1, Connect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnect_Route(), theEnumsPackage.getContactRoute(), "route", "all", 0, 1, Connect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnect_Route(), this.getContactRoute(), "route", "all", 0, 1, Connect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(technologiesEClass, Technologies.class, "Technologies", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTechnologies_Technology(), this.getTechnology(), null, "technology", null, 0, -1, Technologies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(technologyEClass, Technology.class, "Technology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTechnology_Name(), ecorePackage.getEString(), "name", null, 1, 1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTechnology_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTechnology_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(plainEClass, Plain.class, "Plain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlain_Polygon(), this.getPolygon(), null, "polygon", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlain_Wire(), this.getWire(), null, "wire", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlain_Text(), this.getText(), null, "text", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlain_Dimension(), this.getDimension(), null, "dimension", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlain_Circle(), this.getCircle(), null, "circle", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlain_Rectangle(), this.getRectangle(), null, "rectangle", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlain_Frame(), this.getFrame(), null, "frame", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlain_Hole(), this.getHole(), null, "hole", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlain_Polygon(), this.getPolygon(), null, "polygon", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlain_Wire(), this.getWire(), null, "wire", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlain_Text(), this.getText(), null, "text", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlain_Dimension(), this.getDimension(), null, "dimension", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlain_Circle(), this.getCircle(), null, "circle", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlain_Rectangle(), this.getRectangle(), null, "rectangle", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlain_Frame(), this.getFrame(), null, "frame", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlain_Hole(), this.getHole(), null, "hole", null, 0, -1, Plain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(instancesEClass, Instances.class, "Instances", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInstances_Instance(), this.getInstance(), null, "instance", null, 0, -1, Instances.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(instanceEClass, Instance.class, "Instance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInstance_Part(), ecorePackage.getEString(), "part", null, 1, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4002,22 +4901,28 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getInstance_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInstance_Smashed(), ecorePackage.getEBoolean(), "smashed", "false", 0, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInstance_Rot(), ecorePackage.getEDouble(), "rot", null, 0, 1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstance_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInstance_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Instance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bussesEClass, Busses.class, "Busses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBusses_Bus(), this.getBus(), null, "bus", null, 0, -1, Busses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(busEClass, Bus.class, "Bus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBus_Name(), ecorePackage.getEString(), "name", null, 1, 1, Bus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBus_Segment(), this.getSegment(), null, "segment", null, 0, -1, Bus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBus_Segment(), this.getSegment(), null, "segment", null, 0, -1, Bus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(netsEClass, Nets.class, "Nets", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNets_Net(), this.getNet(), null, "net", null, 0, -1, Nets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(netEClass, Net.class, "Net", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNet_Name(), ecorePackage.getEString(), "name", null, 1, 1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNet_Class(), this.getClass_(), null, "class", null, 0, 1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNet_Segment(), this.getSegment(), null, "segment", null, 0, -1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNet_Class(), this.getClass_(), null, "class", null, 0, 1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNet_Segment(), this.getSegment(), null, "segment", null, 0, -1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(segmentEClass, Segment.class, "Segment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSegment_Pinref(), this.getPinref(), null, "pinref", null, 0, -1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSegment_Wire(), this.getWire(), null, "wire", null, 0, -1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSegment_Junction(), this.getJunction(), null, "junction", null, 0, -1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSegment_Label(), this.getLabel(), null, "label", null, 0, -1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSegment_Pinref(), this.getPinref(), null, "pinref", null, 0, -1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSegment_Wire(), this.getWire(), null, "wire", null, 0, -1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSegment_Junction(), this.getJunction(), null, "junction", null, 0, -1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSegment_Label(), this.getLabel(), null, "label", null, 0, -1, Segment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pinrefEClass, Pinref.class, "Pinref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPinref_Part(), ecorePackage.getEString(), "part", null, 1, 1, Pinref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4033,13 +4938,120 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getLabel_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Size(), ecorePackage.getEDouble(), "size", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Layer(), ecorePackage.getEInt(), "layer", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLabel_Font(), theEnumsPackage.getTextFont(), "font", "proportional", 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabel_Font(), this.getTextFont(), "font", "proportional", 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Ratio(), ecorePackage.getEInt(), "ratio", "8", 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Rot(), ecorePackage.getEDouble(), "rot", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Xref(), ecorePackage.getEBoolean(), "xref", "false", 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(approvedEClass, Approved.class, "Approved", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApproved_Hash(), ecorePackage.getEString(), "hash", null, 1, 1, Approved.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(gateAddLevelEEnum, GateAddLevel.class, "GateAddLevel");
+		addEEnumLiteral(gateAddLevelEEnum, GateAddLevel.MUST);
+		addEEnumLiteral(gateAddLevelEEnum, GateAddLevel.CAN);
+		addEEnumLiteral(gateAddLevelEEnum, GateAddLevel.NEXT);
+		addEEnumLiteral(gateAddLevelEEnum, GateAddLevel.REQUEST);
+		addEEnumLiteral(gateAddLevelEEnum, GateAddLevel.ALWAYS);
+
+		initEEnum(wireStyleEEnum, WireStyle.class, "WireStyle");
+		addEEnumLiteral(wireStyleEEnum, WireStyle.CONTINUOUS);
+		addEEnumLiteral(wireStyleEEnum, WireStyle.LONGDASH);
+		addEEnumLiteral(wireStyleEEnum, WireStyle.SHORTDASH);
+		addEEnumLiteral(wireStyleEEnum, WireStyle.DASHDOT);
+
+		initEEnum(wireCapEEnum, WireCap.class, "WireCap");
+		addEEnumLiteral(wireCapEEnum, WireCap.FLAT);
+		addEEnumLiteral(wireCapEEnum, WireCap.ROUND);
+
+		initEEnum(dimensionTypeEEnum, DimensionType.class, "DimensionType");
+		addEEnumLiteral(dimensionTypeEEnum, DimensionType.PARALLEL);
+		addEEnumLiteral(dimensionTypeEEnum, DimensionType.HORIZONTAL);
+		addEEnumLiteral(dimensionTypeEEnum, DimensionType.VERTICAL);
+		addEEnumLiteral(dimensionTypeEEnum, DimensionType.RADIUS);
+		addEEnumLiteral(dimensionTypeEEnum, DimensionType.DIAMETER);
+		addEEnumLiteral(dimensionTypeEEnum, DimensionType.LEADER);
+
+		initEEnum(gridUnitEEnum, GridUnit.class, "GridUnit");
+		addEEnumLiteral(gridUnitEEnum, GridUnit.MIC);
+		addEEnumLiteral(gridUnitEEnum, GridUnit.MM);
+		addEEnumLiteral(gridUnitEEnum, GridUnit.MIL);
+		addEEnumLiteral(gridUnitEEnum, GridUnit.INCH);
+
+		initEEnum(gridStyleEEnum, GridStyle.class, "GridStyle");
+		addEEnumLiteral(gridStyleEEnum, GridStyle.LINES);
+		addEEnumLiteral(gridStyleEEnum, GridStyle.DOTS);
+
+		initEEnum(textFontEEnum, TextFont.class, "TextFont");
+		addEEnumLiteral(textFontEEnum, TextFont.VECTOR);
+		addEEnumLiteral(textFontEEnum, TextFont.PROPORTIONAL);
+		addEEnumLiteral(textFontEEnum, TextFont.FIXED);
+
+		initEEnum(alignEEnum, Align.class, "Align");
+		addEEnumLiteral(alignEEnum, Align.BOTTOMLEFT);
+		addEEnumLiteral(alignEEnum, Align.BOTTOMCENTER);
+		addEEnumLiteral(alignEEnum, Align.BOTTOMRIGHT);
+		addEEnumLiteral(alignEEnum, Align.CENTERLEFT);
+		addEEnumLiteral(alignEEnum, Align.CENTER);
+		addEEnumLiteral(alignEEnum, Align.CENTERRIGHT);
+		addEEnumLiteral(alignEEnum, Align.TOPLEFT);
+		addEEnumLiteral(alignEEnum, Align.TOPCENTER);
+		addEEnumLiteral(alignEEnum, Align.TOPRIGHT);
+
+		initEEnum(padShapeEEnum, PadShape.class, "PadShape");
+		addEEnumLiteral(padShapeEEnum, PadShape.SQUARE);
+		addEEnumLiteral(padShapeEEnum, PadShape.ROUND);
+		addEEnumLiteral(padShapeEEnum, PadShape.OCTAGON);
+		addEEnumLiteral(padShapeEEnum, PadShape.LONG);
+		addEEnumLiteral(padShapeEEnum, PadShape.OFFSET);
+
+		initEEnum(polygonPourEEnum, PolygonPour.class, "PolygonPour");
+		addEEnumLiteral(polygonPourEEnum, PolygonPour.SOLID);
+		addEEnumLiteral(polygonPourEEnum, PolygonPour.HATCH);
+		addEEnumLiteral(polygonPourEEnum, PolygonPour.CUTOUT);
+
+		initEEnum(pinVisibleEEnum, PinVisible.class, "PinVisible");
+		addEEnumLiteral(pinVisibleEEnum, PinVisible.OFF);
+		addEEnumLiteral(pinVisibleEEnum, PinVisible.PAD);
+		addEEnumLiteral(pinVisibleEEnum, PinVisible.PIN);
+		addEEnumLiteral(pinVisibleEEnum, PinVisible.BOTH);
+
+		initEEnum(pinLengthEEnum, PinLength.class, "PinLength");
+		addEEnumLiteral(pinLengthEEnum, PinLength.POINT);
+		addEEnumLiteral(pinLengthEEnum, PinLength.SHORT);
+		addEEnumLiteral(pinLengthEEnum, PinLength.MIDDLE);
+		addEEnumLiteral(pinLengthEEnum, PinLength.LONG);
+
+		initEEnum(pinDirectionEEnum, PinDirection.class, "PinDirection");
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.NC);
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.IN);
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.OUT);
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.IO);
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.OC);
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.PWR);
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.PAS);
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.HIZ);
+		addEEnumLiteral(pinDirectionEEnum, PinDirection.SUP);
+
+		initEEnum(pinFunctionEEnum, PinFunction.class, "PinFunction");
+		addEEnumLiteral(pinFunctionEEnum, PinFunction.NONE);
+		addEEnumLiteral(pinFunctionEEnum, PinFunction.DOT);
+		addEEnumLiteral(pinFunctionEEnum, PinFunction.CLK);
+		addEEnumLiteral(pinFunctionEEnum, PinFunction.DOTCLK);
+
+		initEEnum(contactRouteEEnum, ContactRoute.class, "ContactRoute");
+		addEEnumLiteral(contactRouteEEnum, ContactRoute.ALL);
+		addEEnumLiteral(contactRouteEEnum, ContactRoute.ANY);
+
+		initEEnum(attributeDisplayEEnum, AttributeDisplay.class, "AttributeDisplay");
+		addEEnumLiteral(attributeDisplayEEnum, AttributeDisplay.OFF);
+		addEEnumLiteral(attributeDisplayEEnum, AttributeDisplay.VALUE);
+		addEEnumLiteral(attributeDisplayEEnum, AttributeDisplay.NAME);
+		addEEnumLiteral(attributeDisplayEEnum, AttributeDisplay.BOTH);
+
+		initEEnum(verticalTextEEnum, VerticalText.class, "VerticalText");
+		addEEnumLiteral(verticalTextEEnum, VerticalText.UP);
+		addEEnumLiteral(verticalTextEEnum, VerticalText.DOWN);
 
 		// Create resource
 		createResource(eNS_URI);

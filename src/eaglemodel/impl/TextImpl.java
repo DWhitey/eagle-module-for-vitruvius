@@ -2,12 +2,10 @@
  */
 package eaglemodel.impl;
 
+import eaglemodel.Align;
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.Align;
-import eaglemodel.Enums.TextFont;
-
 import eaglemodel.Text;
+import eaglemodel.TextFont;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -22,6 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.TextImpl#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.impl.TextImpl#getY <em>Y</em>}</li>
@@ -32,9 +31,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.TextImpl#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.impl.TextImpl#getAlign <em>Align</em>}</li>
  *   <li>{@link eaglemodel.impl.TextImpl#getDistance <em>Distance</em>}</li>
- *   <li>{@link eaglemodel.impl.TextImpl#getPcdata <em>Pcdata</em>}</li>
+ *   <li>{@link eaglemodel.impl.TextImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -127,7 +125,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TextFont FONT_EDEFAULT = TextFont.PROPORTIONAL_LITERAL;
+	protected static final TextFont FONT_EDEFAULT = TextFont.PROPORTIONAL;
 
 	/**
 	 * The cached value of the '{@link #getFont() <em>Font</em>}' attribute.
@@ -187,7 +185,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Align ALIGN_EDEFAULT = Align.BOTTOMLEFT_LITERAL;
+	protected static final Align ALIGN_EDEFAULT = Align.BOTTOMLEFT;
 
 	/**
 	 * The cached value of the '{@link #getAlign() <em>Align</em>}' attribute.
@@ -220,24 +218,24 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	protected int distance = DISTANCE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPcdata() <em>Pcdata</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPcdata()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PCDATA_EDEFAULT = null;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPcdata() <em>Pcdata</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPcdata()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String pcdata = PCDATA_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,6 +251,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.TEXT;
 	}
@@ -451,8 +450,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPcdata() {
-		return pcdata;
+	public String getValue() {
+		return value;
 	}
 
 	/**
@@ -460,11 +459,11 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPcdata(String newPcdata) {
-		String oldPcdata = pcdata;
-		pcdata = newPcdata;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.TEXT__PCDATA, oldPcdata, pcdata));
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.TEXT__VALUE, oldValue, value));
 	}
 
 	/**
@@ -472,28 +471,29 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.TEXT__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.TEXT__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.TEXT__SIZE:
-				return new Double(getSize());
+				return getSize();
 			case EaglemodelPackage.TEXT__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 			case EaglemodelPackage.TEXT__FONT:
 				return getFont();
 			case EaglemodelPackage.TEXT__RATIO:
-				return new Integer(getRatio());
+				return getRatio();
 			case EaglemodelPackage.TEXT__ROT:
-				return new Double(getRot());
+				return getRot();
 			case EaglemodelPackage.TEXT__ALIGN:
 				return getAlign();
 			case EaglemodelPackage.TEXT__DISTANCE:
-				return new Integer(getDistance());
-			case EaglemodelPackage.TEXT__PCDATA:
-				return getPcdata();
+				return getDistance();
+			case EaglemodelPackage.TEXT__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -503,37 +503,38 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.TEXT__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.TEXT__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.TEXT__SIZE:
-				setSize(((Double)newValue).doubleValue());
+				setSize((Double)newValue);
 				return;
 			case EaglemodelPackage.TEXT__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 			case EaglemodelPackage.TEXT__FONT:
 				setFont((TextFont)newValue);
 				return;
 			case EaglemodelPackage.TEXT__RATIO:
-				setRatio(((Integer)newValue).intValue());
+				setRatio((Integer)newValue);
 				return;
 			case EaglemodelPackage.TEXT__ROT:
-				setRot(((Double)newValue).doubleValue());
+				setRot((Double)newValue);
 				return;
 			case EaglemodelPackage.TEXT__ALIGN:
 				setAlign((Align)newValue);
 				return;
 			case EaglemodelPackage.TEXT__DISTANCE:
-				setDistance(((Integer)newValue).intValue());
+				setDistance((Integer)newValue);
 				return;
-			case EaglemodelPackage.TEXT__PCDATA:
-				setPcdata((String)newValue);
+			case EaglemodelPackage.TEXT__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -544,6 +545,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.TEXT__X:
@@ -573,8 +575,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 			case EaglemodelPackage.TEXT__DISTANCE:
 				setDistance(DISTANCE_EDEFAULT);
 				return;
-			case EaglemodelPackage.TEXT__PCDATA:
-				setPcdata(PCDATA_EDEFAULT);
+			case EaglemodelPackage.TEXT__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -585,6 +587,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.TEXT__X:
@@ -605,8 +608,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 				return align != ALIGN_EDEFAULT;
 			case EaglemodelPackage.TEXT__DISTANCE:
 				return distance != DISTANCE_EDEFAULT;
-			case EaglemodelPackage.TEXT__PCDATA:
-				return PCDATA_EDEFAULT == null ? pcdata != null : !PCDATA_EDEFAULT.equals(pcdata);
+			case EaglemodelPackage.TEXT__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -616,10 +619,11 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (x: ");
 		result.append(x);
 		result.append(", y: ");
@@ -638,8 +642,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 		result.append(align);
 		result.append(", distance: ");
 		result.append(distance);
-		result.append(", pcdata: ");
-		result.append(pcdata);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

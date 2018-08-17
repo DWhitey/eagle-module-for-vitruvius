@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Part#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Part#getLibrary <em>Library</em>}</li>
@@ -23,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Part#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link eaglemodel.Part#getVariant <em>Variant</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPart()
  * @model
@@ -187,35 +187,35 @@ public interface Part extends EObject {
 	void setValue(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Attribute</b></em>' reference list.
+	 * Returns the value of the '<em><b>Attribute</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Attribute}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Attribute</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Attribute</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute</em>' reference list.
+	 * @return the value of the '<em>Attribute</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPart_Attribute()
-	 * @model type="eaglemodel.Attribute"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getAttribute();
+	EList<Attribute> getAttribute();
 
 	/**
-	 * Returns the value of the '<em><b>Variant</b></em>' reference list.
+	 * Returns the value of the '<em><b>Variant</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Variant}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variant</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Variant</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variant</em>' reference list.
+	 * @return the value of the '<em>Variant</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPart_Variant()
-	 * @model type="eaglemodel.Variant"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getVariant();
+	EList<Variant> getVariant();
 
 } // Part

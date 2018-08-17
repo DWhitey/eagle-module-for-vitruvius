@@ -3,10 +3,8 @@
 package eaglemodel.impl;
 
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.TextFont;
-
 import eaglemodel.Label;
+import eaglemodel.TextFont;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.LabelImpl#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.impl.LabelImpl#getY <em>Y</em>}</li>
@@ -31,7 +30,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.LabelImpl#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.impl.LabelImpl#isXref <em>Xref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -124,7 +122,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TextFont FONT_EDEFAULT = TextFont.PROPORTIONAL_LITERAL;
+	protected static final TextFont FONT_EDEFAULT = TextFont.PROPORTIONAL;
 
 	/**
 	 * The cached value of the '{@link #getFont() <em>Font</em>}' attribute.
@@ -210,6 +208,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.LABEL;
 	}
@@ -387,24 +386,25 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.LABEL__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.LABEL__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.LABEL__SIZE:
-				return new Double(getSize());
+				return getSize();
 			case EaglemodelPackage.LABEL__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 			case EaglemodelPackage.LABEL__FONT:
 				return getFont();
 			case EaglemodelPackage.LABEL__RATIO:
-				return new Integer(getRatio());
+				return getRatio();
 			case EaglemodelPackage.LABEL__ROT:
-				return new Double(getRot());
+				return getRot();
 			case EaglemodelPackage.LABEL__XREF:
-				return isXref() ? Boolean.TRUE : Boolean.FALSE;
+				return isXref();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -414,31 +414,32 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.LABEL__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.LABEL__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.LABEL__SIZE:
-				setSize(((Double)newValue).doubleValue());
+				setSize((Double)newValue);
 				return;
 			case EaglemodelPackage.LABEL__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 			case EaglemodelPackage.LABEL__FONT:
 				setFont((TextFont)newValue);
 				return;
 			case EaglemodelPackage.LABEL__RATIO:
-				setRatio(((Integer)newValue).intValue());
+				setRatio((Integer)newValue);
 				return;
 			case EaglemodelPackage.LABEL__ROT:
-				setRot(((Double)newValue).doubleValue());
+				setRot((Double)newValue);
 				return;
 			case EaglemodelPackage.LABEL__XREF:
-				setXref(((Boolean)newValue).booleanValue());
+				setXref((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -449,6 +450,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.LABEL__X:
@@ -484,6 +486,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.LABEL__X:
@@ -511,10 +514,11 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (x: ");
 		result.append(x);
 		result.append(", y: ");

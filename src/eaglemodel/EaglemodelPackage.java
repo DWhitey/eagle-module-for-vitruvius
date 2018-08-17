@@ -4,6 +4,7 @@ package eaglemodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -75,7 +77,7 @@ public interface EaglemodelPackage extends EPackage {
 	int EAGLE__VERSION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Compatibility</b></em>' reference.
+	 * The feature id for the '<em><b>Compatibility</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -84,7 +86,7 @@ public interface EaglemodelPackage extends EPackage {
 	int EAGLE__COMPATIBILITY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Drawing</b></em>' reference.
+	 * The feature id for the '<em><b>Drawing</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -102,17 +104,26 @@ public interface EaglemodelPackage extends EPackage {
 	int EAGLE_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link eaglemodel.Compatibility <em>Compatibility</em>}' class.
+	 * The number of operations of the '<em>Eagle</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see eaglemodel.Compatibility
+	 * @generated
+	 * @ordered
+	 */
+	int EAGLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.CompatibilityImpl <em>Compatibility</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.CompatibilityImpl
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getCompatibility()
 	 * @generated
 	 */
 	int COMPATIBILITY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Note</b></em>' reference list.
+	 * The feature id for the '<em><b>Note</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -128,6 +139,15 @@ public interface EaglemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPATIBILITY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Compatibility</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPATIBILITY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.impl.NoteImpl <em>Note</em>}' class.
@@ -158,13 +178,13 @@ public interface EaglemodelPackage extends EPackage {
 	int NOTE__SEVERITY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Pcdata</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTE__PCDATA = 2;
+	int NOTE__VALUE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Note</em>' class.
@@ -174,6 +194,15 @@ public interface EaglemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOTE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Note</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.impl.DrawingImpl <em>Drawing</em>}' class.
@@ -186,7 +215,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DRAWING = 3;
 
 	/**
-	 * The feature id for the '<em><b>Settings</b></em>' reference list.
+	 * The feature id for the '<em><b>Settings</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -195,7 +224,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DRAWING__SETTINGS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Grid</b></em>' reference.
+	 * The feature id for the '<em><b>Grid</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -204,7 +233,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DRAWING__GRID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Layers</b></em>' reference list.
+	 * The feature id for the '<em><b>Layers</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -213,7 +242,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DRAWING__LAYERS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Schematic</b></em>' reference.
+	 * The feature id for the '<em><b>Schematic</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -231,6 +260,52 @@ public interface EaglemodelPackage extends EPackage {
 	int DRAWING_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Drawing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DRAWING_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.SettingsImpl <em>Settings</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.SettingsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSettings()
+	 * @generated
+	 */
+	int SETTINGS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Settings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTINGS__SETTINGS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Settings</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTINGS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Settings</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTINGS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.SettingImpl <em>Setting</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -238,7 +313,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSetting()
 	 * @generated
 	 */
-	int SETTING = 4;
+	int SETTING = 5;
 
 	/**
 	 * The feature id for the '<em><b>Alwaysvectorfont</b></em>' attribute.
@@ -268,6 +343,15 @@ public interface EaglemodelPackage extends EPackage {
 	int SETTING_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Setting</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTING_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.GridImpl <em>Grid</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,7 +359,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGrid()
 	 * @generated
 	 */
-	int GRID = 5;
+	int GRID = 6;
 
 	/**
 	 * The feature id for the '<em><b>Distance</b></em>' attribute.
@@ -368,6 +452,52 @@ public interface EaglemodelPackage extends EPackage {
 	int GRID_FEATURE_COUNT = 9;
 
 	/**
+	 * The number of operations of the '<em>Grid</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.LayersImpl <em>Layers</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.LayersImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getLayers()
+	 * @generated
+	 */
+	int LAYERS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Layers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYERS__LAYERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Layers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYERS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Layers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYERS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.LayerImpl <em>Layer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -375,7 +505,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getLayer()
 	 * @generated
 	 */
-	int LAYER = 6;
+	int LAYER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -441,6 +571,15 @@ public interface EaglemodelPackage extends EPackage {
 	int LAYER_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Layer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAYER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.SchematicImpl <em>Schematic</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,7 +587,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSchematic()
 	 * @generated
 	 */
-	int SCHEMATIC = 7;
+	int SCHEMATIC = 9;
 
 	/**
 	 * The feature id for the '<em><b>Xreflabel</b></em>' attribute.
@@ -469,7 +608,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC__XREFPART = 1;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference.
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -478,7 +617,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC__DESCRIPTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Libraries</b></em>' reference list.
+	 * The feature id for the '<em><b>Libraries</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -487,7 +626,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC__LIBRARIES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -496,7 +635,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC__ATTRIBUTES = 4;
 
 	/**
-	 * The feature id for the '<em><b>Variantdefs</b></em>' reference list.
+	 * The feature id for the '<em><b>Variantdefs</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -505,7 +644,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC__VARIANTDEFS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Classes</b></em>' reference list.
+	 * The feature id for the '<em><b>Classes</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -514,7 +653,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC__CLASSES = 6;
 
 	/**
-	 * The feature id for the '<em><b>Parts</b></em>' reference list.
+	 * The feature id for the '<em><b>Parts</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -523,7 +662,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC__PARTS = 7;
 
 	/**
-	 * The feature id for the '<em><b>Sheets</b></em>' reference list.
+	 * The feature id for the '<em><b>Sheets</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -532,7 +671,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC__SHEETS = 8;
 
 	/**
-	 * The feature id for the '<em><b>Errors</b></em>' reference list.
+	 * The feature id for the '<em><b>Errors</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -550,6 +689,15 @@ public interface EaglemodelPackage extends EPackage {
 	int SCHEMATIC_FEATURE_COUNT = 10;
 
 	/**
+	 * The number of operations of the '<em>Schematic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMATIC_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.DescriptionImpl <em>Description</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,7 +705,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getDescription()
 	 * @generated
 	 */
-	int DESCRIPTION = 8;
+	int DESCRIPTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Language</b></em>' attribute.
@@ -569,13 +717,13 @@ public interface EaglemodelPackage extends EPackage {
 	int DESCRIPTION__LANGUAGE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Pcdata</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESCRIPTION__PCDATA = 1;
+	int DESCRIPTION__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Description</em>' class.
@@ -587,6 +735,52 @@ public interface EaglemodelPackage extends EPackage {
 	int DESCRIPTION_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Description</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.LibrariesImpl <em>Libraries</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.LibrariesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getLibraries()
+	 * @generated
+	 */
+	int LIBRARIES = 11;
+
+	/**
+	 * The feature id for the '<em><b>Library</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARIES__LIBRARY = 0;
+
+	/**
+	 * The number of structural features of the '<em>Libraries</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARIES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Libraries</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARIES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.LibraryImpl <em>Library</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,7 +788,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getLibrary()
 	 * @generated
 	 */
-	int LIBRARY = 9;
+	int LIBRARY = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -606,7 +800,7 @@ public interface EaglemodelPackage extends EPackage {
 	int LIBRARY__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference.
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -615,7 +809,7 @@ public interface EaglemodelPackage extends EPackage {
 	int LIBRARY__DESCRIPTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Packages</b></em>' reference list.
+	 * The feature id for the '<em><b>Packages</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -624,7 +818,7 @@ public interface EaglemodelPackage extends EPackage {
 	int LIBRARY__PACKAGES = 2;
 
 	/**
-	 * The feature id for the '<em><b>Symbols</b></em>' reference list.
+	 * The feature id for the '<em><b>Symbols</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -633,7 +827,7 @@ public interface EaglemodelPackage extends EPackage {
 	int LIBRARY__SYMBOLS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Devicesets</b></em>' reference list.
+	 * The feature id for the '<em><b>Devicesets</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -651,6 +845,52 @@ public interface EaglemodelPackage extends EPackage {
 	int LIBRARY_FEATURE_COUNT = 5;
 
 	/**
+	 * The number of operations of the '<em>Library</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.AttributesImpl <em>Attributes</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.AttributesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getAttributes()
+	 * @generated
+	 */
+	int ATTRIBUTES = 13;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTES__ATTRIBUTE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Attributes</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Attributes</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.AttributeImpl <em>Attribute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -658,7 +898,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 10;
+	int ATTRIBUTE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -769,6 +1009,52 @@ public interface EaglemodelPackage extends EPackage {
 	int ATTRIBUTE_FEATURE_COUNT = 11;
 
 	/**
+	 * The number of operations of the '<em>Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.VariantdefsImpl <em>Variantdefs</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.VariantdefsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getVariantdefs()
+	 * @generated
+	 */
+	int VARIANTDEFS = 15;
+
+	/**
+	 * The feature id for the '<em><b>Variantdef</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANTDEFS__VARIANTDEF = 0;
+
+	/**
+	 * The number of structural features of the '<em>Variantdefs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANTDEFS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Variantdefs</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANTDEFS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.VariantdefImpl <em>Variantdef</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -776,7 +1062,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getVariantdef()
 	 * @generated
 	 */
-	int VARIANTDEF = 11;
+	int VARIANTDEF = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -806,6 +1092,15 @@ public interface EaglemodelPackage extends EPackage {
 	int VARIANTDEF_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Variantdef</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANTDEF_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.VariantImpl <em>Variant</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -813,7 +1108,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getVariant()
 	 * @generated
 	 */
-	int VARIANT = 12;
+	int VARIANT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -861,6 +1156,52 @@ public interface EaglemodelPackage extends EPackage {
 	int VARIANT_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Variant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIANT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.ClassesImpl <em>Classes</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.ClassesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getClasses()
+	 * @generated
+	 */
+	int CLASSES = 18;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSES__CLASS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Classes</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Classes</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.ClassImpl <em>Class</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -868,7 +1209,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 13;
+	int CLASS = 19;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -907,7 +1248,7 @@ public interface EaglemodelPackage extends EPackage {
 	int CLASS__DRILL = 3;
 
 	/**
-	 * The feature id for the '<em><b>Clearance</b></em>' reference list.
+	 * The feature id for the '<em><b>Clearance</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -925,6 +1266,15 @@ public interface EaglemodelPackage extends EPackage {
 	int CLASS_FEATURE_COUNT = 5;
 
 	/**
+	 * The number of operations of the '<em>Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.ClearanceImpl <em>Clearance</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -932,7 +1282,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getClearance()
 	 * @generated
 	 */
-	int CLEARANCE = 14;
+	int CLEARANCE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Class</b></em>' attribute.
@@ -962,6 +1312,52 @@ public interface EaglemodelPackage extends EPackage {
 	int CLEARANCE_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Clearance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLEARANCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.PartsImpl <em>Parts</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.PartsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getParts()
+	 * @generated
+	 */
+	int PARTS = 21;
+
+	/**
+	 * The feature id for the '<em><b>Part</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTS__PART = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parts</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Parts</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.PartImpl <em>Part</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -969,7 +1365,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPart()
 	 * @generated
 	 */
-	int PART = 15;
+	int PART = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1026,7 +1422,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PART__VALUE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference list.
+	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1035,7 +1431,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PART__ATTRIBUTE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Variant</b></em>' reference list.
+	 * The feature id for the '<em><b>Variant</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1053,6 +1449,52 @@ public interface EaglemodelPackage extends EPackage {
 	int PART_FEATURE_COUNT = 8;
 
 	/**
+	 * The number of operations of the '<em>Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.SheetsImpl <em>Sheets</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.SheetsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSheets()
+	 * @generated
+	 */
+	int SHEETS = 23;
+
+	/**
+	 * The feature id for the '<em><b>Sheet</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEETS__SHEET = 0;
+
+	/**
+	 * The number of structural features of the '<em>Sheets</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEETS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Sheets</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEETS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.SheetImpl <em>Sheet</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1060,10 +1502,10 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSheet()
 	 * @generated
 	 */
-	int SHEET = 16;
+	int SHEET = 24;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference.
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1072,7 +1514,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SHEET__DESCRIPTION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Plain</b></em>' reference.
+	 * The feature id for the '<em><b>Plain</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1081,7 +1523,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SHEET__PLAIN = 1;
 
 	/**
-	 * The feature id for the '<em><b>Instances</b></em>' reference list.
+	 * The feature id for the '<em><b>Instances</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1090,7 +1532,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SHEET__INSTANCES = 2;
 
 	/**
-	 * The feature id for the '<em><b>Busses</b></em>' reference list.
+	 * The feature id for the '<em><b>Busses</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1099,7 +1541,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SHEET__BUSSES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Nets</b></em>' reference list.
+	 * The feature id for the '<em><b>Nets</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1117,6 +1559,89 @@ public interface EaglemodelPackage extends EPackage {
 	int SHEET_FEATURE_COUNT = 5;
 
 	/**
+	 * The number of operations of the '<em>Sheet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.ErrorsImpl <em>Errors</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.ErrorsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getErrors()
+	 * @generated
+	 */
+	int ERRORS = 25;
+
+	/**
+	 * The feature id for the '<em><b>Error</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERRORS__ERROR = 0;
+
+	/**
+	 * The number of structural features of the '<em>Errors</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERRORS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Errors</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ERRORS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.PackagesImpl <em>Packages</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.PackagesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPackages()
+	 * @generated
+	 */
+	int PACKAGES = 26;
+
+	/**
+	 * The feature id for the '<em><b>Package</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGES__PACKAGE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Packages</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Packages</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.PackageImpl <em>Package</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1124,7 +1649,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 17;
+	int PACKAGE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1136,7 +1661,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference.
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1145,7 +1670,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__DESCRIPTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Polygon</b></em>' reference list.
+	 * The feature id for the '<em><b>Polygon</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1154,7 +1679,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__POLYGON = 2;
 
 	/**
-	 * The feature id for the '<em><b>Wire</b></em>' reference list.
+	 * The feature id for the '<em><b>Wire</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1163,7 +1688,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__WIRE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' reference list.
+	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1172,7 +1697,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__TEXT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' reference list.
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1181,7 +1706,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__DIMENSION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Circle</b></em>' reference list.
+	 * The feature id for the '<em><b>Circle</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1190,7 +1715,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__CIRCLE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Rectangle</b></em>' reference list.
+	 * The feature id for the '<em><b>Rectangle</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1199,7 +1724,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__RECTANGLE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Frame</b></em>' reference list.
+	 * The feature id for the '<em><b>Frame</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1208,7 +1733,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__FRAME = 8;
 
 	/**
-	 * The feature id for the '<em><b>Hole</b></em>' reference list.
+	 * The feature id for the '<em><b>Hole</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1217,7 +1742,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__HOLE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Pad</b></em>' reference list.
+	 * The feature id for the '<em><b>Pad</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1226,7 +1751,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE__PAD = 10;
 
 	/**
-	 * The feature id for the '<em><b>Smd</b></em>' reference list.
+	 * The feature id for the '<em><b>Smd</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1244,6 +1769,52 @@ public interface EaglemodelPackage extends EPackage {
 	int PACKAGE_FEATURE_COUNT = 12;
 
 	/**
+	 * The number of operations of the '<em>Package</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.SymbolsImpl <em>Symbols</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.SymbolsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSymbols()
+	 * @generated
+	 */
+	int SYMBOLS = 28;
+
+	/**
+	 * The feature id for the '<em><b>Symbol</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOLS__SYMBOL = 0;
+
+	/**
+	 * The number of structural features of the '<em>Symbols</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOLS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Symbols</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOLS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.SymbolImpl <em>Symbol</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1251,7 +1822,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSymbol()
 	 * @generated
 	 */
-	int SYMBOL = 18;
+	int SYMBOL = 29;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1263,7 +1834,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference.
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1272,7 +1843,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__DESCRIPTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Polygon</b></em>' reference list.
+	 * The feature id for the '<em><b>Polygon</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1281,7 +1852,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__POLYGON = 2;
 
 	/**
-	 * The feature id for the '<em><b>Wire</b></em>' reference list.
+	 * The feature id for the '<em><b>Wire</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1290,7 +1861,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__WIRE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' reference list.
+	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1299,7 +1870,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__TEXT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' reference list.
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1308,7 +1879,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__DIMENSION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Pin</b></em>' reference list.
+	 * The feature id for the '<em><b>Pin</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1317,7 +1888,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__PIN = 6;
 
 	/**
-	 * The feature id for the '<em><b>Circle</b></em>' reference list.
+	 * The feature id for the '<em><b>Circle</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1326,7 +1897,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__CIRCLE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Rectangle</b></em>' reference list.
+	 * The feature id for the '<em><b>Rectangle</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1335,7 +1906,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL__RECTANGLE = 8;
 
 	/**
-	 * The feature id for the '<em><b>Frame</b></em>' reference list.
+	 * The feature id for the '<em><b>Frame</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1353,6 +1924,52 @@ public interface EaglemodelPackage extends EPackage {
 	int SYMBOL_FEATURE_COUNT = 10;
 
 	/**
+	 * The number of operations of the '<em>Symbol</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.DevicesetsImpl <em>Devicesets</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.DevicesetsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getDevicesets()
+	 * @generated
+	 */
+	int DEVICESETS = 30;
+
+	/**
+	 * The feature id for the '<em><b>Deviceset</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICESETS__DEVICESET = 0;
+
+	/**
+	 * The number of structural features of the '<em>Devicesets</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICESETS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Devicesets</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICESETS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.DevicesetImpl <em>Deviceset</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1360,7 +1977,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getDeviceset()
 	 * @generated
 	 */
-	int DEVICESET = 19;
+	int DEVICESET = 31;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1390,7 +2007,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DEVICESET__USERVALUE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' reference.
+	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1399,7 +2016,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DEVICESET__DESCRIPTION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Gates</b></em>' reference list.
+	 * The feature id for the '<em><b>Gates</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1408,7 +2025,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DEVICESET__GATES = 4;
 
 	/**
-	 * The feature id for the '<em><b>Devices</b></em>' reference list.
+	 * The feature id for the '<em><b>Devices</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1426,6 +2043,15 @@ public interface EaglemodelPackage extends EPackage {
 	int DEVICESET_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Deviceset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICESET_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.PolygonImpl <em>Polygon</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1433,7 +2059,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPolygon()
 	 * @generated
 	 */
-	int POLYGON = 20;
+	int POLYGON = 32;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -1508,7 +2134,7 @@ public interface EaglemodelPackage extends EPackage {
 	int POLYGON__RANK = 7;
 
 	/**
-	 * The feature id for the '<em><b>Vertex</b></em>' reference list.
+	 * The feature id for the '<em><b>Vertex</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1526,6 +2152,15 @@ public interface EaglemodelPackage extends EPackage {
 	int POLYGON_FEATURE_COUNT = 9;
 
 	/**
+	 * The number of operations of the '<em>Polygon</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLYGON_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.VertexImpl <em>Vertex</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1533,7 +2168,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getVertex()
 	 * @generated
 	 */
-	int VERTEX = 21;
+	int VERTEX = 33;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -1572,6 +2207,15 @@ public interface EaglemodelPackage extends EPackage {
 	int VERTEX_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Vertex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERTEX_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.WireImpl <em>Wire</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1579,7 +2223,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getWire()
 	 * @generated
 	 */
-	int WIRE = 22;
+	int WIRE = 34;
 
 	/**
 	 * The feature id for the '<em><b>X1</b></em>' attribute.
@@ -1681,6 +2325,15 @@ public interface EaglemodelPackage extends EPackage {
 	int WIRE_FEATURE_COUNT = 10;
 
 	/**
+	 * The number of operations of the '<em>Wire</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIRE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.TextImpl <em>Text</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1688,7 +2341,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getText()
 	 * @generated
 	 */
-	int TEXT = 23;
+	int TEXT = 35;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -1772,13 +2425,13 @@ public interface EaglemodelPackage extends EPackage {
 	int TEXT__DISTANCE = 8;
 
 	/**
-	 * The feature id for the '<em><b>Pcdata</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__PCDATA = 9;
+	int TEXT__VALUE = 9;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -1790,6 +2443,15 @@ public interface EaglemodelPackage extends EPackage {
 	int TEXT_FEATURE_COUNT = 10;
 
 	/**
+	 * The number of operations of the '<em>Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.DimensionImpl <em>Dimension</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1797,7 +2459,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getDimension()
 	 * @generated
 	 */
-	int DIMENSION = 24;
+	int DIMENSION = 36;
 
 	/**
 	 * The feature id for the '<em><b>X1</b></em>' attribute.
@@ -1962,6 +2624,15 @@ public interface EaglemodelPackage extends EPackage {
 	int DIMENSION_FEATURE_COUNT = 17;
 
 	/**
+	 * The number of operations of the '<em>Dimension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIMENSION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.PinImpl <em>Pin</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1969,7 +2640,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPin()
 	 * @generated
 	 */
-	int PIN = 25;
+	int PIN = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2062,6 +2733,15 @@ public interface EaglemodelPackage extends EPackage {
 	int PIN_FEATURE_COUNT = 9;
 
 	/**
+	 * The number of operations of the '<em>Pin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIN_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.CircleImpl <em>Circle</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2069,7 +2749,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getCircle()
 	 * @generated
 	 */
-	int CIRCLE = 26;
+	int CIRCLE = 38;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -2126,6 +2806,15 @@ public interface EaglemodelPackage extends EPackage {
 	int CIRCLE_FEATURE_COUNT = 5;
 
 	/**
+	 * The number of operations of the '<em>Circle</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.RectangleImpl <em>Rectangle</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2133,7 +2822,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getRectangle()
 	 * @generated
 	 */
-	int RECTANGLE = 27;
+	int RECTANGLE = 39;
 
 	/**
 	 * The feature id for the '<em><b>X1</b></em>' attribute.
@@ -2199,6 +2888,15 @@ public interface EaglemodelPackage extends EPackage {
 	int RECTANGLE_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Rectangle</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.FrameImpl <em>Frame</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2206,7 +2904,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getFrame()
 	 * @generated
 	 */
-	int FRAME = 28;
+	int FRAME = 40;
 
 	/**
 	 * The feature id for the '<em><b>X1</b></em>' attribute.
@@ -2317,6 +3015,15 @@ public interface EaglemodelPackage extends EPackage {
 	int FRAME_FEATURE_COUNT = 11;
 
 	/**
+	 * The number of operations of the '<em>Frame</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.HoleImpl <em>Hole</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2324,7 +3031,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getHole()
 	 * @generated
 	 */
-	int HOLE = 29;
+	int HOLE = 41;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -2363,6 +3070,15 @@ public interface EaglemodelPackage extends EPackage {
 	int HOLE_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Hole</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.PadImpl <em>Pad</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2370,7 +3086,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPad()
 	 * @generated
 	 */
-	int PAD = 30;
+	int PAD = 42;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2472,6 +3188,15 @@ public interface EaglemodelPackage extends EPackage {
 	int PAD_FEATURE_COUNT = 10;
 
 	/**
+	 * The number of operations of the '<em>Pad</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAD_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.SMDImpl <em>SMD</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2479,7 +3204,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSMD()
 	 * @generated
 	 */
-	int SMD = 31;
+	int SMD = 43;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2590,6 +3315,52 @@ public interface EaglemodelPackage extends EPackage {
 	int SMD_FEATURE_COUNT = 11;
 
 	/**
+	 * The number of operations of the '<em>SMD</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMD_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.GatesImpl <em>Gates</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.GatesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGates()
+	 * @generated
+	 */
+	int GATES = 44;
+
+	/**
+	 * The feature id for the '<em><b>Gate</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATES__GATE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Gates</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Gates</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.GateImpl <em>Gate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2597,7 +3368,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGate()
 	 * @generated
 	 */
-	int GATE = 32;
+	int GATE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2663,6 +3434,52 @@ public interface EaglemodelPackage extends EPackage {
 	int GATE_FEATURE_COUNT = 6;
 
 	/**
+	 * The number of operations of the '<em>Gate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.DevicesImpl <em>Devices</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.DevicesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getDevices()
+	 * @generated
+	 */
+	int DEVICES = 46;
+
+	/**
+	 * The feature id for the '<em><b>Device</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES__DEVICE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Devices</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Devices</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.DeviceImpl <em>Device</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2670,7 +3487,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getDevice()
 	 * @generated
 	 */
-	int DEVICE = 33;
+	int DEVICE = 47;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2691,7 +3508,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DEVICE__PACKAGE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Connects</b></em>' reference list.
+	 * The feature id for the '<em><b>Connects</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2700,7 +3517,7 @@ public interface EaglemodelPackage extends EPackage {
 	int DEVICE__CONNECTS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Technologies</b></em>' reference list.
+	 * The feature id for the '<em><b>Technologies</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2718,6 +3535,52 @@ public interface EaglemodelPackage extends EPackage {
 	int DEVICE_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Device</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.ConnectsImpl <em>Connects</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.ConnectsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getConnects()
+	 * @generated
+	 */
+	int CONNECTS = 48;
+
+	/**
+	 * The feature id for the '<em><b>Connect</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTS__CONNECT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Connects</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Connects</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.ConnectImpl <em>Connect</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2725,7 +3588,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getConnect()
 	 * @generated
 	 */
-	int CONNECT = 34;
+	int CONNECT = 49;
 
 	/**
 	 * The feature id for the '<em><b>Gate</b></em>' attribute.
@@ -2773,6 +3636,52 @@ public interface EaglemodelPackage extends EPackage {
 	int CONNECT_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Connect</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.TechnologiesImpl <em>Technologies</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.TechnologiesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getTechnologies()
+	 * @generated
+	 */
+	int TECHNOLOGIES = 50;
+
+	/**
+	 * The feature id for the '<em><b>Technology</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGIES__TECHNOLOGY = 0;
+
+	/**
+	 * The number of structural features of the '<em>Technologies</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGIES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Technologies</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGIES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.TechnologyImpl <em>Technology</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2780,7 +3689,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getTechnology()
 	 * @generated
 	 */
-	int TECHNOLOGY = 35;
+	int TECHNOLOGY = 51;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2792,7 +3701,7 @@ public interface EaglemodelPackage extends EPackage {
 	int TECHNOLOGY__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference list.
+	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2810,6 +3719,15 @@ public interface EaglemodelPackage extends EPackage {
 	int TECHNOLOGY_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Technology</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.PlainImpl <em>Plain</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2817,10 +3735,10 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPlain()
 	 * @generated
 	 */
-	int PLAIN = 36;
+	int PLAIN = 52;
 
 	/**
-	 * The feature id for the '<em><b>Polygon</b></em>' reference list.
+	 * The feature id for the '<em><b>Polygon</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2829,7 +3747,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PLAIN__POLYGON = 0;
 
 	/**
-	 * The feature id for the '<em><b>Wire</b></em>' reference list.
+	 * The feature id for the '<em><b>Wire</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2838,7 +3756,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PLAIN__WIRE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' reference list.
+	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2847,7 +3765,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PLAIN__TEXT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' reference list.
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2856,7 +3774,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PLAIN__DIMENSION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Circle</b></em>' reference list.
+	 * The feature id for the '<em><b>Circle</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2865,7 +3783,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PLAIN__CIRCLE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Rectangle</b></em>' reference list.
+	 * The feature id for the '<em><b>Rectangle</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2874,7 +3792,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PLAIN__RECTANGLE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Frame</b></em>' reference list.
+	 * The feature id for the '<em><b>Frame</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2883,7 +3801,7 @@ public interface EaglemodelPackage extends EPackage {
 	int PLAIN__FRAME = 6;
 
 	/**
-	 * The feature id for the '<em><b>Hole</b></em>' reference list.
+	 * The feature id for the '<em><b>Hole</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2901,6 +3819,52 @@ public interface EaglemodelPackage extends EPackage {
 	int PLAIN_FEATURE_COUNT = 8;
 
 	/**
+	 * The number of operations of the '<em>Plain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAIN_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.InstancesImpl <em>Instances</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.InstancesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getInstances()
+	 * @generated
+	 */
+	int INSTANCES = 53;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCES__INSTANCE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Instances</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Instances</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.InstanceImpl <em>Instance</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2908,7 +3872,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getInstance()
 	 * @generated
 	 */
-	int INSTANCE = 37;
+	int INSTANCE = 54;
 
 	/**
 	 * The feature id for the '<em><b>Part</b></em>' attribute.
@@ -2965,7 +3929,7 @@ public interface EaglemodelPackage extends EPackage {
 	int INSTANCE__ROT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference list.
+	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2983,6 +3947,52 @@ public interface EaglemodelPackage extends EPackage {
 	int INSTANCE_FEATURE_COUNT = 7;
 
 	/**
+	 * The number of operations of the '<em>Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.BussesImpl <em>Busses</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.BussesImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getBusses()
+	 * @generated
+	 */
+	int BUSSES = 55;
+
+	/**
+	 * The feature id for the '<em><b>Bus</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSSES__BUS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Busses</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSSES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Busses</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSSES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.BusImpl <em>Bus</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2990,7 +4000,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getBus()
 	 * @generated
 	 */
-	int BUS = 38;
+	int BUS = 56;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3002,7 +4012,7 @@ public interface EaglemodelPackage extends EPackage {
 	int BUS__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Segment</b></em>' reference list.
+	 * The feature id for the '<em><b>Segment</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3020,6 +4030,52 @@ public interface EaglemodelPackage extends EPackage {
 	int BUS_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Bus</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.impl.NetsImpl <em>Nets</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.impl.NetsImpl
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getNets()
+	 * @generated
+	 */
+	int NETS = 57;
+
+	/**
+	 * The feature id for the '<em><b>Net</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETS__NET = 0;
+
+	/**
+	 * The number of structural features of the '<em>Nets</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Nets</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.NetImpl <em>Net</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3027,7 +4083,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getNet()
 	 * @generated
 	 */
-	int NET = 39;
+	int NET = 58;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3039,7 +4095,7 @@ public interface EaglemodelPackage extends EPackage {
 	int NET__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Class</b></em>' reference.
+	 * The feature id for the '<em><b>Class</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3048,7 +4104,7 @@ public interface EaglemodelPackage extends EPackage {
 	int NET__CLASS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Segment</b></em>' reference list.
+	 * The feature id for the '<em><b>Segment</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3066,6 +4122,15 @@ public interface EaglemodelPackage extends EPackage {
 	int NET_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Net</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NET_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.SegmentImpl <em>Segment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3073,10 +4138,10 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSegment()
 	 * @generated
 	 */
-	int SEGMENT = 40;
+	int SEGMENT = 59;
 
 	/**
-	 * The feature id for the '<em><b>Pinref</b></em>' reference list.
+	 * The feature id for the '<em><b>Pinref</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3085,7 +4150,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SEGMENT__PINREF = 0;
 
 	/**
-	 * The feature id for the '<em><b>Wire</b></em>' reference list.
+	 * The feature id for the '<em><b>Wire</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3094,7 +4159,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SEGMENT__WIRE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Junction</b></em>' reference list.
+	 * The feature id for the '<em><b>Junction</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3103,7 +4168,7 @@ public interface EaglemodelPackage extends EPackage {
 	int SEGMENT__JUNCTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' reference list.
+	 * The feature id for the '<em><b>Label</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3121,6 +4186,15 @@ public interface EaglemodelPackage extends EPackage {
 	int SEGMENT_FEATURE_COUNT = 4;
 
 	/**
+	 * The number of operations of the '<em>Segment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEGMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.PinrefImpl <em>Pinref</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3128,7 +4202,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinref()
 	 * @generated
 	 */
-	int PINREF = 41;
+	int PINREF = 60;
 
 	/**
 	 * The feature id for the '<em><b>Part</b></em>' attribute.
@@ -3167,6 +4241,15 @@ public interface EaglemodelPackage extends EPackage {
 	int PINREF_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Pinref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PINREF_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.JunctionImpl <em>Junction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3174,7 +4257,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getJunction()
 	 * @generated
 	 */
-	int JUNCTION = 42;
+	int JUNCTION = 61;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -3204,6 +4287,15 @@ public interface EaglemodelPackage extends EPackage {
 	int JUNCTION_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>Junction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNCTION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.LabelImpl <em>Label</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3211,7 +4303,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 43;
+	int LABEL = 62;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -3295,6 +4387,15 @@ public interface EaglemodelPackage extends EPackage {
 	int LABEL_FEATURE_COUNT = 8;
 
 	/**
+	 * The number of operations of the '<em>Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.impl.ApprovedImpl <em>Approved</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3302,7 +4403,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getApproved()
 	 * @generated
 	 */
-	int APPROVED = 44;
+	int APPROVED = 63;
 
 	/**
 	 * The feature id for the '<em><b>Hash</b></em>' attribute.
@@ -3321,6 +4422,185 @@ public interface EaglemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int APPROVED_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Approved</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPROVED_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.GateAddLevel <em>Gate Add Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.GateAddLevel
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGateAddLevel()
+	 * @generated
+	 */
+	int GATE_ADD_LEVEL = 64;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.WireStyle <em>Wire Style</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.WireStyle
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getWireStyle()
+	 * @generated
+	 */
+	int WIRE_STYLE = 65;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.WireCap <em>Wire Cap</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.WireCap
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getWireCap()
+	 * @generated
+	 */
+	int WIRE_CAP = 66;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.DimensionType <em>Dimension Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.DimensionType
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getDimensionType()
+	 * @generated
+	 */
+	int DIMENSION_TYPE = 67;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.GridUnit <em>Grid Unit</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.GridUnit
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGridUnit()
+	 * @generated
+	 */
+	int GRID_UNIT = 68;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.GridStyle <em>Grid Style</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.GridStyle
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGridStyle()
+	 * @generated
+	 */
+	int GRID_STYLE = 69;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.TextFont <em>Text Font</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.TextFont
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getTextFont()
+	 * @generated
+	 */
+	int TEXT_FONT = 70;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.Align <em>Align</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.Align
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getAlign()
+	 * @generated
+	 */
+	int ALIGN = 71;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.PadShape <em>Pad Shape</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.PadShape
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPadShape()
+	 * @generated
+	 */
+	int PAD_SHAPE = 72;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.PolygonPour <em>Polygon Pour</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.PolygonPour
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPolygonPour()
+	 * @generated
+	 */
+	int POLYGON_POUR = 73;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.PinVisible <em>Pin Visible</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.PinVisible
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinVisible()
+	 * @generated
+	 */
+	int PIN_VISIBLE = 74;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.PinLength <em>Pin Length</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.PinLength
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinLength()
+	 * @generated
+	 */
+	int PIN_LENGTH = 75;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.PinDirection <em>Pin Direction</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.PinDirection
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinDirection()
+	 * @generated
+	 */
+	int PIN_DIRECTION = 76;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.PinFunction <em>Pin Function</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.PinFunction
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinFunction()
+	 * @generated
+	 */
+	int PIN_FUNCTION = 77;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.ContactRoute <em>Contact Route</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.ContactRoute
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getContactRoute()
+	 * @generated
+	 */
+	int CONTACT_ROUTE = 78;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.AttributeDisplay <em>Attribute Display</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.AttributeDisplay
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getAttributeDisplay()
+	 * @generated
+	 */
+	int ATTRIBUTE_DISPLAY = 79;
+
+	/**
+	 * The meta object id for the '{@link eaglemodel.VerticalText <em>Vertical Text</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.VerticalText
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getVerticalText()
+	 * @generated
+	 */
+	int VERTICAL_TEXT = 80;
 
 
 	/**
@@ -3345,10 +4625,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getEagle_Version();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Eagle#getCompatibility <em>Compatibility</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Eagle#getCompatibility <em>Compatibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Compatibility</em>'.
+	 * @return the meta object for the containment reference '<em>Compatibility</em>'.
 	 * @see eaglemodel.Eagle#getCompatibility()
 	 * @see #getEagle()
 	 * @generated
@@ -3356,10 +4636,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getEagle_Compatibility();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Eagle#getDrawing <em>Drawing</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Eagle#getDrawing <em>Drawing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Drawing</em>'.
+	 * @return the meta object for the containment reference '<em>Drawing</em>'.
 	 * @see eaglemodel.Eagle#getDrawing()
 	 * @see #getEagle()
 	 * @generated
@@ -3377,10 +4657,10 @@ public interface EaglemodelPackage extends EPackage {
 	EClass getCompatibility();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Compatibility#getNote <em>Note</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Compatibility#getNote <em>Note</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Note</em>'.
+	 * @return the meta object for the containment reference list '<em>Note</em>'.
 	 * @see eaglemodel.Compatibility#getNote()
 	 * @see #getCompatibility()
 	 * @generated
@@ -3420,15 +4700,15 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getNote_Severity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link eaglemodel.Note#getPcdata <em>Pcdata</em>}'.
+	 * Returns the meta object for the attribute '{@link eaglemodel.Note#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pcdata</em>'.
-	 * @see eaglemodel.Note#getPcdata()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see eaglemodel.Note#getValue()
 	 * @see #getNote()
 	 * @generated
 	 */
-	EAttribute getNote_Pcdata();
+	EAttribute getNote_Value();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Drawing <em>Drawing</em>}'.
@@ -3441,10 +4721,10 @@ public interface EaglemodelPackage extends EPackage {
 	EClass getDrawing();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Drawing#getSettings <em>Settings</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Drawing#getSettings <em>Settings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Settings</em>'.
+	 * @return the meta object for the containment reference '<em>Settings</em>'.
 	 * @see eaglemodel.Drawing#getSettings()
 	 * @see #getDrawing()
 	 * @generated
@@ -3452,10 +4732,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getDrawing_Settings();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Drawing#getGrid <em>Grid</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Drawing#getGrid <em>Grid</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Grid</em>'.
+	 * @return the meta object for the containment reference '<em>Grid</em>'.
 	 * @see eaglemodel.Drawing#getGrid()
 	 * @see #getDrawing()
 	 * @generated
@@ -3463,10 +4743,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getDrawing_Grid();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Drawing#getLayers <em>Layers</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Drawing#getLayers <em>Layers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Layers</em>'.
+	 * @return the meta object for the containment reference '<em>Layers</em>'.
 	 * @see eaglemodel.Drawing#getLayers()
 	 * @see #getDrawing()
 	 * @generated
@@ -3474,15 +4754,36 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getDrawing_Layers();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Drawing#getSchematic <em>Schematic</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Drawing#getSchematic <em>Schematic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Schematic</em>'.
+	 * @return the meta object for the containment reference '<em>Schematic</em>'.
 	 * @see eaglemodel.Drawing#getSchematic()
 	 * @see #getDrawing()
 	 * @generated
 	 */
 	EReference getDrawing_Schematic();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Settings <em>Settings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Settings</em>'.
+	 * @see eaglemodel.Settings
+	 * @generated
+	 */
+	EClass getSettings();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Settings#getSettings <em>Settings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Settings</em>'.
+	 * @see eaglemodel.Settings#getSettings()
+	 * @see #getSettings()
+	 * @generated
+	 */
+	EReference getSettings_Settings();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Setting <em>Setting</em>}'.
@@ -3626,6 +4927,27 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getGrid_Altunit();
 
 	/**
+	 * Returns the meta object for class '{@link eaglemodel.Layers <em>Layers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Layers</em>'.
+	 * @see eaglemodel.Layers
+	 * @generated
+	 */
+	EClass getLayers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Layers#getLayers <em>Layers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Layers</em>'.
+	 * @see eaglemodel.Layers#getLayers()
+	 * @see #getLayers()
+	 * @generated
+	 */
+	EReference getLayers_Layers();
+
+	/**
 	 * Returns the meta object for class '{@link eaglemodel.Layer <em>Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3734,10 +5056,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getSchematic_Xrefpart();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Schematic#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Schematic#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Description</em>'.
+	 * @return the meta object for the containment reference '<em>Description</em>'.
 	 * @see eaglemodel.Schematic#getDescription()
 	 * @see #getSchematic()
 	 * @generated
@@ -3745,10 +5067,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSchematic_Description();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Schematic#getLibraries <em>Libraries</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Schematic#getLibraries <em>Libraries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Libraries</em>'.
+	 * @return the meta object for the containment reference '<em>Libraries</em>'.
 	 * @see eaglemodel.Schematic#getLibraries()
 	 * @see #getSchematic()
 	 * @generated
@@ -3756,10 +5078,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSchematic_Libraries();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Schematic#getAttributes <em>Attributes</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Schematic#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Attributes</em>'.
+	 * @return the meta object for the containment reference '<em>Attributes</em>'.
 	 * @see eaglemodel.Schematic#getAttributes()
 	 * @see #getSchematic()
 	 * @generated
@@ -3767,10 +5089,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSchematic_Attributes();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Schematic#getVariantdefs <em>Variantdefs</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Schematic#getVariantdefs <em>Variantdefs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Variantdefs</em>'.
+	 * @return the meta object for the containment reference '<em>Variantdefs</em>'.
 	 * @see eaglemodel.Schematic#getVariantdefs()
 	 * @see #getSchematic()
 	 * @generated
@@ -3778,10 +5100,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSchematic_Variantdefs();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Schematic#getClasses <em>Classes</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Schematic#getClasses <em>Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Classes</em>'.
+	 * @return the meta object for the containment reference '<em>Classes</em>'.
 	 * @see eaglemodel.Schematic#getClasses()
 	 * @see #getSchematic()
 	 * @generated
@@ -3789,10 +5111,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSchematic_Classes();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Schematic#getParts <em>Parts</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Schematic#getParts <em>Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Parts</em>'.
+	 * @return the meta object for the containment reference '<em>Parts</em>'.
 	 * @see eaglemodel.Schematic#getParts()
 	 * @see #getSchematic()
 	 * @generated
@@ -3800,10 +5122,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSchematic_Parts();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Schematic#getSheets <em>Sheets</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Schematic#getSheets <em>Sheets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Sheets</em>'.
+	 * @return the meta object for the containment reference '<em>Sheets</em>'.
 	 * @see eaglemodel.Schematic#getSheets()
 	 * @see #getSchematic()
 	 * @generated
@@ -3811,10 +5133,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSchematic_Sheets();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Schematic#getErrors <em>Errors</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Schematic#getErrors <em>Errors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Errors</em>'.
+	 * @return the meta object for the containment reference '<em>Errors</em>'.
 	 * @see eaglemodel.Schematic#getErrors()
 	 * @see #getSchematic()
 	 * @generated
@@ -3843,15 +5165,36 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getDescription_Language();
 
 	/**
-	 * Returns the meta object for the attribute '{@link eaglemodel.Description#getPcdata <em>Pcdata</em>}'.
+	 * Returns the meta object for the attribute '{@link eaglemodel.Description#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pcdata</em>'.
-	 * @see eaglemodel.Description#getPcdata()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see eaglemodel.Description#getValue()
 	 * @see #getDescription()
 	 * @generated
 	 */
-	EAttribute getDescription_Pcdata();
+	EAttribute getDescription_Value();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Libraries <em>Libraries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Libraries</em>'.
+	 * @see eaglemodel.Libraries
+	 * @generated
+	 */
+	EClass getLibraries();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Libraries#getLibrary <em>Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Library</em>'.
+	 * @see eaglemodel.Libraries#getLibrary()
+	 * @see #getLibraries()
+	 * @generated
+	 */
+	EReference getLibraries_Library();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Library <em>Library</em>}'.
@@ -3875,10 +5218,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getLibrary_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Library#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Library#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Description</em>'.
+	 * @return the meta object for the containment reference '<em>Description</em>'.
 	 * @see eaglemodel.Library#getDescription()
 	 * @see #getLibrary()
 	 * @generated
@@ -3886,10 +5229,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getLibrary_Description();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Library#getPackages <em>Packages</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Library#getPackages <em>Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Packages</em>'.
+	 * @return the meta object for the containment reference '<em>Packages</em>'.
 	 * @see eaglemodel.Library#getPackages()
 	 * @see #getLibrary()
 	 * @generated
@@ -3897,10 +5240,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getLibrary_Packages();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Library#getSymbols <em>Symbols</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Library#getSymbols <em>Symbols</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Symbols</em>'.
+	 * @return the meta object for the containment reference '<em>Symbols</em>'.
 	 * @see eaglemodel.Library#getSymbols()
 	 * @see #getLibrary()
 	 * @generated
@@ -3908,15 +5251,36 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getLibrary_Symbols();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Library#getDevicesets <em>Devicesets</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Library#getDevicesets <em>Devicesets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Devicesets</em>'.
+	 * @return the meta object for the containment reference '<em>Devicesets</em>'.
 	 * @see eaglemodel.Library#getDevicesets()
 	 * @see #getLibrary()
 	 * @generated
 	 */
 	EReference getLibrary_Devicesets();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Attributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attributes</em>'.
+	 * @see eaglemodel.Attributes
+	 * @generated
+	 */
+	EClass getAttributes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Attributes#getAttribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Attribute</em>'.
+	 * @see eaglemodel.Attributes#getAttribute()
+	 * @see #getAttributes()
+	 * @generated
+	 */
+	EReference getAttributes_Attribute();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Attribute <em>Attribute</em>}'.
@@ -4050,6 +5414,27 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getAttribute_Constant();
 
 	/**
+	 * Returns the meta object for class '{@link eaglemodel.Variantdefs <em>Variantdefs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variantdefs</em>'.
+	 * @see eaglemodel.Variantdefs
+	 * @generated
+	 */
+	EClass getVariantdefs();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Variantdefs#getVariantdef <em>Variantdef</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variantdef</em>'.
+	 * @see eaglemodel.Variantdefs#getVariantdef()
+	 * @see #getVariantdefs()
+	 * @generated
+	 */
+	EReference getVariantdefs_Variantdef();
+
+	/**
 	 * Returns the meta object for class '{@link eaglemodel.Variantdef <em>Variantdef</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4136,6 +5521,27 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getVariant_Technology();
 
 	/**
+	 * Returns the meta object for class '{@link eaglemodel.Classes <em>Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Classes</em>'.
+	 * @see eaglemodel.Classes
+	 * @generated
+	 */
+	EClass getClasses();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Classes#getClass_ <em>Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Class</em>'.
+	 * @see eaglemodel.Classes#getClass_()
+	 * @see #getClasses()
+	 * @generated
+	 */
+	EReference getClasses_Class();
+
+	/**
 	 * Returns the meta object for class '{@link eaglemodel.Class <em>Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4190,10 +5596,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getClass_Drill();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Class#getClearance <em>Clearance</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Class#getClearance <em>Clearance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Clearance</em>'.
+	 * @return the meta object for the containment reference list '<em>Clearance</em>'.
 	 * @see eaglemodel.Class#getClearance()
 	 * @see #getClass_()
 	 * @generated
@@ -4231,6 +5637,27 @@ public interface EaglemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getClearance_Value();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Parts <em>Parts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parts</em>'.
+	 * @see eaglemodel.Parts
+	 * @generated
+	 */
+	EClass getParts();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Parts#getPart <em>Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Part</em>'.
+	 * @see eaglemodel.Parts#getPart()
+	 * @see #getParts()
+	 * @generated
+	 */
+	EReference getParts_Part();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Part <em>Part</em>}'.
@@ -4309,10 +5736,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getPart_Value();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Part#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Part#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Attribute</em>'.
+	 * @return the meta object for the containment reference list '<em>Attribute</em>'.
 	 * @see eaglemodel.Part#getAttribute()
 	 * @see #getPart()
 	 * @generated
@@ -4320,15 +5747,36 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPart_Attribute();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Part#getVariant <em>Variant</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Part#getVariant <em>Variant</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Variant</em>'.
+	 * @return the meta object for the containment reference list '<em>Variant</em>'.
 	 * @see eaglemodel.Part#getVariant()
 	 * @see #getPart()
 	 * @generated
 	 */
 	EReference getPart_Variant();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Sheets <em>Sheets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sheets</em>'.
+	 * @see eaglemodel.Sheets
+	 * @generated
+	 */
+	EClass getSheets();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Sheets#getSheet <em>Sheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sheet</em>'.
+	 * @see eaglemodel.Sheets#getSheet()
+	 * @see #getSheets()
+	 * @generated
+	 */
+	EReference getSheets_Sheet();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Sheet <em>Sheet</em>}'.
@@ -4341,10 +5789,10 @@ public interface EaglemodelPackage extends EPackage {
 	EClass getSheet();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Sheet#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Sheet#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Description</em>'.
+	 * @return the meta object for the containment reference '<em>Description</em>'.
 	 * @see eaglemodel.Sheet#getDescription()
 	 * @see #getSheet()
 	 * @generated
@@ -4352,10 +5800,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSheet_Description();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Sheet#getPlain <em>Plain</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Sheet#getPlain <em>Plain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Plain</em>'.
+	 * @return the meta object for the containment reference '<em>Plain</em>'.
 	 * @see eaglemodel.Sheet#getPlain()
 	 * @see #getSheet()
 	 * @generated
@@ -4363,10 +5811,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSheet_Plain();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Sheet#getInstances <em>Instances</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Sheet#getInstances <em>Instances</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Instances</em>'.
+	 * @return the meta object for the containment reference '<em>Instances</em>'.
 	 * @see eaglemodel.Sheet#getInstances()
 	 * @see #getSheet()
 	 * @generated
@@ -4374,10 +5822,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSheet_Instances();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Sheet#getBusses <em>Busses</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Sheet#getBusses <em>Busses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Busses</em>'.
+	 * @return the meta object for the containment reference '<em>Busses</em>'.
 	 * @see eaglemodel.Sheet#getBusses()
 	 * @see #getSheet()
 	 * @generated
@@ -4385,15 +5833,57 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSheet_Busses();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Sheet#getNets <em>Nets</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Sheet#getNets <em>Nets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Nets</em>'.
+	 * @return the meta object for the containment reference '<em>Nets</em>'.
 	 * @see eaglemodel.Sheet#getNets()
 	 * @see #getSheet()
 	 * @generated
 	 */
 	EReference getSheet_Nets();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Errors <em>Errors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Errors</em>'.
+	 * @see eaglemodel.Errors
+	 * @generated
+	 */
+	EClass getErrors();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Errors#getError <em>Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Error</em>'.
+	 * @see eaglemodel.Errors#getError()
+	 * @see #getErrors()
+	 * @generated
+	 */
+	EReference getErrors_Error();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Packages <em>Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Packages</em>'.
+	 * @see eaglemodel.Packages
+	 * @generated
+	 */
+	EClass getPackages();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Packages#getPackage <em>Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Package</em>'.
+	 * @see eaglemodel.Packages#getPackage()
+	 * @see #getPackages()
+	 * @generated
+	 */
+	EReference getPackages_Package();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Package <em>Package</em>}'.
@@ -4417,10 +5907,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getPackage_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Package#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Package#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Description</em>'.
+	 * @return the meta object for the containment reference '<em>Description</em>'.
 	 * @see eaglemodel.Package#getDescription()
 	 * @see #getPackage()
 	 * @generated
@@ -4428,10 +5918,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Description();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getPolygon <em>Polygon</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getPolygon <em>Polygon</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Polygon</em>'.
+	 * @return the meta object for the containment reference list '<em>Polygon</em>'.
 	 * @see eaglemodel.Package#getPolygon()
 	 * @see #getPackage()
 	 * @generated
@@ -4439,10 +5929,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Polygon();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getWire <em>Wire</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getWire <em>Wire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Wire</em>'.
+	 * @return the meta object for the containment reference list '<em>Wire</em>'.
 	 * @see eaglemodel.Package#getWire()
 	 * @see #getPackage()
 	 * @generated
@@ -4450,10 +5940,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Wire();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getText <em>Text</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Text</em>'.
+	 * @return the meta object for the containment reference list '<em>Text</em>'.
 	 * @see eaglemodel.Package#getText()
 	 * @see #getPackage()
 	 * @generated
@@ -4461,10 +5951,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Text();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getDimension <em>Dimension</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getDimension <em>Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dimension</em>'.
+	 * @return the meta object for the containment reference list '<em>Dimension</em>'.
 	 * @see eaglemodel.Package#getDimension()
 	 * @see #getPackage()
 	 * @generated
@@ -4472,10 +5962,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Dimension();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getCircle <em>Circle</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getCircle <em>Circle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Circle</em>'.
+	 * @return the meta object for the containment reference list '<em>Circle</em>'.
 	 * @see eaglemodel.Package#getCircle()
 	 * @see #getPackage()
 	 * @generated
@@ -4483,10 +5973,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Circle();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getRectangle <em>Rectangle</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getRectangle <em>Rectangle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Rectangle</em>'.
+	 * @return the meta object for the containment reference list '<em>Rectangle</em>'.
 	 * @see eaglemodel.Package#getRectangle()
 	 * @see #getPackage()
 	 * @generated
@@ -4494,10 +5984,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Rectangle();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getFrame <em>Frame</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getFrame <em>Frame</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Frame</em>'.
+	 * @return the meta object for the containment reference list '<em>Frame</em>'.
 	 * @see eaglemodel.Package#getFrame()
 	 * @see #getPackage()
 	 * @generated
@@ -4505,10 +5995,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Frame();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getHole <em>Hole</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getHole <em>Hole</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Hole</em>'.
+	 * @return the meta object for the containment reference list '<em>Hole</em>'.
 	 * @see eaglemodel.Package#getHole()
 	 * @see #getPackage()
 	 * @generated
@@ -4516,10 +6006,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Hole();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getPad <em>Pad</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getPad <em>Pad</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Pad</em>'.
+	 * @return the meta object for the containment reference list '<em>Pad</em>'.
 	 * @see eaglemodel.Package#getPad()
 	 * @see #getPackage()
 	 * @generated
@@ -4527,15 +6017,36 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPackage_Pad();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Package#getSmd <em>Smd</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Package#getSmd <em>Smd</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Smd</em>'.
+	 * @return the meta object for the containment reference list '<em>Smd</em>'.
 	 * @see eaglemodel.Package#getSmd()
 	 * @see #getPackage()
 	 * @generated
 	 */
 	EReference getPackage_Smd();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Symbols <em>Symbols</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Symbols</em>'.
+	 * @see eaglemodel.Symbols
+	 * @generated
+	 */
+	EClass getSymbols();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbols#getSymbol <em>Symbol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Symbol</em>'.
+	 * @see eaglemodel.Symbols#getSymbol()
+	 * @see #getSymbols()
+	 * @generated
+	 */
+	EReference getSymbols_Symbol();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Symbol <em>Symbol</em>}'.
@@ -4559,10 +6070,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getSymbol_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Symbol#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Symbol#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Description</em>'.
+	 * @return the meta object for the containment reference '<em>Description</em>'.
 	 * @see eaglemodel.Symbol#getDescription()
 	 * @see #getSymbol()
 	 * @generated
@@ -4570,10 +6081,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSymbol_Description();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Symbol#getPolygon <em>Polygon</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbol#getPolygon <em>Polygon</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Polygon</em>'.
+	 * @return the meta object for the containment reference list '<em>Polygon</em>'.
 	 * @see eaglemodel.Symbol#getPolygon()
 	 * @see #getSymbol()
 	 * @generated
@@ -4581,10 +6092,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSymbol_Polygon();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Symbol#getWire <em>Wire</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbol#getWire <em>Wire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Wire</em>'.
+	 * @return the meta object for the containment reference list '<em>Wire</em>'.
 	 * @see eaglemodel.Symbol#getWire()
 	 * @see #getSymbol()
 	 * @generated
@@ -4592,10 +6103,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSymbol_Wire();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Symbol#getText <em>Text</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbol#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Text</em>'.
+	 * @return the meta object for the containment reference list '<em>Text</em>'.
 	 * @see eaglemodel.Symbol#getText()
 	 * @see #getSymbol()
 	 * @generated
@@ -4603,10 +6114,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSymbol_Text();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Symbol#getDimension <em>Dimension</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbol#getDimension <em>Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dimension</em>'.
+	 * @return the meta object for the containment reference list '<em>Dimension</em>'.
 	 * @see eaglemodel.Symbol#getDimension()
 	 * @see #getSymbol()
 	 * @generated
@@ -4614,10 +6125,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSymbol_Dimension();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Symbol#getPin <em>Pin</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbol#getPin <em>Pin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Pin</em>'.
+	 * @return the meta object for the containment reference list '<em>Pin</em>'.
 	 * @see eaglemodel.Symbol#getPin()
 	 * @see #getSymbol()
 	 * @generated
@@ -4625,10 +6136,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSymbol_Pin();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Symbol#getCircle <em>Circle</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbol#getCircle <em>Circle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Circle</em>'.
+	 * @return the meta object for the containment reference list '<em>Circle</em>'.
 	 * @see eaglemodel.Symbol#getCircle()
 	 * @see #getSymbol()
 	 * @generated
@@ -4636,10 +6147,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSymbol_Circle();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Symbol#getRectangle <em>Rectangle</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbol#getRectangle <em>Rectangle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Rectangle</em>'.
+	 * @return the meta object for the containment reference list '<em>Rectangle</em>'.
 	 * @see eaglemodel.Symbol#getRectangle()
 	 * @see #getSymbol()
 	 * @generated
@@ -4647,15 +6158,36 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSymbol_Rectangle();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Symbol#getFrame <em>Frame</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Symbol#getFrame <em>Frame</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Frame</em>'.
+	 * @return the meta object for the containment reference list '<em>Frame</em>'.
 	 * @see eaglemodel.Symbol#getFrame()
 	 * @see #getSymbol()
 	 * @generated
 	 */
 	EReference getSymbol_Frame();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Devicesets <em>Devicesets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Devicesets</em>'.
+	 * @see eaglemodel.Devicesets
+	 * @generated
+	 */
+	EClass getDevicesets();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Devicesets#getDeviceset <em>Deviceset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Deviceset</em>'.
+	 * @see eaglemodel.Devicesets#getDeviceset()
+	 * @see #getDevicesets()
+	 * @generated
+	 */
+	EReference getDevicesets_Deviceset();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Deviceset <em>Deviceset</em>}'.
@@ -4701,10 +6233,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getDeviceset_Uservalue();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Deviceset#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Deviceset#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Description</em>'.
+	 * @return the meta object for the containment reference '<em>Description</em>'.
 	 * @see eaglemodel.Deviceset#getDescription()
 	 * @see #getDeviceset()
 	 * @generated
@@ -4712,10 +6244,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getDeviceset_Description();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Deviceset#getGates <em>Gates</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Deviceset#getGates <em>Gates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Gates</em>'.
+	 * @return the meta object for the containment reference '<em>Gates</em>'.
 	 * @see eaglemodel.Deviceset#getGates()
 	 * @see #getDeviceset()
 	 * @generated
@@ -4723,10 +6255,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getDeviceset_Gates();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Deviceset#getDevices <em>Devices</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Deviceset#getDevices <em>Devices</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Devices</em>'.
+	 * @return the meta object for the containment reference '<em>Devices</em>'.
 	 * @see eaglemodel.Deviceset#getDevices()
 	 * @see #getDeviceset()
 	 * @generated
@@ -4832,10 +6364,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getPolygon_Rank();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Polygon#getVertex <em>Vertex</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Polygon#getVertex <em>Vertex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Vertex</em>'.
+	 * @return the meta object for the containment reference list '<em>Vertex</em>'.
 	 * @see eaglemodel.Polygon#getVertex()
 	 * @see #getPolygon()
 	 * @generated
@@ -5115,15 +6647,15 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getText_Distance();
 
 	/**
-	 * Returns the meta object for the attribute '{@link eaglemodel.Text#getPcdata <em>Pcdata</em>}'.
+	 * Returns the meta object for the attribute '{@link eaglemodel.Text#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pcdata</em>'.
-	 * @see eaglemodel.Text#getPcdata()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see eaglemodel.Text#getValue()
 	 * @see #getText()
 	 * @generated
 	 */
-	EAttribute getText_Pcdata();
+	EAttribute getText_Value();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Dimension <em>Dimension</em>}'.
@@ -5998,6 +7530,27 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getSMD_Cream();
 
 	/**
+	 * Returns the meta object for class '{@link eaglemodel.Gates <em>Gates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Gates</em>'.
+	 * @see eaglemodel.Gates
+	 * @generated
+	 */
+	EClass getGates();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Gates#getGate <em>Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Gate</em>'.
+	 * @see eaglemodel.Gates#getGate()
+	 * @see #getGates()
+	 * @generated
+	 */
+	EReference getGates_Gate();
+
+	/**
 	 * Returns the meta object for class '{@link eaglemodel.Gate <em>Gate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6074,6 +7627,27 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getGate_Swaplevel();
 
 	/**
+	 * Returns the meta object for class '{@link eaglemodel.Devices <em>Devices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Devices</em>'.
+	 * @see eaglemodel.Devices
+	 * @generated
+	 */
+	EClass getDevices();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Devices#getDevice <em>Device</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Device</em>'.
+	 * @see eaglemodel.Devices#getDevice()
+	 * @see #getDevices()
+	 * @generated
+	 */
+	EReference getDevices_Device();
+
+	/**
 	 * Returns the meta object for class '{@link eaglemodel.Device <em>Device</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6106,10 +7680,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getDevice_Package();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Device#getConnects <em>Connects</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Device#getConnects <em>Connects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Connects</em>'.
+	 * @return the meta object for the containment reference '<em>Connects</em>'.
 	 * @see eaglemodel.Device#getConnects()
 	 * @see #getDevice()
 	 * @generated
@@ -6117,15 +7691,36 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getDevice_Connects();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Device#getTechnologies <em>Technologies</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Device#getTechnologies <em>Technologies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Technologies</em>'.
+	 * @return the meta object for the containment reference '<em>Technologies</em>'.
 	 * @see eaglemodel.Device#getTechnologies()
 	 * @see #getDevice()
 	 * @generated
 	 */
 	EReference getDevice_Technologies();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Connects <em>Connects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Connects</em>'.
+	 * @see eaglemodel.Connects
+	 * @generated
+	 */
+	EClass getConnects();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Connects#getConnect <em>Connect</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Connect</em>'.
+	 * @see eaglemodel.Connects#getConnect()
+	 * @see #getConnects()
+	 * @generated
+	 */
+	EReference getConnects_Connect();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Connect <em>Connect</em>}'.
@@ -6182,6 +7777,27 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getConnect_Route();
 
 	/**
+	 * Returns the meta object for class '{@link eaglemodel.Technologies <em>Technologies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Technologies</em>'.
+	 * @see eaglemodel.Technologies
+	 * @generated
+	 */
+	EClass getTechnologies();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Technologies#getTechnology <em>Technology</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Technology</em>'.
+	 * @see eaglemodel.Technologies#getTechnology()
+	 * @see #getTechnologies()
+	 * @generated
+	 */
+	EReference getTechnologies_Technology();
+
+	/**
 	 * Returns the meta object for class '{@link eaglemodel.Technology <em>Technology</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6203,10 +7819,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getTechnology_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Technology#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Technology#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Attribute</em>'.
+	 * @return the meta object for the containment reference list '<em>Attribute</em>'.
 	 * @see eaglemodel.Technology#getAttribute()
 	 * @see #getTechnology()
 	 * @generated
@@ -6224,10 +7840,10 @@ public interface EaglemodelPackage extends EPackage {
 	EClass getPlain();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Plain#getPolygon <em>Polygon</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Plain#getPolygon <em>Polygon</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Polygon</em>'.
+	 * @return the meta object for the containment reference list '<em>Polygon</em>'.
 	 * @see eaglemodel.Plain#getPolygon()
 	 * @see #getPlain()
 	 * @generated
@@ -6235,10 +7851,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPlain_Polygon();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Plain#getWire <em>Wire</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Plain#getWire <em>Wire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Wire</em>'.
+	 * @return the meta object for the containment reference list '<em>Wire</em>'.
 	 * @see eaglemodel.Plain#getWire()
 	 * @see #getPlain()
 	 * @generated
@@ -6246,10 +7862,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPlain_Wire();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Plain#getText <em>Text</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Plain#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Text</em>'.
+	 * @return the meta object for the containment reference list '<em>Text</em>'.
 	 * @see eaglemodel.Plain#getText()
 	 * @see #getPlain()
 	 * @generated
@@ -6257,10 +7873,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPlain_Text();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Plain#getDimension <em>Dimension</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Plain#getDimension <em>Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dimension</em>'.
+	 * @return the meta object for the containment reference list '<em>Dimension</em>'.
 	 * @see eaglemodel.Plain#getDimension()
 	 * @see #getPlain()
 	 * @generated
@@ -6268,10 +7884,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPlain_Dimension();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Plain#getCircle <em>Circle</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Plain#getCircle <em>Circle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Circle</em>'.
+	 * @return the meta object for the containment reference list '<em>Circle</em>'.
 	 * @see eaglemodel.Plain#getCircle()
 	 * @see #getPlain()
 	 * @generated
@@ -6279,10 +7895,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPlain_Circle();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Plain#getRectangle <em>Rectangle</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Plain#getRectangle <em>Rectangle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Rectangle</em>'.
+	 * @return the meta object for the containment reference list '<em>Rectangle</em>'.
 	 * @see eaglemodel.Plain#getRectangle()
 	 * @see #getPlain()
 	 * @generated
@@ -6290,10 +7906,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPlain_Rectangle();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Plain#getFrame <em>Frame</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Plain#getFrame <em>Frame</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Frame</em>'.
+	 * @return the meta object for the containment reference list '<em>Frame</em>'.
 	 * @see eaglemodel.Plain#getFrame()
 	 * @see #getPlain()
 	 * @generated
@@ -6301,15 +7917,36 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getPlain_Frame();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Plain#getHole <em>Hole</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Plain#getHole <em>Hole</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Hole</em>'.
+	 * @return the meta object for the containment reference list '<em>Hole</em>'.
 	 * @see eaglemodel.Plain#getHole()
 	 * @see #getPlain()
 	 * @generated
 	 */
 	EReference getPlain_Hole();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Instances <em>Instances</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Instances</em>'.
+	 * @see eaglemodel.Instances
+	 * @generated
+	 */
+	EClass getInstances();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Instances#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Instance</em>'.
+	 * @see eaglemodel.Instances#getInstance()
+	 * @see #getInstances()
+	 * @generated
+	 */
+	EReference getInstances_Instance();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Instance <em>Instance</em>}'.
@@ -6388,15 +8025,36 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getInstance_Rot();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Instance#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Instance#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Attribute</em>'.
+	 * @return the meta object for the containment reference list '<em>Attribute</em>'.
 	 * @see eaglemodel.Instance#getAttribute()
 	 * @see #getInstance()
 	 * @generated
 	 */
 	EReference getInstance_Attribute();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Busses <em>Busses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Busses</em>'.
+	 * @see eaglemodel.Busses
+	 * @generated
+	 */
+	EClass getBusses();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Busses#getBus <em>Bus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bus</em>'.
+	 * @see eaglemodel.Busses#getBus()
+	 * @see #getBusses()
+	 * @generated
+	 */
+	EReference getBusses_Bus();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Bus <em>Bus</em>}'.
@@ -6420,15 +8078,36 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getBus_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Bus#getSegment <em>Segment</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Bus#getSegment <em>Segment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Segment</em>'.
+	 * @return the meta object for the containment reference list '<em>Segment</em>'.
 	 * @see eaglemodel.Bus#getSegment()
 	 * @see #getBus()
 	 * @generated
 	 */
 	EReference getBus_Segment();
+
+	/**
+	 * Returns the meta object for class '{@link eaglemodel.Nets <em>Nets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Nets</em>'.
+	 * @see eaglemodel.Nets
+	 * @generated
+	 */
+	EClass getNets();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Nets#getNet <em>Net</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Net</em>'.
+	 * @see eaglemodel.Nets#getNet()
+	 * @see #getNets()
+	 * @generated
+	 */
+	EReference getNets_Net();
 
 	/**
 	 * Returns the meta object for class '{@link eaglemodel.Net <em>Net</em>}'.
@@ -6452,10 +8131,10 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getNet_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link eaglemodel.Net#getClass_ <em>Class</em>}'.
+	 * Returns the meta object for the containment reference '{@link eaglemodel.Net#getClass_ <em>Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Class</em>'.
+	 * @return the meta object for the containment reference '<em>Class</em>'.
 	 * @see eaglemodel.Net#getClass_()
 	 * @see #getNet()
 	 * @generated
@@ -6463,10 +8142,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getNet_Class();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Net#getSegment <em>Segment</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Net#getSegment <em>Segment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Segment</em>'.
+	 * @return the meta object for the containment reference list '<em>Segment</em>'.
 	 * @see eaglemodel.Net#getSegment()
 	 * @see #getNet()
 	 * @generated
@@ -6484,10 +8163,10 @@ public interface EaglemodelPackage extends EPackage {
 	EClass getSegment();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Segment#getPinref <em>Pinref</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Segment#getPinref <em>Pinref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Pinref</em>'.
+	 * @return the meta object for the containment reference list '<em>Pinref</em>'.
 	 * @see eaglemodel.Segment#getPinref()
 	 * @see #getSegment()
 	 * @generated
@@ -6495,10 +8174,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSegment_Pinref();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Segment#getWire <em>Wire</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Segment#getWire <em>Wire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Wire</em>'.
+	 * @return the meta object for the containment reference list '<em>Wire</em>'.
 	 * @see eaglemodel.Segment#getWire()
 	 * @see #getSegment()
 	 * @generated
@@ -6506,10 +8185,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSegment_Wire();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Segment#getJunction <em>Junction</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Segment#getJunction <em>Junction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Junction</em>'.
+	 * @return the meta object for the containment reference list '<em>Junction</em>'.
 	 * @see eaglemodel.Segment#getJunction()
 	 * @see #getSegment()
 	 * @generated
@@ -6517,10 +8196,10 @@ public interface EaglemodelPackage extends EPackage {
 	EReference getSegment_Junction();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eaglemodel.Segment#getLabel <em>Label</em>}'.
+	 * Returns the meta object for the containment reference list '{@link eaglemodel.Segment#getLabel <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Label</em>'.
+	 * @return the meta object for the containment reference list '<em>Label</em>'.
 	 * @see eaglemodel.Segment#getLabel()
 	 * @see #getSegment()
 	 * @generated
@@ -6722,6 +8401,176 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getApproved_Hash();
 
 	/**
+	 * Returns the meta object for enum '{@link eaglemodel.GateAddLevel <em>Gate Add Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Gate Add Level</em>'.
+	 * @see eaglemodel.GateAddLevel
+	 * @generated
+	 */
+	EEnum getGateAddLevel();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.WireStyle <em>Wire Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Wire Style</em>'.
+	 * @see eaglemodel.WireStyle
+	 * @generated
+	 */
+	EEnum getWireStyle();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.WireCap <em>Wire Cap</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Wire Cap</em>'.
+	 * @see eaglemodel.WireCap
+	 * @generated
+	 */
+	EEnum getWireCap();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.DimensionType <em>Dimension Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Dimension Type</em>'.
+	 * @see eaglemodel.DimensionType
+	 * @generated
+	 */
+	EEnum getDimensionType();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.GridUnit <em>Grid Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Grid Unit</em>'.
+	 * @see eaglemodel.GridUnit
+	 * @generated
+	 */
+	EEnum getGridUnit();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.GridStyle <em>Grid Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Grid Style</em>'.
+	 * @see eaglemodel.GridStyle
+	 * @generated
+	 */
+	EEnum getGridStyle();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.TextFont <em>Text Font</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Text Font</em>'.
+	 * @see eaglemodel.TextFont
+	 * @generated
+	 */
+	EEnum getTextFont();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.Align <em>Align</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Align</em>'.
+	 * @see eaglemodel.Align
+	 * @generated
+	 */
+	EEnum getAlign();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.PadShape <em>Pad Shape</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Pad Shape</em>'.
+	 * @see eaglemodel.PadShape
+	 * @generated
+	 */
+	EEnum getPadShape();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.PolygonPour <em>Polygon Pour</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Polygon Pour</em>'.
+	 * @see eaglemodel.PolygonPour
+	 * @generated
+	 */
+	EEnum getPolygonPour();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.PinVisible <em>Pin Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Pin Visible</em>'.
+	 * @see eaglemodel.PinVisible
+	 * @generated
+	 */
+	EEnum getPinVisible();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.PinLength <em>Pin Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Pin Length</em>'.
+	 * @see eaglemodel.PinLength
+	 * @generated
+	 */
+	EEnum getPinLength();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.PinDirection <em>Pin Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Pin Direction</em>'.
+	 * @see eaglemodel.PinDirection
+	 * @generated
+	 */
+	EEnum getPinDirection();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.PinFunction <em>Pin Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Pin Function</em>'.
+	 * @see eaglemodel.PinFunction
+	 * @generated
+	 */
+	EEnum getPinFunction();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.ContactRoute <em>Contact Route</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Contact Route</em>'.
+	 * @see eaglemodel.ContactRoute
+	 * @generated
+	 */
+	EEnum getContactRoute();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.AttributeDisplay <em>Attribute Display</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Attribute Display</em>'.
+	 * @see eaglemodel.AttributeDisplay
+	 * @generated
+	 */
+	EEnum getAttributeDisplay();
+
+	/**
+	 * Returns the meta object for enum '{@link eaglemodel.VerticalText <em>Vertical Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Vertical Text</em>'.
+	 * @see eaglemodel.VerticalText
+	 * @generated
+	 */
+	EEnum getVerticalText();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6736,6 +8585,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -6762,7 +8612,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute EAGLE__VERSION = eINSTANCE.getEagle_Version();
 
 		/**
-		 * The meta object literal for the '<em><b>Compatibility</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Compatibility</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6770,7 +8620,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference EAGLE__COMPATIBILITY = eINSTANCE.getEagle_Compatibility();
 
 		/**
-		 * The meta object literal for the '<em><b>Drawing</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Drawing</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6778,17 +8628,17 @@ public interface EaglemodelPackage extends EPackage {
 		EReference EAGLE__DRAWING = eINSTANCE.getEagle_Drawing();
 
 		/**
-		 * The meta object literal for the '{@link eaglemodel.Compatibility <em>Compatibility</em>}' class.
+		 * The meta object literal for the '{@link eaglemodel.impl.CompatibilityImpl <em>Compatibility</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see eaglemodel.Compatibility
+		 * @see eaglemodel.impl.CompatibilityImpl
 		 * @see eaglemodel.impl.EaglemodelPackageImpl#getCompatibility()
 		 * @generated
 		 */
 		EClass COMPATIBILITY = eINSTANCE.getCompatibility();
 
 		/**
-		 * The meta object literal for the '<em><b>Note</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Note</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6822,12 +8672,12 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute NOTE__SEVERITY = eINSTANCE.getNote_Severity();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcdata</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NOTE__PCDATA = eINSTANCE.getNote_Pcdata();
+		EAttribute NOTE__VALUE = eINSTANCE.getNote_Value();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.DrawingImpl <em>Drawing</em>}' class.
@@ -6840,7 +8690,7 @@ public interface EaglemodelPackage extends EPackage {
 		EClass DRAWING = eINSTANCE.getDrawing();
 
 		/**
-		 * The meta object literal for the '<em><b>Settings</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Settings</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6848,7 +8698,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference DRAWING__SETTINGS = eINSTANCE.getDrawing_Settings();
 
 		/**
-		 * The meta object literal for the '<em><b>Grid</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Grid</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6856,7 +8706,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference DRAWING__GRID = eINSTANCE.getDrawing_Grid();
 
 		/**
-		 * The meta object literal for the '<em><b>Layers</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Layers</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6864,12 +8714,30 @@ public interface EaglemodelPackage extends EPackage {
 		EReference DRAWING__LAYERS = eINSTANCE.getDrawing_Layers();
 
 		/**
-		 * The meta object literal for the '<em><b>Schematic</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Schematic</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DRAWING__SCHEMATIC = eINSTANCE.getDrawing_Schematic();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.SettingsImpl <em>Settings</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.SettingsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getSettings()
+		 * @generated
+		 */
+		EClass SETTINGS = eINSTANCE.getSettings();
+
+		/**
+		 * The meta object literal for the '<em><b>Settings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SETTINGS__SETTINGS = eINSTANCE.getSettings_Settings();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.SettingImpl <em>Setting</em>}' class.
@@ -6980,6 +8848,24 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute GRID__ALTUNIT = eINSTANCE.getGrid_Altunit();
 
 		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.LayersImpl <em>Layers</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.LayersImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getLayers()
+		 * @generated
+		 */
+		EClass LAYERS = eINSTANCE.getLayers();
+
+		/**
+		 * The meta object literal for the '<em><b>Layers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LAYERS__LAYERS = eINSTANCE.getLayers_Layers();
+
+		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.LayerImpl <em>Layer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7064,7 +8950,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute SCHEMATIC__XREFPART = eINSTANCE.getSchematic_Xrefpart();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7072,7 +8958,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SCHEMATIC__DESCRIPTION = eINSTANCE.getSchematic_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Libraries</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Libraries</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7080,7 +8966,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SCHEMATIC__LIBRARIES = eINSTANCE.getSchematic_Libraries();
 
 		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7088,7 +8974,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SCHEMATIC__ATTRIBUTES = eINSTANCE.getSchematic_Attributes();
 
 		/**
-		 * The meta object literal for the '<em><b>Variantdefs</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Variantdefs</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7096,7 +8982,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SCHEMATIC__VARIANTDEFS = eINSTANCE.getSchematic_Variantdefs();
 
 		/**
-		 * The meta object literal for the '<em><b>Classes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Classes</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7104,7 +8990,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SCHEMATIC__CLASSES = eINSTANCE.getSchematic_Classes();
 
 		/**
-		 * The meta object literal for the '<em><b>Parts</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Parts</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7112,7 +8998,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SCHEMATIC__PARTS = eINSTANCE.getSchematic_Parts();
 
 		/**
-		 * The meta object literal for the '<em><b>Sheets</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Sheets</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7120,7 +9006,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SCHEMATIC__SHEETS = eINSTANCE.getSchematic_Sheets();
 
 		/**
-		 * The meta object literal for the '<em><b>Errors</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Errors</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7146,12 +9032,30 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute DESCRIPTION__LANGUAGE = eINSTANCE.getDescription_Language();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcdata</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DESCRIPTION__PCDATA = eINSTANCE.getDescription_Pcdata();
+		EAttribute DESCRIPTION__VALUE = eINSTANCE.getDescription_Value();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.LibrariesImpl <em>Libraries</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.LibrariesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getLibraries()
+		 * @generated
+		 */
+		EClass LIBRARIES = eINSTANCE.getLibraries();
+
+		/**
+		 * The meta object literal for the '<em><b>Library</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARIES__LIBRARY = eINSTANCE.getLibraries_Library();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.LibraryImpl <em>Library</em>}' class.
@@ -7172,7 +9076,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute LIBRARY__NAME = eINSTANCE.getLibrary_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7180,7 +9084,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference LIBRARY__DESCRIPTION = eINSTANCE.getLibrary_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Packages</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Packages</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7188,7 +9092,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference LIBRARY__PACKAGES = eINSTANCE.getLibrary_Packages();
 
 		/**
-		 * The meta object literal for the '<em><b>Symbols</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Symbols</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7196,12 +9100,30 @@ public interface EaglemodelPackage extends EPackage {
 		EReference LIBRARY__SYMBOLS = eINSTANCE.getLibrary_Symbols();
 
 		/**
-		 * The meta object literal for the '<em><b>Devicesets</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Devicesets</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference LIBRARY__DEVICESETS = eINSTANCE.getLibrary_Devicesets();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.AttributesImpl <em>Attributes</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.AttributesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getAttributes()
+		 * @generated
+		 */
+		EClass ATTRIBUTES = eINSTANCE.getAttributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTES__ATTRIBUTE = eINSTANCE.getAttributes_Attribute();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -7302,6 +9224,24 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute ATTRIBUTE__CONSTANT = eINSTANCE.getAttribute_Constant();
 
 		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.VariantdefsImpl <em>Variantdefs</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.VariantdefsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getVariantdefs()
+		 * @generated
+		 */
+		EClass VARIANTDEFS = eINSTANCE.getVariantdefs();
+
+		/**
+		 * The meta object literal for the '<em><b>Variantdef</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIANTDEFS__VARIANTDEF = eINSTANCE.getVariantdefs_Variantdef();
+
+		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.VariantdefImpl <em>Variantdef</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7370,6 +9310,24 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute VARIANT__TECHNOLOGY = eINSTANCE.getVariant_Technology();
 
 		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.ClassesImpl <em>Classes</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.ClassesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getClasses()
+		 * @generated
+		 */
+		EClass CLASSES = eINSTANCE.getClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Class</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASSES__CLASS = eINSTANCE.getClasses_Class();
+
+		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.ClassImpl <em>Class</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7412,7 +9370,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute CLASS__DRILL = eINSTANCE.getClass_Drill();
 
 		/**
-		 * The meta object literal for the '<em><b>Clearance</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Clearance</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7444,6 +9402,24 @@ public interface EaglemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLEARANCE__VALUE = eINSTANCE.getClearance_Value();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.PartsImpl <em>Parts</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.PartsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getParts()
+		 * @generated
+		 */
+		EClass PARTS = eINSTANCE.getParts();
+
+		/**
+		 * The meta object literal for the '<em><b>Part</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTS__PART = eINSTANCE.getParts_Part();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.PartImpl <em>Part</em>}' class.
@@ -7504,7 +9480,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute PART__VALUE = eINSTANCE.getPart_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7512,12 +9488,30 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PART__ATTRIBUTE = eINSTANCE.getPart_Attribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Variant</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Variant</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PART__VARIANT = eINSTANCE.getPart_Variant();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.SheetsImpl <em>Sheets</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.SheetsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getSheets()
+		 * @generated
+		 */
+		EClass SHEETS = eINSTANCE.getSheets();
+
+		/**
+		 * The meta object literal for the '<em><b>Sheet</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHEETS__SHEET = eINSTANCE.getSheets_Sheet();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.SheetImpl <em>Sheet</em>}' class.
@@ -7530,7 +9524,7 @@ public interface EaglemodelPackage extends EPackage {
 		EClass SHEET = eINSTANCE.getSheet();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7538,7 +9532,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SHEET__DESCRIPTION = eINSTANCE.getSheet_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Plain</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Plain</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7546,7 +9540,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SHEET__PLAIN = eINSTANCE.getSheet_Plain();
 
 		/**
-		 * The meta object literal for the '<em><b>Instances</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Instances</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7554,7 +9548,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SHEET__INSTANCES = eINSTANCE.getSheet_Instances();
 
 		/**
-		 * The meta object literal for the '<em><b>Busses</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Busses</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7562,12 +9556,48 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SHEET__BUSSES = eINSTANCE.getSheet_Busses();
 
 		/**
-		 * The meta object literal for the '<em><b>Nets</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Nets</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SHEET__NETS = eINSTANCE.getSheet_Nets();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.ErrorsImpl <em>Errors</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.ErrorsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getErrors()
+		 * @generated
+		 */
+		EClass ERRORS = eINSTANCE.getErrors();
+
+		/**
+		 * The meta object literal for the '<em><b>Error</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ERRORS__ERROR = eINSTANCE.getErrors_Error();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.PackagesImpl <em>Packages</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.PackagesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getPackages()
+		 * @generated
+		 */
+		EClass PACKAGES = eINSTANCE.getPackages();
+
+		/**
+		 * The meta object literal for the '<em><b>Package</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGES__PACKAGE = eINSTANCE.getPackages_Package();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.PackageImpl <em>Package</em>}' class.
@@ -7588,7 +9618,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7596,7 +9626,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__DESCRIPTION = eINSTANCE.getPackage_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Polygon</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Polygon</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7604,7 +9634,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__POLYGON = eINSTANCE.getPackage_Polygon();
 
 		/**
-		 * The meta object literal for the '<em><b>Wire</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Wire</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7612,7 +9642,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__WIRE = eINSTANCE.getPackage_Wire();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Text</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7620,7 +9650,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__TEXT = eINSTANCE.getPackage_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Dimension</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Dimension</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7628,7 +9658,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__DIMENSION = eINSTANCE.getPackage_Dimension();
 
 		/**
-		 * The meta object literal for the '<em><b>Circle</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Circle</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7636,7 +9666,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__CIRCLE = eINSTANCE.getPackage_Circle();
 
 		/**
-		 * The meta object literal for the '<em><b>Rectangle</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Rectangle</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7644,7 +9674,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__RECTANGLE = eINSTANCE.getPackage_Rectangle();
 
 		/**
-		 * The meta object literal for the '<em><b>Frame</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Frame</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7652,7 +9682,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__FRAME = eINSTANCE.getPackage_Frame();
 
 		/**
-		 * The meta object literal for the '<em><b>Hole</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Hole</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7660,7 +9690,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__HOLE = eINSTANCE.getPackage_Hole();
 
 		/**
-		 * The meta object literal for the '<em><b>Pad</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Pad</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7668,12 +9698,30 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PACKAGE__PAD = eINSTANCE.getPackage_Pad();
 
 		/**
-		 * The meta object literal for the '<em><b>Smd</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Smd</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PACKAGE__SMD = eINSTANCE.getPackage_Smd();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.SymbolsImpl <em>Symbols</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.SymbolsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getSymbols()
+		 * @generated
+		 */
+		EClass SYMBOLS = eINSTANCE.getSymbols();
+
+		/**
+		 * The meta object literal for the '<em><b>Symbol</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYMBOLS__SYMBOL = eINSTANCE.getSymbols_Symbol();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.SymbolImpl <em>Symbol</em>}' class.
@@ -7694,7 +9742,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute SYMBOL__NAME = eINSTANCE.getSymbol_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7702,7 +9750,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SYMBOL__DESCRIPTION = eINSTANCE.getSymbol_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Polygon</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Polygon</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7710,7 +9758,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SYMBOL__POLYGON = eINSTANCE.getSymbol_Polygon();
 
 		/**
-		 * The meta object literal for the '<em><b>Wire</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Wire</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7718,7 +9766,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SYMBOL__WIRE = eINSTANCE.getSymbol_Wire();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Text</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7726,7 +9774,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SYMBOL__TEXT = eINSTANCE.getSymbol_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Dimension</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Dimension</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7734,7 +9782,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SYMBOL__DIMENSION = eINSTANCE.getSymbol_Dimension();
 
 		/**
-		 * The meta object literal for the '<em><b>Pin</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Pin</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7742,7 +9790,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SYMBOL__PIN = eINSTANCE.getSymbol_Pin();
 
 		/**
-		 * The meta object literal for the '<em><b>Circle</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Circle</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7750,7 +9798,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SYMBOL__CIRCLE = eINSTANCE.getSymbol_Circle();
 
 		/**
-		 * The meta object literal for the '<em><b>Rectangle</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Rectangle</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7758,12 +9806,30 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SYMBOL__RECTANGLE = eINSTANCE.getSymbol_Rectangle();
 
 		/**
-		 * The meta object literal for the '<em><b>Frame</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Frame</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SYMBOL__FRAME = eINSTANCE.getSymbol_Frame();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.DevicesetsImpl <em>Devicesets</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.DevicesetsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getDevicesets()
+		 * @generated
+		 */
+		EClass DEVICESETS = eINSTANCE.getDevicesets();
+
+		/**
+		 * The meta object literal for the '<em><b>Deviceset</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEVICESETS__DEVICESET = eINSTANCE.getDevicesets_Deviceset();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.DevicesetImpl <em>Deviceset</em>}' class.
@@ -7800,7 +9866,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute DEVICESET__USERVALUE = eINSTANCE.getDeviceset_Uservalue();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7808,7 +9874,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference DEVICESET__DESCRIPTION = eINSTANCE.getDeviceset_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Gates</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Gates</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7816,7 +9882,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference DEVICESET__GATES = eINSTANCE.getDeviceset_Gates();
 
 		/**
-		 * The meta object literal for the '<em><b>Devices</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Devices</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7898,7 +9964,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute POLYGON__RANK = eINSTANCE.getPolygon_Rank();
 
 		/**
-		 * The meta object literal for the '<em><b>Vertex</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Vertex</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8112,12 +10178,12 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute TEXT__DISTANCE = eINSTANCE.getText_Distance();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcdata</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEXT__PCDATA = eINSTANCE.getText_Pcdata();
+		EAttribute TEXT__VALUE = eINSTANCE.getText_Value();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.DimensionImpl <em>Dimension</em>}' class.
@@ -8776,6 +10842,24 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute SMD__CREAM = eINSTANCE.getSMD_Cream();
 
 		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.GatesImpl <em>Gates</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.GatesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getGates()
+		 * @generated
+		 */
+		EClass GATES = eINSTANCE.getGates();
+
+		/**
+		 * The meta object literal for the '<em><b>Gate</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GATES__GATE = eINSTANCE.getGates_Gate();
+
+		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.GateImpl <em>Gate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8834,6 +10918,24 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute GATE__SWAPLEVEL = eINSTANCE.getGate_Swaplevel();
 
 		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.DevicesImpl <em>Devices</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.DevicesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getDevices()
+		 * @generated
+		 */
+		EClass DEVICES = eINSTANCE.getDevices();
+
+		/**
+		 * The meta object literal for the '<em><b>Device</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEVICES__DEVICE = eINSTANCE.getDevices_Device();
+
+		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.DeviceImpl <em>Device</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8860,7 +10962,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute DEVICE__PACKAGE = eINSTANCE.getDevice_Package();
 
 		/**
-		 * The meta object literal for the '<em><b>Connects</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Connects</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8868,12 +10970,30 @@ public interface EaglemodelPackage extends EPackage {
 		EReference DEVICE__CONNECTS = eINSTANCE.getDevice_Connects();
 
 		/**
-		 * The meta object literal for the '<em><b>Technologies</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Technologies</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DEVICE__TECHNOLOGIES = eINSTANCE.getDevice_Technologies();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.ConnectsImpl <em>Connects</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.ConnectsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getConnects()
+		 * @generated
+		 */
+		EClass CONNECTS = eINSTANCE.getConnects();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTS__CONNECT = eINSTANCE.getConnects_Connect();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.ConnectImpl <em>Connect</em>}' class.
@@ -8918,6 +11038,24 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute CONNECT__ROUTE = eINSTANCE.getConnect_Route();
 
 		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.TechnologiesImpl <em>Technologies</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.TechnologiesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getTechnologies()
+		 * @generated
+		 */
+		EClass TECHNOLOGIES = eINSTANCE.getTechnologies();
+
+		/**
+		 * The meta object literal for the '<em><b>Technology</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TECHNOLOGIES__TECHNOLOGY = eINSTANCE.getTechnologies_Technology();
+
+		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.TechnologyImpl <em>Technology</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8936,7 +11074,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute TECHNOLOGY__NAME = eINSTANCE.getTechnology_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8954,7 +11092,7 @@ public interface EaglemodelPackage extends EPackage {
 		EClass PLAIN = eINSTANCE.getPlain();
 
 		/**
-		 * The meta object literal for the '<em><b>Polygon</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Polygon</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8962,7 +11100,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PLAIN__POLYGON = eINSTANCE.getPlain_Polygon();
 
 		/**
-		 * The meta object literal for the '<em><b>Wire</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Wire</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8970,7 +11108,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PLAIN__WIRE = eINSTANCE.getPlain_Wire();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Text</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8978,7 +11116,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PLAIN__TEXT = eINSTANCE.getPlain_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Dimension</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Dimension</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8986,7 +11124,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PLAIN__DIMENSION = eINSTANCE.getPlain_Dimension();
 
 		/**
-		 * The meta object literal for the '<em><b>Circle</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Circle</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8994,7 +11132,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PLAIN__CIRCLE = eINSTANCE.getPlain_Circle();
 
 		/**
-		 * The meta object literal for the '<em><b>Rectangle</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Rectangle</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9002,7 +11140,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PLAIN__RECTANGLE = eINSTANCE.getPlain_Rectangle();
 
 		/**
-		 * The meta object literal for the '<em><b>Frame</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Frame</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9010,12 +11148,30 @@ public interface EaglemodelPackage extends EPackage {
 		EReference PLAIN__FRAME = eINSTANCE.getPlain_Frame();
 
 		/**
-		 * The meta object literal for the '<em><b>Hole</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Hole</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PLAIN__HOLE = eINSTANCE.getPlain_Hole();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.InstancesImpl <em>Instances</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.InstancesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getInstances()
+		 * @generated
+		 */
+		EClass INSTANCES = eINSTANCE.getInstances();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INSTANCES__INSTANCE = eINSTANCE.getInstances_Instance();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.InstanceImpl <em>Instance</em>}' class.
@@ -9076,12 +11232,30 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute INSTANCE__ROT = eINSTANCE.getInstance_Rot();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference INSTANCE__ATTRIBUTE = eINSTANCE.getInstance_Attribute();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.BussesImpl <em>Busses</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.BussesImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getBusses()
+		 * @generated
+		 */
+		EClass BUSSES = eINSTANCE.getBusses();
+
+		/**
+		 * The meta object literal for the '<em><b>Bus</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUSSES__BUS = eINSTANCE.getBusses_Bus();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.BusImpl <em>Bus</em>}' class.
@@ -9102,12 +11276,30 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute BUS__NAME = eINSTANCE.getBus_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Segment</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Segment</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference BUS__SEGMENT = eINSTANCE.getBus_Segment();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.impl.NetsImpl <em>Nets</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.impl.NetsImpl
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getNets()
+		 * @generated
+		 */
+		EClass NETS = eINSTANCE.getNets();
+
+		/**
+		 * The meta object literal for the '<em><b>Net</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NETS__NET = eINSTANCE.getNets_Net();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.impl.NetImpl <em>Net</em>}' class.
@@ -9128,7 +11320,7 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute NET__NAME = eINSTANCE.getNet_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Class</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Class</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9136,7 +11328,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference NET__CLASS = eINSTANCE.getNet_Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Segment</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Segment</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9154,7 +11346,7 @@ public interface EaglemodelPackage extends EPackage {
 		EClass SEGMENT = eINSTANCE.getSegment();
 
 		/**
-		 * The meta object literal for the '<em><b>Pinref</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Pinref</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9162,7 +11354,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SEGMENT__PINREF = eINSTANCE.getSegment_Pinref();
 
 		/**
-		 * The meta object literal for the '<em><b>Wire</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Wire</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9170,7 +11362,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SEGMENT__WIRE = eINSTANCE.getSegment_Wire();
 
 		/**
-		 * The meta object literal for the '<em><b>Junction</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Junction</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9178,7 +11370,7 @@ public interface EaglemodelPackage extends EPackage {
 		EReference SEGMENT__JUNCTION = eINSTANCE.getSegment_Junction();
 
 		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Label</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -9336,6 +11528,176 @@ public interface EaglemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute APPROVED__HASH = eINSTANCE.getApproved_Hash();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.GateAddLevel <em>Gate Add Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.GateAddLevel
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getGateAddLevel()
+		 * @generated
+		 */
+		EEnum GATE_ADD_LEVEL = eINSTANCE.getGateAddLevel();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.WireStyle <em>Wire Style</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.WireStyle
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getWireStyle()
+		 * @generated
+		 */
+		EEnum WIRE_STYLE = eINSTANCE.getWireStyle();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.WireCap <em>Wire Cap</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.WireCap
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getWireCap()
+		 * @generated
+		 */
+		EEnum WIRE_CAP = eINSTANCE.getWireCap();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.DimensionType <em>Dimension Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.DimensionType
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getDimensionType()
+		 * @generated
+		 */
+		EEnum DIMENSION_TYPE = eINSTANCE.getDimensionType();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.GridUnit <em>Grid Unit</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.GridUnit
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getGridUnit()
+		 * @generated
+		 */
+		EEnum GRID_UNIT = eINSTANCE.getGridUnit();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.GridStyle <em>Grid Style</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.GridStyle
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getGridStyle()
+		 * @generated
+		 */
+		EEnum GRID_STYLE = eINSTANCE.getGridStyle();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.TextFont <em>Text Font</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.TextFont
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getTextFont()
+		 * @generated
+		 */
+		EEnum TEXT_FONT = eINSTANCE.getTextFont();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.Align <em>Align</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.Align
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getAlign()
+		 * @generated
+		 */
+		EEnum ALIGN = eINSTANCE.getAlign();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.PadShape <em>Pad Shape</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.PadShape
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getPadShape()
+		 * @generated
+		 */
+		EEnum PAD_SHAPE = eINSTANCE.getPadShape();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.PolygonPour <em>Polygon Pour</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.PolygonPour
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getPolygonPour()
+		 * @generated
+		 */
+		EEnum POLYGON_POUR = eINSTANCE.getPolygonPour();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.PinVisible <em>Pin Visible</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.PinVisible
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinVisible()
+		 * @generated
+		 */
+		EEnum PIN_VISIBLE = eINSTANCE.getPinVisible();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.PinLength <em>Pin Length</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.PinLength
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinLength()
+		 * @generated
+		 */
+		EEnum PIN_LENGTH = eINSTANCE.getPinLength();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.PinDirection <em>Pin Direction</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.PinDirection
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinDirection()
+		 * @generated
+		 */
+		EEnum PIN_DIRECTION = eINSTANCE.getPinDirection();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.PinFunction <em>Pin Function</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.PinFunction
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinFunction()
+		 * @generated
+		 */
+		EEnum PIN_FUNCTION = eINSTANCE.getPinFunction();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.ContactRoute <em>Contact Route</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.ContactRoute
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getContactRoute()
+		 * @generated
+		 */
+		EEnum CONTACT_ROUTE = eINSTANCE.getContactRoute();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.AttributeDisplay <em>Attribute Display</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.AttributeDisplay
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getAttributeDisplay()
+		 * @generated
+		 */
+		EEnum ATTRIBUTE_DISPLAY = eINSTANCE.getAttributeDisplay();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.VerticalText <em>Vertical Text</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.VerticalText
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getVerticalText()
+		 * @generated
+		 */
+		EEnum VERTICAL_TEXT = eINSTANCE.getVerticalText();
 
 	}
 

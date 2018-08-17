@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Package#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Package#getDescription <em>Description</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Package#getPad <em>Pad</em>}</li>
  *   <li>{@link eaglemodel.Package#getSmd <em>Smd</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPackage()
  * @model
@@ -61,189 +61,189 @@ public interface Package extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' reference.
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' reference isn't clear,
+	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' reference.
+	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Description)
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Description()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Description getDescription();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Package#getDescription <em>Description</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Package#getDescription <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' reference.
+	 * @param value the new value of the '<em>Description</em>' containment reference.
 	 * @see #getDescription()
 	 * @generated
 	 */
 	void setDescription(Description value);
 
 	/**
-	 * Returns the value of the '<em><b>Polygon</b></em>' reference list.
+	 * Returns the value of the '<em><b>Polygon</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Polygon}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Polygon</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Polygon</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Polygon</em>' reference list.
+	 * @return the value of the '<em>Polygon</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Polygon()
-	 * @model type="eaglemodel.Polygon"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getPolygon();
+	EList<Polygon> getPolygon();
 
 	/**
-	 * Returns the value of the '<em><b>Wire</b></em>' reference list.
+	 * Returns the value of the '<em><b>Wire</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Wire}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Wire</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Wire</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wire</em>' reference list.
+	 * @return the value of the '<em>Wire</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Wire()
-	 * @model type="eaglemodel.Wire"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getWire();
+	EList<Wire> getWire();
 
 	/**
-	 * Returns the value of the '<em><b>Text</b></em>' reference list.
+	 * Returns the value of the '<em><b>Text</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Text}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Text</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Text</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text</em>' reference list.
+	 * @return the value of the '<em>Text</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Text()
-	 * @model type="eaglemodel.Text"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getText();
+	EList<Text> getText();
 
 	/**
-	 * Returns the value of the '<em><b>Dimension</b></em>' reference list.
+	 * Returns the value of the '<em><b>Dimension</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Dimension}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dimension</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Dimension</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dimension</em>' reference list.
+	 * @return the value of the '<em>Dimension</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Dimension()
-	 * @model type="eaglemodel.Dimension"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getDimension();
+	EList<Dimension> getDimension();
 
 	/**
-	 * Returns the value of the '<em><b>Circle</b></em>' reference list.
+	 * Returns the value of the '<em><b>Circle</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Circle}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Circle</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Circle</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Circle</em>' reference list.
+	 * @return the value of the '<em>Circle</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Circle()
-	 * @model type="eaglemodel.Circle"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getCircle();
+	EList<Circle> getCircle();
 
 	/**
-	 * Returns the value of the '<em><b>Rectangle</b></em>' reference list.
+	 * Returns the value of the '<em><b>Rectangle</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Rectangle}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rectangle</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Rectangle</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rectangle</em>' reference list.
+	 * @return the value of the '<em>Rectangle</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Rectangle()
-	 * @model type="eaglemodel.Rectangle"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getRectangle();
+	EList<Rectangle> getRectangle();
 
 	/**
-	 * Returns the value of the '<em><b>Frame</b></em>' reference list.
+	 * Returns the value of the '<em><b>Frame</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Frame}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Frame</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Frame</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Frame</em>' reference list.
+	 * @return the value of the '<em>Frame</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Frame()
-	 * @model type="eaglemodel.Frame"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getFrame();
+	EList<Frame> getFrame();
 
 	/**
-	 * Returns the value of the '<em><b>Hole</b></em>' reference list.
+	 * Returns the value of the '<em><b>Hole</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Hole}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Hole</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Hole</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hole</em>' reference list.
+	 * @return the value of the '<em>Hole</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Hole()
-	 * @model type="eaglemodel.Hole"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getHole();
+	EList<Hole> getHole();
 
 	/**
-	 * Returns the value of the '<em><b>Pad</b></em>' reference list.
+	 * Returns the value of the '<em><b>Pad</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Pad}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Pad</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Pad</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pad</em>' reference list.
+	 * @return the value of the '<em>Pad</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Pad()
-	 * @model type="eaglemodel.Pad"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getPad();
+	EList<Pad> getPad();
 
 	/**
-	 * Returns the value of the '<em><b>Smd</b></em>' reference list.
+	 * Returns the value of the '<em><b>Smd</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.SMD}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Smd</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Smd</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Smd</em>' reference list.
+	 * @return the value of the '<em>Smd</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPackage_Smd()
-	 * @model type="eaglemodel.SMD"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getSmd();
+	EList<SMD> getSmd();
 
 } // Package

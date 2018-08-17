@@ -3,13 +3,11 @@
 package eaglemodel.impl;
 
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.PinDirection;
-import eaglemodel.Enums.PinFunction;
-import eaglemodel.Enums.PinLength;
-import eaglemodel.Enums.PinVisible;
-
 import eaglemodel.Pin;
+import eaglemodel.PinDirection;
+import eaglemodel.PinFunction;
+import eaglemodel.PinLength;
+import eaglemodel.PinVisible;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -24,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PinImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.PinImpl#getX <em>X</em>}</li>
@@ -35,7 +34,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.PinImpl#getSwaplevel <em>Swaplevel</em>}</li>
  *   <li>{@link eaglemodel.impl.PinImpl#getRot <em>Rot</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -108,7 +106,7 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PinVisible VISIBLE_EDEFAULT = PinVisible.BOTH_LITERAL;
+	protected static final PinVisible VISIBLE_EDEFAULT = PinVisible.BOTH;
 
 	/**
 	 * The cached value of the '{@link #getVisible() <em>Visible</em>}' attribute.
@@ -128,7 +126,7 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PinLength LENGTH_EDEFAULT = PinLength.LONG_LITERAL;
+	protected static final PinLength LENGTH_EDEFAULT = PinLength.LONG;
 
 	/**
 	 * The cached value of the '{@link #getLength() <em>Length</em>}' attribute.
@@ -148,7 +146,7 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PinDirection DIRECTION_EDEFAULT = PinDirection.IO_LITERAL;
+	protected static final PinDirection DIRECTION_EDEFAULT = PinDirection.IO;
 
 	/**
 	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
@@ -168,7 +166,7 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PinFunction FUNCTION_EDEFAULT = PinFunction.NONE_LITERAL;
+	protected static final PinFunction FUNCTION_EDEFAULT = PinFunction.NONE;
 
 	/**
 	 * The cached value of the '{@link #getFunction() <em>Function</em>}' attribute.
@@ -234,6 +232,7 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.PIN;
 	}
@@ -432,14 +431,15 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.PIN__NAME:
 				return getName();
 			case EaglemodelPackage.PIN__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.PIN__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.PIN__VISIBLE:
 				return getVisible();
 			case EaglemodelPackage.PIN__LENGTH:
@@ -449,9 +449,9 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 			case EaglemodelPackage.PIN__FUNCTION:
 				return getFunction();
 			case EaglemodelPackage.PIN__SWAPLEVEL:
-				return new Integer(getSwaplevel());
+				return getSwaplevel();
 			case EaglemodelPackage.PIN__ROT:
-				return new Double(getRot());
+				return getRot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -461,16 +461,17 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.PIN__NAME:
 				setName((String)newValue);
 				return;
 			case EaglemodelPackage.PIN__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.PIN__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.PIN__VISIBLE:
 				setVisible((PinVisible)newValue);
@@ -485,10 +486,10 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 				setFunction((PinFunction)newValue);
 				return;
 			case EaglemodelPackage.PIN__SWAPLEVEL:
-				setSwaplevel(((Integer)newValue).intValue());
+				setSwaplevel((Integer)newValue);
 				return;
 			case EaglemodelPackage.PIN__ROT:
-				setRot(((Double)newValue).doubleValue());
+				setRot((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -499,6 +500,7 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PIN__NAME:
@@ -537,6 +539,7 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PIN__NAME:
@@ -566,10 +569,11 @@ public class PinImpl extends MinimalEObjectImpl.Container implements Pin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", x: ");

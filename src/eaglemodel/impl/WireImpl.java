@@ -3,11 +3,9 @@
 package eaglemodel.impl;
 
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.WireCap;
-import eaglemodel.Enums.WireStyle;
-
 import eaglemodel.Wire;
+import eaglemodel.WireCap;
+import eaglemodel.WireStyle;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -22,6 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.WireImpl#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.impl.WireImpl#getY1 <em>Y1</em>}</li>
@@ -34,7 +33,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.WireImpl#getCurve <em>Curve</em>}</li>
  *   <li>{@link eaglemodel.impl.WireImpl#getCap <em>Cap</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -187,7 +185,7 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final WireStyle STYLE_EDEFAULT = WireStyle.CONTINUOUS_LITERAL;
+	protected static final WireStyle STYLE_EDEFAULT = WireStyle.CONTINUOUS;
 
 	/**
 	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute.
@@ -227,7 +225,7 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final WireCap CAP_EDEFAULT = WireCap.ROUND_LITERAL;
+	protected static final WireCap CAP_EDEFAULT = WireCap.ROUND;
 
 	/**
 	 * The cached value of the '{@link #getCap() <em>Cap</em>}' attribute.
@@ -253,6 +251,7 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.WIRE;
 	}
@@ -472,26 +471,27 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.WIRE__X1:
-				return new Double(getX1());
+				return getX1();
 			case EaglemodelPackage.WIRE__Y1:
-				return new Double(getY1());
+				return getY1();
 			case EaglemodelPackage.WIRE__X2:
-				return new Double(getX2());
+				return getX2();
 			case EaglemodelPackage.WIRE__Y2:
-				return new Double(getY2());
+				return getY2();
 			case EaglemodelPackage.WIRE__WIDTH:
-				return new Double(getWidth());
+				return getWidth();
 			case EaglemodelPackage.WIRE__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 			case EaglemodelPackage.WIRE__EXTENT:
 				return getExtent();
 			case EaglemodelPackage.WIRE__STYLE:
 				return getStyle();
 			case EaglemodelPackage.WIRE__CURVE:
-				return new Double(getCurve());
+				return getCurve();
 			case EaglemodelPackage.WIRE__CAP:
 				return getCap();
 		}
@@ -503,25 +503,26 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.WIRE__X1:
-				setX1(((Double)newValue).doubleValue());
+				setX1((Double)newValue);
 				return;
 			case EaglemodelPackage.WIRE__Y1:
-				setY1(((Double)newValue).doubleValue());
+				setY1((Double)newValue);
 				return;
 			case EaglemodelPackage.WIRE__X2:
-				setX2(((Double)newValue).doubleValue());
+				setX2((Double)newValue);
 				return;
 			case EaglemodelPackage.WIRE__Y2:
-				setY2(((Double)newValue).doubleValue());
+				setY2((Double)newValue);
 				return;
 			case EaglemodelPackage.WIRE__WIDTH:
-				setWidth(((Double)newValue).doubleValue());
+				setWidth((Double)newValue);
 				return;
 			case EaglemodelPackage.WIRE__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 			case EaglemodelPackage.WIRE__EXTENT:
 				setExtent((String)newValue);
@@ -530,7 +531,7 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 				setStyle((WireStyle)newValue);
 				return;
 			case EaglemodelPackage.WIRE__CURVE:
-				setCurve(((Double)newValue).doubleValue());
+				setCurve((Double)newValue);
 				return;
 			case EaglemodelPackage.WIRE__CAP:
 				setCap((WireCap)newValue);
@@ -544,6 +545,7 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.WIRE__X1:
@@ -585,6 +587,7 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.WIRE__X1:
@@ -616,10 +619,11 @@ public class WireImpl extends MinimalEObjectImpl.Container implements Wire {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (x1: ");
 		result.append(x1);
 		result.append(", y1: ");

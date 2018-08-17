@@ -2,9 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.Align;
-import eaglemodel.Enums.TextFont;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Text#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.Text#getY <em>Y</em>}</li>
@@ -24,9 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Text#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.Text#getAlign <em>Align</em>}</li>
  *   <li>{@link eaglemodel.Text#getDistance <em>Distance</em>}</li>
- *   <li>{@link eaglemodel.Text#getPcdata <em>Pcdata</em>}</li>
+ *   <li>{@link eaglemodel.Text#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getText()
  * @model
@@ -140,7 +137,7 @@ public interface Text extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Font</b></em>' attribute.
 	 * The default value is <code>"proportional"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.TextFont}.
+	 * The literals are from the enumeration {@link eaglemodel.TextFont}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Font</em>' attribute isn't clear,
@@ -148,7 +145,7 @@ public interface Text extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Font</em>' attribute.
-	 * @see eaglemodel.Enums.TextFont
+	 * @see eaglemodel.TextFont
 	 * @see #setFont(TextFont)
 	 * @see eaglemodel.EaglemodelPackage#getText_Font()
 	 * @model default="proportional"
@@ -161,7 +158,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Font</em>' attribute.
-	 * @see eaglemodel.Enums.TextFont
+	 * @see eaglemodel.TextFont
 	 * @see #getFont()
 	 * @generated
 	 */
@@ -223,7 +220,7 @@ public interface Text extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Align</b></em>' attribute.
 	 * The default value is <code>"bottom-left"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.Align}.
+	 * The literals are from the enumeration {@link eaglemodel.Align}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Align</em>' attribute isn't clear,
@@ -231,7 +228,7 @@ public interface Text extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Align</em>' attribute.
-	 * @see eaglemodel.Enums.Align
+	 * @see eaglemodel.Align
 	 * @see #setAlign(Align)
 	 * @see eaglemodel.EaglemodelPackage#getText_Align()
 	 * @model default="bottom-left"
@@ -244,7 +241,7 @@ public interface Text extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Align</em>' attribute.
-	 * @see eaglemodel.Enums.Align
+	 * @see eaglemodel.Align
 	 * @see #getAlign()
 	 * @generated
 	 */
@@ -278,29 +275,29 @@ public interface Text extends EObject {
 	void setDistance(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Pcdata</b></em>' attribute.
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Pcdata</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pcdata</em>' attribute.
-	 * @see #setPcdata(String)
-	 * @see eaglemodel.EaglemodelPackage#getText_Pcdata()
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(String)
+	 * @see eaglemodel.EaglemodelPackage#getText_Value()
 	 * @model
 	 * @generated
 	 */
-	String getPcdata();
+	String getValue();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Text#getPcdata <em>Pcdata</em>}' attribute.
+	 * Sets the value of the '{@link eaglemodel.Text#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pcdata</em>' attribute.
-	 * @see #getPcdata()
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
 	 * @generated
 	 */
-	void setPcdata(String value);
+	void setValue(String value);
 
 } // Text

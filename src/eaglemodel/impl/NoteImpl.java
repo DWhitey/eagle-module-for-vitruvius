@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.NoteImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link eaglemodel.impl.NoteImpl#getSeverity <em>Severity</em>}</li>
- *   <li>{@link eaglemodel.impl.NoteImpl#getPcdata <em>Pcdata</em>}</li>
+ *   <li>{@link eaglemodel.impl.NoteImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -69,24 +69,24 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	protected String severity = SEVERITY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPcdata() <em>Pcdata</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPcdata()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PCDATA_EDEFAULT = null;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPcdata() <em>Pcdata</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPcdata()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String pcdata = PCDATA_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +102,7 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.NOTE;
 	}
@@ -153,8 +154,8 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPcdata() {
-		return pcdata;
+	public String getValue() {
+		return value;
 	}
 
 	/**
@@ -162,11 +163,11 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPcdata(String newPcdata) {
-		String oldPcdata = pcdata;
-		pcdata = newPcdata;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.NOTE__PCDATA, oldPcdata, pcdata));
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.NOTE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -174,14 +175,15 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.NOTE__VERSION:
 				return getVersion();
 			case EaglemodelPackage.NOTE__SEVERITY:
 				return getSeverity();
-			case EaglemodelPackage.NOTE__PCDATA:
-				return getPcdata();
+			case EaglemodelPackage.NOTE__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -191,6 +193,7 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.NOTE__VERSION:
@@ -199,8 +202,8 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 			case EaglemodelPackage.NOTE__SEVERITY:
 				setSeverity((String)newValue);
 				return;
-			case EaglemodelPackage.NOTE__PCDATA:
-				setPcdata((String)newValue);
+			case EaglemodelPackage.NOTE__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -211,6 +214,7 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.NOTE__VERSION:
@@ -219,8 +223,8 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 			case EaglemodelPackage.NOTE__SEVERITY:
 				setSeverity(SEVERITY_EDEFAULT);
 				return;
-			case EaglemodelPackage.NOTE__PCDATA:
-				setPcdata(PCDATA_EDEFAULT);
+			case EaglemodelPackage.NOTE__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -231,14 +235,15 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.NOTE__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case EaglemodelPackage.NOTE__SEVERITY:
 				return SEVERITY_EDEFAULT == null ? severity != null : !SEVERITY_EDEFAULT.equals(severity);
-			case EaglemodelPackage.NOTE__PCDATA:
-				return PCDATA_EDEFAULT == null ? pcdata != null : !PCDATA_EDEFAULT.equals(pcdata);
+			case EaglemodelPackage.NOTE__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -248,16 +253,17 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (version: ");
 		result.append(version);
 		result.append(", severity: ");
 		result.append(severity);
-		result.append(", pcdata: ");
-		result.append(pcdata);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

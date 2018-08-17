@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Rectangle#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.Rectangle#getY1 <em>Y1</em>}</li>
@@ -19,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Rectangle#getLayer <em>Layer</em>}</li>
  *   <li>{@link eaglemodel.Rectangle#getRot <em>Rot</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getRectangle()
  * @model

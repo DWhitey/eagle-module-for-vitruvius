@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Sheet#getDescription <em>Description</em>}</li>
  *   <li>{@link eaglemodel.Sheet#getPlain <em>Plain</em>}</li>
@@ -20,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Sheet#getBusses <em>Busses</em>}</li>
  *   <li>{@link eaglemodel.Sheet#getNets <em>Nets</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getSheet()
  * @model
@@ -28,103 +26,133 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Sheet extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' reference.
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' reference isn't clear,
+	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' reference.
+	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Description)
 	 * @see eaglemodel.EaglemodelPackage#getSheet_Description()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Description getDescription();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Sheet#getDescription <em>Description</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Sheet#getDescription <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' reference.
+	 * @param value the new value of the '<em>Description</em>' containment reference.
 	 * @see #getDescription()
 	 * @generated
 	 */
 	void setDescription(Description value);
 
 	/**
-	 * Returns the value of the '<em><b>Plain</b></em>' reference.
+	 * Returns the value of the '<em><b>Plain</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Plain</em>' reference isn't clear,
+	 * If the meaning of the '<em>Plain</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Plain</em>' reference.
+	 * @return the value of the '<em>Plain</em>' containment reference.
 	 * @see #setPlain(Plain)
 	 * @see eaglemodel.EaglemodelPackage#getSheet_Plain()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Plain getPlain();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Sheet#getPlain <em>Plain</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Sheet#getPlain <em>Plain</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Plain</em>' reference.
+	 * @param value the new value of the '<em>Plain</em>' containment reference.
 	 * @see #getPlain()
 	 * @generated
 	 */
 	void setPlain(Plain value);
 
 	/**
-	 * Returns the value of the '<em><b>Instances</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Instance}.
+	 * Returns the value of the '<em><b>Instances</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Instances</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Instances</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Instances</em>' reference list.
+	 * @return the value of the '<em>Instances</em>' containment reference.
+	 * @see #setInstances(Instances)
 	 * @see eaglemodel.EaglemodelPackage#getSheet_Instances()
-	 * @model type="eaglemodel.Instance"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getInstances();
+	Instances getInstances();
 
 	/**
-	 * Returns the value of the '<em><b>Busses</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Bus}.
+	 * Sets the value of the '{@link eaglemodel.Sheet#getInstances <em>Instances</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Instances</em>' containment reference.
+	 * @see #getInstances()
+	 * @generated
+	 */
+	void setInstances(Instances value);
+
+	/**
+	 * Returns the value of the '<em><b>Busses</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Busses</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Busses</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Busses</em>' reference list.
+	 * @return the value of the '<em>Busses</em>' containment reference.
+	 * @see #setBusses(Busses)
 	 * @see eaglemodel.EaglemodelPackage#getSheet_Busses()
-	 * @model type="eaglemodel.Bus"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getBusses();
+	Busses getBusses();
 
 	/**
-	 * Returns the value of the '<em><b>Nets</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Net}.
+	 * Sets the value of the '{@link eaglemodel.Sheet#getBusses <em>Busses</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Busses</em>' containment reference.
+	 * @see #getBusses()
+	 * @generated
+	 */
+	void setBusses(Busses value);
+
+	/**
+	 * Returns the value of the '<em><b>Nets</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Nets</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Nets</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nets</em>' reference list.
+	 * @return the value of the '<em>Nets</em>' containment reference.
+	 * @see #setNets(Nets)
 	 * @see eaglemodel.EaglemodelPackage#getSheet_Nets()
-	 * @model type="eaglemodel.Net"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getNets();
+	Nets getNets();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Sheet#getNets <em>Nets</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nets</em>' containment reference.
+	 * @see #getNets()
+	 * @generated
+	 */
+	void setNets(Nets value);
 
 } // Sheet

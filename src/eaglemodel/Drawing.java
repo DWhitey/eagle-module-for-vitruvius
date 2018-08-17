@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Drawing#getSettings <em>Settings</em>}</li>
  *   <li>{@link eaglemodel.Drawing#getGrid <em>Grid</em>}</li>
  *   <li>{@link eaglemodel.Drawing#getLayers <em>Layers</em>}</li>
  *   <li>{@link eaglemodel.Drawing#getSchematic <em>Schematic</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDrawing()
  * @model
@@ -27,84 +25,104 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Drawing extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Settings</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Setting}.
+	 * Returns the value of the '<em><b>Settings</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Settings</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Settings</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Settings</em>' reference list.
+	 * @return the value of the '<em>Settings</em>' containment reference.
+	 * @see #setSettings(Settings)
 	 * @see eaglemodel.EaglemodelPackage#getDrawing_Settings()
-	 * @model type="eaglemodel.Setting"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getSettings();
+	Settings getSettings();
 
 	/**
-	 * Returns the value of the '<em><b>Grid</b></em>' reference.
+	 * Sets the value of the '{@link eaglemodel.Drawing#getSettings <em>Settings</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Settings</em>' containment reference.
+	 * @see #getSettings()
+	 * @generated
+	 */
+	void setSettings(Settings value);
+
+	/**
+	 * Returns the value of the '<em><b>Grid</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Grid</em>' reference isn't clear,
+	 * If the meaning of the '<em>Grid</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Grid</em>' reference.
+	 * @return the value of the '<em>Grid</em>' containment reference.
 	 * @see #setGrid(Grid)
 	 * @see eaglemodel.EaglemodelPackage#getDrawing_Grid()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Grid getGrid();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Drawing#getGrid <em>Grid</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Drawing#getGrid <em>Grid</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Grid</em>' reference.
+	 * @param value the new value of the '<em>Grid</em>' containment reference.
 	 * @see #getGrid()
 	 * @generated
 	 */
 	void setGrid(Grid value);
 
 	/**
-	 * Returns the value of the '<em><b>Layers</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Layer}.
+	 * Returns the value of the '<em><b>Layers</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Layers</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Layers</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Layers</em>' reference list.
+	 * @return the value of the '<em>Layers</em>' containment reference.
+	 * @see #setLayers(Layers)
 	 * @see eaglemodel.EaglemodelPackage#getDrawing_Layers()
-	 * @model type="eaglemodel.Layer" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList getLayers();
+	Layers getLayers();
 
 	/**
-	 * Returns the value of the '<em><b>Schematic</b></em>' reference.
+	 * Sets the value of the '{@link eaglemodel.Drawing#getLayers <em>Layers</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Layers</em>' containment reference.
+	 * @see #getLayers()
+	 * @generated
+	 */
+	void setLayers(Layers value);
+
+	/**
+	 * Returns the value of the '<em><b>Schematic</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Schematic</em>' reference isn't clear,
+	 * If the meaning of the '<em>Schematic</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Schematic</em>' reference.
+	 * @return the value of the '<em>Schematic</em>' containment reference.
 	 * @see #setSchematic(Schematic)
 	 * @see eaglemodel.EaglemodelPackage#getDrawing_Schematic()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Schematic getSchematic();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Drawing#getSchematic <em>Schematic</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Drawing#getSchematic <em>Schematic</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Schematic</em>' reference.
+	 * @param value the new value of the '<em>Schematic</em>' containment reference.
 	 * @see #getSchematic()
 	 * @generated
 	 */

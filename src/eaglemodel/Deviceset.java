@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Deviceset#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Deviceset#getPrefix <em>Prefix</em>}</li>
@@ -21,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Deviceset#getGates <em>Gates</em>}</li>
  *   <li>{@link eaglemodel.Deviceset#getDevices <em>Devices</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDeviceset()
  * @model
@@ -108,61 +106,81 @@ public interface Deviceset extends EObject {
 	void setUservalue(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' reference.
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' reference isn't clear,
+	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' reference.
+	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Description)
 	 * @see eaglemodel.EaglemodelPackage#getDeviceset_Description()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Description getDescription();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Deviceset#getDescription <em>Description</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Deviceset#getDescription <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' reference.
+	 * @param value the new value of the '<em>Description</em>' containment reference.
 	 * @see #getDescription()
 	 * @generated
 	 */
 	void setDescription(Description value);
 
 	/**
-	 * Returns the value of the '<em><b>Gates</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Gate}.
+	 * Returns the value of the '<em><b>Gates</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Gates</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Gates</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Gates</em>' reference list.
+	 * @return the value of the '<em>Gates</em>' containment reference.
+	 * @see #setGates(Gates)
 	 * @see eaglemodel.EaglemodelPackage#getDeviceset_Gates()
-	 * @model type="eaglemodel.Gate" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getGates();
+	Gates getGates();
 
 	/**
-	 * Returns the value of the '<em><b>Devices</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Device}.
+	 * Sets the value of the '{@link eaglemodel.Deviceset#getGates <em>Gates</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gates</em>' containment reference.
+	 * @see #getGates()
+	 * @generated
+	 */
+	void setGates(Gates value);
+
+	/**
+	 * Returns the value of the '<em><b>Devices</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Devices</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Devices</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Devices</em>' reference list.
+	 * @return the value of the '<em>Devices</em>' containment reference.
+	 * @see #setDevices(Devices)
 	 * @see eaglemodel.EaglemodelPackage#getDeviceset_Devices()
-	 * @model type="eaglemodel.Device" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getDevices();
+	Devices getDevices();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Deviceset#getDevices <em>Devices</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Devices</em>' containment reference.
+	 * @see #getDevices()
+	 * @generated
+	 */
+	void setDevices(Devices value);
 
 } // Deviceset

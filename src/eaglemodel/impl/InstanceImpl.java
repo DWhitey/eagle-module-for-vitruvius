@@ -9,15 +9,18 @@ import eaglemodel.Instance;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.InstanceImpl#getPart <em>Part</em>}</li>
  *   <li>{@link eaglemodel.impl.InstanceImpl#getGate <em>Gate</em>}</li>
@@ -34,7 +38,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.InstanceImpl#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.impl.InstanceImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -160,14 +163,14 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	protected double rot = ROT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference list.
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAttribute()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList attribute;
+	protected EList<Attribute> attribute;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,6 +186,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.INSTANCE;
 	}
@@ -318,9 +322,9 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getAttribute() {
+	public EList<Attribute> getAttribute() {
 		if (attribute == null) {
-			attribute = new EObjectResolvingEList(Attribute.class, this, EaglemodelPackage.INSTANCE__ATTRIBUTE);
+			attribute = new EObjectContainmentEList<Attribute>(Attribute.class, this, EaglemodelPackage.INSTANCE__ATTRIBUTE);
 		}
 		return attribute;
 	}
@@ -330,6 +334,21 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.INSTANCE__ATTRIBUTE:
+				return ((InternalEList<?>)getAttribute()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.INSTANCE__PART:
@@ -337,13 +356,13 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 			case EaglemodelPackage.INSTANCE__GATE:
 				return getGate();
 			case EaglemodelPackage.INSTANCE__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.INSTANCE__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.INSTANCE__SMASHED:
-				return isSmashed() ? Boolean.TRUE : Boolean.FALSE;
+				return isSmashed();
 			case EaglemodelPackage.INSTANCE__ROT:
-				return new Double(getRot());
+				return getRot();
 			case EaglemodelPackage.INSTANCE__ATTRIBUTE:
 				return getAttribute();
 		}
@@ -355,6 +374,8 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.INSTANCE__PART:
@@ -364,20 +385,20 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 				setGate((String)newValue);
 				return;
 			case EaglemodelPackage.INSTANCE__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.INSTANCE__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.INSTANCE__SMASHED:
-				setSmashed(((Boolean)newValue).booleanValue());
+				setSmashed((Boolean)newValue);
 				return;
 			case EaglemodelPackage.INSTANCE__ROT:
-				setRot(((Double)newValue).doubleValue());
+				setRot((Double)newValue);
 				return;
 			case EaglemodelPackage.INSTANCE__ATTRIBUTE:
 				getAttribute().clear();
-				getAttribute().addAll((Collection)newValue);
+				getAttribute().addAll((Collection<? extends Attribute>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -388,6 +409,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.INSTANCE__PART:
@@ -420,6 +442,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.INSTANCE__PART:
@@ -445,10 +468,11 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (part: ");
 		result.append(part);
 		result.append(", gate: ");

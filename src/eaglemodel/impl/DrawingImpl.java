@@ -5,15 +5,12 @@ package eaglemodel.impl;
 import eaglemodel.Drawing;
 import eaglemodel.EaglemodelPackage;
 import eaglemodel.Grid;
-import eaglemodel.Layer;
+import eaglemodel.Layers;
 import eaglemodel.Schematic;
-import eaglemodel.Setting;
-
-import java.util.Collection;
+import eaglemodel.Settings;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -21,37 +18,35 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Drawing</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DrawingImpl#getSettings <em>Settings</em>}</li>
  *   <li>{@link eaglemodel.impl.DrawingImpl#getGrid <em>Grid</em>}</li>
  *   <li>{@link eaglemodel.impl.DrawingImpl#getLayers <em>Layers</em>}</li>
  *   <li>{@link eaglemodel.impl.DrawingImpl#getSchematic <em>Schematic</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing {
 	/**
-	 * The cached value of the '{@link #getSettings() <em>Settings</em>}' reference list.
+	 * The cached value of the '{@link #getSettings() <em>Settings</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSettings()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList settings;
+	protected Settings settings;
 
 	/**
-	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' reference.
+	 * The cached value of the '{@link #getGrid() <em>Grid</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGrid()
@@ -61,17 +56,17 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	protected Grid grid;
 
 	/**
-	 * The cached value of the '{@link #getLayers() <em>Layers</em>}' reference list.
+	 * The cached value of the '{@link #getLayers() <em>Layers</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLayers()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList layers;
+	protected Layers layers;
 
 	/**
-	 * The cached value of the '{@link #getSchematic() <em>Schematic</em>}' reference.
+	 * The cached value of the '{@link #getSchematic() <em>Schematic</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSchematic()
@@ -94,6 +89,7 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.DRAWING;
 	}
@@ -103,10 +99,7 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getSettings() {
-		if (settings == null) {
-			settings = new EObjectResolvingEList(Setting.class, this, EaglemodelPackage.DRAWING__SETTINGS);
-		}
+	public Settings getSettings() {
 		return settings;
 	}
 
@@ -115,15 +108,41 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Grid getGrid() {
-		if (grid != null && grid.eIsProxy()) {
-			InternalEObject oldGrid = (InternalEObject)grid;
-			grid = (Grid)eResolveProxy(oldGrid);
-			if (grid != oldGrid) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaglemodelPackage.DRAWING__GRID, oldGrid, grid));
-			}
+	public NotificationChain basicSetSettings(Settings newSettings, NotificationChain msgs) {
+		Settings oldSettings = settings;
+		settings = newSettings;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__SETTINGS, oldSettings, newSettings);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSettings(Settings newSettings) {
+		if (newSettings != settings) {
+			NotificationChain msgs = null;
+			if (settings != null)
+				msgs = ((InternalEObject)settings).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DRAWING__SETTINGS, null, msgs);
+			if (newSettings != null)
+				msgs = ((InternalEObject)newSettings).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DRAWING__SETTINGS, null, msgs);
+			msgs = basicSetSettings(newSettings, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__SETTINGS, newSettings, newSettings));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Grid getGrid() {
 		return grid;
 	}
 
@@ -132,8 +151,14 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Grid basicGetGrid() {
-		return grid;
+	public NotificationChain basicSetGrid(Grid newGrid, NotificationChain msgs) {
+		Grid oldGrid = grid;
+		grid = newGrid;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__GRID, oldGrid, newGrid);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -142,10 +167,17 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * @generated
 	 */
 	public void setGrid(Grid newGrid) {
-		Grid oldGrid = grid;
-		grid = newGrid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__GRID, oldGrid, grid));
+		if (newGrid != grid) {
+			NotificationChain msgs = null;
+			if (grid != null)
+				msgs = ((InternalEObject)grid).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DRAWING__GRID, null, msgs);
+			if (newGrid != null)
+				msgs = ((InternalEObject)newGrid).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DRAWING__GRID, null, msgs);
+			msgs = basicSetGrid(newGrid, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__GRID, newGrid, newGrid));
 	}
 
 	/**
@@ -153,10 +185,7 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getLayers() {
-		if (layers == null) {
-			layers = new EObjectResolvingEList(Layer.class, this, EaglemodelPackage.DRAWING__LAYERS);
-		}
+	public Layers getLayers() {
 		return layers;
 	}
 
@@ -165,15 +194,41 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Schematic getSchematic() {
-		if (schematic != null && schematic.eIsProxy()) {
-			InternalEObject oldSchematic = (InternalEObject)schematic;
-			schematic = (Schematic)eResolveProxy(oldSchematic);
-			if (schematic != oldSchematic) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaglemodelPackage.DRAWING__SCHEMATIC, oldSchematic, schematic));
-			}
+	public NotificationChain basicSetLayers(Layers newLayers, NotificationChain msgs) {
+		Layers oldLayers = layers;
+		layers = newLayers;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__LAYERS, oldLayers, newLayers);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLayers(Layers newLayers) {
+		if (newLayers != layers) {
+			NotificationChain msgs = null;
+			if (layers != null)
+				msgs = ((InternalEObject)layers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DRAWING__LAYERS, null, msgs);
+			if (newLayers != null)
+				msgs = ((InternalEObject)newLayers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DRAWING__LAYERS, null, msgs);
+			msgs = basicSetLayers(newLayers, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__LAYERS, newLayers, newLayers));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Schematic getSchematic() {
 		return schematic;
 	}
 
@@ -182,8 +237,14 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Schematic basicGetSchematic() {
-		return schematic;
+	public NotificationChain basicSetSchematic(Schematic newSchematic, NotificationChain msgs) {
+		Schematic oldSchematic = schematic;
+		schematic = newSchematic;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__SCHEMATIC, oldSchematic, newSchematic);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -192,10 +253,17 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * @generated
 	 */
 	public void setSchematic(Schematic newSchematic) {
-		Schematic oldSchematic = schematic;
-		schematic = newSchematic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__SCHEMATIC, oldSchematic, schematic));
+		if (newSchematic != schematic) {
+			NotificationChain msgs = null;
+			if (schematic != null)
+				msgs = ((InternalEObject)schematic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DRAWING__SCHEMATIC, null, msgs);
+			if (newSchematic != null)
+				msgs = ((InternalEObject)newSchematic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DRAWING__SCHEMATIC, null, msgs);
+			msgs = basicSetSchematic(newSchematic, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DRAWING__SCHEMATIC, newSchematic, newSchematic));
 	}
 
 	/**
@@ -203,18 +271,37 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.DRAWING__SETTINGS:
+				return basicSetSettings(null, msgs);
+			case EaglemodelPackage.DRAWING__GRID:
+				return basicSetGrid(null, msgs);
+			case EaglemodelPackage.DRAWING__LAYERS:
+				return basicSetLayers(null, msgs);
+			case EaglemodelPackage.DRAWING__SCHEMATIC:
+				return basicSetSchematic(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.DRAWING__SETTINGS:
 				return getSettings();
 			case EaglemodelPackage.DRAWING__GRID:
-				if (resolve) return getGrid();
-				return basicGetGrid();
+				return getGrid();
 			case EaglemodelPackage.DRAWING__LAYERS:
 				return getLayers();
 			case EaglemodelPackage.DRAWING__SCHEMATIC:
-				if (resolve) return getSchematic();
-				return basicGetSchematic();
+				return getSchematic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,18 +311,17 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.DRAWING__SETTINGS:
-				getSettings().clear();
-				getSettings().addAll((Collection)newValue);
+				setSettings((Settings)newValue);
 				return;
 			case EaglemodelPackage.DRAWING__GRID:
 				setGrid((Grid)newValue);
 				return;
 			case EaglemodelPackage.DRAWING__LAYERS:
-				getLayers().clear();
-				getLayers().addAll((Collection)newValue);
+				setLayers((Layers)newValue);
 				return;
 			case EaglemodelPackage.DRAWING__SCHEMATIC:
 				setSchematic((Schematic)newValue);
@@ -249,16 +335,17 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DRAWING__SETTINGS:
-				getSettings().clear();
+				setSettings((Settings)null);
 				return;
 			case EaglemodelPackage.DRAWING__GRID:
 				setGrid((Grid)null);
 				return;
 			case EaglemodelPackage.DRAWING__LAYERS:
-				getLayers().clear();
+				setLayers((Layers)null);
 				return;
 			case EaglemodelPackage.DRAWING__SCHEMATIC:
 				setSchematic((Schematic)null);
@@ -272,14 +359,15 @@ public class DrawingImpl extends MinimalEObjectImpl.Container implements Drawing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DRAWING__SETTINGS:
-				return settings != null && !settings.isEmpty();
+				return settings != null;
 			case EaglemodelPackage.DRAWING__GRID:
 				return grid != null;
 			case EaglemodelPackage.DRAWING__LAYERS:
-				return layers != null && !layers.isEmpty();
+				return layers != null;
 			case EaglemodelPackage.DRAWING__SCHEMATIC:
 				return schematic != null;
 		}

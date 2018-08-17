@@ -31,6 +31,15 @@ public interface EaglemodelFactory extends EFactory {
 	Eagle createEagle();
 
 	/**
+	 * Returns a new object of class '<em>Compatibility</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compatibility</em>'.
+	 * @generated
+	 */
+	Compatibility createCompatibility();
+
+	/**
 	 * Returns a new object of class '<em>Note</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,6 +58,15 @@ public interface EaglemodelFactory extends EFactory {
 	Drawing createDrawing();
 
 	/**
+	 * Returns a new object of class '<em>Settings</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Settings</em>'.
+	 * @generated
+	 */
+	Settings createSettings();
+
+	/**
 	 * Returns a new object of class '<em>Setting</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +83,15 @@ public interface EaglemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Grid createGrid();
+
+	/**
+	 * Returns a new object of class '<em>Layers</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Layers</em>'.
+	 * @generated
+	 */
+	Layers createLayers();
 
 	/**
 	 * Returns a new object of class '<em>Layer</em>'.
@@ -94,6 +121,15 @@ public interface EaglemodelFactory extends EFactory {
 	Description createDescription();
 
 	/**
+	 * Returns a new object of class '<em>Libraries</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Libraries</em>'.
+	 * @generated
+	 */
+	Libraries createLibraries();
+
+	/**
 	 * Returns a new object of class '<em>Library</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +139,15 @@ public interface EaglemodelFactory extends EFactory {
 	Library createLibrary();
 
 	/**
+	 * Returns a new object of class '<em>Attributes</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attributes</em>'.
+	 * @generated
+	 */
+	Attributes createAttributes();
+
+	/**
 	 * Returns a new object of class '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +155,15 @@ public interface EaglemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Attribute createAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Variantdefs</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variantdefs</em>'.
+	 * @generated
+	 */
+	Variantdefs createVariantdefs();
 
 	/**
 	 * Returns a new object of class '<em>Variantdef</em>'.
@@ -130,6 +184,15 @@ public interface EaglemodelFactory extends EFactory {
 	Variant createVariant();
 
 	/**
+	 * Returns a new object of class '<em>Classes</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Classes</em>'.
+	 * @generated
+	 */
+	Classes createClasses();
+
+	/**
 	 * Returns a new object of class '<em>Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +211,15 @@ public interface EaglemodelFactory extends EFactory {
 	Clearance createClearance();
 
 	/**
+	 * Returns a new object of class '<em>Parts</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parts</em>'.
+	 * @generated
+	 */
+	Parts createParts();
+
+	/**
 	 * Returns a new object of class '<em>Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +227,15 @@ public interface EaglemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Part createPart();
+
+	/**
+	 * Returns a new object of class '<em>Sheets</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sheets</em>'.
+	 * @generated
+	 */
+	Sheets createSheets();
 
 	/**
 	 * Returns a new object of class '<em>Sheet</em>'.
@@ -166,6 +247,24 @@ public interface EaglemodelFactory extends EFactory {
 	Sheet createSheet();
 
 	/**
+	 * Returns a new object of class '<em>Errors</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Errors</em>'.
+	 * @generated
+	 */
+	Errors createErrors();
+
+	/**
+	 * Returns a new object of class '<em>Packages</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Packages</em>'.
+	 * @generated
+	 */
+	Packages createPackages();
+
+	/**
 	 * Returns a new object of class '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,6 +274,15 @@ public interface EaglemodelFactory extends EFactory {
 	Package createPackage();
 
 	/**
+	 * Returns a new object of class '<em>Symbols</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Symbols</em>'.
+	 * @generated
+	 */
+	Symbols createSymbols();
+
+	/**
 	 * Returns a new object of class '<em>Symbol</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +290,15 @@ public interface EaglemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Symbol createSymbol();
+
+	/**
+	 * Returns a new object of class '<em>Devicesets</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Devicesets</em>'.
+	 * @generated
+	 */
+	Devicesets createDevicesets();
 
 	/**
 	 * Returns a new object of class '<em>Deviceset</em>'.
@@ -301,6 +418,15 @@ public interface EaglemodelFactory extends EFactory {
 	SMD createSMD();
 
 	/**
+	 * Returns a new object of class '<em>Gates</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gates</em>'.
+	 * @generated
+	 */
+	Gates createGates();
+
+	/**
 	 * Returns a new object of class '<em>Gate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,6 +434,15 @@ public interface EaglemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Gate createGate();
+
+	/**
+	 * Returns a new object of class '<em>Devices</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Devices</em>'.
+	 * @generated
+	 */
+	Devices createDevices();
 
 	/**
 	 * Returns a new object of class '<em>Device</em>'.
@@ -319,6 +454,15 @@ public interface EaglemodelFactory extends EFactory {
 	Device createDevice();
 
 	/**
+	 * Returns a new object of class '<em>Connects</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Connects</em>'.
+	 * @generated
+	 */
+	Connects createConnects();
+
+	/**
 	 * Returns a new object of class '<em>Connect</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -326,6 +470,15 @@ public interface EaglemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Connect createConnect();
+
+	/**
+	 * Returns a new object of class '<em>Technologies</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Technologies</em>'.
+	 * @generated
+	 */
+	Technologies createTechnologies();
 
 	/**
 	 * Returns a new object of class '<em>Technology</em>'.
@@ -346,6 +499,15 @@ public interface EaglemodelFactory extends EFactory {
 	Plain createPlain();
 
 	/**
+	 * Returns a new object of class '<em>Instances</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Instances</em>'.
+	 * @generated
+	 */
+	Instances createInstances();
+
+	/**
 	 * Returns a new object of class '<em>Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -355,6 +517,15 @@ public interface EaglemodelFactory extends EFactory {
 	Instance createInstance();
 
 	/**
+	 * Returns a new object of class '<em>Busses</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Busses</em>'.
+	 * @generated
+	 */
+	Busses createBusses();
+
+	/**
 	 * Returns a new object of class '<em>Bus</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,6 +533,15 @@ public interface EaglemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Bus createBus();
+
+	/**
+	 * Returns a new object of class '<em>Nets</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Nets</em>'.
+	 * @generated
+	 */
+	Nets createNets();
 
 	/**
 	 * Returns a new object of class '<em>Net</em>'.

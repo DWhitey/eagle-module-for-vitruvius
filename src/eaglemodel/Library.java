@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Library#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Library#getDescription <em>Description</em>}</li>
@@ -20,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Library#getSymbols <em>Symbols</em>}</li>
  *   <li>{@link eaglemodel.Library#getDevicesets <em>Devicesets</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getLibrary()
  * @model
@@ -54,77 +52,107 @@ public interface Library extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' reference.
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' reference isn't clear,
+	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' reference.
+	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Description)
 	 * @see eaglemodel.EaglemodelPackage#getLibrary_Description()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Description getDescription();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Library#getDescription <em>Description</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Library#getDescription <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' reference.
+	 * @param value the new value of the '<em>Description</em>' containment reference.
 	 * @see #getDescription()
 	 * @generated
 	 */
 	void setDescription(Description value);
 
 	/**
-	 * Returns the value of the '<em><b>Packages</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Package}.
+	 * Returns the value of the '<em><b>Packages</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Packages</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Packages</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Packages</em>' reference list.
+	 * @return the value of the '<em>Packages</em>' containment reference.
+	 * @see #setPackages(Packages)
 	 * @see eaglemodel.EaglemodelPackage#getLibrary_Packages()
-	 * @model type="eaglemodel.Package"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getPackages();
+	Packages getPackages();
 
 	/**
-	 * Returns the value of the '<em><b>Symbols</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Symbol}.
+	 * Sets the value of the '{@link eaglemodel.Library#getPackages <em>Packages</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Packages</em>' containment reference.
+	 * @see #getPackages()
+	 * @generated
+	 */
+	void setPackages(Packages value);
+
+	/**
+	 * Returns the value of the '<em><b>Symbols</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Symbols</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Symbols</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Symbols</em>' reference list.
+	 * @return the value of the '<em>Symbols</em>' containment reference.
+	 * @see #setSymbols(Symbols)
 	 * @see eaglemodel.EaglemodelPackage#getLibrary_Symbols()
-	 * @model type="eaglemodel.Symbol"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getSymbols();
+	Symbols getSymbols();
 
 	/**
-	 * Returns the value of the '<em><b>Devicesets</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Deviceset}.
+	 * Sets the value of the '{@link eaglemodel.Library#getSymbols <em>Symbols</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Symbols</em>' containment reference.
+	 * @see #getSymbols()
+	 * @generated
+	 */
+	void setSymbols(Symbols value);
+
+	/**
+	 * Returns the value of the '<em><b>Devicesets</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Devicesets</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Devicesets</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Devicesets</em>' reference list.
+	 * @return the value of the '<em>Devicesets</em>' containment reference.
+	 * @see #setDevicesets(Devicesets)
 	 * @see eaglemodel.EaglemodelPackage#getLibrary_Devicesets()
-	 * @model type="eaglemodel.Deviceset"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getDevicesets();
+	Devicesets getDevicesets();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Library#getDevicesets <em>Devicesets</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Devicesets</em>' containment reference.
+	 * @see #getDevicesets()
+	 * @generated
+	 */
+	void setDevicesets(Devicesets value);
 
 } // Library

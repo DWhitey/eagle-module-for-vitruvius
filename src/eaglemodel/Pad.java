@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.PadShape;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Pad#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Pad#getX <em>X</em>}</li>
@@ -25,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Pad#isThermals <em>Thermals</em>}</li>
  *   <li>{@link eaglemodel.Pad#isFirst <em>First</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPad()
  * @model
@@ -165,7 +163,7 @@ public interface Pad extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Shape</b></em>' attribute.
 	 * The default value is <code>"round"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.PadShape}.
+	 * The literals are from the enumeration {@link eaglemodel.PadShape}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Shape</em>' attribute isn't clear,
@@ -173,7 +171,7 @@ public interface Pad extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Shape</em>' attribute.
-	 * @see eaglemodel.Enums.PadShape
+	 * @see eaglemodel.PadShape
 	 * @see #setShape(PadShape)
 	 * @see eaglemodel.EaglemodelPackage#getPad_Shape()
 	 * @model default="round"
@@ -186,7 +184,7 @@ public interface Pad extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Shape</em>' attribute.
-	 * @see eaglemodel.Enums.PadShape
+	 * @see eaglemodel.PadShape
 	 * @see #getShape()
 	 * @generated
 	 */

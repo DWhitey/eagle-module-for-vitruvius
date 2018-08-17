@@ -4,31 +4,45 @@ package eaglemodel.util;
 
 import eaglemodel.Approved;
 import eaglemodel.Attribute;
+import eaglemodel.Attributes;
 import eaglemodel.Bus;
+import eaglemodel.Busses;
 import eaglemodel.Circle;
+import eaglemodel.Classes;
 import eaglemodel.Clearance;
 import eaglemodel.Compatibility;
 import eaglemodel.Connect;
+import eaglemodel.Connects;
 import eaglemodel.Description;
 import eaglemodel.Device;
+import eaglemodel.Devices;
 import eaglemodel.Deviceset;
+import eaglemodel.Devicesets;
 import eaglemodel.Dimension;
 import eaglemodel.Drawing;
 import eaglemodel.Eagle;
 import eaglemodel.EaglemodelPackage;
+import eaglemodel.Errors;
 import eaglemodel.Frame;
 import eaglemodel.Gate;
+import eaglemodel.Gates;
 import eaglemodel.Grid;
 import eaglemodel.Hole;
 import eaglemodel.Instance;
+import eaglemodel.Instances;
 import eaglemodel.Junction;
 import eaglemodel.Label;
 import eaglemodel.Layer;
+import eaglemodel.Layers;
+import eaglemodel.Libraries;
 import eaglemodel.Library;
 import eaglemodel.Net;
+import eaglemodel.Nets;
 import eaglemodel.Note;
+import eaglemodel.Packages;
 import eaglemodel.Pad;
 import eaglemodel.Part;
+import eaglemodel.Parts;
 import eaglemodel.Pin;
 import eaglemodel.Pinref;
 import eaglemodel.Plain;
@@ -38,12 +52,17 @@ import eaglemodel.SMD;
 import eaglemodel.Schematic;
 import eaglemodel.Segment;
 import eaglemodel.Setting;
+import eaglemodel.Settings;
 import eaglemodel.Sheet;
+import eaglemodel.Sheets;
 import eaglemodel.Symbol;
+import eaglemodel.Symbols;
+import eaglemodel.Technologies;
 import eaglemodel.Technology;
 import eaglemodel.Text;
 import eaglemodel.Variant;
 import eaglemodel.Variantdef;
+import eaglemodel.Variantdefs;
 import eaglemodel.Vertex;
 import eaglemodel.Wire;
 
@@ -91,6 +110,7 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object object) {
 		if (object == modelPackage) {
 			return true;
@@ -107,144 +127,266 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EaglemodelSwitch modelSwitch =
-		new EaglemodelSwitch() {
-			public Object caseEagle(Eagle object) {
+	protected EaglemodelSwitch<Adapter> modelSwitch =
+		new EaglemodelSwitch<Adapter>() {
+			@Override
+			public Adapter caseEagle(Eagle object) {
 				return createEagleAdapter();
 			}
-			public Object caseCompatibility(Compatibility object) {
+			@Override
+			public Adapter caseCompatibility(Compatibility object) {
 				return createCompatibilityAdapter();
 			}
-			public Object caseNote(Note object) {
+			@Override
+			public Adapter caseNote(Note object) {
 				return createNoteAdapter();
 			}
-			public Object caseDrawing(Drawing object) {
+			@Override
+			public Adapter caseDrawing(Drawing object) {
 				return createDrawingAdapter();
 			}
-			public Object caseSetting(Setting object) {
+			@Override
+			public Adapter caseSettings(Settings object) {
+				return createSettingsAdapter();
+			}
+			@Override
+			public Adapter caseSetting(Setting object) {
 				return createSettingAdapter();
 			}
-			public Object caseGrid(Grid object) {
+			@Override
+			public Adapter caseGrid(Grid object) {
 				return createGridAdapter();
 			}
-			public Object caseLayer(Layer object) {
+			@Override
+			public Adapter caseLayers(Layers object) {
+				return createLayersAdapter();
+			}
+			@Override
+			public Adapter caseLayer(Layer object) {
 				return createLayerAdapter();
 			}
-			public Object caseSchematic(Schematic object) {
+			@Override
+			public Adapter caseSchematic(Schematic object) {
 				return createSchematicAdapter();
 			}
-			public Object caseDescription(Description object) {
+			@Override
+			public Adapter caseDescription(Description object) {
 				return createDescriptionAdapter();
 			}
-			public Object caseLibrary(Library object) {
+			@Override
+			public Adapter caseLibraries(Libraries object) {
+				return createLibrariesAdapter();
+			}
+			@Override
+			public Adapter caseLibrary(Library object) {
 				return createLibraryAdapter();
 			}
-			public Object caseAttribute(Attribute object) {
+			@Override
+			public Adapter caseAttributes(Attributes object) {
+				return createAttributesAdapter();
+			}
+			@Override
+			public Adapter caseAttribute(Attribute object) {
 				return createAttributeAdapter();
 			}
-			public Object caseVariantdef(Variantdef object) {
+			@Override
+			public Adapter caseVariantdefs(Variantdefs object) {
+				return createVariantdefsAdapter();
+			}
+			@Override
+			public Adapter caseVariantdef(Variantdef object) {
 				return createVariantdefAdapter();
 			}
-			public Object caseVariant(Variant object) {
+			@Override
+			public Adapter caseVariant(Variant object) {
 				return createVariantAdapter();
 			}
-			public Object caseClass(eaglemodel.Class object) {
+			@Override
+			public Adapter caseClasses(Classes object) {
+				return createClassesAdapter();
+			}
+			@Override
+			public Adapter caseClass(eaglemodel.Class object) {
 				return createClassAdapter();
 			}
-			public Object caseClearance(Clearance object) {
+			@Override
+			public Adapter caseClearance(Clearance object) {
 				return createClearanceAdapter();
 			}
-			public Object casePart(Part object) {
+			@Override
+			public Adapter caseParts(Parts object) {
+				return createPartsAdapter();
+			}
+			@Override
+			public Adapter casePart(Part object) {
 				return createPartAdapter();
 			}
-			public Object caseSheet(Sheet object) {
+			@Override
+			public Adapter caseSheets(Sheets object) {
+				return createSheetsAdapter();
+			}
+			@Override
+			public Adapter caseSheet(Sheet object) {
 				return createSheetAdapter();
 			}
-			public Object casePackage(eaglemodel.Package object) {
+			@Override
+			public Adapter caseErrors(Errors object) {
+				return createErrorsAdapter();
+			}
+			@Override
+			public Adapter casePackages(Packages object) {
+				return createPackagesAdapter();
+			}
+			@Override
+			public Adapter casePackage(eaglemodel.Package object) {
 				return createPackageAdapter();
 			}
-			public Object caseSymbol(Symbol object) {
+			@Override
+			public Adapter caseSymbols(Symbols object) {
+				return createSymbolsAdapter();
+			}
+			@Override
+			public Adapter caseSymbol(Symbol object) {
 				return createSymbolAdapter();
 			}
-			public Object caseDeviceset(Deviceset object) {
+			@Override
+			public Adapter caseDevicesets(Devicesets object) {
+				return createDevicesetsAdapter();
+			}
+			@Override
+			public Adapter caseDeviceset(Deviceset object) {
 				return createDevicesetAdapter();
 			}
-			public Object casePolygon(Polygon object) {
+			@Override
+			public Adapter casePolygon(Polygon object) {
 				return createPolygonAdapter();
 			}
-			public Object caseVertex(Vertex object) {
+			@Override
+			public Adapter caseVertex(Vertex object) {
 				return createVertexAdapter();
 			}
-			public Object caseWire(Wire object) {
+			@Override
+			public Adapter caseWire(Wire object) {
 				return createWireAdapter();
 			}
-			public Object caseText(Text object) {
+			@Override
+			public Adapter caseText(Text object) {
 				return createTextAdapter();
 			}
-			public Object caseDimension(Dimension object) {
+			@Override
+			public Adapter caseDimension(Dimension object) {
 				return createDimensionAdapter();
 			}
-			public Object casePin(Pin object) {
+			@Override
+			public Adapter casePin(Pin object) {
 				return createPinAdapter();
 			}
-			public Object caseCircle(Circle object) {
+			@Override
+			public Adapter caseCircle(Circle object) {
 				return createCircleAdapter();
 			}
-			public Object caseRectangle(Rectangle object) {
+			@Override
+			public Adapter caseRectangle(Rectangle object) {
 				return createRectangleAdapter();
 			}
-			public Object caseFrame(Frame object) {
+			@Override
+			public Adapter caseFrame(Frame object) {
 				return createFrameAdapter();
 			}
-			public Object caseHole(Hole object) {
+			@Override
+			public Adapter caseHole(Hole object) {
 				return createHoleAdapter();
 			}
-			public Object casePad(Pad object) {
+			@Override
+			public Adapter casePad(Pad object) {
 				return createPadAdapter();
 			}
-			public Object caseSMD(SMD object) {
+			@Override
+			public Adapter caseSMD(SMD object) {
 				return createSMDAdapter();
 			}
-			public Object caseGate(Gate object) {
+			@Override
+			public Adapter caseGates(Gates object) {
+				return createGatesAdapter();
+			}
+			@Override
+			public Adapter caseGate(Gate object) {
 				return createGateAdapter();
 			}
-			public Object caseDevice(Device object) {
+			@Override
+			public Adapter caseDevices(Devices object) {
+				return createDevicesAdapter();
+			}
+			@Override
+			public Adapter caseDevice(Device object) {
 				return createDeviceAdapter();
 			}
-			public Object caseConnect(Connect object) {
+			@Override
+			public Adapter caseConnects(Connects object) {
+				return createConnectsAdapter();
+			}
+			@Override
+			public Adapter caseConnect(Connect object) {
 				return createConnectAdapter();
 			}
-			public Object caseTechnology(Technology object) {
+			@Override
+			public Adapter caseTechnologies(Technologies object) {
+				return createTechnologiesAdapter();
+			}
+			@Override
+			public Adapter caseTechnology(Technology object) {
 				return createTechnologyAdapter();
 			}
-			public Object casePlain(Plain object) {
+			@Override
+			public Adapter casePlain(Plain object) {
 				return createPlainAdapter();
 			}
-			public Object caseInstance(Instance object) {
+			@Override
+			public Adapter caseInstances(Instances object) {
+				return createInstancesAdapter();
+			}
+			@Override
+			public Adapter caseInstance(Instance object) {
 				return createInstanceAdapter();
 			}
-			public Object caseBus(Bus object) {
+			@Override
+			public Adapter caseBusses(Busses object) {
+				return createBussesAdapter();
+			}
+			@Override
+			public Adapter caseBus(Bus object) {
 				return createBusAdapter();
 			}
-			public Object caseNet(Net object) {
+			@Override
+			public Adapter caseNets(Nets object) {
+				return createNetsAdapter();
+			}
+			@Override
+			public Adapter caseNet(Net object) {
 				return createNetAdapter();
 			}
-			public Object caseSegment(Segment object) {
+			@Override
+			public Adapter caseSegment(Segment object) {
 				return createSegmentAdapter();
 			}
-			public Object casePinref(Pinref object) {
+			@Override
+			public Adapter casePinref(Pinref object) {
 				return createPinrefAdapter();
 			}
-			public Object caseJunction(Junction object) {
+			@Override
+			public Adapter caseJunction(Junction object) {
 				return createJunctionAdapter();
 			}
-			public Object caseLabel(Label object) {
+			@Override
+			public Adapter caseLabel(Label object) {
 				return createLabelAdapter();
 			}
-			public Object caseApproved(Approved object) {
+			@Override
+			public Adapter caseApproved(Approved object) {
 				return createApprovedAdapter();
 			}
-			public Object defaultCase(EObject object) {
+			@Override
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};
@@ -257,8 +399,9 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
+	@Override
 	public Adapter createAdapter(Notifier target) {
-		return (Adapter)modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
 
 
@@ -319,6 +462,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Settings <em>Settings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Settings
+	 * @generated
+	 */
+	public Adapter createSettingsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Setting <em>Setting</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -343,6 +500,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGridAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Layers <em>Layers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Layers
+	 * @generated
+	 */
+	public Adapter createLayersAdapter() {
 		return null;
 	}
 
@@ -389,6 +560,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Libraries <em>Libraries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Libraries
+	 * @generated
+	 */
+	public Adapter createLibrariesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Library <em>Library</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -403,6 +588,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Attributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Attributes
+	 * @generated
+	 */
+	public Adapter createAttributesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Attribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -413,6 +612,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Variantdefs <em>Variantdefs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Variantdefs
+	 * @generated
+	 */
+	public Adapter createVariantdefsAdapter() {
 		return null;
 	}
 
@@ -445,6 +658,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Classes <em>Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Classes
+	 * @generated
+	 */
+	public Adapter createClassesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Class <em>Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -473,6 +700,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Parts <em>Parts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Parts
+	 * @generated
+	 */
+	public Adapter createPartsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Part <em>Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -483,6 +724,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Sheets <em>Sheets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Sheets
+	 * @generated
+	 */
+	public Adapter createSheetsAdapter() {
 		return null;
 	}
 
@@ -501,6 +756,34 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Errors <em>Errors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Errors
+	 * @generated
+	 */
+	public Adapter createErrorsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Packages <em>Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Packages
+	 * @generated
+	 */
+	public Adapter createPackagesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -515,6 +798,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Symbols <em>Symbols</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Symbols
+	 * @generated
+	 */
+	public Adapter createSymbolsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Symbol <em>Symbol</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -525,6 +822,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSymbolAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Devicesets <em>Devicesets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Devicesets
+	 * @generated
+	 */
+	public Adapter createDevicesetsAdapter() {
 		return null;
 	}
 
@@ -711,6 +1022,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Gates <em>Gates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Gates
+	 * @generated
+	 */
+	public Adapter createGatesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Gate <em>Gate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -721,6 +1046,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Devices <em>Devices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Devices
+	 * @generated
+	 */
+	public Adapter createDevicesAdapter() {
 		return null;
 	}
 
@@ -739,6 +1078,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Connects <em>Connects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Connects
+	 * @generated
+	 */
+	public Adapter createConnectsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Connect <em>Connect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -749,6 +1102,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConnectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Technologies <em>Technologies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Technologies
+	 * @generated
+	 */
+	public Adapter createTechnologiesAdapter() {
 		return null;
 	}
 
@@ -781,6 +1148,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Instances <em>Instances</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Instances
+	 * @generated
+	 */
+	public Adapter createInstancesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Instance <em>Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -795,6 +1176,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Busses <em>Busses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Busses
+	 * @generated
+	 */
+	public Adapter createBussesAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link eaglemodel.Bus <em>Bus</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -805,6 +1200,20 @@ public class EaglemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eaglemodel.Nets <em>Nets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eaglemodel.Nets
+	 * @generated
+	 */
+	public Adapter createNetsAdapter() {
 		return null;
 	}
 

@@ -2,9 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.DimensionType;
-import eaglemodel.Enums.GridUnit;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Dimension#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.Dimension#getY1 <em>Y1</em>}</li>
@@ -33,7 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Dimension#getPrecision <em>Precision</em>}</li>
  *   <li>{@link eaglemodel.Dimension#isVisible <em>Visible</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDimension()
  * @model
@@ -225,7 +222,7 @@ public interface Dimension extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Dtype</b></em>' attribute.
 	 * The default value is <code>"parallel"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.DimensionType}.
+	 * The literals are from the enumeration {@link eaglemodel.DimensionType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dtype</em>' attribute isn't clear,
@@ -233,7 +230,7 @@ public interface Dimension extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dtype</em>' attribute.
-	 * @see eaglemodel.Enums.DimensionType
+	 * @see eaglemodel.DimensionType
 	 * @see #setDtype(DimensionType)
 	 * @see eaglemodel.EaglemodelPackage#getDimension_Dtype()
 	 * @model default="parallel"
@@ -246,7 +243,7 @@ public interface Dimension extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Dtype</em>' attribute.
-	 * @see eaglemodel.Enums.DimensionType
+	 * @see eaglemodel.DimensionType
 	 * @see #getDtype()
 	 * @generated
 	 */
@@ -412,7 +409,7 @@ public interface Dimension extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' attribute.
 	 * The default value is <code>"mm"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.GridUnit}.
+	 * The literals are from the enumeration {@link eaglemodel.GridUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Unit</em>' attribute isn't clear,
@@ -420,7 +417,7 @@ public interface Dimension extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Unit</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #setUnit(GridUnit)
 	 * @see eaglemodel.EaglemodelPackage#getDimension_Unit()
 	 * @model default="mm"
@@ -433,7 +430,7 @@ public interface Dimension extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Unit</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #getUnit()
 	 * @generated
 	 */

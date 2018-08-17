@@ -3,24 +3,25 @@
 package eaglemodel.impl;
 
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.PolygonPour;
-
 import eaglemodel.Polygon;
+import eaglemodel.PolygonPour;
 import eaglemodel.Vertex;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PolygonImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link eaglemodel.impl.PolygonImpl#getLayer <em>Layer</em>}</li>
@@ -39,7 +41,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.PolygonImpl#getRank <em>Rank</em>}</li>
  *   <li>{@link eaglemodel.impl.PolygonImpl#getVertex <em>Vertex</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -112,7 +113,7 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PolygonPour POUR_EDEFAULT = PolygonPour.SOLID_LITERAL;
+	protected static final PolygonPour POUR_EDEFAULT = PolygonPour.SOLID;
 
 	/**
 	 * The cached value of the '{@link #getPour() <em>Pour</em>}' attribute.
@@ -205,14 +206,14 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	protected int rank = RANK_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getVertex() <em>Vertex</em>}' reference list.
+	 * The cached value of the '{@link #getVertex() <em>Vertex</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVertex()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList vertex;
+	protected EList<Vertex> vertex;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,6 +229,7 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.POLYGON;
 	}
@@ -405,9 +407,9 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getVertex() {
+	public EList<Vertex> getVertex() {
 		if (vertex == null) {
-			vertex = new EObjectResolvingEList(Vertex.class, this, EaglemodelPackage.POLYGON__VERTEX);
+			vertex = new EObjectContainmentEList<Vertex>(Vertex.class, this, EaglemodelPackage.POLYGON__VERTEX);
 		}
 		return vertex;
 	}
@@ -417,24 +419,39 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.POLYGON__VERTEX:
+				return ((InternalEList<?>)getVertex()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.POLYGON__WIDTH:
-				return new Double(getWidth());
+				return getWidth();
 			case EaglemodelPackage.POLYGON__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 			case EaglemodelPackage.POLYGON__SPACING:
-				return new Double(getSpacing());
+				return getSpacing();
 			case EaglemodelPackage.POLYGON__POUR:
 				return getPour();
 			case EaglemodelPackage.POLYGON__ISOLATE:
-				return new Double(getIsolate());
+				return getIsolate();
 			case EaglemodelPackage.POLYGON__ORPHANS:
-				return isOrphans() ? Boolean.TRUE : Boolean.FALSE;
+				return isOrphans();
 			case EaglemodelPackage.POLYGON__THERMALS:
-				return isThermals() ? Boolean.TRUE : Boolean.FALSE;
+				return isThermals();
 			case EaglemodelPackage.POLYGON__RANK:
-				return new Integer(getRank());
+				return getRank();
 			case EaglemodelPackage.POLYGON__VERTEX:
 				return getVertex();
 		}
@@ -446,35 +463,37 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.POLYGON__WIDTH:
-				setWidth(((Double)newValue).doubleValue());
+				setWidth((Double)newValue);
 				return;
 			case EaglemodelPackage.POLYGON__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 			case EaglemodelPackage.POLYGON__SPACING:
-				setSpacing(((Double)newValue).doubleValue());
+				setSpacing((Double)newValue);
 				return;
 			case EaglemodelPackage.POLYGON__POUR:
 				setPour((PolygonPour)newValue);
 				return;
 			case EaglemodelPackage.POLYGON__ISOLATE:
-				setIsolate(((Double)newValue).doubleValue());
+				setIsolate((Double)newValue);
 				return;
 			case EaglemodelPackage.POLYGON__ORPHANS:
-				setOrphans(((Boolean)newValue).booleanValue());
+				setOrphans((Boolean)newValue);
 				return;
 			case EaglemodelPackage.POLYGON__THERMALS:
-				setThermals(((Boolean)newValue).booleanValue());
+				setThermals((Boolean)newValue);
 				return;
 			case EaglemodelPackage.POLYGON__RANK:
-				setRank(((Integer)newValue).intValue());
+				setRank((Integer)newValue);
 				return;
 			case EaglemodelPackage.POLYGON__VERTEX:
 				getVertex().clear();
-				getVertex().addAll((Collection)newValue);
+				getVertex().addAll((Collection<? extends Vertex>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -485,6 +504,7 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.POLYGON__WIDTH:
@@ -523,6 +543,7 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.POLYGON__WIDTH:
@@ -552,10 +573,11 @@ public class PolygonImpl extends MinimalEObjectImpl.Container implements Polygon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (width: ");
 		result.append(width);
 		result.append(", layer: ");

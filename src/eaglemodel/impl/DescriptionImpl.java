@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DescriptionImpl#getLanguage <em>Language</em>}</li>
- *   <li>{@link eaglemodel.impl.DescriptionImpl#getPcdata <em>Pcdata</em>}</li>
+ *   <li>{@link eaglemodel.impl.DescriptionImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -48,24 +48,24 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	protected String language = LANGUAGE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPcdata() <em>Pcdata</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPcdata()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PCDATA_EDEFAULT = null;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPcdata() <em>Pcdata</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPcdata()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String pcdata = PCDATA_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,6 +81,7 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.DESCRIPTION;
 	}
@@ -111,8 +112,8 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPcdata() {
-		return pcdata;
+	public String getValue() {
+		return value;
 	}
 
 	/**
@@ -120,11 +121,11 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPcdata(String newPcdata) {
-		String oldPcdata = pcdata;
-		pcdata = newPcdata;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DESCRIPTION__PCDATA, oldPcdata, pcdata));
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DESCRIPTION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -132,12 +133,13 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.DESCRIPTION__LANGUAGE:
 				return getLanguage();
-			case EaglemodelPackage.DESCRIPTION__PCDATA:
-				return getPcdata();
+			case EaglemodelPackage.DESCRIPTION__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,13 +149,14 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.DESCRIPTION__LANGUAGE:
 				setLanguage((String)newValue);
 				return;
-			case EaglemodelPackage.DESCRIPTION__PCDATA:
-				setPcdata((String)newValue);
+			case EaglemodelPackage.DESCRIPTION__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -164,13 +167,14 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DESCRIPTION__LANGUAGE:
 				setLanguage(LANGUAGE_EDEFAULT);
 				return;
-			case EaglemodelPackage.DESCRIPTION__PCDATA:
-				setPcdata(PCDATA_EDEFAULT);
+			case EaglemodelPackage.DESCRIPTION__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -181,12 +185,13 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DESCRIPTION__LANGUAGE:
 				return LANGUAGE_EDEFAULT == null ? language != null : !LANGUAGE_EDEFAULT.equals(language);
-			case EaglemodelPackage.DESCRIPTION__PCDATA:
-				return PCDATA_EDEFAULT == null ? pcdata != null : !PCDATA_EDEFAULT.equals(pcdata);
+			case EaglemodelPackage.DESCRIPTION__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -196,14 +201,15 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (language: ");
 		result.append(language);
-		result.append(", pcdata: ");
-		result.append(pcdata);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

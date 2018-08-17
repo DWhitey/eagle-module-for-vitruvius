@@ -2,9 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.AttributeDisplay;
-import eaglemodel.Enums.TextFont;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Attribute#getValue <em>Value</em>}</li>
@@ -27,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Attribute#getDisplay <em>Display</em>}</li>
  *   <li>{@link eaglemodel.Attribute#isConstant <em>Constant</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getAttribute()
  * @model
@@ -193,7 +190,7 @@ public interface Attribute extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Font</b></em>' attribute.
 	 * The default value is <code>"vector"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.TextFont}.
+	 * The literals are from the enumeration {@link eaglemodel.TextFont}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Font</em>' attribute isn't clear,
@@ -201,7 +198,7 @@ public interface Attribute extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Font</em>' attribute.
-	 * @see eaglemodel.Enums.TextFont
+	 * @see eaglemodel.TextFont
 	 * @see #setFont(TextFont)
 	 * @see eaglemodel.EaglemodelPackage#getAttribute_Font()
 	 * @model default="vector"
@@ -214,7 +211,7 @@ public interface Attribute extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Font</em>' attribute.
-	 * @see eaglemodel.Enums.TextFont
+	 * @see eaglemodel.TextFont
 	 * @see #getFont()
 	 * @generated
 	 */
@@ -275,7 +272,7 @@ public interface Attribute extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Display</b></em>' attribute.
 	 * The default value is <code>"value"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.AttributeDisplay}.
+	 * The literals are from the enumeration {@link eaglemodel.AttributeDisplay}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Display</em>' attribute isn't clear,
@@ -283,7 +280,7 @@ public interface Attribute extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Display</em>' attribute.
-	 * @see eaglemodel.Enums.AttributeDisplay
+	 * @see eaglemodel.AttributeDisplay
 	 * @see #setDisplay(AttributeDisplay)
 	 * @see eaglemodel.EaglemodelPackage#getAttribute_Display()
 	 * @model default="value"
@@ -296,7 +293,7 @@ public interface Attribute extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Display</em>' attribute.
-	 * @see eaglemodel.Enums.AttributeDisplay
+	 * @see eaglemodel.AttributeDisplay
 	 * @see #getDisplay()
 	 * @generated
 	 */

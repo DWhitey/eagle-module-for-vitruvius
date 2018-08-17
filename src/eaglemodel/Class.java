@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Class#getNumber <em>Number</em>}</li>
  *   <li>{@link eaglemodel.Class#getName <em>Name</em>}</li>
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Class#getDrill <em>Drill</em>}</li>
  *   <li>{@link eaglemodel.Class#getClearance <em>Clearance</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getClass_()
  * @model
@@ -132,19 +132,19 @@ public interface Class extends EObject {
 	void setDrill(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Clearance</b></em>' reference list.
+	 * Returns the value of the '<em><b>Clearance</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Clearance}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Clearance</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Clearance</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Clearance</em>' reference list.
+	 * @return the value of the '<em>Clearance</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getClass_Clearance()
-	 * @model type="eaglemodel.Clearance"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getClearance();
+	EList<Clearance> getClearance();
 
 } // Class

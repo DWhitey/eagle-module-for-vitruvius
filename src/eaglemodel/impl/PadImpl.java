@@ -3,10 +3,8 @@
 package eaglemodel.impl;
 
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.PadShape;
-
 import eaglemodel.Pad;
+import eaglemodel.PadShape;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PadImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.PadImpl#getX <em>X</em>}</li>
@@ -33,7 +32,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.PadImpl#isThermals <em>Thermals</em>}</li>
  *   <li>{@link eaglemodel.impl.PadImpl#isFirst <em>First</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -146,7 +144,7 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PadShape SHAPE_EDEFAULT = PadShape.ROUND_LITERAL;
+	protected static final PadShape SHAPE_EDEFAULT = PadShape.ROUND;
 
 	/**
 	 * The cached value of the '{@link #getShape() <em>Shape</em>}' attribute.
@@ -252,6 +250,7 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.PAD;
 	}
@@ -471,28 +470,29 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.PAD__NAME:
 				return getName();
 			case EaglemodelPackage.PAD__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.PAD__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.PAD__DRILL:
-				return new Double(getDrill());
+				return getDrill();
 			case EaglemodelPackage.PAD__DIAMETER:
-				return new Double(getDiameter());
+				return getDiameter();
 			case EaglemodelPackage.PAD__SHAPE:
 				return getShape();
 			case EaglemodelPackage.PAD__ROT:
-				return new Double(getRot());
+				return getRot();
 			case EaglemodelPackage.PAD__STOP:
-				return isStop() ? Boolean.TRUE : Boolean.FALSE;
+				return isStop();
 			case EaglemodelPackage.PAD__THERMALS:
-				return isThermals() ? Boolean.TRUE : Boolean.FALSE;
+				return isThermals();
 			case EaglemodelPackage.PAD__FIRST:
-				return isFirst() ? Boolean.TRUE : Boolean.FALSE;
+				return isFirst();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -502,37 +502,38 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.PAD__NAME:
 				setName((String)newValue);
 				return;
 			case EaglemodelPackage.PAD__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.PAD__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.PAD__DRILL:
-				setDrill(((Double)newValue).doubleValue());
+				setDrill((Double)newValue);
 				return;
 			case EaglemodelPackage.PAD__DIAMETER:
-				setDiameter(((Double)newValue).doubleValue());
+				setDiameter((Double)newValue);
 				return;
 			case EaglemodelPackage.PAD__SHAPE:
 				setShape((PadShape)newValue);
 				return;
 			case EaglemodelPackage.PAD__ROT:
-				setRot(((Double)newValue).doubleValue());
+				setRot((Double)newValue);
 				return;
 			case EaglemodelPackage.PAD__STOP:
-				setStop(((Boolean)newValue).booleanValue());
+				setStop((Boolean)newValue);
 				return;
 			case EaglemodelPackage.PAD__THERMALS:
-				setThermals(((Boolean)newValue).booleanValue());
+				setThermals((Boolean)newValue);
 				return;
 			case EaglemodelPackage.PAD__FIRST:
-				setFirst(((Boolean)newValue).booleanValue());
+				setFirst((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -543,6 +544,7 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PAD__NAME:
@@ -584,6 +586,7 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PAD__NAME:
@@ -615,10 +618,11 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", x: ");

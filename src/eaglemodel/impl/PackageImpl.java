@@ -18,6 +18,7 @@ import eaglemodel.Wire;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -27,7 +28,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.PackageImpl#getDescription <em>Description</em>}</li>
@@ -49,7 +52,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.PackageImpl#getPad <em>Pad</em>}</li>
  *   <li>{@link eaglemodel.impl.PackageImpl#getSmd <em>Smd</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -75,7 +77,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' reference.
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDescription()
@@ -85,104 +87,104 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	protected Description description;
 
 	/**
-	 * The cached value of the '{@link #getPolygon() <em>Polygon</em>}' reference list.
+	 * The cached value of the '{@link #getPolygon() <em>Polygon</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPolygon()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList polygon;
+	protected EList<Polygon> polygon;
 
 	/**
-	 * The cached value of the '{@link #getWire() <em>Wire</em>}' reference list.
+	 * The cached value of the '{@link #getWire() <em>Wire</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getWire()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList wire;
+	protected EList<Wire> wire;
 
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' reference list.
+	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList text;
+	protected EList<Text> text;
 
 	/**
-	 * The cached value of the '{@link #getDimension() <em>Dimension</em>}' reference list.
+	 * The cached value of the '{@link #getDimension() <em>Dimension</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDimension()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dimension;
+	protected EList<Dimension> dimension;
 
 	/**
-	 * The cached value of the '{@link #getCircle() <em>Circle</em>}' reference list.
+	 * The cached value of the '{@link #getCircle() <em>Circle</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCircle()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList circle;
+	protected EList<Circle> circle;
 
 	/**
-	 * The cached value of the '{@link #getRectangle() <em>Rectangle</em>}' reference list.
+	 * The cached value of the '{@link #getRectangle() <em>Rectangle</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRectangle()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList rectangle;
+	protected EList<Rectangle> rectangle;
 
 	/**
-	 * The cached value of the '{@link #getFrame() <em>Frame</em>}' reference list.
+	 * The cached value of the '{@link #getFrame() <em>Frame</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFrame()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList frame;
+	protected EList<Frame> frame;
 
 	/**
-	 * The cached value of the '{@link #getHole() <em>Hole</em>}' reference list.
+	 * The cached value of the '{@link #getHole() <em>Hole</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHole()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList hole;
+	protected EList<Hole> hole;
 
 	/**
-	 * The cached value of the '{@link #getPad() <em>Pad</em>}' reference list.
+	 * The cached value of the '{@link #getPad() <em>Pad</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPad()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList pad;
+	protected EList<Pad> pad;
 
 	/**
-	 * The cached value of the '{@link #getSmd() <em>Smd</em>}' reference list.
+	 * The cached value of the '{@link #getSmd() <em>Smd</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSmd()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList smd;
+	protected EList<SMD> smd;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,6 +200,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.PACKAGE;
 	}
@@ -229,14 +232,6 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * @generated
 	 */
 	public Description getDescription() {
-		if (description != null && description.eIsProxy()) {
-			InternalEObject oldDescription = (InternalEObject)description;
-			description = (Description)eResolveProxy(oldDescription);
-			if (description != oldDescription) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaglemodelPackage.PACKAGE__DESCRIPTION, oldDescription, description));
-			}
-		}
 		return description;
 	}
 
@@ -245,8 +240,14 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Description basicGetDescription() {
-		return description;
+	public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
+		Description oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PACKAGE__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -255,10 +256,17 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * @generated
 	 */
 	public void setDescription(Description newDescription) {
-		Description oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PACKAGE__DESCRIPTION, oldDescription, description));
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.PACKAGE__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.PACKAGE__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PACKAGE__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -266,9 +274,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getPolygon() {
+	public EList<Polygon> getPolygon() {
 		if (polygon == null) {
-			polygon = new EObjectResolvingEList(Polygon.class, this, EaglemodelPackage.PACKAGE__POLYGON);
+			polygon = new EObjectContainmentEList<Polygon>(Polygon.class, this, EaglemodelPackage.PACKAGE__POLYGON);
 		}
 		return polygon;
 	}
@@ -278,9 +286,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getWire() {
+	public EList<Wire> getWire() {
 		if (wire == null) {
-			wire = new EObjectResolvingEList(Wire.class, this, EaglemodelPackage.PACKAGE__WIRE);
+			wire = new EObjectContainmentEList<Wire>(Wire.class, this, EaglemodelPackage.PACKAGE__WIRE);
 		}
 		return wire;
 	}
@@ -290,9 +298,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getText() {
+	public EList<Text> getText() {
 		if (text == null) {
-			text = new EObjectResolvingEList(Text.class, this, EaglemodelPackage.PACKAGE__TEXT);
+			text = new EObjectContainmentEList<Text>(Text.class, this, EaglemodelPackage.PACKAGE__TEXT);
 		}
 		return text;
 	}
@@ -302,9 +310,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDimension() {
+	public EList<Dimension> getDimension() {
 		if (dimension == null) {
-			dimension = new EObjectResolvingEList(Dimension.class, this, EaglemodelPackage.PACKAGE__DIMENSION);
+			dimension = new EObjectContainmentEList<Dimension>(Dimension.class, this, EaglemodelPackage.PACKAGE__DIMENSION);
 		}
 		return dimension;
 	}
@@ -314,9 +322,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getCircle() {
+	public EList<Circle> getCircle() {
 		if (circle == null) {
-			circle = new EObjectResolvingEList(Circle.class, this, EaglemodelPackage.PACKAGE__CIRCLE);
+			circle = new EObjectContainmentEList<Circle>(Circle.class, this, EaglemodelPackage.PACKAGE__CIRCLE);
 		}
 		return circle;
 	}
@@ -326,9 +334,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRectangle() {
+	public EList<Rectangle> getRectangle() {
 		if (rectangle == null) {
-			rectangle = new EObjectResolvingEList(Rectangle.class, this, EaglemodelPackage.PACKAGE__RECTANGLE);
+			rectangle = new EObjectContainmentEList<Rectangle>(Rectangle.class, this, EaglemodelPackage.PACKAGE__RECTANGLE);
 		}
 		return rectangle;
 	}
@@ -338,9 +346,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getFrame() {
+	public EList<Frame> getFrame() {
 		if (frame == null) {
-			frame = new EObjectResolvingEList(Frame.class, this, EaglemodelPackage.PACKAGE__FRAME);
+			frame = new EObjectContainmentEList<Frame>(Frame.class, this, EaglemodelPackage.PACKAGE__FRAME);
 		}
 		return frame;
 	}
@@ -350,9 +358,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getHole() {
+	public EList<Hole> getHole() {
 		if (hole == null) {
-			hole = new EObjectResolvingEList(Hole.class, this, EaglemodelPackage.PACKAGE__HOLE);
+			hole = new EObjectContainmentEList<Hole>(Hole.class, this, EaglemodelPackage.PACKAGE__HOLE);
 		}
 		return hole;
 	}
@@ -362,9 +370,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getPad() {
+	public EList<Pad> getPad() {
 		if (pad == null) {
-			pad = new EObjectResolvingEList(Pad.class, this, EaglemodelPackage.PACKAGE__PAD);
+			pad = new EObjectContainmentEList<Pad>(Pad.class, this, EaglemodelPackage.PACKAGE__PAD);
 		}
 		return pad;
 	}
@@ -374,9 +382,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getSmd() {
+	public EList<SMD> getSmd() {
 		if (smd == null) {
-			smd = new EObjectResolvingEList(SMD.class, this, EaglemodelPackage.PACKAGE__SMD);
+			smd = new EObjectContainmentEList<SMD>(SMD.class, this, EaglemodelPackage.PACKAGE__SMD);
 		}
 		return smd;
 	}
@@ -386,13 +394,47 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.PACKAGE__DESCRIPTION:
+				return basicSetDescription(null, msgs);
+			case EaglemodelPackage.PACKAGE__POLYGON:
+				return ((InternalEList<?>)getPolygon()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__WIRE:
+				return ((InternalEList<?>)getWire()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__TEXT:
+				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__DIMENSION:
+				return ((InternalEList<?>)getDimension()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__CIRCLE:
+				return ((InternalEList<?>)getCircle()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__RECTANGLE:
+				return ((InternalEList<?>)getRectangle()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__FRAME:
+				return ((InternalEList<?>)getFrame()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__HOLE:
+				return ((InternalEList<?>)getHole()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__PAD:
+				return ((InternalEList<?>)getPad()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PACKAGE__SMD:
+				return ((InternalEList<?>)getSmd()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.PACKAGE__NAME:
 				return getName();
 			case EaglemodelPackage.PACKAGE__DESCRIPTION:
-				if (resolve) return getDescription();
-				return basicGetDescription();
+				return getDescription();
 			case EaglemodelPackage.PACKAGE__POLYGON:
 				return getPolygon();
 			case EaglemodelPackage.PACKAGE__WIRE:
@@ -422,6 +464,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.PACKAGE__NAME:
@@ -432,43 +476,43 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 				return;
 			case EaglemodelPackage.PACKAGE__POLYGON:
 				getPolygon().clear();
-				getPolygon().addAll((Collection)newValue);
+				getPolygon().addAll((Collection<? extends Polygon>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__WIRE:
 				getWire().clear();
-				getWire().addAll((Collection)newValue);
+				getWire().addAll((Collection<? extends Wire>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__TEXT:
 				getText().clear();
-				getText().addAll((Collection)newValue);
+				getText().addAll((Collection<? extends Text>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__DIMENSION:
 				getDimension().clear();
-				getDimension().addAll((Collection)newValue);
+				getDimension().addAll((Collection<? extends Dimension>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__CIRCLE:
 				getCircle().clear();
-				getCircle().addAll((Collection)newValue);
+				getCircle().addAll((Collection<? extends Circle>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__RECTANGLE:
 				getRectangle().clear();
-				getRectangle().addAll((Collection)newValue);
+				getRectangle().addAll((Collection<? extends Rectangle>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__FRAME:
 				getFrame().clear();
-				getFrame().addAll((Collection)newValue);
+				getFrame().addAll((Collection<? extends Frame>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__HOLE:
 				getHole().clear();
-				getHole().addAll((Collection)newValue);
+				getHole().addAll((Collection<? extends Hole>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__PAD:
 				getPad().clear();
-				getPad().addAll((Collection)newValue);
+				getPad().addAll((Collection<? extends Pad>)newValue);
 				return;
 			case EaglemodelPackage.PACKAGE__SMD:
 				getSmd().clear();
-				getSmd().addAll((Collection)newValue);
+				getSmd().addAll((Collection<? extends SMD>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -479,6 +523,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PACKAGE__NAME:
@@ -526,6 +571,7 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PACKAGE__NAME:
@@ -561,10 +607,11 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements eaglemo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');

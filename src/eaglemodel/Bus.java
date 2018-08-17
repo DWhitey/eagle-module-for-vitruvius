@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Bus#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Bus#getSegment <em>Segment</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getBus()
  * @model
@@ -51,19 +51,19 @@ public interface Bus extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Segment</b></em>' reference list.
+	 * Returns the value of the '<em><b>Segment</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Segment}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Segment</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Segment</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Segment</em>' reference list.
+	 * @return the value of the '<em>Segment</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getBus_Segment()
-	 * @model type="eaglemodel.Segment"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getSegment();
+	EList<Segment> getSegment();
 
 } // Bus

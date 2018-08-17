@@ -2,23 +2,19 @@
  */
 package eaglemodel.impl;
 
-import eaglemodel.Connect;
+import eaglemodel.Connects;
 import eaglemodel.Device;
 import eaglemodel.EaglemodelPackage;
-import eaglemodel.Technology;
-
-import java.util.Collection;
+import eaglemodel.Technologies;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,13 +22,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DeviceImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.DeviceImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link eaglemodel.impl.DeviceImpl#getConnects <em>Connects</em>}</li>
  *   <li>{@link eaglemodel.impl.DeviceImpl#getTechnologies <em>Technologies</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -78,24 +74,24 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	protected String package_ = PACKAGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConnects() <em>Connects</em>}' reference list.
+	 * The cached value of the '{@link #getConnects() <em>Connects</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConnects()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList connects;
+	protected Connects connects;
 
 	/**
-	 * The cached value of the '{@link #getTechnologies() <em>Technologies</em>}' reference list.
+	 * The cached value of the '{@link #getTechnologies() <em>Technologies</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTechnologies()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList technologies;
+	protected Technologies technologies;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,6 +107,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.DEVICE;
 	}
@@ -162,10 +159,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getConnects() {
-		if (connects == null) {
-			connects = new EObjectResolvingEList(Connect.class, this, EaglemodelPackage.DEVICE__CONNECTS);
-		}
+	public Connects getConnects() {
 		return connects;
 	}
 
@@ -174,10 +168,41 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getTechnologies() {
-		if (technologies == null) {
-			technologies = new EObjectResolvingEList(Technology.class, this, EaglemodelPackage.DEVICE__TECHNOLOGIES);
+	public NotificationChain basicSetConnects(Connects newConnects, NotificationChain msgs) {
+		Connects oldConnects = connects;
+		connects = newConnects;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICE__CONNECTS, oldConnects, newConnects);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConnects(Connects newConnects) {
+		if (newConnects != connects) {
+			NotificationChain msgs = null;
+			if (connects != null)
+				msgs = ((InternalEObject)connects).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICE__CONNECTS, null, msgs);
+			if (newConnects != null)
+				msgs = ((InternalEObject)newConnects).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICE__CONNECTS, null, msgs);
+			msgs = basicSetConnects(newConnects, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICE__CONNECTS, newConnects, newConnects));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Technologies getTechnologies() {
 		return technologies;
 	}
 
@@ -186,6 +211,57 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain basicSetTechnologies(Technologies newTechnologies, NotificationChain msgs) {
+		Technologies oldTechnologies = technologies;
+		technologies = newTechnologies;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICE__TECHNOLOGIES, oldTechnologies, newTechnologies);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTechnologies(Technologies newTechnologies) {
+		if (newTechnologies != technologies) {
+			NotificationChain msgs = null;
+			if (technologies != null)
+				msgs = ((InternalEObject)technologies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICE__TECHNOLOGIES, null, msgs);
+			if (newTechnologies != null)
+				msgs = ((InternalEObject)newTechnologies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICE__TECHNOLOGIES, null, msgs);
+			msgs = basicSetTechnologies(newTechnologies, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICE__TECHNOLOGIES, newTechnologies, newTechnologies));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.DEVICE__CONNECTS:
+				return basicSetConnects(null, msgs);
+			case EaglemodelPackage.DEVICE__TECHNOLOGIES:
+				return basicSetTechnologies(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.DEVICE__NAME:
@@ -205,6 +281,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.DEVICE__NAME:
@@ -214,12 +291,10 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 				setPackage((String)newValue);
 				return;
 			case EaglemodelPackage.DEVICE__CONNECTS:
-				getConnects().clear();
-				getConnects().addAll((Collection)newValue);
+				setConnects((Connects)newValue);
 				return;
 			case EaglemodelPackage.DEVICE__TECHNOLOGIES:
-				getTechnologies().clear();
-				getTechnologies().addAll((Collection)newValue);
+				setTechnologies((Technologies)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,6 +305,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DEVICE__NAME:
@@ -239,10 +315,10 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 				setPackage(PACKAGE_EDEFAULT);
 				return;
 			case EaglemodelPackage.DEVICE__CONNECTS:
-				getConnects().clear();
+				setConnects((Connects)null);
 				return;
 			case EaglemodelPackage.DEVICE__TECHNOLOGIES:
-				getTechnologies().clear();
+				setTechnologies((Technologies)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -253,6 +329,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DEVICE__NAME:
@@ -260,9 +337,9 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 			case EaglemodelPackage.DEVICE__PACKAGE:
 				return PACKAGE_EDEFAULT == null ? package_ != null : !PACKAGE_EDEFAULT.equals(package_);
 			case EaglemodelPackage.DEVICE__CONNECTS:
-				return connects != null && !connects.isEmpty();
+				return connects != null;
 			case EaglemodelPackage.DEVICE__TECHNOLOGIES:
-				return technologies != null && !technologies.isEmpty();
+				return technologies != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -272,10 +349,11 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", package: ");

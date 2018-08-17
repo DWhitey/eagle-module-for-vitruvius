@@ -3,10 +3,9 @@
 package eaglemodel.impl;
 
 import eaglemodel.Attribute;
+import eaglemodel.AttributeDisplay;
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.AttributeDisplay;
-import eaglemodel.Enums.TextFont;
+import eaglemodel.TextFont;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,6 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.AttributeImpl#getValue <em>Value</em>}</li>
@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.AttributeImpl#getDisplay <em>Display</em>}</li>
  *   <li>{@link eaglemodel.impl.AttributeImpl#isConstant <em>Constant</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -167,7 +166,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TextFont FONT_EDEFAULT = TextFont.VECTOR_LITERAL;
+	protected static final TextFont FONT_EDEFAULT = TextFont.VECTOR;
 
 	/**
 	 * The cached value of the '{@link #getFont() <em>Font</em>}' attribute.
@@ -227,7 +226,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 * @ordered
 	 */
-	protected static final AttributeDisplay DISPLAY_EDEFAULT = AttributeDisplay.VALUE_LITERAL;
+	protected static final AttributeDisplay DISPLAY_EDEFAULT = AttributeDisplay.VALUE;
 
 	/**
 	 * The cached value of the '{@link #getDisplay() <em>Display</em>}' attribute.
@@ -273,6 +272,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.ATTRIBUTE;
 	}
@@ -513,6 +513,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.ATTRIBUTE__NAME:
@@ -520,23 +521,23 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			case EaglemodelPackage.ATTRIBUTE__VALUE:
 				return getValue();
 			case EaglemodelPackage.ATTRIBUTE__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.ATTRIBUTE__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.ATTRIBUTE__SIZE:
-				return new Double(getSize());
+				return getSize();
 			case EaglemodelPackage.ATTRIBUTE__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 			case EaglemodelPackage.ATTRIBUTE__FONT:
 				return getFont();
 			case EaglemodelPackage.ATTRIBUTE__RATIO:
-				return new Integer(getRatio());
+				return getRatio();
 			case EaglemodelPackage.ATTRIBUTE__ROT:
-				return new Double(getRot());
+				return getRot();
 			case EaglemodelPackage.ATTRIBUTE__DISPLAY:
 				return getDisplay();
 			case EaglemodelPackage.ATTRIBUTE__CONSTANT:
-				return isConstant() ? Boolean.TRUE : Boolean.FALSE;
+				return isConstant();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -546,6 +547,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.ATTRIBUTE__NAME:
@@ -555,31 +557,31 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 				setValue((String)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__SIZE:
-				setSize(((Double)newValue).doubleValue());
+				setSize((Double)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__FONT:
 				setFont((TextFont)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__RATIO:
-				setRatio(((Integer)newValue).intValue());
+				setRatio((Integer)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__ROT:
-				setRot(((Double)newValue).doubleValue());
+				setRot((Double)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__DISPLAY:
 				setDisplay((AttributeDisplay)newValue);
 				return;
 			case EaglemodelPackage.ATTRIBUTE__CONSTANT:
-				setConstant(((Boolean)newValue).booleanValue());
+				setConstant((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -590,6 +592,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.ATTRIBUTE__NAME:
@@ -634,6 +637,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.ATTRIBUTE__NAME:
@@ -667,10 +671,11 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", value: ");

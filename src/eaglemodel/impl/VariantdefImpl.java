@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.VariantdefImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.VariantdefImpl#isCurrent <em>Current</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -81,6 +81,7 @@ public class VariantdefImpl extends MinimalEObjectImpl.Container implements Vari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.VARIANTDEF;
 	}
@@ -132,12 +133,13 @@ public class VariantdefImpl extends MinimalEObjectImpl.Container implements Vari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.VARIANTDEF__NAME:
 				return getName();
 			case EaglemodelPackage.VARIANTDEF__CURRENT:
-				return isCurrent() ? Boolean.TRUE : Boolean.FALSE;
+				return isCurrent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,13 +149,14 @@ public class VariantdefImpl extends MinimalEObjectImpl.Container implements Vari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.VARIANTDEF__NAME:
 				setName((String)newValue);
 				return;
 			case EaglemodelPackage.VARIANTDEF__CURRENT:
-				setCurrent(((Boolean)newValue).booleanValue());
+				setCurrent((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -164,6 +167,7 @@ public class VariantdefImpl extends MinimalEObjectImpl.Container implements Vari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.VARIANTDEF__NAME:
@@ -181,6 +185,7 @@ public class VariantdefImpl extends MinimalEObjectImpl.Container implements Vari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.VARIANTDEF__NAME:
@@ -196,10 +201,11 @@ public class VariantdefImpl extends MinimalEObjectImpl.Container implements Vari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", current: ");

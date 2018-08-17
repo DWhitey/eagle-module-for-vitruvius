@@ -2,11 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.PinDirection;
-import eaglemodel.Enums.PinFunction;
-import eaglemodel.Enums.PinLength;
-import eaglemodel.Enums.PinVisible;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Pin#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Pin#getX <em>X</em>}</li>
@@ -27,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Pin#getSwaplevel <em>Swaplevel</em>}</li>
  *   <li>{@link eaglemodel.Pin#getRot <em>Rot</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPin()
  * @model
@@ -115,7 +110,7 @@ public interface Pin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Visible</b></em>' attribute.
 	 * The default value is <code>"both"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.PinVisible}.
+	 * The literals are from the enumeration {@link eaglemodel.PinVisible}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Visible</em>' attribute isn't clear,
@@ -123,7 +118,7 @@ public interface Pin extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Visible</em>' attribute.
-	 * @see eaglemodel.Enums.PinVisible
+	 * @see eaglemodel.PinVisible
 	 * @see #setVisible(PinVisible)
 	 * @see eaglemodel.EaglemodelPackage#getPin_Visible()
 	 * @model default="both"
@@ -136,7 +131,7 @@ public interface Pin extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Visible</em>' attribute.
-	 * @see eaglemodel.Enums.PinVisible
+	 * @see eaglemodel.PinVisible
 	 * @see #getVisible()
 	 * @generated
 	 */
@@ -145,7 +140,7 @@ public interface Pin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Length</b></em>' attribute.
 	 * The default value is <code>"long"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.PinLength}.
+	 * The literals are from the enumeration {@link eaglemodel.PinLength}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Length</em>' attribute isn't clear,
@@ -153,7 +148,7 @@ public interface Pin extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Length</em>' attribute.
-	 * @see eaglemodel.Enums.PinLength
+	 * @see eaglemodel.PinLength
 	 * @see #setLength(PinLength)
 	 * @see eaglemodel.EaglemodelPackage#getPin_Length()
 	 * @model default="long"
@@ -166,7 +161,7 @@ public interface Pin extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Length</em>' attribute.
-	 * @see eaglemodel.Enums.PinLength
+	 * @see eaglemodel.PinLength
 	 * @see #getLength()
 	 * @generated
 	 */
@@ -175,7 +170,7 @@ public interface Pin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
 	 * The default value is <code>"io"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.PinDirection}.
+	 * The literals are from the enumeration {@link eaglemodel.PinDirection}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Direction</em>' attribute isn't clear,
@@ -183,7 +178,7 @@ public interface Pin extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Direction</em>' attribute.
-	 * @see eaglemodel.Enums.PinDirection
+	 * @see eaglemodel.PinDirection
 	 * @see #setDirection(PinDirection)
 	 * @see eaglemodel.EaglemodelPackage#getPin_Direction()
 	 * @model default="io"
@@ -196,7 +191,7 @@ public interface Pin extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Direction</em>' attribute.
-	 * @see eaglemodel.Enums.PinDirection
+	 * @see eaglemodel.PinDirection
 	 * @see #getDirection()
 	 * @generated
 	 */
@@ -205,7 +200,7 @@ public interface Pin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Function</b></em>' attribute.
 	 * The default value is <code>"none"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.PinFunction}.
+	 * The literals are from the enumeration {@link eaglemodel.PinFunction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Function</em>' attribute isn't clear,
@@ -213,7 +208,7 @@ public interface Pin extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Function</em>' attribute.
-	 * @see eaglemodel.Enums.PinFunction
+	 * @see eaglemodel.PinFunction
 	 * @see #setFunction(PinFunction)
 	 * @see eaglemodel.EaglemodelPackage#getPin_Function()
 	 * @model default="none"
@@ -226,7 +221,7 @@ public interface Pin extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Function</em>' attribute.
-	 * @see eaglemodel.Enums.PinFunction
+	 * @see eaglemodel.PinFunction
 	 * @see #getFunction()
 	 * @generated
 	 */

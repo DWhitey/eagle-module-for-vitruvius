@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Eagle#getVersion <em>Version</em>}</li>
  *   <li>{@link eaglemodel.Eagle#getCompatibility <em>Compatibility</em>}</li>
  *   <li>{@link eaglemodel.Eagle#getDrawing <em>Drawing</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getEagle()
  * @model
@@ -50,52 +50,52 @@ public interface Eagle extends EObject {
 	void setVersion(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Compatibility</b></em>' reference.
+	 * Returns the value of the '<em><b>Compatibility</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Compatibility</em>' reference isn't clear,
+	 * If the meaning of the '<em>Compatibility</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Compatibility</em>' reference.
+	 * @return the value of the '<em>Compatibility</em>' containment reference.
 	 * @see #setCompatibility(Compatibility)
 	 * @see eaglemodel.EaglemodelPackage#getEagle_Compatibility()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Compatibility getCompatibility();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Eagle#getCompatibility <em>Compatibility</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Eagle#getCompatibility <em>Compatibility</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Compatibility</em>' reference.
+	 * @param value the new value of the '<em>Compatibility</em>' containment reference.
 	 * @see #getCompatibility()
 	 * @generated
 	 */
 	void setCompatibility(Compatibility value);
 
 	/**
-	 * Returns the value of the '<em><b>Drawing</b></em>' reference.
+	 * Returns the value of the '<em><b>Drawing</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Drawing</em>' reference isn't clear,
+	 * If the meaning of the '<em>Drawing</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Drawing</em>' reference.
+	 * @return the value of the '<em>Drawing</em>' containment reference.
 	 * @see #setDrawing(Drawing)
 	 * @see eaglemodel.EaglemodelPackage#getEagle_Drawing()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Drawing getDrawing();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Eagle#getDrawing <em>Drawing</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Eagle#getDrawing <em>Drawing</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Drawing</em>' reference.
+	 * @param value the new value of the '<em>Drawing</em>' containment reference.
 	 * @see #getDrawing()
 	 * @generated
 	 */

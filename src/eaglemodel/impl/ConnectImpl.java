@@ -3,9 +3,8 @@
 package eaglemodel.impl;
 
 import eaglemodel.Connect;
+import eaglemodel.ContactRoute;
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.ContactRoute;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,13 +19,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.ConnectImpl#getGate <em>Gate</em>}</li>
  *   <li>{@link eaglemodel.impl.ConnectImpl#getPin <em>Pin</em>}</li>
  *   <li>{@link eaglemodel.impl.ConnectImpl#getPad <em>Pad</em>}</li>
  *   <li>{@link eaglemodel.impl.ConnectImpl#getRoute <em>Route</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -99,7 +98,7 @@ public class ConnectImpl extends MinimalEObjectImpl.Container implements Connect
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ContactRoute ROUTE_EDEFAULT = ContactRoute.ALL_LITERAL;
+	protected static final ContactRoute ROUTE_EDEFAULT = ContactRoute.ALL;
 
 	/**
 	 * The cached value of the '{@link #getRoute() <em>Route</em>}' attribute.
@@ -125,6 +124,7 @@ public class ConnectImpl extends MinimalEObjectImpl.Container implements Connect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.CONNECT;
 	}
@@ -218,6 +218,7 @@ public class ConnectImpl extends MinimalEObjectImpl.Container implements Connect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.CONNECT__GATE:
@@ -237,6 +238,7 @@ public class ConnectImpl extends MinimalEObjectImpl.Container implements Connect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.CONNECT__GATE:
@@ -260,6 +262,7 @@ public class ConnectImpl extends MinimalEObjectImpl.Container implements Connect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.CONNECT__GATE:
@@ -283,6 +286,7 @@ public class ConnectImpl extends MinimalEObjectImpl.Container implements Connect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.CONNECT__GATE:
@@ -302,10 +306,11 @@ public class ConnectImpl extends MinimalEObjectImpl.Container implements Connect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (gate: ");
 		result.append(gate);
 		result.append(", pin: ");

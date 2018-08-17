@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.ApprovedImpl#getHash <em>Hash</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -60,6 +60,7 @@ public class ApprovedImpl extends MinimalEObjectImpl.Container implements Approv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.APPROVED;
 	}
@@ -90,6 +91,7 @@ public class ApprovedImpl extends MinimalEObjectImpl.Container implements Approv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.APPROVED__HASH:
@@ -103,6 +105,7 @@ public class ApprovedImpl extends MinimalEObjectImpl.Container implements Approv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.APPROVED__HASH:
@@ -117,6 +120,7 @@ public class ApprovedImpl extends MinimalEObjectImpl.Container implements Approv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.APPROVED__HASH:
@@ -131,6 +135,7 @@ public class ApprovedImpl extends MinimalEObjectImpl.Container implements Approv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.APPROVED__HASH:
@@ -144,10 +149,11 @@ public class ApprovedImpl extends MinimalEObjectImpl.Container implements Approv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (hash: ");
 		result.append(hash);
 		result.append(')');

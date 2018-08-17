@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.TextFont;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Label#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.Label#getY <em>Y</em>}</li>
@@ -23,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Label#getRot <em>Rot</em>}</li>
  *   <li>{@link eaglemodel.Label#isXref <em>Xref</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getLabel()
  * @model
@@ -137,7 +135,7 @@ public interface Label extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Font</b></em>' attribute.
 	 * The default value is <code>"proportional"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.TextFont}.
+	 * The literals are from the enumeration {@link eaglemodel.TextFont}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Font</em>' attribute isn't clear,
@@ -145,7 +143,7 @@ public interface Label extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Font</em>' attribute.
-	 * @see eaglemodel.Enums.TextFont
+	 * @see eaglemodel.TextFont
 	 * @see #setFont(TextFont)
 	 * @see eaglemodel.EaglemodelPackage#getLabel_Font()
 	 * @model default="proportional"
@@ -158,7 +156,7 @@ public interface Label extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Font</em>' attribute.
-	 * @see eaglemodel.Enums.TextFont
+	 * @see eaglemodel.TextFont
 	 * @see #getFont()
 	 * @generated
 	 */

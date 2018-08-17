@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.SMDImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.SMDImpl#getX <em>X</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.SMDImpl#isThermals <em>Thermals</em>}</li>
  *   <li>{@link eaglemodel.impl.SMDImpl#isCream <em>Cream</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -270,6 +270,7 @@ public class SMDImpl extends MinimalEObjectImpl.Container implements SMD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.SMD;
 	}
@@ -510,30 +511,31 @@ public class SMDImpl extends MinimalEObjectImpl.Container implements SMD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.SMD__NAME:
 				return getName();
 			case EaglemodelPackage.SMD__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.SMD__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.SMD__DX:
-				return new Double(getDx());
+				return getDx();
 			case EaglemodelPackage.SMD__DY:
-				return new Double(getDy());
+				return getDy();
 			case EaglemodelPackage.SMD__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 			case EaglemodelPackage.SMD__ROUNDNESS:
-				return new Integer(getRoundness());
+				return getRoundness();
 			case EaglemodelPackage.SMD__ROT:
-				return new Double(getRot());
+				return getRot();
 			case EaglemodelPackage.SMD__STOP:
-				return isStop() ? Boolean.TRUE : Boolean.FALSE;
+				return isStop();
 			case EaglemodelPackage.SMD__THERMALS:
-				return isThermals() ? Boolean.TRUE : Boolean.FALSE;
+				return isThermals();
 			case EaglemodelPackage.SMD__CREAM:
-				return isCream() ? Boolean.TRUE : Boolean.FALSE;
+				return isCream();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -543,40 +545,41 @@ public class SMDImpl extends MinimalEObjectImpl.Container implements SMD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.SMD__NAME:
 				setName((String)newValue);
 				return;
 			case EaglemodelPackage.SMD__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.SMD__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.SMD__DX:
-				setDx(((Double)newValue).doubleValue());
+				setDx((Double)newValue);
 				return;
 			case EaglemodelPackage.SMD__DY:
-				setDy(((Double)newValue).doubleValue());
+				setDy((Double)newValue);
 				return;
 			case EaglemodelPackage.SMD__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 			case EaglemodelPackage.SMD__ROUNDNESS:
-				setRoundness(((Integer)newValue).intValue());
+				setRoundness((Integer)newValue);
 				return;
 			case EaglemodelPackage.SMD__ROT:
-				setRot(((Double)newValue).doubleValue());
+				setRot((Double)newValue);
 				return;
 			case EaglemodelPackage.SMD__STOP:
-				setStop(((Boolean)newValue).booleanValue());
+				setStop((Boolean)newValue);
 				return;
 			case EaglemodelPackage.SMD__THERMALS:
-				setThermals(((Boolean)newValue).booleanValue());
+				setThermals((Boolean)newValue);
 				return;
 			case EaglemodelPackage.SMD__CREAM:
-				setCream(((Boolean)newValue).booleanValue());
+				setCream((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -587,6 +590,7 @@ public class SMDImpl extends MinimalEObjectImpl.Container implements SMD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.SMD__NAME:
@@ -631,6 +635,7 @@ public class SMDImpl extends MinimalEObjectImpl.Container implements SMD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.SMD__NAME:
@@ -664,10 +669,11 @@ public class SMDImpl extends MinimalEObjectImpl.Container implements SMD {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", x: ");

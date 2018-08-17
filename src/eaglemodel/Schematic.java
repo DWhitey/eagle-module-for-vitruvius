@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Schematic#getXreflabel <em>Xreflabel</em>}</li>
  *   <li>{@link eaglemodel.Schematic#getXrefpart <em>Xrefpart</em>}</li>
@@ -25,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Schematic#getSheets <em>Sheets</em>}</li>
  *   <li>{@link eaglemodel.Schematic#getErrors <em>Errors</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getSchematic()
  * @model
@@ -85,141 +83,211 @@ public interface Schematic extends EObject {
 	void setXrefpart(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' reference.
+	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' reference isn't clear,
+	 * If the meaning of the '<em>Description</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' reference.
+	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Description)
 	 * @see eaglemodel.EaglemodelPackage#getSchematic_Description()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Description getDescription();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Schematic#getDescription <em>Description</em>}' reference.
+	 * Sets the value of the '{@link eaglemodel.Schematic#getDescription <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' reference.
+	 * @param value the new value of the '<em>Description</em>' containment reference.
 	 * @see #getDescription()
 	 * @generated
 	 */
 	void setDescription(Description value);
 
 	/**
-	 * Returns the value of the '<em><b>Libraries</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Library}.
+	 * Returns the value of the '<em><b>Libraries</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Libraries</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Libraries</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Libraries</em>' reference list.
+	 * @return the value of the '<em>Libraries</em>' containment reference.
+	 * @see #setLibraries(Libraries)
 	 * @see eaglemodel.EaglemodelPackage#getSchematic_Libraries()
-	 * @model type="eaglemodel.Library"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList getLibraries();
+	Libraries getLibraries();
 
 	/**
-	 * Returns the value of the '<em><b>Attributes</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Attribute}.
+	 * Sets the value of the '{@link eaglemodel.Schematic#getLibraries <em>Libraries</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Libraries</em>' containment reference.
+	 * @see #getLibraries()
+	 * @generated
+	 */
+	void setLibraries(Libraries value);
+
+	/**
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Attributes</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Attributes</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attributes</em>' reference list.
+	 * @return the value of the '<em>Attributes</em>' containment reference.
+	 * @see #setAttributes(Attributes)
 	 * @see eaglemodel.EaglemodelPackage#getSchematic_Attributes()
-	 * @model type="eaglemodel.Attribute"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList getAttributes();
+	Attributes getAttributes();
 
 	/**
-	 * Returns the value of the '<em><b>Variantdefs</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Variantdef}.
+	 * Sets the value of the '{@link eaglemodel.Schematic#getAttributes <em>Attributes</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Attributes</em>' containment reference.
+	 * @see #getAttributes()
+	 * @generated
+	 */
+	void setAttributes(Attributes value);
+
+	/**
+	 * Returns the value of the '<em><b>Variantdefs</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variantdefs</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Variantdefs</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variantdefs</em>' reference list.
+	 * @return the value of the '<em>Variantdefs</em>' containment reference.
+	 * @see #setVariantdefs(Variantdefs)
 	 * @see eaglemodel.EaglemodelPackage#getSchematic_Variantdefs()
-	 * @model type="eaglemodel.Variantdef"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList getVariantdefs();
+	Variantdefs getVariantdefs();
 
 	/**
-	 * Returns the value of the '<em><b>Classes</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Class}.
+	 * Sets the value of the '{@link eaglemodel.Schematic#getVariantdefs <em>Variantdefs</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variantdefs</em>' containment reference.
+	 * @see #getVariantdefs()
+	 * @generated
+	 */
+	void setVariantdefs(Variantdefs value);
+
+	/**
+	 * Returns the value of the '<em><b>Classes</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Classes</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Classes</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classes</em>' reference list.
+	 * @return the value of the '<em>Classes</em>' containment reference.
+	 * @see #setClasses(Classes)
 	 * @see eaglemodel.EaglemodelPackage#getSchematic_Classes()
-	 * @model type="eaglemodel.Class"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList getClasses();
+	Classes getClasses();
 
 	/**
-	 * Returns the value of the '<em><b>Parts</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Part}.
+	 * Sets the value of the '{@link eaglemodel.Schematic#getClasses <em>Classes</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Classes</em>' containment reference.
+	 * @see #getClasses()
+	 * @generated
+	 */
+	void setClasses(Classes value);
+
+	/**
+	 * Returns the value of the '<em><b>Parts</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parts</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Parts</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parts</em>' reference list.
+	 * @return the value of the '<em>Parts</em>' containment reference.
+	 * @see #setParts(Parts)
 	 * @see eaglemodel.EaglemodelPackage#getSchematic_Parts()
-	 * @model type="eaglemodel.Part"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList getParts();
+	Parts getParts();
 
 	/**
-	 * Returns the value of the '<em><b>Sheets</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Sheet}.
+	 * Sets the value of the '{@link eaglemodel.Schematic#getParts <em>Parts</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parts</em>' containment reference.
+	 * @see #getParts()
+	 * @generated
+	 */
+	void setParts(Parts value);
+
+	/**
+	 * Returns the value of the '<em><b>Sheets</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sheets</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Sheets</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sheets</em>' reference list.
+	 * @return the value of the '<em>Sheets</em>' containment reference.
+	 * @see #setSheets(Sheets)
 	 * @see eaglemodel.EaglemodelPackage#getSchematic_Sheets()
-	 * @model type="eaglemodel.Sheet"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList getSheets();
+	Sheets getSheets();
 
 	/**
-	 * Returns the value of the '<em><b>Errors</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Approved}.
+	 * Sets the value of the '{@link eaglemodel.Schematic#getSheets <em>Sheets</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sheets</em>' containment reference.
+	 * @see #getSheets()
+	 * @generated
+	 */
+	void setSheets(Sheets value);
+
+	/**
+	 * Returns the value of the '<em><b>Errors</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Errors</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Errors</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Errors</em>' reference list.
+	 * @return the value of the '<em>Errors</em>' containment reference.
+	 * @see #setErrors(Errors)
 	 * @see eaglemodel.EaglemodelPackage#getSchematic_Errors()
-	 * @model type="eaglemodel.Approved"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getErrors();
+	Errors getErrors();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Schematic#getErrors <em>Errors</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Errors</em>' containment reference.
+	 * @see #getErrors()
+	 * @generated
+	 */
+	void setErrors(Errors value);
 
 } // Schematic

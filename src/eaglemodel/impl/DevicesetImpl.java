@@ -3,16 +3,13 @@
 package eaglemodel.impl;
 
 import eaglemodel.Description;
-import eaglemodel.Device;
+import eaglemodel.Devices;
 import eaglemodel.Deviceset;
 import eaglemodel.EaglemodelPackage;
-import eaglemodel.Gate;
-
-import java.util.Collection;
+import eaglemodel.Gates;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -20,14 +17,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Deviceset</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DevicesetImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.DevicesetImpl#getPrefix <em>Prefix</em>}</li>
@@ -36,7 +32,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.DevicesetImpl#getGates <em>Gates</em>}</li>
  *   <li>{@link eaglemodel.impl.DevicesetImpl#getDevices <em>Devices</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -102,7 +97,7 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	protected boolean uservalue = USERVALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' reference.
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDescription()
@@ -112,24 +107,24 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	protected Description description;
 
 	/**
-	 * The cached value of the '{@link #getGates() <em>Gates</em>}' reference list.
+	 * The cached value of the '{@link #getGates() <em>Gates</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList gates;
+	protected Gates gates;
 
 	/**
-	 * The cached value of the '{@link #getDevices() <em>Devices</em>}' reference list.
+	 * The cached value of the '{@link #getDevices() <em>Devices</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDevices()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList devices;
+	protected Devices devices;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +140,7 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.DEVICESET;
 	}
@@ -218,14 +214,6 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * @generated
 	 */
 	public Description getDescription() {
-		if (description != null && description.eIsProxy()) {
-			InternalEObject oldDescription = (InternalEObject)description;
-			description = (Description)eResolveProxy(oldDescription);
-			if (description != oldDescription) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaglemodelPackage.DEVICESET__DESCRIPTION, oldDescription, description));
-			}
-		}
 		return description;
 	}
 
@@ -234,8 +222,14 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Description basicGetDescription() {
-		return description;
+	public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
+		Description oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICESET__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -244,10 +238,17 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * @generated
 	 */
 	public void setDescription(Description newDescription) {
-		Description oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICESET__DESCRIPTION, oldDescription, description));
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICESET__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICESET__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICESET__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -255,10 +256,7 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getGates() {
-		if (gates == null) {
-			gates = new EObjectResolvingEList(Gate.class, this, EaglemodelPackage.DEVICESET__GATES);
-		}
+	public Gates getGates() {
 		return gates;
 	}
 
@@ -267,10 +265,41 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDevices() {
-		if (devices == null) {
-			devices = new EObjectResolvingEList(Device.class, this, EaglemodelPackage.DEVICESET__DEVICES);
+	public NotificationChain basicSetGates(Gates newGates, NotificationChain msgs) {
+		Gates oldGates = gates;
+		gates = newGates;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICESET__GATES, oldGates, newGates);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGates(Gates newGates) {
+		if (newGates != gates) {
+			NotificationChain msgs = null;
+			if (gates != null)
+				msgs = ((InternalEObject)gates).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICESET__GATES, null, msgs);
+			if (newGates != null)
+				msgs = ((InternalEObject)newGates).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICESET__GATES, null, msgs);
+			msgs = basicSetGates(newGates, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICESET__GATES, newGates, newGates));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Devices getDevices() {
 		return devices;
 	}
 
@@ -279,6 +308,59 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain basicSetDevices(Devices newDevices, NotificationChain msgs) {
+		Devices oldDevices = devices;
+		devices = newDevices;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICESET__DEVICES, oldDevices, newDevices);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDevices(Devices newDevices) {
+		if (newDevices != devices) {
+			NotificationChain msgs = null;
+			if (devices != null)
+				msgs = ((InternalEObject)devices).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICESET__DEVICES, null, msgs);
+			if (newDevices != null)
+				msgs = ((InternalEObject)newDevices).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.DEVICESET__DEVICES, null, msgs);
+			msgs = basicSetDevices(newDevices, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.DEVICESET__DEVICES, newDevices, newDevices));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.DEVICESET__DESCRIPTION:
+				return basicSetDescription(null, msgs);
+			case EaglemodelPackage.DEVICESET__GATES:
+				return basicSetGates(null, msgs);
+			case EaglemodelPackage.DEVICESET__DEVICES:
+				return basicSetDevices(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.DEVICESET__NAME:
@@ -286,10 +368,9 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 			case EaglemodelPackage.DEVICESET__PREFIX:
 				return getPrefix();
 			case EaglemodelPackage.DEVICESET__USERVALUE:
-				return isUservalue() ? Boolean.TRUE : Boolean.FALSE;
+				return isUservalue();
 			case EaglemodelPackage.DEVICESET__DESCRIPTION:
-				if (resolve) return getDescription();
-				return basicGetDescription();
+				return getDescription();
 			case EaglemodelPackage.DEVICESET__GATES:
 				return getGates();
 			case EaglemodelPackage.DEVICESET__DEVICES:
@@ -303,6 +384,7 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.DEVICESET__NAME:
@@ -312,18 +394,16 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 				setPrefix((String)newValue);
 				return;
 			case EaglemodelPackage.DEVICESET__USERVALUE:
-				setUservalue(((Boolean)newValue).booleanValue());
+				setUservalue((Boolean)newValue);
 				return;
 			case EaglemodelPackage.DEVICESET__DESCRIPTION:
 				setDescription((Description)newValue);
 				return;
 			case EaglemodelPackage.DEVICESET__GATES:
-				getGates().clear();
-				getGates().addAll((Collection)newValue);
+				setGates((Gates)newValue);
 				return;
 			case EaglemodelPackage.DEVICESET__DEVICES:
-				getDevices().clear();
-				getDevices().addAll((Collection)newValue);
+				setDevices((Devices)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -334,6 +414,7 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DEVICESET__NAME:
@@ -349,10 +430,10 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 				setDescription((Description)null);
 				return;
 			case EaglemodelPackage.DEVICESET__GATES:
-				getGates().clear();
+				setGates((Gates)null);
 				return;
 			case EaglemodelPackage.DEVICESET__DEVICES:
-				getDevices().clear();
+				setDevices((Devices)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -363,6 +444,7 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DEVICESET__NAME:
@@ -374,9 +456,9 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 			case EaglemodelPackage.DEVICESET__DESCRIPTION:
 				return description != null;
 			case EaglemodelPackage.DEVICESET__GATES:
-				return gates != null && !gates.isEmpty();
+				return gates != null;
 			case EaglemodelPackage.DEVICESET__DEVICES:
-				return devices != null && !devices.isEmpty();
+				return devices != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -386,10 +468,11 @@ public class DevicesetImpl extends MinimalEObjectImpl.Container implements Devic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", prefix: ");

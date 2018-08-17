@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Vertex#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.Vertex#getY <em>Y</em>}</li>
  *   <li>{@link eaglemodel.Vertex#getCurve <em>Curve</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getVertex()
  * @model

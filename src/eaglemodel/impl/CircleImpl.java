@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.CircleImpl#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.impl.CircleImpl#getY <em>Y</em>}</li>
@@ -25,7 +26,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.CircleImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link eaglemodel.impl.CircleImpl#getLayer <em>Layer</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -144,6 +144,7 @@ public class CircleImpl extends MinimalEObjectImpl.Container implements Circle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.CIRCLE;
 	}
@@ -258,18 +259,19 @@ public class CircleImpl extends MinimalEObjectImpl.Container implements Circle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.CIRCLE__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.CIRCLE__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.CIRCLE__RADIUS:
-				return new Double(getRadius());
+				return getRadius();
 			case EaglemodelPackage.CIRCLE__WIDTH:
-				return new Double(getWidth());
+				return getWidth();
 			case EaglemodelPackage.CIRCLE__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -279,22 +281,23 @@ public class CircleImpl extends MinimalEObjectImpl.Container implements Circle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.CIRCLE__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.CIRCLE__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.CIRCLE__RADIUS:
-				setRadius(((Double)newValue).doubleValue());
+				setRadius((Double)newValue);
 				return;
 			case EaglemodelPackage.CIRCLE__WIDTH:
-				setWidth(((Double)newValue).doubleValue());
+				setWidth((Double)newValue);
 				return;
 			case EaglemodelPackage.CIRCLE__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -305,6 +308,7 @@ public class CircleImpl extends MinimalEObjectImpl.Container implements Circle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.CIRCLE__X:
@@ -331,6 +335,7 @@ public class CircleImpl extends MinimalEObjectImpl.Container implements Circle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.CIRCLE__X:
@@ -352,10 +357,11 @@ public class CircleImpl extends MinimalEObjectImpl.Container implements Circle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (x: ");
 		result.append(x);
 		result.append(", y: ");

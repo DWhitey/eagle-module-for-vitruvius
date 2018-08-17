@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Technology#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Technology#getAttribute <em>Attribute</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getTechnology()
  * @model
@@ -51,19 +51,19 @@ public interface Technology extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Attribute</b></em>' reference list.
+	 * Returns the value of the '<em><b>Attribute</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Attribute}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Attribute</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Attribute</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute</em>' reference list.
+	 * @return the value of the '<em>Attribute</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getTechnology_Attribute()
-	 * @model type="eaglemodel.Attribute"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getAttribute();
+	EList<Attribute> getAttribute();
 
 } // Technology

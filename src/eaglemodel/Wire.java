@@ -2,9 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.WireCap;
-import eaglemodel.Enums.WireStyle;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Wire#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.Wire#getY1 <em>Y1</em>}</li>
@@ -26,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Wire#getCurve <em>Curve</em>}</li>
  *   <li>{@link eaglemodel.Wire#getCap <em>Cap</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getWire()
  * @model
@@ -218,7 +215,7 @@ public interface Wire extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Style</b></em>' attribute.
 	 * The default value is <code>"continuous"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.WireStyle}.
+	 * The literals are from the enumeration {@link eaglemodel.WireStyle}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Style</em>' attribute isn't clear,
@@ -226,7 +223,7 @@ public interface Wire extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Style</em>' attribute.
-	 * @see eaglemodel.Enums.WireStyle
+	 * @see eaglemodel.WireStyle
 	 * @see #setStyle(WireStyle)
 	 * @see eaglemodel.EaglemodelPackage#getWire_Style()
 	 * @model default="continuous"
@@ -239,7 +236,7 @@ public interface Wire extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Style</em>' attribute.
-	 * @see eaglemodel.Enums.WireStyle
+	 * @see eaglemodel.WireStyle
 	 * @see #getStyle()
 	 * @generated
 	 */
@@ -274,7 +271,7 @@ public interface Wire extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Cap</b></em>' attribute.
 	 * The default value is <code>"round"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.WireCap}.
+	 * The literals are from the enumeration {@link eaglemodel.WireCap}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Cap</em>' attribute isn't clear,
@@ -282,7 +279,7 @@ public interface Wire extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cap</em>' attribute.
-	 * @see eaglemodel.Enums.WireCap
+	 * @see eaglemodel.WireCap
 	 * @see #setCap(WireCap)
 	 * @see eaglemodel.EaglemodelPackage#getWire_Cap()
 	 * @model default="round"
@@ -295,7 +292,7 @@ public interface Wire extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Cap</em>' attribute.
-	 * @see eaglemodel.Enums.WireCap
+	 * @see eaglemodel.WireCap
 	 * @see #getCap()
 	 * @generated
 	 */

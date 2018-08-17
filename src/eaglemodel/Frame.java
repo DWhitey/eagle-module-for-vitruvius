@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Frame#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.Frame#getY1 <em>Y1</em>}</li>
@@ -24,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Frame#isBorderright <em>Borderright</em>}</li>
  *   <li>{@link eaglemodel.Frame#isBorderbottom <em>Borderbottom</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getFrame()
  * @model

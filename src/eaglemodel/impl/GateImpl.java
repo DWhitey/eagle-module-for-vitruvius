@@ -3,10 +3,8 @@
 package eaglemodel.impl;
 
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.GateAddLevel;
-
 import eaglemodel.Gate;
+import eaglemodel.GateAddLevel;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.GateImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.GateImpl#getSymbol <em>Symbol</em>}</li>
@@ -29,7 +28,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.GateImpl#getAddlevel <em>Addlevel</em>}</li>
  *   <li>{@link eaglemodel.impl.GateImpl#getSwaplevel <em>Swaplevel</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -122,7 +120,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GateAddLevel ADDLEVEL_EDEFAULT = GateAddLevel.NEXT_LITERAL;
+	protected static final GateAddLevel ADDLEVEL_EDEFAULT = GateAddLevel.NEXT;
 
 	/**
 	 * The cached value of the '{@link #getAddlevel() <em>Addlevel</em>}' attribute.
@@ -168,6 +166,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.GATE;
 	}
@@ -303,6 +302,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.GATE__NAME:
@@ -310,13 +310,13 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 			case EaglemodelPackage.GATE__SYMBOL:
 				return getSymbol();
 			case EaglemodelPackage.GATE__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.GATE__Y:
-				return new Double(getY());
+				return getY();
 			case EaglemodelPackage.GATE__ADDLEVEL:
 				return getAddlevel();
 			case EaglemodelPackage.GATE__SWAPLEVEL:
-				return new Integer(getSwaplevel());
+				return getSwaplevel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +326,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.GATE__NAME:
@@ -335,16 +336,16 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 				setSymbol((String)newValue);
 				return;
 			case EaglemodelPackage.GATE__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.GATE__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 			case EaglemodelPackage.GATE__ADDLEVEL:
 				setAddlevel((GateAddLevel)newValue);
 				return;
 			case EaglemodelPackage.GATE__SWAPLEVEL:
-				setSwaplevel(((Integer)newValue).intValue());
+				setSwaplevel((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -355,6 +356,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.GATE__NAME:
@@ -384,6 +386,7 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.GATE__NAME:
@@ -407,10 +410,11 @@ public class GateImpl extends MinimalEObjectImpl.Container implements Gate {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", symbol: ");

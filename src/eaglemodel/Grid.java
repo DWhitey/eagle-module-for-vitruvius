@@ -2,9 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.GridStyle;
-import eaglemodel.Enums.GridUnit;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Grid#getDistance <em>Distance</em>}</li>
  *   <li>{@link eaglemodel.Grid#getUnitdist <em>Unitdist</em>}</li>
@@ -25,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Grid#getAltunitdist <em>Altunitdist</em>}</li>
  *   <li>{@link eaglemodel.Grid#getAltunit <em>Altunit</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getGrid()
  * @model
@@ -61,7 +58,7 @@ public interface Grid extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Unitdist</b></em>' attribute.
 	 * The default value is <code>"mic"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.GridUnit}.
+	 * The literals are from the enumeration {@link eaglemodel.GridUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Unitdist</em>' attribute isn't clear,
@@ -69,7 +66,7 @@ public interface Grid extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Unitdist</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #setUnitdist(GridUnit)
 	 * @see eaglemodel.EaglemodelPackage#getGrid_Unitdist()
 	 * @model default="mic"
@@ -82,7 +79,7 @@ public interface Grid extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Unitdist</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #getUnitdist()
 	 * @generated
 	 */
@@ -91,7 +88,7 @@ public interface Grid extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' attribute.
 	 * The default value is <code>"mic"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.GridUnit}.
+	 * The literals are from the enumeration {@link eaglemodel.GridUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Unit</em>' attribute isn't clear,
@@ -99,7 +96,7 @@ public interface Grid extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Unit</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #setUnit(GridUnit)
 	 * @see eaglemodel.EaglemodelPackage#getGrid_Unit()
 	 * @model default="mic"
@@ -112,7 +109,7 @@ public interface Grid extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Unit</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #getUnit()
 	 * @generated
 	 */
@@ -121,7 +118,7 @@ public interface Grid extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Style</b></em>' attribute.
 	 * The default value is <code>"lines"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.GridStyle}.
+	 * The literals are from the enumeration {@link eaglemodel.GridStyle}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Style</em>' attribute isn't clear,
@@ -129,7 +126,7 @@ public interface Grid extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Style</em>' attribute.
-	 * @see eaglemodel.Enums.GridStyle
+	 * @see eaglemodel.GridStyle
 	 * @see #setStyle(GridStyle)
 	 * @see eaglemodel.EaglemodelPackage#getGrid_Style()
 	 * @model default="lines"
@@ -142,7 +139,7 @@ public interface Grid extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Style</em>' attribute.
-	 * @see eaglemodel.Enums.GridStyle
+	 * @see eaglemodel.GridStyle
 	 * @see #getStyle()
 	 * @generated
 	 */
@@ -231,7 +228,7 @@ public interface Grid extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Altunitdist</b></em>' attribute.
 	 * The default value is <code>"mic"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.GridUnit}.
+	 * The literals are from the enumeration {@link eaglemodel.GridUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Altunitdist</em>' attribute isn't clear,
@@ -239,7 +236,7 @@ public interface Grid extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Altunitdist</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #setAltunitdist(GridUnit)
 	 * @see eaglemodel.EaglemodelPackage#getGrid_Altunitdist()
 	 * @model default="mic"
@@ -252,7 +249,7 @@ public interface Grid extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Altunitdist</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #getAltunitdist()
 	 * @generated
 	 */
@@ -261,7 +258,7 @@ public interface Grid extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Altunit</b></em>' attribute.
 	 * The default value is <code>"mic"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.GridUnit}.
+	 * The literals are from the enumeration {@link eaglemodel.GridUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Altunit</em>' attribute isn't clear,
@@ -269,7 +266,7 @@ public interface Grid extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Altunit</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #setAltunit(GridUnit)
 	 * @see eaglemodel.EaglemodelPackage#getGrid_Altunit()
 	 * @model default="mic"
@@ -282,7 +279,7 @@ public interface Grid extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Altunit</em>' attribute.
-	 * @see eaglemodel.Enums.GridUnit
+	 * @see eaglemodel.GridUnit
 	 * @see #getAltunit()
 	 * @generated
 	 */

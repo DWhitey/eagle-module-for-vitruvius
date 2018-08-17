@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.PolygonPour;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -15,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Polygon#getWidth <em>Width</em>}</li>
  *   <li>{@link eaglemodel.Polygon#getLayer <em>Layer</em>}</li>
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Polygon#getRank <em>Rank</em>}</li>
  *   <li>{@link eaglemodel.Polygon#getVertex <em>Vertex</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getPolygon()
  * @model
@@ -114,7 +112,7 @@ public interface Polygon extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Pour</b></em>' attribute.
 	 * The default value is <code>"solid"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.PolygonPour}.
+	 * The literals are from the enumeration {@link eaglemodel.PolygonPour}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Pour</em>' attribute isn't clear,
@@ -122,7 +120,7 @@ public interface Polygon extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pour</em>' attribute.
-	 * @see eaglemodel.Enums.PolygonPour
+	 * @see eaglemodel.PolygonPour
 	 * @see #setPour(PolygonPour)
 	 * @see eaglemodel.EaglemodelPackage#getPolygon_Pour()
 	 * @model default="solid"
@@ -135,7 +133,7 @@ public interface Polygon extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Pour</em>' attribute.
-	 * @see eaglemodel.Enums.PolygonPour
+	 * @see eaglemodel.PolygonPour
 	 * @see #getPour()
 	 * @generated
 	 */
@@ -248,19 +246,19 @@ public interface Polygon extends EObject {
 	void setRank(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Vertex</b></em>' reference list.
+	 * Returns the value of the '<em><b>Vertex</b></em>' containment reference list.
 	 * The list contents are of type {@link eaglemodel.Vertex}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Vertex</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Vertex</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vertex</em>' reference list.
+	 * @return the value of the '<em>Vertex</em>' containment reference list.
 	 * @see eaglemodel.EaglemodelPackage#getPolygon_Vertex()
-	 * @model type="eaglemodel.Vertex"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getVertex();
+	EList<Vertex> getVertex();
 
 } // Polygon

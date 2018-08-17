@@ -2,21 +2,19 @@
  */
 package eaglemodel.impl;
 
-import eaglemodel.Approved;
-import eaglemodel.Attribute;
+import eaglemodel.Attributes;
+import eaglemodel.Classes;
 import eaglemodel.Description;
 import eaglemodel.EaglemodelPackage;
-import eaglemodel.Library;
-import eaglemodel.Part;
+import eaglemodel.Errors;
+import eaglemodel.Libraries;
+import eaglemodel.Parts;
 import eaglemodel.Schematic;
-import eaglemodel.Sheet;
-import eaglemodel.Variantdef;
-
-import java.util.Collection;
+import eaglemodel.Sheets;
+import eaglemodel.Variantdefs;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -24,14 +22,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Schematic</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.SchematicImpl#getXreflabel <em>Xreflabel</em>}</li>
  *   <li>{@link eaglemodel.impl.SchematicImpl#getXrefpart <em>Xrefpart</em>}</li>
@@ -44,7 +41,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.SchematicImpl#getSheets <em>Sheets</em>}</li>
  *   <li>{@link eaglemodel.impl.SchematicImpl#getErrors <em>Errors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -90,7 +86,7 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	protected String xrefpart = XREFPART_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' reference.
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDescription()
@@ -100,74 +96,74 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	protected Description description;
 
 	/**
-	 * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' reference list.
+	 * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLibraries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList libraries;
+	protected Libraries libraries;
 
 	/**
-	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' reference list.
+	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAttributes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList attributes;
+	protected Attributes attributes;
 
 	/**
-	 * The cached value of the '{@link #getVariantdefs() <em>Variantdefs</em>}' reference list.
+	 * The cached value of the '{@link #getVariantdefs() <em>Variantdefs</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVariantdefs()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList variantdefs;
+	protected Variantdefs variantdefs;
 
 	/**
-	 * The cached value of the '{@link #getClasses() <em>Classes</em>}' reference list.
+	 * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getClasses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList classes;
+	protected Classes classes;
 
 	/**
-	 * The cached value of the '{@link #getParts() <em>Parts</em>}' reference list.
+	 * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParts()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parts;
+	protected Parts parts;
 
 	/**
-	 * The cached value of the '{@link #getSheets() <em>Sheets</em>}' reference list.
+	 * The cached value of the '{@link #getSheets() <em>Sheets</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSheets()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList sheets;
+	protected Sheets sheets;
 
 	/**
-	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' reference list.
+	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList errors;
+	protected Errors errors;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,6 +179,7 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.SCHEMATIC;
 	}
@@ -235,14 +232,6 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * @generated
 	 */
 	public Description getDescription() {
-		if (description != null && description.eIsProxy()) {
-			InternalEObject oldDescription = (InternalEObject)description;
-			description = (Description)eResolveProxy(oldDescription);
-			if (description != oldDescription) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaglemodelPackage.SCHEMATIC__DESCRIPTION, oldDescription, description));
-			}
-		}
 		return description;
 	}
 
@@ -251,8 +240,14 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Description basicGetDescription() {
-		return description;
+	public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
+		Description oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__DESCRIPTION, oldDescription, newDescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -261,10 +256,17 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * @generated
 	 */
 	public void setDescription(Description newDescription) {
-		Description oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__DESCRIPTION, oldDescription, description));
+		if (newDescription != description) {
+			NotificationChain msgs = null;
+			if (description != null)
+				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__DESCRIPTION, null, msgs);
+			if (newDescription != null)
+				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__DESCRIPTION, null, msgs);
+			msgs = basicSetDescription(newDescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__DESCRIPTION, newDescription, newDescription));
 	}
 
 	/**
@@ -272,10 +274,7 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getLibraries() {
-		if (libraries == null) {
-			libraries = new EObjectResolvingEList(Library.class, this, EaglemodelPackage.SCHEMATIC__LIBRARIES);
-		}
+	public Libraries getLibraries() {
 		return libraries;
 	}
 
@@ -284,10 +283,41 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getAttributes() {
-		if (attributes == null) {
-			attributes = new EObjectResolvingEList(Attribute.class, this, EaglemodelPackage.SCHEMATIC__ATTRIBUTES);
+	public NotificationChain basicSetLibraries(Libraries newLibraries, NotificationChain msgs) {
+		Libraries oldLibraries = libraries;
+		libraries = newLibraries;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__LIBRARIES, oldLibraries, newLibraries);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLibraries(Libraries newLibraries) {
+		if (newLibraries != libraries) {
+			NotificationChain msgs = null;
+			if (libraries != null)
+				msgs = ((InternalEObject)libraries).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__LIBRARIES, null, msgs);
+			if (newLibraries != null)
+				msgs = ((InternalEObject)newLibraries).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__LIBRARIES, null, msgs);
+			msgs = basicSetLibraries(newLibraries, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__LIBRARIES, newLibraries, newLibraries));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Attributes getAttributes() {
 		return attributes;
 	}
 
@@ -296,10 +326,41 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getVariantdefs() {
-		if (variantdefs == null) {
-			variantdefs = new EObjectResolvingEList(Variantdef.class, this, EaglemodelPackage.SCHEMATIC__VARIANTDEFS);
+	public NotificationChain basicSetAttributes(Attributes newAttributes, NotificationChain msgs) {
+		Attributes oldAttributes = attributes;
+		attributes = newAttributes;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__ATTRIBUTES, oldAttributes, newAttributes);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAttributes(Attributes newAttributes) {
+		if (newAttributes != attributes) {
+			NotificationChain msgs = null;
+			if (attributes != null)
+				msgs = ((InternalEObject)attributes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__ATTRIBUTES, null, msgs);
+			if (newAttributes != null)
+				msgs = ((InternalEObject)newAttributes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__ATTRIBUTES, null, msgs);
+			msgs = basicSetAttributes(newAttributes, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__ATTRIBUTES, newAttributes, newAttributes));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variantdefs getVariantdefs() {
 		return variantdefs;
 	}
 
@@ -308,10 +369,41 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getClasses() {
-		if (classes == null) {
-			classes = new EObjectResolvingEList(eaglemodel.Class.class, this, EaglemodelPackage.SCHEMATIC__CLASSES);
+	public NotificationChain basicSetVariantdefs(Variantdefs newVariantdefs, NotificationChain msgs) {
+		Variantdefs oldVariantdefs = variantdefs;
+		variantdefs = newVariantdefs;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__VARIANTDEFS, oldVariantdefs, newVariantdefs);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVariantdefs(Variantdefs newVariantdefs) {
+		if (newVariantdefs != variantdefs) {
+			NotificationChain msgs = null;
+			if (variantdefs != null)
+				msgs = ((InternalEObject)variantdefs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__VARIANTDEFS, null, msgs);
+			if (newVariantdefs != null)
+				msgs = ((InternalEObject)newVariantdefs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__VARIANTDEFS, null, msgs);
+			msgs = basicSetVariantdefs(newVariantdefs, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__VARIANTDEFS, newVariantdefs, newVariantdefs));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Classes getClasses() {
 		return classes;
 	}
 
@@ -320,10 +412,41 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParts() {
-		if (parts == null) {
-			parts = new EObjectResolvingEList(Part.class, this, EaglemodelPackage.SCHEMATIC__PARTS);
+	public NotificationChain basicSetClasses(Classes newClasses, NotificationChain msgs) {
+		Classes oldClasses = classes;
+		classes = newClasses;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__CLASSES, oldClasses, newClasses);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClasses(Classes newClasses) {
+		if (newClasses != classes) {
+			NotificationChain msgs = null;
+			if (classes != null)
+				msgs = ((InternalEObject)classes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__CLASSES, null, msgs);
+			if (newClasses != null)
+				msgs = ((InternalEObject)newClasses).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__CLASSES, null, msgs);
+			msgs = basicSetClasses(newClasses, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__CLASSES, newClasses, newClasses));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parts getParts() {
 		return parts;
 	}
 
@@ -332,10 +455,41 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getSheets() {
-		if (sheets == null) {
-			sheets = new EObjectResolvingEList(Sheet.class, this, EaglemodelPackage.SCHEMATIC__SHEETS);
+	public NotificationChain basicSetParts(Parts newParts, NotificationChain msgs) {
+		Parts oldParts = parts;
+		parts = newParts;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__PARTS, oldParts, newParts);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParts(Parts newParts) {
+		if (newParts != parts) {
+			NotificationChain msgs = null;
+			if (parts != null)
+				msgs = ((InternalEObject)parts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__PARTS, null, msgs);
+			if (newParts != null)
+				msgs = ((InternalEObject)newParts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__PARTS, null, msgs);
+			msgs = basicSetParts(newParts, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__PARTS, newParts, newParts));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sheets getSheets() {
 		return sheets;
 	}
 
@@ -344,10 +498,41 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getErrors() {
-		if (errors == null) {
-			errors = new EObjectResolvingEList(Approved.class, this, EaglemodelPackage.SCHEMATIC__ERRORS);
+	public NotificationChain basicSetSheets(Sheets newSheets, NotificationChain msgs) {
+		Sheets oldSheets = sheets;
+		sheets = newSheets;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__SHEETS, oldSheets, newSheets);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSheets(Sheets newSheets) {
+		if (newSheets != sheets) {
+			NotificationChain msgs = null;
+			if (sheets != null)
+				msgs = ((InternalEObject)sheets).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__SHEETS, null, msgs);
+			if (newSheets != null)
+				msgs = ((InternalEObject)newSheets).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__SHEETS, null, msgs);
+			msgs = basicSetSheets(newSheets, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__SHEETS, newSheets, newSheets));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Errors getErrors() {
 		return errors;
 	}
 
@@ -356,6 +541,69 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain basicSetErrors(Errors newErrors, NotificationChain msgs) {
+		Errors oldErrors = errors;
+		errors = newErrors;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__ERRORS, oldErrors, newErrors);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setErrors(Errors newErrors) {
+		if (newErrors != errors) {
+			NotificationChain msgs = null;
+			if (errors != null)
+				msgs = ((InternalEObject)errors).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__ERRORS, null, msgs);
+			if (newErrors != null)
+				msgs = ((InternalEObject)newErrors).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.SCHEMATIC__ERRORS, null, msgs);
+			msgs = basicSetErrors(newErrors, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.SCHEMATIC__ERRORS, newErrors, newErrors));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.SCHEMATIC__DESCRIPTION:
+				return basicSetDescription(null, msgs);
+			case EaglemodelPackage.SCHEMATIC__LIBRARIES:
+				return basicSetLibraries(null, msgs);
+			case EaglemodelPackage.SCHEMATIC__ATTRIBUTES:
+				return basicSetAttributes(null, msgs);
+			case EaglemodelPackage.SCHEMATIC__VARIANTDEFS:
+				return basicSetVariantdefs(null, msgs);
+			case EaglemodelPackage.SCHEMATIC__CLASSES:
+				return basicSetClasses(null, msgs);
+			case EaglemodelPackage.SCHEMATIC__PARTS:
+				return basicSetParts(null, msgs);
+			case EaglemodelPackage.SCHEMATIC__SHEETS:
+				return basicSetSheets(null, msgs);
+			case EaglemodelPackage.SCHEMATIC__ERRORS:
+				return basicSetErrors(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.SCHEMATIC__XREFLABEL:
@@ -363,8 +611,7 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 			case EaglemodelPackage.SCHEMATIC__XREFPART:
 				return getXrefpart();
 			case EaglemodelPackage.SCHEMATIC__DESCRIPTION:
-				if (resolve) return getDescription();
-				return basicGetDescription();
+				return getDescription();
 			case EaglemodelPackage.SCHEMATIC__LIBRARIES:
 				return getLibraries();
 			case EaglemodelPackage.SCHEMATIC__ATTRIBUTES:
@@ -388,6 +635,7 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.SCHEMATIC__XREFLABEL:
@@ -400,32 +648,25 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 				setDescription((Description)newValue);
 				return;
 			case EaglemodelPackage.SCHEMATIC__LIBRARIES:
-				getLibraries().clear();
-				getLibraries().addAll((Collection)newValue);
+				setLibraries((Libraries)newValue);
 				return;
 			case EaglemodelPackage.SCHEMATIC__ATTRIBUTES:
-				getAttributes().clear();
-				getAttributes().addAll((Collection)newValue);
+				setAttributes((Attributes)newValue);
 				return;
 			case EaglemodelPackage.SCHEMATIC__VARIANTDEFS:
-				getVariantdefs().clear();
-				getVariantdefs().addAll((Collection)newValue);
+				setVariantdefs((Variantdefs)newValue);
 				return;
 			case EaglemodelPackage.SCHEMATIC__CLASSES:
-				getClasses().clear();
-				getClasses().addAll((Collection)newValue);
+				setClasses((Classes)newValue);
 				return;
 			case EaglemodelPackage.SCHEMATIC__PARTS:
-				getParts().clear();
-				getParts().addAll((Collection)newValue);
+				setParts((Parts)newValue);
 				return;
 			case EaglemodelPackage.SCHEMATIC__SHEETS:
-				getSheets().clear();
-				getSheets().addAll((Collection)newValue);
+				setSheets((Sheets)newValue);
 				return;
 			case EaglemodelPackage.SCHEMATIC__ERRORS:
-				getErrors().clear();
-				getErrors().addAll((Collection)newValue);
+				setErrors((Errors)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -436,6 +677,7 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.SCHEMATIC__XREFLABEL:
@@ -448,25 +690,25 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 				setDescription((Description)null);
 				return;
 			case EaglemodelPackage.SCHEMATIC__LIBRARIES:
-				getLibraries().clear();
+				setLibraries((Libraries)null);
 				return;
 			case EaglemodelPackage.SCHEMATIC__ATTRIBUTES:
-				getAttributes().clear();
+				setAttributes((Attributes)null);
 				return;
 			case EaglemodelPackage.SCHEMATIC__VARIANTDEFS:
-				getVariantdefs().clear();
+				setVariantdefs((Variantdefs)null);
 				return;
 			case EaglemodelPackage.SCHEMATIC__CLASSES:
-				getClasses().clear();
+				setClasses((Classes)null);
 				return;
 			case EaglemodelPackage.SCHEMATIC__PARTS:
-				getParts().clear();
+				setParts((Parts)null);
 				return;
 			case EaglemodelPackage.SCHEMATIC__SHEETS:
-				getSheets().clear();
+				setSheets((Sheets)null);
 				return;
 			case EaglemodelPackage.SCHEMATIC__ERRORS:
-				getErrors().clear();
+				setErrors((Errors)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -477,6 +719,7 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.SCHEMATIC__XREFLABEL:
@@ -486,19 +729,19 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 			case EaglemodelPackage.SCHEMATIC__DESCRIPTION:
 				return description != null;
 			case EaglemodelPackage.SCHEMATIC__LIBRARIES:
-				return libraries != null && !libraries.isEmpty();
+				return libraries != null;
 			case EaglemodelPackage.SCHEMATIC__ATTRIBUTES:
-				return attributes != null && !attributes.isEmpty();
+				return attributes != null;
 			case EaglemodelPackage.SCHEMATIC__VARIANTDEFS:
-				return variantdefs != null && !variantdefs.isEmpty();
+				return variantdefs != null;
 			case EaglemodelPackage.SCHEMATIC__CLASSES:
-				return classes != null && !classes.isEmpty();
+				return classes != null;
 			case EaglemodelPackage.SCHEMATIC__PARTS:
-				return parts != null && !parts.isEmpty();
+				return parts != null;
 			case EaglemodelPackage.SCHEMATIC__SHEETS:
-				return sheets != null && !sheets.isEmpty();
+				return sheets != null;
 			case EaglemodelPackage.SCHEMATIC__ERRORS:
-				return errors != null && !errors.isEmpty();
+				return errors != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -508,10 +751,11 @@ public class SchematicImpl extends MinimalEObjectImpl.Container implements Schem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (xreflabel: ");
 		result.append(xreflabel);
 		result.append(", xrefpart: ");

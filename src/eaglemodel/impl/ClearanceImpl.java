@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.ClearanceImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link eaglemodel.impl.ClearanceImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -81,6 +81,7 @@ public class ClearanceImpl extends MinimalEObjectImpl.Container implements Clear
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.CLEARANCE;
 	}
@@ -132,12 +133,13 @@ public class ClearanceImpl extends MinimalEObjectImpl.Container implements Clear
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.CLEARANCE__CLASS:
-				return new Integer(getClass_());
+				return getClass_();
 			case EaglemodelPackage.CLEARANCE__VALUE:
-				return new Double(getValue());
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,13 +149,14 @@ public class ClearanceImpl extends MinimalEObjectImpl.Container implements Clear
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.CLEARANCE__CLASS:
-				setClass(((Integer)newValue).intValue());
+				setClass((Integer)newValue);
 				return;
 			case EaglemodelPackage.CLEARANCE__VALUE:
-				setValue(((Double)newValue).doubleValue());
+				setValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -164,6 +167,7 @@ public class ClearanceImpl extends MinimalEObjectImpl.Container implements Clear
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.CLEARANCE__CLASS:
@@ -181,6 +185,7 @@ public class ClearanceImpl extends MinimalEObjectImpl.Container implements Clear
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.CLEARANCE__CLASS:
@@ -196,10 +201,11 @@ public class ClearanceImpl extends MinimalEObjectImpl.Container implements Clear
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (class: ");
 		result.append(class_);
 		result.append(", value: ");

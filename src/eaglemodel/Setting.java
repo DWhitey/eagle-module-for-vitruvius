@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.VerticalText;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Setting#isAlwaysvectorfont <em>Alwaysvectorfont</em>}</li>
  *   <li>{@link eaglemodel.Setting#getVerticaltext <em>Verticaltext</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getSetting()
  * @model
@@ -53,7 +51,7 @@ public interface Setting extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Verticaltext</b></em>' attribute.
 	 * The default value is <code>"up"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.VerticalText}.
+	 * The literals are from the enumeration {@link eaglemodel.VerticalText}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Verticaltext</em>' attribute isn't clear,
@@ -61,7 +59,7 @@ public interface Setting extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Verticaltext</em>' attribute.
-	 * @see eaglemodel.Enums.VerticalText
+	 * @see eaglemodel.VerticalText
 	 * @see #setVerticaltext(VerticalText)
 	 * @see eaglemodel.EaglemodelPackage#getSetting_Verticaltext()
 	 * @model default="up"
@@ -74,7 +72,7 @@ public interface Setting extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Verticaltext</em>' attribute.
-	 * @see eaglemodel.Enums.VerticalText
+	 * @see eaglemodel.VerticalText
 	 * @see #getVerticaltext()
 	 * @generated
 	 */

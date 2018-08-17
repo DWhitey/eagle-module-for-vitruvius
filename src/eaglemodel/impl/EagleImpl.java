@@ -8,6 +8,7 @@ import eaglemodel.Eagle;
 import eaglemodel.EaglemodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -21,12 +22,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.EagleImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link eaglemodel.impl.EagleImpl#getCompatibility <em>Compatibility</em>}</li>
  *   <li>{@link eaglemodel.impl.EagleImpl#getDrawing <em>Drawing</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -52,7 +53,7 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	protected String version = VERSION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCompatibility() <em>Compatibility</em>}' reference.
+	 * The cached value of the '{@link #getCompatibility() <em>Compatibility</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCompatibility()
@@ -62,7 +63,7 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	protected Compatibility compatibility;
 
 	/**
-	 * The cached value of the '{@link #getDrawing() <em>Drawing</em>}' reference.
+	 * The cached value of the '{@link #getDrawing() <em>Drawing</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDrawing()
@@ -85,6 +86,7 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.EAGLE;
 	}
@@ -116,14 +118,6 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * @generated
 	 */
 	public Compatibility getCompatibility() {
-		if (compatibility != null && compatibility.eIsProxy()) {
-			InternalEObject oldCompatibility = (InternalEObject)compatibility;
-			compatibility = (Compatibility)eResolveProxy(oldCompatibility);
-			if (compatibility != oldCompatibility) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaglemodelPackage.EAGLE__COMPATIBILITY, oldCompatibility, compatibility));
-			}
-		}
 		return compatibility;
 	}
 
@@ -132,8 +126,14 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Compatibility basicGetCompatibility() {
-		return compatibility;
+	public NotificationChain basicSetCompatibility(Compatibility newCompatibility, NotificationChain msgs) {
+		Compatibility oldCompatibility = compatibility;
+		compatibility = newCompatibility;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.EAGLE__COMPATIBILITY, oldCompatibility, newCompatibility);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -142,10 +142,17 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * @generated
 	 */
 	public void setCompatibility(Compatibility newCompatibility) {
-		Compatibility oldCompatibility = compatibility;
-		compatibility = newCompatibility;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.EAGLE__COMPATIBILITY, oldCompatibility, compatibility));
+		if (newCompatibility != compatibility) {
+			NotificationChain msgs = null;
+			if (compatibility != null)
+				msgs = ((InternalEObject)compatibility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.EAGLE__COMPATIBILITY, null, msgs);
+			if (newCompatibility != null)
+				msgs = ((InternalEObject)newCompatibility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.EAGLE__COMPATIBILITY, null, msgs);
+			msgs = basicSetCompatibility(newCompatibility, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.EAGLE__COMPATIBILITY, newCompatibility, newCompatibility));
 	}
 
 	/**
@@ -154,14 +161,6 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * @generated
 	 */
 	public Drawing getDrawing() {
-		if (drawing != null && drawing.eIsProxy()) {
-			InternalEObject oldDrawing = (InternalEObject)drawing;
-			drawing = (Drawing)eResolveProxy(oldDrawing);
-			if (drawing != oldDrawing) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EaglemodelPackage.EAGLE__DRAWING, oldDrawing, drawing));
-			}
-		}
 		return drawing;
 	}
 
@@ -170,8 +169,14 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Drawing basicGetDrawing() {
-		return drawing;
+	public NotificationChain basicSetDrawing(Drawing newDrawing, NotificationChain msgs) {
+		Drawing oldDrawing = drawing;
+		drawing = newDrawing;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.EAGLE__DRAWING, oldDrawing, newDrawing);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -180,10 +185,17 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * @generated
 	 */
 	public void setDrawing(Drawing newDrawing) {
-		Drawing oldDrawing = drawing;
-		drawing = newDrawing;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.EAGLE__DRAWING, oldDrawing, drawing));
+		if (newDrawing != drawing) {
+			NotificationChain msgs = null;
+			if (drawing != null)
+				msgs = ((InternalEObject)drawing).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.EAGLE__DRAWING, null, msgs);
+			if (newDrawing != null)
+				msgs = ((InternalEObject)newDrawing).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.EAGLE__DRAWING, null, msgs);
+			msgs = basicSetDrawing(newDrawing, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.EAGLE__DRAWING, newDrawing, newDrawing));
 	}
 
 	/**
@@ -191,16 +203,31 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.EAGLE__COMPATIBILITY:
+				return basicSetCompatibility(null, msgs);
+			case EaglemodelPackage.EAGLE__DRAWING:
+				return basicSetDrawing(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.EAGLE__VERSION:
 				return getVersion();
 			case EaglemodelPackage.EAGLE__COMPATIBILITY:
-				if (resolve) return getCompatibility();
-				return basicGetCompatibility();
+				return getCompatibility();
 			case EaglemodelPackage.EAGLE__DRAWING:
-				if (resolve) return getDrawing();
-				return basicGetDrawing();
+				return getDrawing();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +237,7 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.EAGLE__VERSION:
@@ -230,6 +258,7 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.EAGLE__VERSION:
@@ -250,6 +279,7 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.EAGLE__VERSION:
@@ -267,10 +297,11 @@ public class EagleImpl extends MinimalEObjectImpl.Container implements Eagle {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (version: ");
 		result.append(version);
 		result.append(')');

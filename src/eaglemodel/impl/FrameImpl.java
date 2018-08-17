@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.FrameImpl#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.impl.FrameImpl#getY1 <em>Y1</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.FrameImpl#isBorderright <em>Borderright</em>}</li>
  *   <li>{@link eaglemodel.impl.FrameImpl#isBorderbottom <em>Borderbottom</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -270,6 +270,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.FRAME;
 	}
@@ -510,30 +511,31 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.FRAME__X1:
-				return new Double(getX1());
+				return getX1();
 			case EaglemodelPackage.FRAME__Y1:
-				return new Double(getY1());
+				return getY1();
 			case EaglemodelPackage.FRAME__X2:
-				return new Double(getX2());
+				return getX2();
 			case EaglemodelPackage.FRAME__Y2:
-				return new Double(getY2());
+				return getY2();
 			case EaglemodelPackage.FRAME__COLUMNS:
-				return new Integer(getColumns());
+				return getColumns();
 			case EaglemodelPackage.FRAME__ROWS:
-				return new Integer(getRows());
+				return getRows();
 			case EaglemodelPackage.FRAME__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 			case EaglemodelPackage.FRAME__BORDERLEFT:
-				return isBorderleft() ? Boolean.TRUE : Boolean.FALSE;
+				return isBorderleft();
 			case EaglemodelPackage.FRAME__BORDERTOP:
-				return isBordertop() ? Boolean.TRUE : Boolean.FALSE;
+				return isBordertop();
 			case EaglemodelPackage.FRAME__BORDERRIGHT:
-				return isBorderright() ? Boolean.TRUE : Boolean.FALSE;
+				return isBorderright();
 			case EaglemodelPackage.FRAME__BORDERBOTTOM:
-				return isBorderbottom() ? Boolean.TRUE : Boolean.FALSE;
+				return isBorderbottom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -543,40 +545,41 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.FRAME__X1:
-				setX1(((Double)newValue).doubleValue());
+				setX1((Double)newValue);
 				return;
 			case EaglemodelPackage.FRAME__Y1:
-				setY1(((Double)newValue).doubleValue());
+				setY1((Double)newValue);
 				return;
 			case EaglemodelPackage.FRAME__X2:
-				setX2(((Double)newValue).doubleValue());
+				setX2((Double)newValue);
 				return;
 			case EaglemodelPackage.FRAME__Y2:
-				setY2(((Double)newValue).doubleValue());
+				setY2((Double)newValue);
 				return;
 			case EaglemodelPackage.FRAME__COLUMNS:
-				setColumns(((Integer)newValue).intValue());
+				setColumns((Integer)newValue);
 				return;
 			case EaglemodelPackage.FRAME__ROWS:
-				setRows(((Integer)newValue).intValue());
+				setRows((Integer)newValue);
 				return;
 			case EaglemodelPackage.FRAME__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 			case EaglemodelPackage.FRAME__BORDERLEFT:
-				setBorderleft(((Boolean)newValue).booleanValue());
+				setBorderleft((Boolean)newValue);
 				return;
 			case EaglemodelPackage.FRAME__BORDERTOP:
-				setBordertop(((Boolean)newValue).booleanValue());
+				setBordertop((Boolean)newValue);
 				return;
 			case EaglemodelPackage.FRAME__BORDERRIGHT:
-				setBorderright(((Boolean)newValue).booleanValue());
+				setBorderright((Boolean)newValue);
 				return;
 			case EaglemodelPackage.FRAME__BORDERBOTTOM:
-				setBorderbottom(((Boolean)newValue).booleanValue());
+				setBorderbottom((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -587,6 +590,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.FRAME__X1:
@@ -631,6 +635,7 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.FRAME__X1:
@@ -664,10 +669,11 @@ public class FrameImpl extends MinimalEObjectImpl.Container implements Frame {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (x1: ");
 		result.append(x1);
 		result.append(", y1: ");

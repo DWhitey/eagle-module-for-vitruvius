@@ -15,13 +15,17 @@ import eaglemodel.Wire;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PlainImpl#getPolygon <em>Polygon</em>}</li>
  *   <li>{@link eaglemodel.impl.PlainImpl#getWire <em>Wire</em>}</li>
@@ -39,90 +44,89 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.PlainImpl#getFrame <em>Frame</em>}</li>
  *   <li>{@link eaglemodel.impl.PlainImpl#getHole <em>Hole</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	/**
-	 * The cached value of the '{@link #getPolygon() <em>Polygon</em>}' reference list.
+	 * The cached value of the '{@link #getPolygon() <em>Polygon</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPolygon()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList polygon;
+	protected EList<Polygon> polygon;
 
 	/**
-	 * The cached value of the '{@link #getWire() <em>Wire</em>}' reference list.
+	 * The cached value of the '{@link #getWire() <em>Wire</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getWire()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList wire;
+	protected EList<Wire> wire;
 
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' reference list.
+	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList text;
+	protected EList<Text> text;
 
 	/**
-	 * The cached value of the '{@link #getDimension() <em>Dimension</em>}' reference list.
+	 * The cached value of the '{@link #getDimension() <em>Dimension</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDimension()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dimension;
+	protected EList<Dimension> dimension;
 
 	/**
-	 * The cached value of the '{@link #getCircle() <em>Circle</em>}' reference list.
+	 * The cached value of the '{@link #getCircle() <em>Circle</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCircle()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList circle;
+	protected EList<Circle> circle;
 
 	/**
-	 * The cached value of the '{@link #getRectangle() <em>Rectangle</em>}' reference list.
+	 * The cached value of the '{@link #getRectangle() <em>Rectangle</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRectangle()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList rectangle;
+	protected EList<Rectangle> rectangle;
 
 	/**
-	 * The cached value of the '{@link #getFrame() <em>Frame</em>}' reference list.
+	 * The cached value of the '{@link #getFrame() <em>Frame</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFrame()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList frame;
+	protected EList<Frame> frame;
 
 	/**
-	 * The cached value of the '{@link #getHole() <em>Hole</em>}' reference list.
+	 * The cached value of the '{@link #getHole() <em>Hole</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHole()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList hole;
+	protected EList<Hole> hole;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,6 +142,7 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.PLAIN;
 	}
@@ -147,9 +152,9 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getPolygon() {
+	public EList<Polygon> getPolygon() {
 		if (polygon == null) {
-			polygon = new EObjectResolvingEList(Polygon.class, this, EaglemodelPackage.PLAIN__POLYGON);
+			polygon = new EObjectContainmentEList<Polygon>(Polygon.class, this, EaglemodelPackage.PLAIN__POLYGON);
 		}
 		return polygon;
 	}
@@ -159,9 +164,9 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getWire() {
+	public EList<Wire> getWire() {
 		if (wire == null) {
-			wire = new EObjectResolvingEList(Wire.class, this, EaglemodelPackage.PLAIN__WIRE);
+			wire = new EObjectContainmentEList<Wire>(Wire.class, this, EaglemodelPackage.PLAIN__WIRE);
 		}
 		return wire;
 	}
@@ -171,9 +176,9 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getText() {
+	public EList<Text> getText() {
 		if (text == null) {
-			text = new EObjectResolvingEList(Text.class, this, EaglemodelPackage.PLAIN__TEXT);
+			text = new EObjectContainmentEList<Text>(Text.class, this, EaglemodelPackage.PLAIN__TEXT);
 		}
 		return text;
 	}
@@ -183,9 +188,9 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDimension() {
+	public EList<Dimension> getDimension() {
 		if (dimension == null) {
-			dimension = new EObjectResolvingEList(Dimension.class, this, EaglemodelPackage.PLAIN__DIMENSION);
+			dimension = new EObjectContainmentEList<Dimension>(Dimension.class, this, EaglemodelPackage.PLAIN__DIMENSION);
 		}
 		return dimension;
 	}
@@ -195,9 +200,9 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getCircle() {
+	public EList<Circle> getCircle() {
 		if (circle == null) {
-			circle = new EObjectResolvingEList(Circle.class, this, EaglemodelPackage.PLAIN__CIRCLE);
+			circle = new EObjectContainmentEList<Circle>(Circle.class, this, EaglemodelPackage.PLAIN__CIRCLE);
 		}
 		return circle;
 	}
@@ -207,9 +212,9 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRectangle() {
+	public EList<Rectangle> getRectangle() {
 		if (rectangle == null) {
-			rectangle = new EObjectResolvingEList(Rectangle.class, this, EaglemodelPackage.PLAIN__RECTANGLE);
+			rectangle = new EObjectContainmentEList<Rectangle>(Rectangle.class, this, EaglemodelPackage.PLAIN__RECTANGLE);
 		}
 		return rectangle;
 	}
@@ -219,9 +224,9 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getFrame() {
+	public EList<Frame> getFrame() {
 		if (frame == null) {
-			frame = new EObjectResolvingEList(Frame.class, this, EaglemodelPackage.PLAIN__FRAME);
+			frame = new EObjectContainmentEList<Frame>(Frame.class, this, EaglemodelPackage.PLAIN__FRAME);
 		}
 		return frame;
 	}
@@ -231,9 +236,9 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getHole() {
+	public EList<Hole> getHole() {
 		if (hole == null) {
-			hole = new EObjectResolvingEList(Hole.class, this, EaglemodelPackage.PLAIN__HOLE);
+			hole = new EObjectContainmentEList<Hole>(Hole.class, this, EaglemodelPackage.PLAIN__HOLE);
 		}
 		return hole;
 	}
@@ -243,6 +248,35 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.PLAIN__POLYGON:
+				return ((InternalEList<?>)getPolygon()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PLAIN__WIRE:
+				return ((InternalEList<?>)getWire()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PLAIN__TEXT:
+				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PLAIN__DIMENSION:
+				return ((InternalEList<?>)getDimension()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PLAIN__CIRCLE:
+				return ((InternalEList<?>)getCircle()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PLAIN__RECTANGLE:
+				return ((InternalEList<?>)getRectangle()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PLAIN__FRAME:
+				return ((InternalEList<?>)getFrame()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PLAIN__HOLE:
+				return ((InternalEList<?>)getHole()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.PLAIN__POLYGON:
@@ -270,39 +304,41 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.PLAIN__POLYGON:
 				getPolygon().clear();
-				getPolygon().addAll((Collection)newValue);
+				getPolygon().addAll((Collection<? extends Polygon>)newValue);
 				return;
 			case EaglemodelPackage.PLAIN__WIRE:
 				getWire().clear();
-				getWire().addAll((Collection)newValue);
+				getWire().addAll((Collection<? extends Wire>)newValue);
 				return;
 			case EaglemodelPackage.PLAIN__TEXT:
 				getText().clear();
-				getText().addAll((Collection)newValue);
+				getText().addAll((Collection<? extends Text>)newValue);
 				return;
 			case EaglemodelPackage.PLAIN__DIMENSION:
 				getDimension().clear();
-				getDimension().addAll((Collection)newValue);
+				getDimension().addAll((Collection<? extends Dimension>)newValue);
 				return;
 			case EaglemodelPackage.PLAIN__CIRCLE:
 				getCircle().clear();
-				getCircle().addAll((Collection)newValue);
+				getCircle().addAll((Collection<? extends Circle>)newValue);
 				return;
 			case EaglemodelPackage.PLAIN__RECTANGLE:
 				getRectangle().clear();
-				getRectangle().addAll((Collection)newValue);
+				getRectangle().addAll((Collection<? extends Rectangle>)newValue);
 				return;
 			case EaglemodelPackage.PLAIN__FRAME:
 				getFrame().clear();
-				getFrame().addAll((Collection)newValue);
+				getFrame().addAll((Collection<? extends Frame>)newValue);
 				return;
 			case EaglemodelPackage.PLAIN__HOLE:
 				getHole().clear();
-				getHole().addAll((Collection)newValue);
+				getHole().addAll((Collection<? extends Hole>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -313,6 +349,7 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PLAIN__POLYGON:
@@ -348,6 +385,7 @@ public class PlainImpl extends MinimalEObjectImpl.Container implements Plain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PLAIN__POLYGON:

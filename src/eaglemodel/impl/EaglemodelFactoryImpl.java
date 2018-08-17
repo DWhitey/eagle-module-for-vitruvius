@@ -2,52 +2,90 @@
  */
 package eaglemodel.impl;
 
+import eaglemodel.Align;
 import eaglemodel.Approved;
 import eaglemodel.Attribute;
+import eaglemodel.AttributeDisplay;
+import eaglemodel.Attributes;
 import eaglemodel.Bus;
+import eaglemodel.Busses;
 import eaglemodel.Circle;
+import eaglemodel.Classes;
 import eaglemodel.Clearance;
+import eaglemodel.Compatibility;
 import eaglemodel.Connect;
+import eaglemodel.Connects;
+import eaglemodel.ContactRoute;
 import eaglemodel.Description;
 import eaglemodel.Device;
+import eaglemodel.Devices;
 import eaglemodel.Deviceset;
+import eaglemodel.Devicesets;
 import eaglemodel.Dimension;
+import eaglemodel.DimensionType;
 import eaglemodel.Drawing;
 import eaglemodel.Eagle;
 import eaglemodel.EaglemodelFactory;
 import eaglemodel.EaglemodelPackage;
+import eaglemodel.Errors;
 import eaglemodel.Frame;
 import eaglemodel.Gate;
+import eaglemodel.GateAddLevel;
+import eaglemodel.Gates;
 import eaglemodel.Grid;
+import eaglemodel.GridStyle;
+import eaglemodel.GridUnit;
 import eaglemodel.Hole;
 import eaglemodel.Instance;
+import eaglemodel.Instances;
 import eaglemodel.Junction;
 import eaglemodel.Label;
 import eaglemodel.Layer;
+import eaglemodel.Layers;
+import eaglemodel.Libraries;
 import eaglemodel.Library;
 import eaglemodel.Net;
+import eaglemodel.Nets;
 import eaglemodel.Note;
+import eaglemodel.Packages;
 import eaglemodel.Pad;
+import eaglemodel.PadShape;
 import eaglemodel.Part;
+import eaglemodel.Parts;
 import eaglemodel.Pin;
+import eaglemodel.PinDirection;
+import eaglemodel.PinFunction;
+import eaglemodel.PinLength;
+import eaglemodel.PinVisible;
 import eaglemodel.Pinref;
 import eaglemodel.Plain;
 import eaglemodel.Polygon;
+import eaglemodel.PolygonPour;
 import eaglemodel.Rectangle;
 import eaglemodel.SMD;
 import eaglemodel.Schematic;
 import eaglemodel.Segment;
 import eaglemodel.Setting;
+import eaglemodel.Settings;
 import eaglemodel.Sheet;
+import eaglemodel.Sheets;
 import eaglemodel.Symbol;
+import eaglemodel.Symbols;
+import eaglemodel.Technologies;
 import eaglemodel.Technology;
 import eaglemodel.Text;
+import eaglemodel.TextFont;
 import eaglemodel.Variant;
 import eaglemodel.Variantdef;
+import eaglemodel.Variantdefs;
 import eaglemodel.Vertex;
+import eaglemodel.VerticalText;
 import eaglemodel.Wire;
+import eaglemodel.WireCap;
+import eaglemodel.WireStyle;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -70,7 +108,7 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 */
 	public static EaglemodelFactory init() {
 		try {
-			EaglemodelFactory theEaglemodelFactory = (EaglemodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://org/eclipse/eagle/eaglemodel"); 
+			EaglemodelFactory theEaglemodelFactory = (EaglemodelFactory)EPackage.Registry.INSTANCE.getEFactory(EaglemodelPackage.eNS_URI);
 			if (theEaglemodelFactory != null) {
 				return theEaglemodelFactory;
 			}
@@ -96,26 +134,40 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case EaglemodelPackage.EAGLE: return createEagle();
+			case EaglemodelPackage.COMPATIBILITY: return createCompatibility();
 			case EaglemodelPackage.NOTE: return createNote();
 			case EaglemodelPackage.DRAWING: return createDrawing();
+			case EaglemodelPackage.SETTINGS: return createSettings();
 			case EaglemodelPackage.SETTING: return createSetting();
 			case EaglemodelPackage.GRID: return createGrid();
+			case EaglemodelPackage.LAYERS: return createLayers();
 			case EaglemodelPackage.LAYER: return createLayer();
 			case EaglemodelPackage.SCHEMATIC: return createSchematic();
 			case EaglemodelPackage.DESCRIPTION: return createDescription();
+			case EaglemodelPackage.LIBRARIES: return createLibraries();
 			case EaglemodelPackage.LIBRARY: return createLibrary();
+			case EaglemodelPackage.ATTRIBUTES: return createAttributes();
 			case EaglemodelPackage.ATTRIBUTE: return createAttribute();
+			case EaglemodelPackage.VARIANTDEFS: return createVariantdefs();
 			case EaglemodelPackage.VARIANTDEF: return createVariantdef();
 			case EaglemodelPackage.VARIANT: return createVariant();
+			case EaglemodelPackage.CLASSES: return createClasses();
 			case EaglemodelPackage.CLASS: return createClass();
 			case EaglemodelPackage.CLEARANCE: return createClearance();
+			case EaglemodelPackage.PARTS: return createParts();
 			case EaglemodelPackage.PART: return createPart();
+			case EaglemodelPackage.SHEETS: return createSheets();
 			case EaglemodelPackage.SHEET: return createSheet();
+			case EaglemodelPackage.ERRORS: return createErrors();
+			case EaglemodelPackage.PACKAGES: return createPackages();
 			case EaglemodelPackage.PACKAGE: return createPackage();
+			case EaglemodelPackage.SYMBOLS: return createSymbols();
 			case EaglemodelPackage.SYMBOL: return createSymbol();
+			case EaglemodelPackage.DEVICESETS: return createDevicesets();
 			case EaglemodelPackage.DEVICESET: return createDeviceset();
 			case EaglemodelPackage.POLYGON: return createPolygon();
 			case EaglemodelPackage.VERTEX: return createVertex();
@@ -129,13 +181,20 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 			case EaglemodelPackage.HOLE: return createHole();
 			case EaglemodelPackage.PAD: return createPad();
 			case EaglemodelPackage.SMD: return createSMD();
+			case EaglemodelPackage.GATES: return createGates();
 			case EaglemodelPackage.GATE: return createGate();
+			case EaglemodelPackage.DEVICES: return createDevices();
 			case EaglemodelPackage.DEVICE: return createDevice();
+			case EaglemodelPackage.CONNECTS: return createConnects();
 			case EaglemodelPackage.CONNECT: return createConnect();
+			case EaglemodelPackage.TECHNOLOGIES: return createTechnologies();
 			case EaglemodelPackage.TECHNOLOGY: return createTechnology();
 			case EaglemodelPackage.PLAIN: return createPlain();
+			case EaglemodelPackage.INSTANCES: return createInstances();
 			case EaglemodelPackage.INSTANCE: return createInstance();
+			case EaglemodelPackage.BUSSES: return createBusses();
 			case EaglemodelPackage.BUS: return createBus();
+			case EaglemodelPackage.NETS: return createNets();
 			case EaglemodelPackage.NET: return createNet();
 			case EaglemodelPackage.SEGMENT: return createSegment();
 			case EaglemodelPackage.PINREF: return createPinref();
@@ -152,9 +211,113 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case EaglemodelPackage.GATE_ADD_LEVEL:
+				return createGateAddLevelFromString(eDataType, initialValue);
+			case EaglemodelPackage.WIRE_STYLE:
+				return createWireStyleFromString(eDataType, initialValue);
+			case EaglemodelPackage.WIRE_CAP:
+				return createWireCapFromString(eDataType, initialValue);
+			case EaglemodelPackage.DIMENSION_TYPE:
+				return createDimensionTypeFromString(eDataType, initialValue);
+			case EaglemodelPackage.GRID_UNIT:
+				return createGridUnitFromString(eDataType, initialValue);
+			case EaglemodelPackage.GRID_STYLE:
+				return createGridStyleFromString(eDataType, initialValue);
+			case EaglemodelPackage.TEXT_FONT:
+				return createTextFontFromString(eDataType, initialValue);
+			case EaglemodelPackage.ALIGN:
+				return createAlignFromString(eDataType, initialValue);
+			case EaglemodelPackage.PAD_SHAPE:
+				return createPadShapeFromString(eDataType, initialValue);
+			case EaglemodelPackage.POLYGON_POUR:
+				return createPolygonPourFromString(eDataType, initialValue);
+			case EaglemodelPackage.PIN_VISIBLE:
+				return createPinVisibleFromString(eDataType, initialValue);
+			case EaglemodelPackage.PIN_LENGTH:
+				return createPinLengthFromString(eDataType, initialValue);
+			case EaglemodelPackage.PIN_DIRECTION:
+				return createPinDirectionFromString(eDataType, initialValue);
+			case EaglemodelPackage.PIN_FUNCTION:
+				return createPinFunctionFromString(eDataType, initialValue);
+			case EaglemodelPackage.CONTACT_ROUTE:
+				return createContactRouteFromString(eDataType, initialValue);
+			case EaglemodelPackage.ATTRIBUTE_DISPLAY:
+				return createAttributeDisplayFromString(eDataType, initialValue);
+			case EaglemodelPackage.VERTICAL_TEXT:
+				return createVerticalTextFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case EaglemodelPackage.GATE_ADD_LEVEL:
+				return convertGateAddLevelToString(eDataType, instanceValue);
+			case EaglemodelPackage.WIRE_STYLE:
+				return convertWireStyleToString(eDataType, instanceValue);
+			case EaglemodelPackage.WIRE_CAP:
+				return convertWireCapToString(eDataType, instanceValue);
+			case EaglemodelPackage.DIMENSION_TYPE:
+				return convertDimensionTypeToString(eDataType, instanceValue);
+			case EaglemodelPackage.GRID_UNIT:
+				return convertGridUnitToString(eDataType, instanceValue);
+			case EaglemodelPackage.GRID_STYLE:
+				return convertGridStyleToString(eDataType, instanceValue);
+			case EaglemodelPackage.TEXT_FONT:
+				return convertTextFontToString(eDataType, instanceValue);
+			case EaglemodelPackage.ALIGN:
+				return convertAlignToString(eDataType, instanceValue);
+			case EaglemodelPackage.PAD_SHAPE:
+				return convertPadShapeToString(eDataType, instanceValue);
+			case EaglemodelPackage.POLYGON_POUR:
+				return convertPolygonPourToString(eDataType, instanceValue);
+			case EaglemodelPackage.PIN_VISIBLE:
+				return convertPinVisibleToString(eDataType, instanceValue);
+			case EaglemodelPackage.PIN_LENGTH:
+				return convertPinLengthToString(eDataType, instanceValue);
+			case EaglemodelPackage.PIN_DIRECTION:
+				return convertPinDirectionToString(eDataType, instanceValue);
+			case EaglemodelPackage.PIN_FUNCTION:
+				return convertPinFunctionToString(eDataType, instanceValue);
+			case EaglemodelPackage.CONTACT_ROUTE:
+				return convertContactRouteToString(eDataType, instanceValue);
+			case EaglemodelPackage.ATTRIBUTE_DISPLAY:
+				return convertAttributeDisplayToString(eDataType, instanceValue);
+			case EaglemodelPackage.VERTICAL_TEXT:
+				return convertVerticalTextToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Eagle createEagle() {
 		EagleImpl eagle = new EagleImpl();
 		return eagle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Compatibility createCompatibility() {
+		CompatibilityImpl compatibility = new CompatibilityImpl();
+		return compatibility;
 	}
 
 	/**
@@ -182,6 +345,16 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Settings createSettings() {
+		SettingsImpl settings = new SettingsImpl();
+		return settings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Setting createSetting() {
 		SettingImpl setting = new SettingImpl();
 		return setting;
@@ -195,6 +368,16 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	public Grid createGrid() {
 		GridImpl grid = new GridImpl();
 		return grid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Layers createLayers() {
+		LayersImpl layers = new LayersImpl();
+		return layers;
 	}
 
 	/**
@@ -232,6 +415,16 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Libraries createLibraries() {
+		LibrariesImpl libraries = new LibrariesImpl();
+		return libraries;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Library createLibrary() {
 		LibraryImpl library = new LibraryImpl();
 		return library;
@@ -242,9 +435,29 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Attributes createAttributes() {
+		AttributesImpl attributes = new AttributesImpl();
+		return attributes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Attribute createAttribute() {
 		AttributeImpl attribute = new AttributeImpl();
 		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variantdefs createVariantdefs() {
+		VariantdefsImpl variantdefs = new VariantdefsImpl();
+		return variantdefs;
 	}
 
 	/**
@@ -272,6 +485,16 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Classes createClasses() {
+		ClassesImpl classes = new ClassesImpl();
+		return classes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public eaglemodel.Class createClass() {
 		ClassImpl class_ = new ClassImpl();
 		return class_;
@@ -292,9 +515,29 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Parts createParts() {
+		PartsImpl parts = new PartsImpl();
+		return parts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Part createPart() {
 		PartImpl part = new PartImpl();
 		return part;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sheets createSheets() {
+		SheetsImpl sheets = new SheetsImpl();
+		return sheets;
 	}
 
 	/**
@@ -312,6 +555,26 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Errors createErrors() {
+		ErrorsImpl errors = new ErrorsImpl();
+		return errors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Packages createPackages() {
+		PackagesImpl packages = new PackagesImpl();
+		return packages;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public eaglemodel.Package createPackage() {
 		PackageImpl package_ = new PackageImpl();
 		return package_;
@@ -322,9 +585,29 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Symbols createSymbols() {
+		SymbolsImpl symbols = new SymbolsImpl();
+		return symbols;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Symbol createSymbol() {
 		SymbolImpl symbol = new SymbolImpl();
 		return symbol;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Devicesets createDevicesets() {
+		DevicesetsImpl devicesets = new DevicesetsImpl();
+		return devicesets;
 	}
 
 	/**
@@ -462,9 +745,29 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Gates createGates() {
+		GatesImpl gates = new GatesImpl();
+		return gates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Gate createGate() {
 		GateImpl gate = new GateImpl();
 		return gate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Devices createDevices() {
+		DevicesImpl devices = new DevicesImpl();
+		return devices;
 	}
 
 	/**
@@ -482,9 +785,29 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Connects createConnects() {
+		ConnectsImpl connects = new ConnectsImpl();
+		return connects;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Connect createConnect() {
 		ConnectImpl connect = new ConnectImpl();
 		return connect;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Technologies createTechnologies() {
+		TechnologiesImpl technologies = new TechnologiesImpl();
+		return technologies;
 	}
 
 	/**
@@ -512,6 +835,16 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Instances createInstances() {
+		InstancesImpl instances = new InstancesImpl();
+		return instances;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Instance createInstance() {
 		InstanceImpl instance = new InstanceImpl();
 		return instance;
@@ -522,9 +855,29 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Busses createBusses() {
+		BussesImpl busses = new BussesImpl();
+		return busses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Bus createBus() {
 		BusImpl bus = new BusImpl();
 		return bus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Nets createNets() {
+		NetsImpl nets = new NetsImpl();
+		return nets;
 	}
 
 	/**
@@ -592,6 +945,346 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GateAddLevel createGateAddLevelFromString(EDataType eDataType, String initialValue) {
+		GateAddLevel result = GateAddLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGateAddLevelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WireStyle createWireStyleFromString(EDataType eDataType, String initialValue) {
+		WireStyle result = WireStyle.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertWireStyleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WireCap createWireCapFromString(EDataType eDataType, String initialValue) {
+		WireCap result = WireCap.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertWireCapToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DimensionType createDimensionTypeFromString(EDataType eDataType, String initialValue) {
+		DimensionType result = DimensionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDimensionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GridUnit createGridUnitFromString(EDataType eDataType, String initialValue) {
+		GridUnit result = GridUnit.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGridUnitToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GridStyle createGridStyleFromString(EDataType eDataType, String initialValue) {
+		GridStyle result = GridStyle.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGridStyleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextFont createTextFontFromString(EDataType eDataType, String initialValue) {
+		TextFont result = TextFont.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTextFontToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Align createAlignFromString(EDataType eDataType, String initialValue) {
+		Align result = Align.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAlignToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PadShape createPadShapeFromString(EDataType eDataType, String initialValue) {
+		PadShape result = PadShape.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPadShapeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PolygonPour createPolygonPourFromString(EDataType eDataType, String initialValue) {
+		PolygonPour result = PolygonPour.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPolygonPourToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PinVisible createPinVisibleFromString(EDataType eDataType, String initialValue) {
+		PinVisible result = PinVisible.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPinVisibleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PinLength createPinLengthFromString(EDataType eDataType, String initialValue) {
+		PinLength result = PinLength.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPinLengthToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PinDirection createPinDirectionFromString(EDataType eDataType, String initialValue) {
+		PinDirection result = PinDirection.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPinDirectionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PinFunction createPinFunctionFromString(EDataType eDataType, String initialValue) {
+		PinFunction result = PinFunction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPinFunctionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContactRoute createContactRouteFromString(EDataType eDataType, String initialValue) {
+		ContactRoute result = ContactRoute.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertContactRouteToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttributeDisplay createAttributeDisplayFromString(EDataType eDataType, String initialValue) {
+		AttributeDisplay result = AttributeDisplay.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAttributeDisplayToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VerticalText createVerticalTextFromString(EDataType eDataType, String initialValue) {
+		VerticalText result = VerticalText.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVerticalTextToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EaglemodelPackage getEaglemodelPackage() {
 		return (EaglemodelPackage)getEPackage();
 	}
@@ -602,6 +1295,7 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	 * @deprecated
 	 * @generated
 	 */
+	@Deprecated
 	public static EaglemodelPackage getPackage() {
 		return EaglemodelPackage.eINSTANCE;
 	}

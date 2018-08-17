@@ -10,15 +10,18 @@ import eaglemodel.Variant;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.PartImpl#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.impl.PartImpl#getLibrary <em>Library</em>}</li>
@@ -36,7 +40,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link eaglemodel.impl.PartImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link eaglemodel.impl.PartImpl#getVariant <em>Variant</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -162,24 +165,24 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	protected String value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference list.
+	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAttribute()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList attribute;
+	protected EList<Attribute> attribute;
 
 	/**
-	 * The cached value of the '{@link #getVariant() <em>Variant</em>}' reference list.
+	 * The cached value of the '{@link #getVariant() <em>Variant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVariant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList variant;
+	protected EList<Variant> variant;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,6 +198,7 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.PART;
 	}
@@ -330,9 +334,9 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getAttribute() {
+	public EList<Attribute> getAttribute() {
 		if (attribute == null) {
-			attribute = new EObjectResolvingEList(Attribute.class, this, EaglemodelPackage.PART__ATTRIBUTE);
+			attribute = new EObjectContainmentEList<Attribute>(Attribute.class, this, EaglemodelPackage.PART__ATTRIBUTE);
 		}
 		return attribute;
 	}
@@ -342,9 +346,9 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getVariant() {
+	public EList<Variant> getVariant() {
 		if (variant == null) {
-			variant = new EObjectResolvingEList(Variant.class, this, EaglemodelPackage.PART__VARIANT);
+			variant = new EObjectContainmentEList<Variant>(Variant.class, this, EaglemodelPackage.PART__VARIANT);
 		}
 		return variant;
 	}
@@ -354,6 +358,23 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.PART__ATTRIBUTE:
+				return ((InternalEList<?>)getAttribute()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.PART__VARIANT:
+				return ((InternalEList<?>)getVariant()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.PART__NAME:
@@ -381,6 +402,8 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.PART__NAME:
@@ -403,11 +426,11 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 				return;
 			case EaglemodelPackage.PART__ATTRIBUTE:
 				getAttribute().clear();
-				getAttribute().addAll((Collection)newValue);
+				getAttribute().addAll((Collection<? extends Attribute>)newValue);
 				return;
 			case EaglemodelPackage.PART__VARIANT:
 				getVariant().clear();
-				getVariant().addAll((Collection)newValue);
+				getVariant().addAll((Collection<? extends Variant>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -418,6 +441,7 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PART__NAME:
@@ -453,6 +477,7 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.PART__NAME:
@@ -480,10 +505,11 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", library: ");

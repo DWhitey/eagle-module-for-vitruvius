@@ -3,10 +3,8 @@
 package eaglemodel.impl;
 
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.VerticalText;
-
 import eaglemodel.Setting;
+import eaglemodel.VerticalText;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,11 +19,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.SettingImpl#isAlwaysvectorfont <em>Alwaysvectorfont</em>}</li>
  *   <li>{@link eaglemodel.impl.SettingImpl#getVerticaltext <em>Verticaltext</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -58,7 +56,7 @@ public class SettingImpl extends MinimalEObjectImpl.Container implements Setting
 	 * @generated
 	 * @ordered
 	 */
-	protected static final VerticalText VERTICALTEXT_EDEFAULT = VerticalText.UP_LITERAL;
+	protected static final VerticalText VERTICALTEXT_EDEFAULT = VerticalText.UP;
 
 	/**
 	 * The cached value of the '{@link #getVerticaltext() <em>Verticaltext</em>}' attribute.
@@ -84,6 +82,7 @@ public class SettingImpl extends MinimalEObjectImpl.Container implements Setting
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.SETTING;
 	}
@@ -135,10 +134,11 @@ public class SettingImpl extends MinimalEObjectImpl.Container implements Setting
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.SETTING__ALWAYSVECTORFONT:
-				return isAlwaysvectorfont() ? Boolean.TRUE : Boolean.FALSE;
+				return isAlwaysvectorfont();
 			case EaglemodelPackage.SETTING__VERTICALTEXT:
 				return getVerticaltext();
 		}
@@ -150,10 +150,11 @@ public class SettingImpl extends MinimalEObjectImpl.Container implements Setting
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.SETTING__ALWAYSVECTORFONT:
-				setAlwaysvectorfont(((Boolean)newValue).booleanValue());
+				setAlwaysvectorfont((Boolean)newValue);
 				return;
 			case EaglemodelPackage.SETTING__VERTICALTEXT:
 				setVerticaltext((VerticalText)newValue);
@@ -167,6 +168,7 @@ public class SettingImpl extends MinimalEObjectImpl.Container implements Setting
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.SETTING__ALWAYSVECTORFONT:
@@ -184,6 +186,7 @@ public class SettingImpl extends MinimalEObjectImpl.Container implements Setting
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.SETTING__ALWAYSVECTORFONT:
@@ -199,10 +202,11 @@ public class SettingImpl extends MinimalEObjectImpl.Container implements Setting
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (alwaysvectorfont: ");
 		result.append(alwaysvectorfont);
 		result.append(", verticaltext: ");

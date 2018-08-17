@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.SMD#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.SMD#getX <em>X</em>}</li>
@@ -24,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.SMD#isThermals <em>Thermals</em>}</li>
  *   <li>{@link eaglemodel.SMD#isCream <em>Cream</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getSMD()
  * @model

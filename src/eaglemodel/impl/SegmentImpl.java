@@ -11,13 +11,17 @@ import eaglemodel.Wire;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,56 +29,56 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.SegmentImpl#getPinref <em>Pinref</em>}</li>
  *   <li>{@link eaglemodel.impl.SegmentImpl#getWire <em>Wire</em>}</li>
  *   <li>{@link eaglemodel.impl.SegmentImpl#getJunction <em>Junction</em>}</li>
  *   <li>{@link eaglemodel.impl.SegmentImpl#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment {
 	/**
-	 * The cached value of the '{@link #getPinref() <em>Pinref</em>}' reference list.
+	 * The cached value of the '{@link #getPinref() <em>Pinref</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPinref()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList pinref;
+	protected EList<Pinref> pinref;
 
 	/**
-	 * The cached value of the '{@link #getWire() <em>Wire</em>}' reference list.
+	 * The cached value of the '{@link #getWire() <em>Wire</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getWire()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList wire;
+	protected EList<Wire> wire;
 
 	/**
-	 * The cached value of the '{@link #getJunction() <em>Junction</em>}' reference list.
+	 * The cached value of the '{@link #getJunction() <em>Junction</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getJunction()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList junction;
+	protected EList<Junction> junction;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' reference list.
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList label;
+	protected EList<Label> label;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,6 +94,7 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.SEGMENT;
 	}
@@ -99,9 +104,9 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getPinref() {
+	public EList<Pinref> getPinref() {
 		if (pinref == null) {
-			pinref = new EObjectResolvingEList(Pinref.class, this, EaglemodelPackage.SEGMENT__PINREF);
+			pinref = new EObjectContainmentEList<Pinref>(Pinref.class, this, EaglemodelPackage.SEGMENT__PINREF);
 		}
 		return pinref;
 	}
@@ -111,9 +116,9 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getWire() {
+	public EList<Wire> getWire() {
 		if (wire == null) {
-			wire = new EObjectResolvingEList(Wire.class, this, EaglemodelPackage.SEGMENT__WIRE);
+			wire = new EObjectContainmentEList<Wire>(Wire.class, this, EaglemodelPackage.SEGMENT__WIRE);
 		}
 		return wire;
 	}
@@ -123,9 +128,9 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getJunction() {
+	public EList<Junction> getJunction() {
 		if (junction == null) {
-			junction = new EObjectResolvingEList(Junction.class, this, EaglemodelPackage.SEGMENT__JUNCTION);
+			junction = new EObjectContainmentEList<Junction>(Junction.class, this, EaglemodelPackage.SEGMENT__JUNCTION);
 		}
 		return junction;
 	}
@@ -135,9 +140,9 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getLabel() {
+	public EList<Label> getLabel() {
 		if (label == null) {
-			label = new EObjectResolvingEList(Label.class, this, EaglemodelPackage.SEGMENT__LABEL);
+			label = new EObjectContainmentEList<Label>(Label.class, this, EaglemodelPackage.SEGMENT__LABEL);
 		}
 		return label;
 	}
@@ -147,6 +152,27 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EaglemodelPackage.SEGMENT__PINREF:
+				return ((InternalEList<?>)getPinref()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.SEGMENT__WIRE:
+				return ((InternalEList<?>)getWire()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.SEGMENT__JUNCTION:
+				return ((InternalEList<?>)getJunction()).basicRemove(otherEnd, msgs);
+			case EaglemodelPackage.SEGMENT__LABEL:
+				return ((InternalEList<?>)getLabel()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.SEGMENT__PINREF:
@@ -166,23 +192,25 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.SEGMENT__PINREF:
 				getPinref().clear();
-				getPinref().addAll((Collection)newValue);
+				getPinref().addAll((Collection<? extends Pinref>)newValue);
 				return;
 			case EaglemodelPackage.SEGMENT__WIRE:
 				getWire().clear();
-				getWire().addAll((Collection)newValue);
+				getWire().addAll((Collection<? extends Wire>)newValue);
 				return;
 			case EaglemodelPackage.SEGMENT__JUNCTION:
 				getJunction().clear();
-				getJunction().addAll((Collection)newValue);
+				getJunction().addAll((Collection<? extends Junction>)newValue);
 				return;
 			case EaglemodelPackage.SEGMENT__LABEL:
 				getLabel().clear();
-				getLabel().addAll((Collection)newValue);
+				getLabel().addAll((Collection<? extends Label>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -193,6 +221,7 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.SEGMENT__PINREF:
@@ -216,6 +245,7 @@ public class SegmentImpl extends MinimalEObjectImpl.Container implements Segment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.SEGMENT__PINREF:

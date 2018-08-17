@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Device#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Device#getPackage <em>Package</em>}</li>
  *   <li>{@link eaglemodel.Device#getConnects <em>Connects</em>}</li>
  *   <li>{@link eaglemodel.Device#getTechnologies <em>Technologies</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getDevice()
  * @model
@@ -79,35 +77,55 @@ public interface Device extends EObject {
 	void setPackage(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Connects</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Connect}.
+	 * Returns the value of the '<em><b>Connects</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Connects</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Connects</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connects</em>' reference list.
+	 * @return the value of the '<em>Connects</em>' containment reference.
+	 * @see #setConnects(Connects)
 	 * @see eaglemodel.EaglemodelPackage#getDevice_Connects()
-	 * @model type="eaglemodel.Connect"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getConnects();
+	Connects getConnects();
 
 	/**
-	 * Returns the value of the '<em><b>Technologies</b></em>' reference list.
-	 * The list contents are of type {@link eaglemodel.Technology}.
+	 * Sets the value of the '{@link eaglemodel.Device#getConnects <em>Connects</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connects</em>' containment reference.
+	 * @see #getConnects()
+	 * @generated
+	 */
+	void setConnects(Connects value);
+
+	/**
+	 * Returns the value of the '<em><b>Technologies</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Technologies</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Technologies</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Technologies</em>' reference list.
+	 * @return the value of the '<em>Technologies</em>' containment reference.
+	 * @see #setTechnologies(Technologies)
 	 * @see eaglemodel.EaglemodelPackage#getDevice_Technologies()
-	 * @model type="eaglemodel.Technology"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getTechnologies();
+	Technologies getTechnologies();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Device#getTechnologies <em>Technologies</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Technologies</em>' containment reference.
+	 * @see #getTechnologies()
+	 * @generated
+	 */
+	void setTechnologies(Technologies value);
 
 } // Device

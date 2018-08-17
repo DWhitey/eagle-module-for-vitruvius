@@ -3,10 +3,9 @@
 package eaglemodel.impl;
 
 import eaglemodel.Dimension;
+import eaglemodel.DimensionType;
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.DimensionType;
-import eaglemodel.Enums.GridUnit;
+import eaglemodel.GridUnit;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,6 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.DimensionImpl#getX1 <em>X1</em>}</li>
  *   <li>{@link eaglemodel.impl.DimensionImpl#getY1 <em>Y1</em>}</li>
@@ -40,7 +40,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.DimensionImpl#getPrecision <em>Precision</em>}</li>
  *   <li>{@link eaglemodel.impl.DimensionImpl#isVisible <em>Visible</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -193,7 +192,7 @@ public class DimensionImpl extends MinimalEObjectImpl.Container implements Dimen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DimensionType DTYPE_EDEFAULT = DimensionType.PARALLEL_LITERAL;
+	protected static final DimensionType DTYPE_EDEFAULT = DimensionType.PARALLEL;
 
 	/**
 	 * The cached value of the '{@link #getDtype() <em>Dtype</em>}' attribute.
@@ -333,7 +332,7 @@ public class DimensionImpl extends MinimalEObjectImpl.Container implements Dimen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GridUnit UNIT_EDEFAULT = GridUnit.MM_LITERAL;
+	protected static final GridUnit UNIT_EDEFAULT = GridUnit.MM;
 
 	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute.
@@ -399,6 +398,7 @@ public class DimensionImpl extends MinimalEObjectImpl.Container implements Dimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.DIMENSION;
 	}
@@ -765,42 +765,43 @@ public class DimensionImpl extends MinimalEObjectImpl.Container implements Dimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.DIMENSION__X1:
-				return new Double(getX1());
+				return getX1();
 			case EaglemodelPackage.DIMENSION__Y1:
-				return new Double(getY1());
+				return getY1();
 			case EaglemodelPackage.DIMENSION__X2:
-				return new Double(getX2());
+				return getX2();
 			case EaglemodelPackage.DIMENSION__Y2:
-				return new Double(getY2());
+				return getY2();
 			case EaglemodelPackage.DIMENSION__X3:
-				return new Double(getX3());
+				return getX3();
 			case EaglemodelPackage.DIMENSION__Y3:
-				return new Double(getY3());
+				return getY3();
 			case EaglemodelPackage.DIMENSION__LAYER:
-				return new Integer(getLayer());
+				return getLayer();
 			case EaglemodelPackage.DIMENSION__DTYPE:
 				return getDtype();
 			case EaglemodelPackage.DIMENSION__WIDTH:
-				return new Double(getWidth());
+				return getWidth();
 			case EaglemodelPackage.DIMENSION__EXTWIDTH:
-				return new Double(getExtwidth());
+				return getExtwidth();
 			case EaglemodelPackage.DIMENSION__EXTLENGTH:
-				return new Double(getExtlength());
+				return getExtlength();
 			case EaglemodelPackage.DIMENSION__EXTOFFSET:
-				return new Double(getExtoffset());
+				return getExtoffset();
 			case EaglemodelPackage.DIMENSION__TEXTSIZE:
-				return new Double(getTextsize());
+				return getTextsize();
 			case EaglemodelPackage.DIMENSION__TEXTRATIO:
-				return new Integer(getTextratio());
+				return getTextratio();
 			case EaglemodelPackage.DIMENSION__UNIT:
 				return getUnit();
 			case EaglemodelPackage.DIMENSION__PRECISION:
-				return new Integer(getPrecision());
+				return getPrecision();
 			case EaglemodelPackage.DIMENSION__VISIBLE:
-				return isVisible() ? Boolean.TRUE : Boolean.FALSE;
+				return isVisible();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -810,58 +811,59 @@ public class DimensionImpl extends MinimalEObjectImpl.Container implements Dimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.DIMENSION__X1:
-				setX1(((Double)newValue).doubleValue());
+				setX1((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__Y1:
-				setY1(((Double)newValue).doubleValue());
+				setY1((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__X2:
-				setX2(((Double)newValue).doubleValue());
+				setX2((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__Y2:
-				setY2(((Double)newValue).doubleValue());
+				setY2((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__X3:
-				setX3(((Double)newValue).doubleValue());
+				setX3((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__Y3:
-				setY3(((Double)newValue).doubleValue());
+				setY3((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__LAYER:
-				setLayer(((Integer)newValue).intValue());
+				setLayer((Integer)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__DTYPE:
 				setDtype((DimensionType)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__WIDTH:
-				setWidth(((Double)newValue).doubleValue());
+				setWidth((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__EXTWIDTH:
-				setExtwidth(((Double)newValue).doubleValue());
+				setExtwidth((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__EXTLENGTH:
-				setExtlength(((Double)newValue).doubleValue());
+				setExtlength((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__EXTOFFSET:
-				setExtoffset(((Double)newValue).doubleValue());
+				setExtoffset((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__TEXTSIZE:
-				setTextsize(((Double)newValue).doubleValue());
+				setTextsize((Double)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__TEXTRATIO:
-				setTextratio(((Integer)newValue).intValue());
+				setTextratio((Integer)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__UNIT:
 				setUnit((GridUnit)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__PRECISION:
-				setPrecision(((Integer)newValue).intValue());
+				setPrecision((Integer)newValue);
 				return;
 			case EaglemodelPackage.DIMENSION__VISIBLE:
-				setVisible(((Boolean)newValue).booleanValue());
+				setVisible((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -872,6 +874,7 @@ public class DimensionImpl extends MinimalEObjectImpl.Container implements Dimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DIMENSION__X1:
@@ -934,6 +937,7 @@ public class DimensionImpl extends MinimalEObjectImpl.Container implements Dimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.DIMENSION__X1:
@@ -979,10 +983,11 @@ public class DimensionImpl extends MinimalEObjectImpl.Container implements Dimen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (x1: ");
 		result.append(x1);
 		result.append(", y1: ");

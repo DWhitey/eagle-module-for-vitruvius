@@ -2,8 +2,6 @@
  */
 package eaglemodel;
 
-import eaglemodel.Enums.GateAddLevel;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.Gate#getName <em>Name</em>}</li>
  *   <li>{@link eaglemodel.Gate#getSymbol <em>Symbol</em>}</li>
@@ -21,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Gate#getAddlevel <em>Addlevel</em>}</li>
  *   <li>{@link eaglemodel.Gate#getSwaplevel <em>Swaplevel</em>}</li>
  * </ul>
- * </p>
  *
  * @see eaglemodel.EaglemodelPackage#getGate()
  * @model
@@ -135,7 +133,7 @@ public interface Gate extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Addlevel</b></em>' attribute.
 	 * The default value is <code>"next"</code>.
-	 * The literals are from the enumeration {@link eaglemodel.Enums.GateAddLevel}.
+	 * The literals are from the enumeration {@link eaglemodel.GateAddLevel}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Addlevel</em>' attribute isn't clear,
@@ -143,7 +141,7 @@ public interface Gate extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Addlevel</em>' attribute.
-	 * @see eaglemodel.Enums.GateAddLevel
+	 * @see eaglemodel.GateAddLevel
 	 * @see #setAddlevel(GateAddLevel)
 	 * @see eaglemodel.EaglemodelPackage#getGate_Addlevel()
 	 * @model default="next"
@@ -156,7 +154,7 @@ public interface Gate extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Addlevel</em>' attribute.
-	 * @see eaglemodel.Enums.GateAddLevel
+	 * @see eaglemodel.GateAddLevel
 	 * @see #getAddlevel()
 	 * @generated
 	 */

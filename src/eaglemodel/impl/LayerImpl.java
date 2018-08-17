@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.LayerImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link eaglemodel.impl.LayerImpl#getName <em>Name</em>}</li>
@@ -26,7 +27,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.LayerImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link eaglemodel.impl.LayerImpl#isActive <em>Active</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -165,6 +165,7 @@ public class LayerImpl extends MinimalEObjectImpl.Container implements Layer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.LAYER;
 	}
@@ -300,20 +301,21 @@ public class LayerImpl extends MinimalEObjectImpl.Container implements Layer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.LAYER__NUMBER:
-				return new Integer(getNumber());
+				return getNumber();
 			case EaglemodelPackage.LAYER__NAME:
 				return getName();
 			case EaglemodelPackage.LAYER__COLOR:
-				return new Integer(getColor());
+				return getColor();
 			case EaglemodelPackage.LAYER__FILL:
-				return new Integer(getFill());
+				return getFill();
 			case EaglemodelPackage.LAYER__VISIBLE:
-				return isVisible() ? Boolean.TRUE : Boolean.FALSE;
+				return isVisible();
 			case EaglemodelPackage.LAYER__ACTIVE:
-				return isActive() ? Boolean.TRUE : Boolean.FALSE;
+				return isActive();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,25 +325,26 @@ public class LayerImpl extends MinimalEObjectImpl.Container implements Layer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.LAYER__NUMBER:
-				setNumber(((Integer)newValue).intValue());
+				setNumber((Integer)newValue);
 				return;
 			case EaglemodelPackage.LAYER__NAME:
 				setName((String)newValue);
 				return;
 			case EaglemodelPackage.LAYER__COLOR:
-				setColor(((Integer)newValue).intValue());
+				setColor((Integer)newValue);
 				return;
 			case EaglemodelPackage.LAYER__FILL:
-				setFill(((Integer)newValue).intValue());
+				setFill((Integer)newValue);
 				return;
 			case EaglemodelPackage.LAYER__VISIBLE:
-				setVisible(((Boolean)newValue).booleanValue());
+				setVisible((Boolean)newValue);
 				return;
 			case EaglemodelPackage.LAYER__ACTIVE:
-				setActive(((Boolean)newValue).booleanValue());
+				setActive((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -352,6 +355,7 @@ public class LayerImpl extends MinimalEObjectImpl.Container implements Layer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.LAYER__NUMBER:
@@ -381,6 +385,7 @@ public class LayerImpl extends MinimalEObjectImpl.Container implements Layer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.LAYER__NUMBER:
@@ -404,10 +409,11 @@ public class LayerImpl extends MinimalEObjectImpl.Container implements Layer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (number: ");
 		result.append(number);
 		result.append(", name: ");

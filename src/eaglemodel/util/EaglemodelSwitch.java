@@ -4,31 +4,45 @@ package eaglemodel.util;
 
 import eaglemodel.Approved;
 import eaglemodel.Attribute;
+import eaglemodel.Attributes;
 import eaglemodel.Bus;
+import eaglemodel.Busses;
 import eaglemodel.Circle;
+import eaglemodel.Classes;
 import eaglemodel.Clearance;
 import eaglemodel.Compatibility;
 import eaglemodel.Connect;
+import eaglemodel.Connects;
 import eaglemodel.Description;
 import eaglemodel.Device;
+import eaglemodel.Devices;
 import eaglemodel.Deviceset;
+import eaglemodel.Devicesets;
 import eaglemodel.Dimension;
 import eaglemodel.Drawing;
 import eaglemodel.Eagle;
 import eaglemodel.EaglemodelPackage;
+import eaglemodel.Errors;
 import eaglemodel.Frame;
 import eaglemodel.Gate;
+import eaglemodel.Gates;
 import eaglemodel.Grid;
 import eaglemodel.Hole;
 import eaglemodel.Instance;
+import eaglemodel.Instances;
 import eaglemodel.Junction;
 import eaglemodel.Label;
 import eaglemodel.Layer;
+import eaglemodel.Layers;
+import eaglemodel.Libraries;
 import eaglemodel.Library;
 import eaglemodel.Net;
+import eaglemodel.Nets;
 import eaglemodel.Note;
+import eaglemodel.Packages;
 import eaglemodel.Pad;
 import eaglemodel.Part;
+import eaglemodel.Parts;
 import eaglemodel.Pin;
 import eaglemodel.Pinref;
 import eaglemodel.Plain;
@@ -38,19 +52,24 @@ import eaglemodel.SMD;
 import eaglemodel.Schematic;
 import eaglemodel.Segment;
 import eaglemodel.Setting;
+import eaglemodel.Settings;
 import eaglemodel.Sheet;
+import eaglemodel.Sheets;
 import eaglemodel.Symbol;
+import eaglemodel.Symbols;
+import eaglemodel.Technologies;
 import eaglemodel.Technology;
 import eaglemodel.Text;
 import eaglemodel.Variant;
 import eaglemodel.Variantdef;
+import eaglemodel.Variantdefs;
 import eaglemodel.Vertex;
 import eaglemodel.Wire;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.util.Switch;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,7 +84,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see eaglemodel.EaglemodelPackage
  * @generated
  */
-public class EaglemodelSwitch {
+public class EaglemodelSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -87,14 +106,16 @@ public class EaglemodelSwitch {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @param ePackage the package in question.
+	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
-	public Object doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
 	}
 
 	/**
@@ -104,295 +125,390 @@ public class EaglemodelSwitch {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected Object doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List eSuperTypes = theEClass.getESuperTypes();
-			return
-				eSuperTypes.isEmpty() ?
-					defaultCase(theEObject) :
-					doSwitch((EClass)eSuperTypes.get(0), theEObject);
-		}
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-	protected Object doSwitch(int classifierID, EObject theEObject) {
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case EaglemodelPackage.EAGLE: {
 				Eagle eagle = (Eagle)theEObject;
-				Object result = caseEagle(eagle);
+				T result = caseEagle(eagle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.COMPATIBILITY: {
 				Compatibility compatibility = (Compatibility)theEObject;
-				Object result = caseCompatibility(compatibility);
+				T result = caseCompatibility(compatibility);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.NOTE: {
 				Note note = (Note)theEObject;
-				Object result = caseNote(note);
+				T result = caseNote(note);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.DRAWING: {
 				Drawing drawing = (Drawing)theEObject;
-				Object result = caseDrawing(drawing);
+				T result = caseDrawing(drawing);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.SETTINGS: {
+				Settings settings = (Settings)theEObject;
+				T result = caseSettings(settings);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.SETTING: {
 				Setting setting = (Setting)theEObject;
-				Object result = caseSetting(setting);
+				T result = caseSetting(setting);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.GRID: {
 				Grid grid = (Grid)theEObject;
-				Object result = caseGrid(grid);
+				T result = caseGrid(grid);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.LAYERS: {
+				Layers layers = (Layers)theEObject;
+				T result = caseLayers(layers);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.LAYER: {
 				Layer layer = (Layer)theEObject;
-				Object result = caseLayer(layer);
+				T result = caseLayer(layer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.SCHEMATIC: {
 				Schematic schematic = (Schematic)theEObject;
-				Object result = caseSchematic(schematic);
+				T result = caseSchematic(schematic);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.DESCRIPTION: {
 				Description description = (Description)theEObject;
-				Object result = caseDescription(description);
+				T result = caseDescription(description);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.LIBRARIES: {
+				Libraries libraries = (Libraries)theEObject;
+				T result = caseLibraries(libraries);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.LIBRARY: {
 				Library library = (Library)theEObject;
-				Object result = caseLibrary(library);
+				T result = caseLibrary(library);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.ATTRIBUTES: {
+				Attributes attributes = (Attributes)theEObject;
+				T result = caseAttributes(attributes);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.ATTRIBUTE: {
 				Attribute attribute = (Attribute)theEObject;
-				Object result = caseAttribute(attribute);
+				T result = caseAttribute(attribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.VARIANTDEFS: {
+				Variantdefs variantdefs = (Variantdefs)theEObject;
+				T result = caseVariantdefs(variantdefs);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.VARIANTDEF: {
 				Variantdef variantdef = (Variantdef)theEObject;
-				Object result = caseVariantdef(variantdef);
+				T result = caseVariantdef(variantdef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.VARIANT: {
 				Variant variant = (Variant)theEObject;
-				Object result = caseVariant(variant);
+				T result = caseVariant(variant);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.CLASSES: {
+				Classes classes = (Classes)theEObject;
+				T result = caseClasses(classes);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.CLASS: {
 				eaglemodel.Class class_ = (eaglemodel.Class)theEObject;
-				Object result = caseClass(class_);
+				T result = caseClass(class_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.CLEARANCE: {
 				Clearance clearance = (Clearance)theEObject;
-				Object result = caseClearance(clearance);
+				T result = caseClearance(clearance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.PARTS: {
+				Parts parts = (Parts)theEObject;
+				T result = caseParts(parts);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.PART: {
 				Part part = (Part)theEObject;
-				Object result = casePart(part);
+				T result = casePart(part);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.SHEETS: {
+				Sheets sheets = (Sheets)theEObject;
+				T result = caseSheets(sheets);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.SHEET: {
 				Sheet sheet = (Sheet)theEObject;
-				Object result = caseSheet(sheet);
+				T result = caseSheet(sheet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.ERRORS: {
+				Errors errors = (Errors)theEObject;
+				T result = caseErrors(errors);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.PACKAGES: {
+				Packages packages = (Packages)theEObject;
+				T result = casePackages(packages);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.PACKAGE: {
 				eaglemodel.Package package_ = (eaglemodel.Package)theEObject;
-				Object result = casePackage(package_);
+				T result = casePackage(package_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.SYMBOLS: {
+				Symbols symbols = (Symbols)theEObject;
+				T result = caseSymbols(symbols);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.SYMBOL: {
 				Symbol symbol = (Symbol)theEObject;
-				Object result = caseSymbol(symbol);
+				T result = caseSymbol(symbol);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.DEVICESETS: {
+				Devicesets devicesets = (Devicesets)theEObject;
+				T result = caseDevicesets(devicesets);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.DEVICESET: {
 				Deviceset deviceset = (Deviceset)theEObject;
-				Object result = caseDeviceset(deviceset);
+				T result = caseDeviceset(deviceset);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.POLYGON: {
 				Polygon polygon = (Polygon)theEObject;
-				Object result = casePolygon(polygon);
+				T result = casePolygon(polygon);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.VERTEX: {
 				Vertex vertex = (Vertex)theEObject;
-				Object result = caseVertex(vertex);
+				T result = caseVertex(vertex);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.WIRE: {
 				Wire wire = (Wire)theEObject;
-				Object result = caseWire(wire);
+				T result = caseWire(wire);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.TEXT: {
 				Text text = (Text)theEObject;
-				Object result = caseText(text);
+				T result = caseText(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.DIMENSION: {
 				Dimension dimension = (Dimension)theEObject;
-				Object result = caseDimension(dimension);
+				T result = caseDimension(dimension);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.PIN: {
 				Pin pin = (Pin)theEObject;
-				Object result = casePin(pin);
+				T result = casePin(pin);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.CIRCLE: {
 				Circle circle = (Circle)theEObject;
-				Object result = caseCircle(circle);
+				T result = caseCircle(circle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.RECTANGLE: {
 				Rectangle rectangle = (Rectangle)theEObject;
-				Object result = caseRectangle(rectangle);
+				T result = caseRectangle(rectangle);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.FRAME: {
 				Frame frame = (Frame)theEObject;
-				Object result = caseFrame(frame);
+				T result = caseFrame(frame);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.HOLE: {
 				Hole hole = (Hole)theEObject;
-				Object result = caseHole(hole);
+				T result = caseHole(hole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.PAD: {
 				Pad pad = (Pad)theEObject;
-				Object result = casePad(pad);
+				T result = casePad(pad);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.SMD: {
 				SMD smd = (SMD)theEObject;
-				Object result = caseSMD(smd);
+				T result = caseSMD(smd);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.GATES: {
+				Gates gates = (Gates)theEObject;
+				T result = caseGates(gates);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.GATE: {
 				Gate gate = (Gate)theEObject;
-				Object result = caseGate(gate);
+				T result = caseGate(gate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.DEVICES: {
+				Devices devices = (Devices)theEObject;
+				T result = caseDevices(devices);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.DEVICE: {
 				Device device = (Device)theEObject;
-				Object result = caseDevice(device);
+				T result = caseDevice(device);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.CONNECTS: {
+				Connects connects = (Connects)theEObject;
+				T result = caseConnects(connects);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.CONNECT: {
 				Connect connect = (Connect)theEObject;
-				Object result = caseConnect(connect);
+				T result = caseConnect(connect);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.TECHNOLOGIES: {
+				Technologies technologies = (Technologies)theEObject;
+				T result = caseTechnologies(technologies);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.TECHNOLOGY: {
 				Technology technology = (Technology)theEObject;
-				Object result = caseTechnology(technology);
+				T result = caseTechnology(technology);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.PLAIN: {
 				Plain plain = (Plain)theEObject;
-				Object result = casePlain(plain);
+				T result = casePlain(plain);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.INSTANCES: {
+				Instances instances = (Instances)theEObject;
+				T result = caseInstances(instances);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.INSTANCE: {
 				Instance instance = (Instance)theEObject;
-				Object result = caseInstance(instance);
+				T result = caseInstance(instance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.BUSSES: {
+				Busses busses = (Busses)theEObject;
+				T result = caseBusses(busses);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.BUS: {
 				Bus bus = (Bus)theEObject;
-				Object result = caseBus(bus);
+				T result = caseBus(bus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EaglemodelPackage.NETS: {
+				Nets nets = (Nets)theEObject;
+				T result = caseNets(nets);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.NET: {
 				Net net = (Net)theEObject;
-				Object result = caseNet(net);
+				T result = caseNet(net);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.SEGMENT: {
 				Segment segment = (Segment)theEObject;
-				Object result = caseSegment(segment);
+				T result = caseSegment(segment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.PINREF: {
 				Pinref pinref = (Pinref)theEObject;
-				Object result = casePinref(pinref);
+				T result = casePinref(pinref);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.JUNCTION: {
 				Junction junction = (Junction)theEObject;
-				Object result = caseJunction(junction);
+				T result = caseJunction(junction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.LABEL: {
 				Label label = (Label)theEObject;
-				Object result = caseLabel(label);
+				T result = caseLabel(label);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EaglemodelPackage.APPROVED: {
 				Approved approved = (Approved)theEObject;
-				Object result = caseApproved(approved);
+				T result = caseApproved(approved);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -411,7 +527,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseEagle(Eagle object) {
+	public T caseEagle(Eagle object) {
 		return null;
 	}
 
@@ -426,7 +542,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseCompatibility(Compatibility object) {
+	public T caseCompatibility(Compatibility object) {
 		return null;
 	}
 
@@ -441,7 +557,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseNote(Note object) {
+	public T caseNote(Note object) {
 		return null;
 	}
 
@@ -456,7 +572,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseDrawing(Drawing object) {
+	public T caseDrawing(Drawing object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Settings</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Settings</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSettings(Settings object) {
 		return null;
 	}
 
@@ -471,7 +602,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseSetting(Setting object) {
+	public T caseSetting(Setting object) {
 		return null;
 	}
 
@@ -486,7 +617,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseGrid(Grid object) {
+	public T caseGrid(Grid object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Layers</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Layers</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLayers(Layers object) {
 		return null;
 	}
 
@@ -501,7 +647,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseLayer(Layer object) {
+	public T caseLayer(Layer object) {
 		return null;
 	}
 
@@ -516,7 +662,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseSchematic(Schematic object) {
+	public T caseSchematic(Schematic object) {
 		return null;
 	}
 
@@ -531,7 +677,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseDescription(Description object) {
+	public T caseDescription(Description object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Libraries</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Libraries</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLibraries(Libraries object) {
 		return null;
 	}
 
@@ -546,7 +707,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseLibrary(Library object) {
+	public T caseLibrary(Library object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attributes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attributes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttributes(Attributes object) {
 		return null;
 	}
 
@@ -561,7 +737,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseAttribute(Attribute object) {
+	public T caseAttribute(Attribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variantdefs</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variantdefs</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariantdefs(Variantdefs object) {
 		return null;
 	}
 
@@ -576,7 +767,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseVariantdef(Variantdef object) {
+	public T caseVariantdef(Variantdef object) {
 		return null;
 	}
 
@@ -591,7 +782,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseVariant(Variant object) {
+	public T caseVariant(Variant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Classes</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Classes</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClasses(Classes object) {
 		return null;
 	}
 
@@ -606,7 +812,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseClass(eaglemodel.Class object) {
+	public T caseClass(eaglemodel.Class object) {
 		return null;
 	}
 
@@ -621,7 +827,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseClearance(Clearance object) {
+	public T caseClearance(Clearance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parts</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parts</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParts(Parts object) {
 		return null;
 	}
 
@@ -636,7 +857,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object casePart(Part object) {
+	public T casePart(Part object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sheets</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sheets</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSheets(Sheets object) {
 		return null;
 	}
 
@@ -651,7 +887,37 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseSheet(Sheet object) {
+	public T caseSheet(Sheet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Errors</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Errors</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseErrors(Errors object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Packages</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Packages</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePackages(Packages object) {
 		return null;
 	}
 
@@ -666,7 +932,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object casePackage(eaglemodel.Package object) {
+	public T casePackage(eaglemodel.Package object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Symbols</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Symbols</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSymbols(Symbols object) {
 		return null;
 	}
 
@@ -681,7 +962,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseSymbol(Symbol object) {
+	public T caseSymbol(Symbol object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Devicesets</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Devicesets</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDevicesets(Devicesets object) {
 		return null;
 	}
 
@@ -696,7 +992,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseDeviceset(Deviceset object) {
+	public T caseDeviceset(Deviceset object) {
 		return null;
 	}
 
@@ -711,7 +1007,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object casePolygon(Polygon object) {
+	public T casePolygon(Polygon object) {
 		return null;
 	}
 
@@ -726,7 +1022,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseVertex(Vertex object) {
+	public T caseVertex(Vertex object) {
 		return null;
 	}
 
@@ -741,7 +1037,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseWire(Wire object) {
+	public T caseWire(Wire object) {
 		return null;
 	}
 
@@ -756,7 +1052,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseText(Text object) {
+	public T caseText(Text object) {
 		return null;
 	}
 
@@ -771,7 +1067,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseDimension(Dimension object) {
+	public T caseDimension(Dimension object) {
 		return null;
 	}
 
@@ -786,7 +1082,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object casePin(Pin object) {
+	public T casePin(Pin object) {
 		return null;
 	}
 
@@ -801,7 +1097,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseCircle(Circle object) {
+	public T caseCircle(Circle object) {
 		return null;
 	}
 
@@ -816,7 +1112,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseRectangle(Rectangle object) {
+	public T caseRectangle(Rectangle object) {
 		return null;
 	}
 
@@ -831,7 +1127,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseFrame(Frame object) {
+	public T caseFrame(Frame object) {
 		return null;
 	}
 
@@ -846,7 +1142,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseHole(Hole object) {
+	public T caseHole(Hole object) {
 		return null;
 	}
 
@@ -861,7 +1157,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object casePad(Pad object) {
+	public T casePad(Pad object) {
 		return null;
 	}
 
@@ -876,7 +1172,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseSMD(SMD object) {
+	public T caseSMD(SMD object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gates</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gates</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGates(Gates object) {
 		return null;
 	}
 
@@ -891,7 +1202,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseGate(Gate object) {
+	public T caseGate(Gate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Devices</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Devices</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDevices(Devices object) {
 		return null;
 	}
 
@@ -906,7 +1232,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseDevice(Device object) {
+	public T caseDevice(Device object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Connects</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Connects</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConnects(Connects object) {
 		return null;
 	}
 
@@ -921,7 +1262,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseConnect(Connect object) {
+	public T caseConnect(Connect object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Technologies</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Technologies</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTechnologies(Technologies object) {
 		return null;
 	}
 
@@ -936,7 +1292,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseTechnology(Technology object) {
+	public T caseTechnology(Technology object) {
 		return null;
 	}
 
@@ -951,7 +1307,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object casePlain(Plain object) {
+	public T casePlain(Plain object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Instances</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Instances</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInstances(Instances object) {
 		return null;
 	}
 
@@ -966,7 +1337,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseInstance(Instance object) {
+	public T caseInstance(Instance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Busses</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Busses</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBusses(Busses object) {
 		return null;
 	}
 
@@ -981,7 +1367,22 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseBus(Bus object) {
+	public T caseBus(Bus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Nets</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Nets</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNets(Nets object) {
 		return null;
 	}
 
@@ -996,7 +1397,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseNet(Net object) {
+	public T caseNet(Net object) {
 		return null;
 	}
 
@@ -1011,7 +1412,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseSegment(Segment object) {
+	public T caseSegment(Segment object) {
 		return null;
 	}
 
@@ -1026,7 +1427,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object casePinref(Pinref object) {
+	public T casePinref(Pinref object) {
 		return null;
 	}
 
@@ -1041,7 +1442,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseJunction(Junction object) {
+	public T caseJunction(Junction object) {
 		return null;
 	}
 
@@ -1056,7 +1457,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseLabel(Label object) {
+	public T caseLabel(Label object) {
 		return null;
 	}
 
@@ -1071,7 +1472,7 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseApproved(Approved object) {
+	public T caseApproved(Approved object) {
 		return null;
 	}
 
@@ -1086,7 +1487,8 @@ public class EaglemodelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public Object defaultCase(EObject object) {
+	@Override
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

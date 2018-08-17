@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.JunctionImpl#getX <em>X</em>}</li>
  *   <li>{@link eaglemodel.impl.JunctionImpl#getY <em>Y</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -81,6 +81,7 @@ public class JunctionImpl extends MinimalEObjectImpl.Container implements Juncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.JUNCTION;
 	}
@@ -132,12 +133,13 @@ public class JunctionImpl extends MinimalEObjectImpl.Container implements Juncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.JUNCTION__X:
-				return new Double(getX());
+				return getX();
 			case EaglemodelPackage.JUNCTION__Y:
-				return new Double(getY());
+				return getY();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,13 +149,14 @@ public class JunctionImpl extends MinimalEObjectImpl.Container implements Juncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.JUNCTION__X:
-				setX(((Double)newValue).doubleValue());
+				setX((Double)newValue);
 				return;
 			case EaglemodelPackage.JUNCTION__Y:
-				setY(((Double)newValue).doubleValue());
+				setY((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -164,6 +167,7 @@ public class JunctionImpl extends MinimalEObjectImpl.Container implements Juncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.JUNCTION__X:
@@ -181,6 +185,7 @@ public class JunctionImpl extends MinimalEObjectImpl.Container implements Juncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.JUNCTION__X:
@@ -196,10 +201,11 @@ public class JunctionImpl extends MinimalEObjectImpl.Container implements Juncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (x: ");
 		result.append(x);
 		result.append(", y: ");

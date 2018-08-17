@@ -3,11 +3,9 @@
 package eaglemodel.impl;
 
 import eaglemodel.EaglemodelPackage;
-
-import eaglemodel.Enums.GridStyle;
-import eaglemodel.Enums.GridUnit;
-
 import eaglemodel.Grid;
+import eaglemodel.GridStyle;
+import eaglemodel.GridUnit;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -22,6 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link eaglemodel.impl.GridImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link eaglemodel.impl.GridImpl#getUnitdist <em>Unitdist</em>}</li>
@@ -33,7 +32,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link eaglemodel.impl.GridImpl#getAltunitdist <em>Altunitdist</em>}</li>
  *   <li>{@link eaglemodel.impl.GridImpl#getAltunit <em>Altunit</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -66,7 +64,7 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GridUnit UNITDIST_EDEFAULT = GridUnit.MIC_LITERAL;
+	protected static final GridUnit UNITDIST_EDEFAULT = GridUnit.MIC;
 
 	/**
 	 * The cached value of the '{@link #getUnitdist() <em>Unitdist</em>}' attribute.
@@ -86,7 +84,7 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GridUnit UNIT_EDEFAULT = GridUnit.MIC_LITERAL;
+	protected static final GridUnit UNIT_EDEFAULT = GridUnit.MIC;
 
 	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute.
@@ -106,7 +104,7 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GridStyle STYLE_EDEFAULT = GridStyle.LINES_LITERAL;
+	protected static final GridStyle STYLE_EDEFAULT = GridStyle.LINES;
 
 	/**
 	 * The cached value of the '{@link #getStyle() <em>Style</em>}' attribute.
@@ -186,7 +184,7 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GridUnit ALTUNITDIST_EDEFAULT = GridUnit.MIC_LITERAL;
+	protected static final GridUnit ALTUNITDIST_EDEFAULT = GridUnit.MIC;
 
 	/**
 	 * The cached value of the '{@link #getAltunitdist() <em>Altunitdist</em>}' attribute.
@@ -206,7 +204,7 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GridUnit ALTUNIT_EDEFAULT = GridUnit.MIC_LITERAL;
+	protected static final GridUnit ALTUNIT_EDEFAULT = GridUnit.MIC;
 
 	/**
 	 * The cached value of the '{@link #getAltunit() <em>Altunit</em>}' attribute.
@@ -232,6 +230,7 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return EaglemodelPackage.Literals.GRID;
 	}
@@ -430,10 +429,11 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EaglemodelPackage.GRID__DISTANCE:
-				return new Double(getDistance());
+				return getDistance();
 			case EaglemodelPackage.GRID__UNITDIST:
 				return getUnitdist();
 			case EaglemodelPackage.GRID__UNIT:
@@ -441,11 +441,11 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 			case EaglemodelPackage.GRID__STYLE:
 				return getStyle();
 			case EaglemodelPackage.GRID__MULTIPLE:
-				return new Integer(getMultiple());
+				return getMultiple();
 			case EaglemodelPackage.GRID__DISPLAY:
-				return isDisplay() ? Boolean.TRUE : Boolean.FALSE;
+				return isDisplay();
 			case EaglemodelPackage.GRID__ALTDISTANCE:
-				return new Double(getAltdistance());
+				return getAltdistance();
 			case EaglemodelPackage.GRID__ALTUNITDIST:
 				return getAltunitdist();
 			case EaglemodelPackage.GRID__ALTUNIT:
@@ -459,10 +459,11 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EaglemodelPackage.GRID__DISTANCE:
-				setDistance(((Double)newValue).doubleValue());
+				setDistance((Double)newValue);
 				return;
 			case EaglemodelPackage.GRID__UNITDIST:
 				setUnitdist((GridUnit)newValue);
@@ -474,13 +475,13 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 				setStyle((GridStyle)newValue);
 				return;
 			case EaglemodelPackage.GRID__MULTIPLE:
-				setMultiple(((Integer)newValue).intValue());
+				setMultiple((Integer)newValue);
 				return;
 			case EaglemodelPackage.GRID__DISPLAY:
-				setDisplay(((Boolean)newValue).booleanValue());
+				setDisplay((Boolean)newValue);
 				return;
 			case EaglemodelPackage.GRID__ALTDISTANCE:
-				setAltdistance(((Double)newValue).doubleValue());
+				setAltdistance((Double)newValue);
 				return;
 			case EaglemodelPackage.GRID__ALTUNITDIST:
 				setAltunitdist((GridUnit)newValue);
@@ -497,6 +498,7 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.GRID__DISTANCE:
@@ -535,6 +537,7 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case EaglemodelPackage.GRID__DISTANCE:
@@ -564,10 +567,11 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (distance: ");
 		result.append(distance);
 		result.append(", unitdist: ");
