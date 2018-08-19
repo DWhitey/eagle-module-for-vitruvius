@@ -47,7 +47,7 @@ public class TransformationTest {
 		
 		
 		ResourceSet resSet = new ResourceSetImpl();
-        String path = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\transformation\\MyModel.eaglemodel";
+        String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";
         path = path.replace("\\", "/"); 
         
         Resource resource = resSet.createResource(URI.createFileURI(path));
@@ -56,7 +56,6 @@ public class TransformationTest {
         try {
 			resource.save(Collections.EMPTY_MAP);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
