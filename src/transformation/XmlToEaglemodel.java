@@ -1918,19 +1918,19 @@ public class XmlToEaglemodel {
 		return strList;
 	}
 	
-	private void printAllNodes(NodeList list) {
-		for (String s : getChildNodesNames(list)) {
-			System.out.println(s);
-		}
-	}
+//	private void printAllNodes(NodeList list) {
+//		for (String s : getChildNodesNames(list)) {
+//			System.out.println(s);
+//		}
+//	}
 	
 	
-	private void printAllAttributes(Node n) {
-		NamedNodeMap list = n.getAttributes();
-		for (int i = 0; i < list.getLength(); i++) {
-			System.out.println(list.item(i).getNodeName());
-		}
-	}
+//	private void printAllAttributes(Node n) {
+//		NamedNodeMap list = n.getAttributes();
+//		for (int i = 0; i < list.getLength(); i++) {
+//			System.out.println(list.item(i).getNodeName());
+//		}
+//	}
 	
 
 	public static void main(String[] args) {
