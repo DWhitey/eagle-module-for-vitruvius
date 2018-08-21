@@ -25,7 +25,13 @@ public class XmlToEaglemodel {
 
 	private File file;
 	private Document doc;
-	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";
+//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";
+	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";
+	
+//  private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
+	
+	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\Test";	//Desktop PC
+	
 	private EaglemodelFactory factory;
 
 	public XmlToEaglemodel() throws SAXException, IOException, ParserConfigurationException {
@@ -38,6 +44,10 @@ public class XmlToEaglemodel {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(file);
 		doc.getDocumentElement().normalize();
+		
+		
+//		path += "\\MyModel.eaglemodel";
+		path += "\\MyModel2.eaglemodel";
 		
 		/*
 		 * Create Eagle-Model
@@ -1870,11 +1880,6 @@ public class XmlToEaglemodel {
 		
 		ResourceSet resSet = new ResourceSetImpl();
 		
-		//Laptop
-//        String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";
-		//Desktop PC
-        String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\Test\\MyModel.eaglemodel";
-        
         path = path.replace("\\", "/"); 
         
         Resource resource = resSet.createResource(URI.createFileURI(path));
