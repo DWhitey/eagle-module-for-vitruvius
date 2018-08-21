@@ -5,6 +5,11 @@
     complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>eagle.ecore</foreignModel>
   <genPackages prefix="Eaglemodel" disposableProviderFactory="true" ecorePackage="eagle.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//Severity">
+      <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Severity/info"/>
+      <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Severity/warning"/>
+      <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//Severity/error"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="eagle.ecore#//GateAddLevel">
       <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//GateAddLevel/must"/>
       <genEnumLiterals ecoreEnumLiteral="eagle.ecore#//GateAddLevel/can"/>

@@ -27,13 +27,13 @@ public class TransformationTest {
 		Note n = factory.createNote();
 		Note n2 = factory.createNote();
 		n.setVersion("1.0");
-		n.setSeverity("SeverityTest");
+		n.setSeverity(Severity.INFO);
 		n.setValue("Wert meiner Notiz");
 		
 		c.getNote().add(n);
 		
 		n2.setVersion("2.0");
-		n2.setSeverity("SeverityTest");
+		n2.setSeverity(Severity.INFO);
 		n2.setValue("Wert meiner Notiz");
 		c.getNote().add(n2);
 		
@@ -47,7 +47,12 @@ public class TransformationTest {
 		
 		
 		ResourceSet resSet = new ResourceSetImpl();
-        String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";
+		
+		//Laptop
+//        String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";
+		//Desktop PC
+        String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\Test\\MyModel.eaglemodel";
+        
         path = path.replace("\\", "/"); 
         
         Resource resource = resSet.createResource(URI.createFileURI(path));

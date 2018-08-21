@@ -2,6 +2,7 @@
  */
 package eaglemodel.impl;
 
+import eaglemodel.Device;
 import eaglemodel.Devices;
 import eaglemodel.EaglemodelPackage;
 
@@ -41,7 +42,7 @@ public class DevicesImpl extends MinimalEObjectImpl.Container implements Devices
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Devices> device;
+	protected EList<Device> device;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,9 +68,9 @@ public class DevicesImpl extends MinimalEObjectImpl.Container implements Devices
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Devices> getDevice() {
+	public EList<Device> getDevice() {
 		if (device == null) {
-			device = new EObjectContainmentEList<Devices>(Devices.class, this, EaglemodelPackage.DEVICES__DEVICE);
+			device = new EObjectContainmentEList<Device>(Device.class, this, EaglemodelPackage.DEVICES__DEVICE);
 		}
 		return device;
 	}
@@ -113,7 +114,7 @@ public class DevicesImpl extends MinimalEObjectImpl.Container implements Devices
 		switch (featureID) {
 			case EaglemodelPackage.DEVICES__DEVICE:
 				getDevice().clear();
-				getDevice().addAll((Collection<? extends Devices>)newValue);
+				getDevice().addAll((Collection<? extends Device>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

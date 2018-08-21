@@ -4433,6 +4433,16 @@ public interface EaglemodelPackage extends EPackage {
 	int APPROVED_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link eaglemodel.Severity <em>Severity</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eaglemodel.Severity
+	 * @see eaglemodel.impl.EaglemodelPackageImpl#getSeverity()
+	 * @generated
+	 */
+	int SEVERITY = 64;
+
+	/**
 	 * The meta object id for the '{@link eaglemodel.GateAddLevel <em>Gate Add Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4440,7 +4450,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGateAddLevel()
 	 * @generated
 	 */
-	int GATE_ADD_LEVEL = 64;
+	int GATE_ADD_LEVEL = 65;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.WireStyle <em>Wire Style</em>}' enum.
@@ -4450,7 +4460,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getWireStyle()
 	 * @generated
 	 */
-	int WIRE_STYLE = 65;
+	int WIRE_STYLE = 66;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.WireCap <em>Wire Cap</em>}' enum.
@@ -4460,7 +4470,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getWireCap()
 	 * @generated
 	 */
-	int WIRE_CAP = 66;
+	int WIRE_CAP = 67;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.DimensionType <em>Dimension Type</em>}' enum.
@@ -4470,7 +4480,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getDimensionType()
 	 * @generated
 	 */
-	int DIMENSION_TYPE = 67;
+	int DIMENSION_TYPE = 68;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.GridUnit <em>Grid Unit</em>}' enum.
@@ -4480,7 +4490,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGridUnit()
 	 * @generated
 	 */
-	int GRID_UNIT = 68;
+	int GRID_UNIT = 69;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.GridStyle <em>Grid Style</em>}' enum.
@@ -4490,7 +4500,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getGridStyle()
 	 * @generated
 	 */
-	int GRID_STYLE = 69;
+	int GRID_STYLE = 70;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.TextFont <em>Text Font</em>}' enum.
@@ -4500,7 +4510,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getTextFont()
 	 * @generated
 	 */
-	int TEXT_FONT = 70;
+	int TEXT_FONT = 71;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.Align <em>Align</em>}' enum.
@@ -4510,7 +4520,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getAlign()
 	 * @generated
 	 */
-	int ALIGN = 71;
+	int ALIGN = 72;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.PadShape <em>Pad Shape</em>}' enum.
@@ -4520,7 +4530,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPadShape()
 	 * @generated
 	 */
-	int PAD_SHAPE = 72;
+	int PAD_SHAPE = 73;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.PolygonPour <em>Polygon Pour</em>}' enum.
@@ -4530,7 +4540,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPolygonPour()
 	 * @generated
 	 */
-	int POLYGON_POUR = 73;
+	int POLYGON_POUR = 74;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.PinVisible <em>Pin Visible</em>}' enum.
@@ -4540,7 +4550,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinVisible()
 	 * @generated
 	 */
-	int PIN_VISIBLE = 74;
+	int PIN_VISIBLE = 75;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.PinLength <em>Pin Length</em>}' enum.
@@ -4550,7 +4560,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinLength()
 	 * @generated
 	 */
-	int PIN_LENGTH = 75;
+	int PIN_LENGTH = 76;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.PinDirection <em>Pin Direction</em>}' enum.
@@ -4560,7 +4570,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinDirection()
 	 * @generated
 	 */
-	int PIN_DIRECTION = 76;
+	int PIN_DIRECTION = 77;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.PinFunction <em>Pin Function</em>}' enum.
@@ -4570,7 +4580,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getPinFunction()
 	 * @generated
 	 */
-	int PIN_FUNCTION = 77;
+	int PIN_FUNCTION = 78;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.ContactRoute <em>Contact Route</em>}' enum.
@@ -4580,7 +4590,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getContactRoute()
 	 * @generated
 	 */
-	int CONTACT_ROUTE = 78;
+	int CONTACT_ROUTE = 79;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.AttributeDisplay <em>Attribute Display</em>}' enum.
@@ -4590,7 +4600,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getAttributeDisplay()
 	 * @generated
 	 */
-	int ATTRIBUTE_DISPLAY = 79;
+	int ATTRIBUTE_DISPLAY = 80;
 
 	/**
 	 * The meta object id for the '{@link eaglemodel.VerticalText <em>Vertical Text</em>}' enum.
@@ -4600,7 +4610,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @see eaglemodel.impl.EaglemodelPackageImpl#getVerticalText()
 	 * @generated
 	 */
-	int VERTICAL_TEXT = 80;
+	int VERTICAL_TEXT = 81;
 
 
 	/**
@@ -8401,6 +8411,16 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getApproved_Hash();
 
 	/**
+	 * Returns the meta object for enum '{@link eaglemodel.Severity <em>Severity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Severity</em>'.
+	 * @see eaglemodel.Severity
+	 * @generated
+	 */
+	EEnum getSeverity();
+
+	/**
 	 * Returns the meta object for enum '{@link eaglemodel.GateAddLevel <em>Gate Add Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11528,6 +11548,16 @@ public interface EaglemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute APPROVED__HASH = eINSTANCE.getApproved_Hash();
+
+		/**
+		 * The meta object literal for the '{@link eaglemodel.Severity <em>Severity</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eaglemodel.Severity
+		 * @see eaglemodel.impl.EaglemodelPackageImpl#getSeverity()
+		 * @generated
+		 */
+		EEnum SEVERITY = eINSTANCE.getSeverity();
 
 		/**
 		 * The meta object literal for the '{@link eaglemodel.GateAddLevel <em>Gate Add Level</em>}' enum.

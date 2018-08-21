@@ -67,6 +67,7 @@ import eaglemodel.Schematic;
 import eaglemodel.Segment;
 import eaglemodel.Setting;
 import eaglemodel.Settings;
+import eaglemodel.Severity;
 import eaglemodel.Sheet;
 import eaglemodel.Sheets;
 import eaglemodel.Symbol;
@@ -214,6 +215,8 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case EaglemodelPackage.SEVERITY:
+				return createSeverityFromString(eDataType, initialValue);
 			case EaglemodelPackage.GATE_ADD_LEVEL:
 				return createGateAddLevelFromString(eDataType, initialValue);
 			case EaglemodelPackage.WIRE_STYLE:
@@ -261,6 +264,8 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case EaglemodelPackage.SEVERITY:
+				return convertSeverityToString(eDataType, instanceValue);
 			case EaglemodelPackage.GATE_ADD_LEVEL:
 				return convertGateAddLevelToString(eDataType, instanceValue);
 			case EaglemodelPackage.WIRE_STYLE:
@@ -938,6 +943,26 @@ public class EaglemodelFactoryImpl extends EFactoryImpl implements EaglemodelFac
 	public Approved createApproved() {
 		ApprovedImpl approved = new ApprovedImpl();
 		return approved;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Severity createSeverityFromString(EDataType eDataType, String initialValue) {
+		Severity result = Severity.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSeverityToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

@@ -5,6 +5,7 @@ package eaglemodel.impl;
 import eaglemodel.EaglemodelPackage;
 import eaglemodel.Note;
 
+import eaglemodel.Severity;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -56,7 +57,7 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SEVERITY_EDEFAULT = null;
+	protected static final Severity SEVERITY_EDEFAULT = Severity.INFO;
 
 	/**
 	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
@@ -66,7 +67,7 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * @generated
 	 * @ordered
 	 */
-	protected String severity = SEVERITY_EDEFAULT;
+	protected Severity severity = SEVERITY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -133,7 +134,7 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSeverity() {
+	public Severity getSeverity() {
 		return severity;
 	}
 
@@ -142,9 +143,9 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSeverity(String newSeverity) {
-		String oldSeverity = severity;
-		severity = newSeverity;
+	public void setSeverity(Severity newSeverity) {
+		Severity oldSeverity = severity;
+		severity = newSeverity == null ? SEVERITY_EDEFAULT : newSeverity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.NOTE__SEVERITY, oldSeverity, severity));
 	}
@@ -200,7 +201,7 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 				setVersion((String)newValue);
 				return;
 			case EaglemodelPackage.NOTE__SEVERITY:
-				setSeverity((String)newValue);
+				setSeverity((Severity)newValue);
 				return;
 			case EaglemodelPackage.NOTE__VALUE:
 				setValue((String)newValue);
@@ -241,7 +242,7 @@ public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
 			case EaglemodelPackage.NOTE__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case EaglemodelPackage.NOTE__SEVERITY:
-				return SEVERITY_EDEFAULT == null ? severity != null : !SEVERITY_EDEFAULT.equals(severity);
+				return severity != SEVERITY_EDEFAULT;
 			case EaglemodelPackage.NOTE__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}

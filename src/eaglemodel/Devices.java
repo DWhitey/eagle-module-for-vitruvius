@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Devices extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Device</b></em>' containment reference list.
-	 * The list contents are of type {@link eaglemodel.Devices}.
+	 * The list contents are of type {@link eaglemodel.Device}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Device</em>' containment reference list isn't clear,
@@ -37,6 +37,6 @@ public interface Devices extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Devices> getDevice();
+	EList<Device> getDevice();
 
 } // Devices

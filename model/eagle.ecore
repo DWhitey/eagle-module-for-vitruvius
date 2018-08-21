@@ -17,7 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Severity"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Drawing">
@@ -449,7 +449,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Devices">
     <eStructuralFeatures xsi:type="ecore:EReference" name="device" upperBound="-1"
-        eType="#//Devices" containment="true"/>
+        eType="#//Device" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Device">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -566,6 +566,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Approved">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hash" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Severity">
+    <eLiterals name="info"/>
+    <eLiterals name="warning"/>
+    <eLiterals name="error"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GateAddLevel">
     <eLiterals name="must"/>

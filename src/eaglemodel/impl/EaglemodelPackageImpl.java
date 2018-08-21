@@ -66,6 +66,7 @@ import eaglemodel.Schematic;
 import eaglemodel.Segment;
 import eaglemodel.Setting;
 import eaglemodel.Settings;
+import eaglemodel.Severity;
 import eaglemodel.Sheet;
 import eaglemodel.Sheets;
 import eaglemodel.Symbol;
@@ -545,6 +546,13 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * @generated
 	 */
 	private EClass approvedEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum severityEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3890,6 +3898,15 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getSeverity() {
+		return severityEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getGateAddLevel() {
 		return gateAddLevelEEnum;
 	}
@@ -4482,6 +4499,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(approvedEClass, APPROVED__HASH);
 
 		// Create enums
+		severityEEnum = createEEnum(SEVERITY);
 		gateAddLevelEEnum = createEEnum(GATE_ADD_LEVEL);
 		wireStyleEEnum = createEEnum(WIRE_STYLE);
 		wireCapEEnum = createEEnum(WIRE_CAP);
@@ -4541,7 +4559,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 
 		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNote_Version(), ecorePackage.getEString(), "version", null, 1, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNote_Severity(), ecorePackage.getEString(), "severity", null, 1, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Severity(), this.getSeverity(), "severity", null, 1, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNote_Value(), ecorePackage.getEString(), "value", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(drawingEClass, Drawing.class, "Drawing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4857,7 +4875,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getGate_Swaplevel(), ecorePackage.getEInt(), "swaplevel", null, 0, 1, Gate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(devicesEClass, Devices.class, "Devices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDevices_Device(), this.getDevices(), null, "device", null, 0, -1, Devices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDevices_Device(), this.getDevice(), null, "device", null, 0, -1, Devices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deviceEClass, Device.class, "Device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDevice_Name(), ecorePackage.getEString(), "name", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4947,6 +4965,11 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getApproved_Hash(), ecorePackage.getEString(), "hash", null, 1, 1, Approved.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(severityEEnum, Severity.class, "Severity");
+		addEEnumLiteral(severityEEnum, Severity.INFO);
+		addEEnumLiteral(severityEEnum, Severity.WARNING);
+		addEEnumLiteral(severityEEnum, Severity.ERROR);
+
 		initEEnum(gateAddLevelEEnum, GateAddLevel.class, "GateAddLevel");
 		addEEnumLiteral(gateAddLevelEEnum, GateAddLevel.MUST);
 		addEEnumLiteral(gateAddLevelEEnum, GateAddLevel.CAN);

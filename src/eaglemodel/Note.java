@@ -51,6 +51,7 @@ public interface Note extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Severity</b></em>' attribute.
+	 * The literals are from the enumeration {@link eaglemodel.Severity}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Severity</em>' attribute isn't clear,
@@ -58,22 +59,24 @@ public interface Note extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Severity</em>' attribute.
-	 * @see #setSeverity(String)
+	 * @see eaglemodel.Severity
+	 * @see #setSeverity(Severity)
 	 * @see eaglemodel.EaglemodelPackage#getNote_Severity()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getSeverity();
+	Severity getSeverity();
 
 	/**
 	 * Sets the value of the '{@link eaglemodel.Note#getSeverity <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Severity</em>' attribute.
+	 * @see eaglemodel.Severity
 	 * @see #getSeverity()
 	 * @generated
 	 */
-	void setSeverity(String value);
+	void setSeverity(Severity value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
