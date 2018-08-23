@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
 <eagle version="6.6.0">
+<compatibility>
+<note version="6.6.0" severity="info">wert meiner notiz</note>
+<note version="6.7.0" severity="error">wert meiner notiz2</note>
+</compatibility>
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>

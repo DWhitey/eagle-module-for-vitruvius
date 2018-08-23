@@ -347,6 +347,10 @@ by R. Vogg  15.March.2002</description>
 <part name="NAND(A,B)" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="A" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="B" library="pinhead" deviceset="PINHD-1X1" device=""/>
+<part name="Q5" library="transistor-fet" deviceset="BSS92" device="">
+<attribute name="P1" value="0001"/>
+<attribute name="TEST2" value="5"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -368,6 +372,10 @@ by R. Vogg  15.March.2002</description>
 <instance part="NAND(A,B)" gate="G$1" x="-142.24" y="165.1"/>
 <instance part="A" gate="G$1" x="-215.9" y="137.16" rot="R180"/>
 <instance part="B" gate="G$1" x="-215.9" y="119.38" rot="R180"/>
+<instance part="Q5" gate="G$1" x="-213.36" y="185.42">
+<attribute name="P1" x="-213.36" y="185.42" size="1.778" layer="96" display="off"/>
+<attribute name="TEST2" x="-213.36" y="185.42" size="1.778" layer="96" display="off"/>
+</instance>
 </instances>
 <busses>
 </busses>
