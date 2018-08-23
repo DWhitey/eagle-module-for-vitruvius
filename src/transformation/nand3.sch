@@ -336,6 +336,7 @@ by R. Vogg  15.March.2002</description>
 <part name="Q1" library="transistor-fet" deviceset="BSS92" device="">
 <attribute name="P1" value="0001"/>
 <attribute name="TEST2" value="5"/>
+<attribute name="UID" value="2"/>
 </part>
 <part name="Q2" library="transistor-fet" deviceset="BSS92" device="">
 <attribute name="P2" value="0002"/>
@@ -347,6 +348,10 @@ by R. Vogg  15.March.2002</description>
 <part name="NAND(A,B)" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="A" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="B" library="pinhead" deviceset="PINHD-1X1" device=""/>
+<part name="Q5" library="transistor-fet" deviceset="BSS92" device="">
+<attribute name="P1" value="0001"/>
+<attribute name="TEST2" value="5"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -357,6 +362,7 @@ by R. Vogg  15.March.2002</description>
 <instance part="Q1" gate="G$1" x="-182.88" y="172.72">
 <attribute name="P1" x="-182.88" y="172.72" size="1.778" layer="96" display="off"/>
 <attribute name="TEST2" x="-182.88" y="172.72" size="1.778" layer="96" display="off"/>
+<attribute name="UID" x="-182.88" y="172.72" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="Q2" gate="G$1" x="-165.1" y="172.72">
 <attribute name="P2" x="-165.1" y="172.72" size="1.778" layer="96" display="off"/>
@@ -368,6 +374,10 @@ by R. Vogg  15.March.2002</description>
 <instance part="NAND(A,B)" gate="G$1" x="-142.24" y="165.1"/>
 <instance part="A" gate="G$1" x="-215.9" y="137.16" rot="R180"/>
 <instance part="B" gate="G$1" x="-215.9" y="119.38" rot="R180"/>
+<instance part="Q5" gate="G$1" x="-213.36" y="185.42">
+<attribute name="P1" x="-213.36" y="185.42" size="1.778" layer="96" display="off"/>
+<attribute name="TEST2" x="-213.36" y="185.42" size="1.778" layer="96" display="off"/>
+</instance>
 </instances>
 <busses>
 </busses>

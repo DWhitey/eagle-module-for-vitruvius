@@ -1422,13 +1422,67 @@ public interface EaglemodelPackage extends EPackage {
 	int PART__VALUE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Gate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__GATE = 6;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__X = 7;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__Y = 8;
+
+	/**
+	 * The feature id for the '<em><b>Smashed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__SMASHED = 9;
+
+	/**
+	 * The feature id for the '<em><b>Rot</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__ROT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__UID = 11;
+
+	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART__ATTRIBUTE = 6;
+	int PART__ATTRIBUTE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Variant</b></em>' containment reference list.
@@ -1437,7 +1491,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PART__VARIANT = 7;
+	int PART__VARIANT = 13;
 
 	/**
 	 * The number of structural features of the '<em>Part</em>' class.
@@ -1446,7 +1500,7 @@ public interface EaglemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PART_FEATURE_COUNT = 8;
+	int PART_FEATURE_COUNT = 14;
 
 	/**
 	 * The number of operations of the '<em>Part</em>' class.
@@ -5746,6 +5800,72 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getPart_Value();
 
 	/**
+	 * Returns the meta object for the attribute '{@link eaglemodel.Part#getGate <em>Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Gate</em>'.
+	 * @see eaglemodel.Part#getGate()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_Gate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eaglemodel.Part#getX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @see eaglemodel.Part#getX()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_X();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eaglemodel.Part#getY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @see eaglemodel.Part#getY()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_Y();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eaglemodel.Part#isSmashed <em>Smashed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Smashed</em>'.
+	 * @see eaglemodel.Part#isSmashed()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_Smashed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eaglemodel.Part#getRot <em>Rot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rot</em>'.
+	 * @see eaglemodel.Part#getRot()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_Rot();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eaglemodel.Part#getUid <em>Uid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uid</em>'.
+	 * @see eaglemodel.Part#getUid()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_Uid();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link eaglemodel.Part#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9498,6 +9618,54 @@ public interface EaglemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PART__VALUE = eINSTANCE.getPart_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Gate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART__GATE = eINSTANCE.getPart_Gate();
+
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART__X = eINSTANCE.getPart_X();
+
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART__Y = eINSTANCE.getPart_Y();
+
+		/**
+		 * The meta object literal for the '<em><b>Smashed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART__SMASHED = eINSTANCE.getPart_Smashed();
+
+		/**
+		 * The meta object literal for the '<em><b>Rot</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART__ROT = eINSTANCE.getPart_Rot();
+
+		/**
+		 * The meta object literal for the '<em><b>Uid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART__UID = eINSTANCE.getPart_Uid();
 
 		/**
 		 * The meta object literal for the '<em><b>Attribute</b></em>' containment reference list feature.

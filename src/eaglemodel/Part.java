@@ -21,6 +21,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link eaglemodel.Part#getDevice <em>Device</em>}</li>
  *   <li>{@link eaglemodel.Part#getTechnology <em>Technology</em>}</li>
  *   <li>{@link eaglemodel.Part#getValue <em>Value</em>}</li>
+ *   <li>{@link eaglemodel.Part#getGate <em>Gate</em>}</li>
+ *   <li>{@link eaglemodel.Part#getX <em>X</em>}</li>
+ *   <li>{@link eaglemodel.Part#getY <em>Y</em>}</li>
+ *   <li>{@link eaglemodel.Part#isSmashed <em>Smashed</em>}</li>
+ *   <li>{@link eaglemodel.Part#getRot <em>Rot</em>}</li>
+ *   <li>{@link eaglemodel.Part#getUid <em>Uid</em>}</li>
  *   <li>{@link eaglemodel.Part#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link eaglemodel.Part#getVariant <em>Variant</em>}</li>
  * </ul>
@@ -185,6 +191,163 @@ public interface Part extends EObject {
 	 * @generated
 	 */
 	void setValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Gate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Gate</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gate</em>' attribute.
+	 * @see #setGate(String)
+	 * @see eaglemodel.EaglemodelPackage#getPart_Gate()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getGate();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Part#getGate <em>Gate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gate</em>' attribute.
+	 * @see #getGate()
+	 * @generated
+	 */
+	void setGate(String value);
+
+	/**
+	 * Returns the value of the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>X</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>X</em>' attribute.
+	 * @see #setX(double)
+	 * @see eaglemodel.EaglemodelPackage#getPart_X()
+	 * @model required="true"
+	 * @generated
+	 */
+	double getX();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Part#getX <em>X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>X</em>' attribute.
+	 * @see #getX()
+	 * @generated
+	 */
+	void setX(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Y</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Y</em>' attribute.
+	 * @see #setY(double)
+	 * @see eaglemodel.EaglemodelPackage#getPart_Y()
+	 * @model required="true"
+	 * @generated
+	 */
+	double getY();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Part#getY <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Y</em>' attribute.
+	 * @see #getY()
+	 * @generated
+	 */
+	void setY(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Smashed</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Smashed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Smashed</em>' attribute.
+	 * @see #setSmashed(boolean)
+	 * @see eaglemodel.EaglemodelPackage#getPart_Smashed()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isSmashed();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Part#isSmashed <em>Smashed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Smashed</em>' attribute.
+	 * @see #isSmashed()
+	 * @generated
+	 */
+	void setSmashed(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Rot</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rot</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rot</em>' attribute.
+	 * @see #setRot(double)
+	 * @see eaglemodel.EaglemodelPackage#getPart_Rot()
+	 * @model
+	 * @generated
+	 */
+	double getRot();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Part#getRot <em>Rot</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rot</em>' attribute.
+	 * @see #getRot()
+	 * @generated
+	 */
+	void setRot(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Uid</em>' attribute.
+	 * @see #setUid(int)
+	 * @see eaglemodel.EaglemodelPackage#getPart_Uid()
+	 * @model
+	 * @generated
+	 */
+	int getUid();
+
+	/**
+	 * Sets the value of the '{@link eaglemodel.Part#getUid <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Uid</em>' attribute.
+	 * @see #getUid()
+	 * @generated
+	 */
+	void setUid(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' containment reference list.

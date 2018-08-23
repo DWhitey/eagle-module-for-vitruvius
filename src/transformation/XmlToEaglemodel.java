@@ -26,9 +26,11 @@ public class XmlToEaglemodel {
 	private File file;
 	private Document doc;
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
-//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";	// normal
-	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor
+//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";	// normal							(Compare 1)
+	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
+//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand3.sch";	// normal mit kopiertem transistor und uid
 	private EaglemodelFactory factory;
+	private Instances instancesHelpList;
 	
 	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
 //	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\Test";	//Desktop PC
@@ -36,23 +38,23 @@ public class XmlToEaglemodel {
 	public XmlToEaglemodel() throws SAXException, IOException, ParserConfigurationException {
 		file = new File(fileName);
 		
-		/*
-		 * XML reader for the .sch file
-		 */
+		// XML reader for the .sch file
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(file);
 		doc.getDocumentElement().normalize();
 		
 		
-		path += "\\MyModel.eaglemodel";
+//		path += "\\Compare1.eaglemodel";
+		path += "\\Compare2.eaglemodel";
+//		path += "\\MyModel.eaglemodel";
 //		path += "\\MyModel2.eaglemodel";
 		
-		/*
-		 * Create Eagle-Model
-		 */
+		// Create Eagle-Model
 		EaglemodelPackage.eINSTANCE.eClass();
 		factory = EaglemodelFactory.eINSTANCE;
+		
+		instancesHelpList = parseInstances(doc.getDocumentElement().getElementsByTagName("instances").item(0));
 	}
 
 	private void parseXmlToEaglemodel() {
@@ -61,12 +63,10 @@ public class XmlToEaglemodel {
 		
 		NodeList eagleList = doc.getDocumentElement().getChildNodes();
 		
-		// Build Compatibility
 		if (contains(eagleList, "compatibility")) {
 			eagle.setCompatibility(parseCompatibility());
 		}
 		
-		// Build Drawing
 		if (contains(eagleList, "drawing")) {
 			eagle.setDrawing(parseDrawing());
 		}
@@ -75,22 +75,17 @@ public class XmlToEaglemodel {
 	
 	private Drawing parseDrawing() {
 		Drawing draw = factory.createDrawing();
-//		Node drawing = doc.getDocumentElement().getElementsByTagName("drawing").item(0);
 		NodeList drawingList = doc.getDocumentElement().getElementsByTagName("drawing").item(0).getChildNodes();
 		
-		// Build Settings
 		if (contains(drawingList, "settings")) {
 			draw.setSettings(parseSettings());
 		}
-		// Build Grid
 		if (contains(drawingList, "grid")) {
 			draw.setGrid(parseGrid());
 		}
-		// Build Layers
 		if (contains(drawingList, "layers")) {
 			draw.setLayers(parseLayers());
 		}
-		// Build Schematic
 		if (contains(drawingList, "schematic")) {
 			draw.setSchematic(parseSchematic());
 		}
@@ -206,7 +201,7 @@ public class XmlToEaglemodel {
 						s.setPlain(parsePlain(n));
 						break;
 					case "instances":
-						s.setInstances(parseInstances(n));
+						s.setInstances(parseInstances(n));		// left this for easier transformation back to .xml/.sch, but is redundant
 						break;
 					case "busses":
 						s.setBusses(parseBusses(n));
@@ -441,7 +436,7 @@ public class XmlToEaglemodel {
 				}
 			}
 		}
-		
+
 		return in;
 	}
 
@@ -536,6 +531,41 @@ public class XmlToEaglemodel {
 					p.getVariant().add(parseVariant(n));
 					break;
 				}
+			}
+		}
+		
+		for (int i = 0; i < instancesHelpList.getInstance().size(); i++) {
+			Instance in = instancesHelpList.getInstance().get(i);
+			if (p.getName().equals(in.getPart())) {
+				p.setGate(in.getGate());
+				p.setX(in.getX());
+				p.setY(in.getY());
+				p.setSmashed(in.isSmashed());
+				p.setRot(in.getRot());
+				for (int j = 0; j < p.getAttribute().size(); j++) {
+					Attribute partAttr = p.getAttribute().get(j);
+					if (partAttr.getName().equals("UID")) {
+						p.setUid(Integer.valueOf(partAttr.getValue()));
+						p.getAttribute().remove(j);
+						j--;
+						continue;
+					}
+					for (int k = 0; k < in.getAttribute().size(); k++) {
+						Attribute instAttr = in.getAttribute().get(k);
+						if (partAttr.getName().equals(instAttr.getName())) {
+							partAttr.setX(instAttr.getX());
+							partAttr.setY(instAttr.getY());
+							partAttr.setSize(instAttr.getSize());
+							partAttr.setLayer(instAttr.getLayer());
+							partAttr.setRatio(instAttr.getRatio());
+							partAttr.setFont(instAttr.getFont());
+							partAttr.setRot(instAttr.getRot());
+							partAttr.setConstant(instAttr.isConstant());
+							break;
+						}
+					}
+				}
+				break;
 			}
 		}
 		
@@ -1929,8 +1959,8 @@ public class XmlToEaglemodel {
 //			System.out.println(s);
 //		}
 //	}
-	
-	
+//	
+//	
 //	private void printAllAttributes(Node n) {
 //		NamedNodeMap list = n.getAttributes();
 //		for (int i = 0; i < list.getLength(); i++) {

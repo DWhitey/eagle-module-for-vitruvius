@@ -243,6 +243,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/device"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/technology"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/gate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/smashed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/rot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Part/uid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eagle.ecore#//Part/attribute"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eagle.ecore#//Part/variant"/>
     </genClasses>

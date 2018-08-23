@@ -1684,8 +1684,62 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPart_Gate() {
+		return (EAttribute)partEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPart_X() {
+		return (EAttribute)partEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPart_Y() {
+		return (EAttribute)partEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPart_Smashed() {
+		return (EAttribute)partEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPart_Rot() {
+		return (EAttribute)partEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPart_Uid() {
+		return (EAttribute)partEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getPart_Attribute() {
-		return (EReference)partEClass.getEStructuralFeatures().get(6);
+		return (EReference)partEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1694,7 +1748,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * @generated
 	 */
 	public EReference getPart_Variant() {
-		return (EReference)partEClass.getEStructuralFeatures().get(7);
+		return (EReference)partEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -4210,6 +4264,12 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		createEAttribute(partEClass, PART__DEVICE);
 		createEAttribute(partEClass, PART__TECHNOLOGY);
 		createEAttribute(partEClass, PART__VALUE);
+		createEAttribute(partEClass, PART__GATE);
+		createEAttribute(partEClass, PART__X);
+		createEAttribute(partEClass, PART__Y);
+		createEAttribute(partEClass, PART__SMASHED);
+		createEAttribute(partEClass, PART__ROT);
+		createEAttribute(partEClass, PART__UID);
 		createEReference(partEClass, PART__ATTRIBUTE);
 		createEReference(partEClass, PART__VARIANT);
 
@@ -4676,6 +4736,12 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 		initEAttribute(getPart_Device(), ecorePackage.getEString(), "device", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPart_Technology(), ecorePackage.getEString(), "technology", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPart_Value(), ecorePackage.getEString(), "value", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPart_Gate(), ecorePackage.getEString(), "gate", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPart_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPart_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPart_Smashed(), ecorePackage.getEBoolean(), "smashed", "false", 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPart_Rot(), ecorePackage.getEDouble(), "rot", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPart_Uid(), ecorePackage.getEInt(), "uid", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPart_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPart_Variant(), this.getVariant(), null, "variant", null, 0, -1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

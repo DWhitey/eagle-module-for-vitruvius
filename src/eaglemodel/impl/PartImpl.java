@@ -37,6 +37,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link eaglemodel.impl.PartImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link eaglemodel.impl.PartImpl#getTechnology <em>Technology</em>}</li>
  *   <li>{@link eaglemodel.impl.PartImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link eaglemodel.impl.PartImpl#getGate <em>Gate</em>}</li>
+ *   <li>{@link eaglemodel.impl.PartImpl#getX <em>X</em>}</li>
+ *   <li>{@link eaglemodel.impl.PartImpl#getY <em>Y</em>}</li>
+ *   <li>{@link eaglemodel.impl.PartImpl#isSmashed <em>Smashed</em>}</li>
+ *   <li>{@link eaglemodel.impl.PartImpl#getRot <em>Rot</em>}</li>
+ *   <li>{@link eaglemodel.impl.PartImpl#getUid <em>Uid</em>}</li>
  *   <li>{@link eaglemodel.impl.PartImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link eaglemodel.impl.PartImpl#getVariant <em>Variant</em>}</li>
  * </ul>
@@ -163,6 +169,126 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * @ordered
 	 */
 	protected String value = VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGate() <em>Gate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String GATE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getGate() <em>Gate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGate()
+	 * @generated
+	 * @ordered
+	 */
+	protected String gate = GATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double X_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getX() <em>X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getX()
+	 * @generated
+	 * @ordered
+	 */
+	protected double x = X_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double Y_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getY()
+	 * @generated
+	 * @ordered
+	 */
+	protected double y = Y_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSmashed() <em>Smashed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSmashed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SMASHED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSmashed() <em>Smashed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSmashed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean smashed = SMASHED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRot() <em>Rot</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRot()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ROT_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getRot() <em>Rot</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRot()
+	 * @generated
+	 * @ordered
+	 */
+	protected double rot = ROT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int UID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUid()
+	 * @generated
+	 * @ordered
+	 */
+	protected int uid = UID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
@@ -334,6 +460,132 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getGate() {
+		return gate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGate(String newGate) {
+		String oldGate = gate;
+		gate = newGate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PART__GATE, oldGate, gate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getX() {
+		return x;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setX(double newX) {
+		double oldX = x;
+		x = newX;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PART__X, oldX, x));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getY() {
+		return y;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setY(double newY) {
+		double oldY = y;
+		y = newY;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PART__Y, oldY, y));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSmashed() {
+		return smashed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSmashed(boolean newSmashed) {
+		boolean oldSmashed = smashed;
+		smashed = newSmashed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PART__SMASHED, oldSmashed, smashed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getRot() {
+		return rot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRot(double newRot) {
+		double oldRot = rot;
+		rot = newRot;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PART__ROT, oldRot, rot));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getUid() {
+		return uid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUid(int newUid) {
+		int oldUid = uid;
+		uid = newUid;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PART__UID, oldUid, uid));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Attribute> getAttribute() {
 		if (attribute == null) {
 			attribute = new EObjectContainmentEList<Attribute>(Attribute.class, this, EaglemodelPackage.PART__ATTRIBUTE);
@@ -389,6 +641,18 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 				return getTechnology();
 			case EaglemodelPackage.PART__VALUE:
 				return getValue();
+			case EaglemodelPackage.PART__GATE:
+				return getGate();
+			case EaglemodelPackage.PART__X:
+				return getX();
+			case EaglemodelPackage.PART__Y:
+				return getY();
+			case EaglemodelPackage.PART__SMASHED:
+				return isSmashed();
+			case EaglemodelPackage.PART__ROT:
+				return getRot();
+			case EaglemodelPackage.PART__UID:
+				return getUid();
 			case EaglemodelPackage.PART__ATTRIBUTE:
 				return getAttribute();
 			case EaglemodelPackage.PART__VARIANT:
@@ -423,6 +687,24 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 				return;
 			case EaglemodelPackage.PART__VALUE:
 				setValue((String)newValue);
+				return;
+			case EaglemodelPackage.PART__GATE:
+				setGate((String)newValue);
+				return;
+			case EaglemodelPackage.PART__X:
+				setX((Double)newValue);
+				return;
+			case EaglemodelPackage.PART__Y:
+				setY((Double)newValue);
+				return;
+			case EaglemodelPackage.PART__SMASHED:
+				setSmashed((Boolean)newValue);
+				return;
+			case EaglemodelPackage.PART__ROT:
+				setRot((Double)newValue);
+				return;
+			case EaglemodelPackage.PART__UID:
+				setUid((Integer)newValue);
 				return;
 			case EaglemodelPackage.PART__ATTRIBUTE:
 				getAttribute().clear();
@@ -462,6 +744,24 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 			case EaglemodelPackage.PART__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case EaglemodelPackage.PART__GATE:
+				setGate(GATE_EDEFAULT);
+				return;
+			case EaglemodelPackage.PART__X:
+				setX(X_EDEFAULT);
+				return;
+			case EaglemodelPackage.PART__Y:
+				setY(Y_EDEFAULT);
+				return;
+			case EaglemodelPackage.PART__SMASHED:
+				setSmashed(SMASHED_EDEFAULT);
+				return;
+			case EaglemodelPackage.PART__ROT:
+				setRot(ROT_EDEFAULT);
+				return;
+			case EaglemodelPackage.PART__UID:
+				setUid(UID_EDEFAULT);
+				return;
 			case EaglemodelPackage.PART__ATTRIBUTE:
 				getAttribute().clear();
 				return;
@@ -492,6 +792,18 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 				return TECHNOLOGY_EDEFAULT == null ? technology != null : !TECHNOLOGY_EDEFAULT.equals(technology);
 			case EaglemodelPackage.PART__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case EaglemodelPackage.PART__GATE:
+				return GATE_EDEFAULT == null ? gate != null : !GATE_EDEFAULT.equals(gate);
+			case EaglemodelPackage.PART__X:
+				return x != X_EDEFAULT;
+			case EaglemodelPackage.PART__Y:
+				return y != Y_EDEFAULT;
+			case EaglemodelPackage.PART__SMASHED:
+				return smashed != SMASHED_EDEFAULT;
+			case EaglemodelPackage.PART__ROT:
+				return rot != ROT_EDEFAULT;
+			case EaglemodelPackage.PART__UID:
+				return uid != UID_EDEFAULT;
 			case EaglemodelPackage.PART__ATTRIBUTE:
 				return attribute != null && !attribute.isEmpty();
 			case EaglemodelPackage.PART__VARIANT:
@@ -522,6 +834,18 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 		result.append(technology);
 		result.append(", value: ");
 		result.append(value);
+		result.append(", gate: ");
+		result.append(gate);
+		result.append(", x: ");
+		result.append(x);
+		result.append(", y: ");
+		result.append(y);
+		result.append(", smashed: ");
+		result.append(smashed);
+		result.append(", rot: ");
+		result.append(rot);
+		result.append(", uid: ");
+		result.append(uid);
 		result.append(')');
 		return result.toString();
 	}
