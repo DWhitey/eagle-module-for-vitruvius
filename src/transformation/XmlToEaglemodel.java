@@ -30,8 +30,8 @@ public class XmlToEaglemodel {
 	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor
 	private EaglemodelFactory factory;
 	
-//	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
-	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\Test";	//Desktop PC
+	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
+//	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\Test";	//Desktop PC
 
 	public XmlToEaglemodel() throws SAXException, IOException, ParserConfigurationException {
 		file = new File(fileName);
