@@ -25,15 +25,15 @@ public class XmlToEaglemodel {
 
 	private File file;
 	private Document doc;
-//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
+	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";	// normal							(Compare 1)
-	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
+//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand3.sch";	// normal mit kopiertem transistor und uid
 	private EaglemodelFactory factory;
 	private Instances instancesHelpList;
 	
-	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
-//	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\Test";	//Desktop PC
+//	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
+	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest";	//Desktop PC
 
 	public XmlToEaglemodel() throws SAXException, IOException, ParserConfigurationException {
 		file = new File(fileName);
@@ -46,8 +46,8 @@ public class XmlToEaglemodel {
 		
 		
 //		path += "\\Compare1.eaglemodel";
-		path += "\\Compare2.eaglemodel";
-//		path += "\\MyModel.eaglemodel";
+//		path += "\\Compare2.eaglemodel";
+		path += "\\MyModel.eaglemodel";
 //		path += "\\MyModel2.eaglemodel";
 		
 		// Create Eagle-Model
@@ -201,7 +201,7 @@ public class XmlToEaglemodel {
 						s.setPlain(parsePlain(n));
 						break;
 					case "instances":
-						s.setInstances(parseInstances(n));		// left this for easier transformation back to .xml/.sch, but is redundant
+//						s.setInstances(parseInstances(n));		// left this for easier transformation back to .xml/.sch, but is redundant
 						break;
 					case "busses":
 						s.setBusses(parseBusses(n));
