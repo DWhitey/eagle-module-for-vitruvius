@@ -258,7 +258,7 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double ROT_EDEFAULT = 0.0;
+	protected static final int ROT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getRot() <em>Rot</em>}' attribute.
@@ -268,7 +268,7 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * @generated
 	 * @ordered
 	 */
-	protected double rot = ROT_EDEFAULT;
+	protected int rot = ROT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUid() <em>Uid</em>}' attribute.
@@ -544,7 +544,7 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getRot() {
+	public int getRot() {
 		return rot;
 	}
 
@@ -553,8 +553,8 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRot(double newRot) {
-		double oldRot = rot;
+	public void setRot(int newRot) {
+		int oldRot = rot;
 		rot = newRot;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PART__ROT, oldRot, rot));
@@ -701,7 +701,7 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 				setSmashed((Boolean)newValue);
 				return;
 			case EaglemodelPackage.PART__ROT:
-				setRot((Double)newValue);
+				setRot((Integer)newValue);
 				return;
 			case EaglemodelPackage.PART__UID:
 				setUid((Integer)newValue);

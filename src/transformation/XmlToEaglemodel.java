@@ -356,7 +356,7 @@ public class XmlToEaglemodel {
 			l.setRatio(Integer.valueOf(label.getAttributes().getNamedItem("ratio").getNodeValue()));
 		}
 		if (contains(label.getAttributes(), "rot")) {
-			l.setRot(Double.valueOf(label.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
+			l.setRot(Integer.valueOf(label.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
 		}
 		if (contains(label.getAttributes(), "xref")) {
 			if (label.getAttributes().getNamedItem("xref").getNodeValue().equals("no")) {
@@ -424,7 +424,7 @@ public class XmlToEaglemodel {
 			}
 		}
 		if (contains(instance.getAttributes(), "rot")) {
-			in.setRot(Double.valueOf(instance.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
+			in.setRot(Integer.valueOf(instance.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
 		}
 		if (instance.hasChildNodes()) {
 			NodeList instanceList = instance.getChildNodes();
@@ -986,7 +986,7 @@ public class XmlToEaglemodel {
 			a.setRatio(Integer.valueOf(attribute.getAttributes().getNamedItem("ratio").getNodeValue()));
 		}
 		if (contains(attribute.getAttributes(), "rot")) {
-			a.setRot(Double.valueOf(attribute.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
+			a.setRot(Integer.valueOf(attribute.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
 		}
 		if (contains(attribute.getAttributes(), "display")) {
 			switch (attribute.getAttributes().getNamedItem("display").getNodeValue()) {
@@ -1205,7 +1205,7 @@ public class XmlToEaglemodel {
 			p.setSwaplevel(Integer.valueOf(pin.getAttributes().getNamedItem("swaplevel").getNodeValue()));
 		}
 		if (contains(pin.getAttributes(), "rot")) {
-			p.setRot(Double.valueOf(pin.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
+			p.setRot(Integer.valueOf(pin.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
 		}
 		
 		return p;
@@ -1293,7 +1293,7 @@ public class XmlToEaglemodel {
 			s.setRoundness(Integer.valueOf(smd.getAttributes().getNamedItem("roundness").getNodeValue()));
 		}
 		if (contains(smd.getAttributes(), "rot")) {
-			s.setRot(Double.valueOf(smd.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
+			s.setRot(Integer.valueOf(smd.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
 		}
 		if (contains(smd.getAttributes(), "stop")) {
 			if (smd.getAttributes().getNamedItem("stop").getNodeValue().equals("no")) {
@@ -1351,7 +1351,7 @@ public class XmlToEaglemodel {
 			}
 		}
 		if (contains(pad.getAttributes(), "rot")) {
-			p.setRot(Double.valueOf(pad.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
+			p.setRot(Integer.valueOf(pad.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
 		}
 		if (contains(pad.getAttributes(), "stop")) {
 			if (pad.getAttributes().getNamedItem("stop").getNodeValue().equals("no")) {
@@ -1441,7 +1441,7 @@ public class XmlToEaglemodel {
 		r.setLayer(Integer.valueOf(rectangle.getAttributes().getNamedItem("layer").getNodeValue()));
 		
 		if (contains(rectangle.getAttributes(), "rot")) {
-			r.setRot(Double.valueOf(rectangle.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
+			r.setRot(Integer.valueOf(rectangle.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
 		}
 		
 		return r;
@@ -1561,7 +1561,7 @@ public class XmlToEaglemodel {
 			t.setRatio(Integer.valueOf(text.getAttributes().getNamedItem("ratio").getNodeValue()));
 		}
 		if (contains(text.getAttributes(), "rot")) {
-			t.setRot(Double.valueOf(text.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
+			t.setRot(Integer.valueOf(text.getAttributes().getNamedItem("rot").getNodeValue().substring(1)));	// z.B. Rotation um 180 Grad wäre "R180"
 		}
 		if (contains(text.getAttributes(), "align")) {
 			switch (text.getAttributes().getNamedItem("align").getNodeValue()) {

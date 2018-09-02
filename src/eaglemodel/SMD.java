@@ -222,12 +222,12 @@ public interface SMD extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rot</em>' attribute.
-	 * @see #setRot(double)
+	 * @see #setRot(int)
 	 * @see eaglemodel.EaglemodelPackage#getSMD_Rot()
 	 * @model
 	 * @generated
 	 */
-	double getRot();
+	int getRot();
 
 	/**
 	 * Sets the value of the '{@link eaglemodel.SMD#getRot <em>Rot</em>}' attribute.
@@ -237,7 +237,7 @@ public interface SMD extends EObject {
 	 * @see #getRot()
 	 * @generated
 	 */
-	void setRot(double value);
+	void setRot(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Stop</b></em>' attribute.

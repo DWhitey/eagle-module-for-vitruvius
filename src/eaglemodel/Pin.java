@@ -262,12 +262,12 @@ public interface Pin extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rot</em>' attribute.
-	 * @see #setRot(double)
+	 * @see #setRot(int)
 	 * @see eaglemodel.EaglemodelPackage#getPin_Rot()
 	 * @model
 	 * @generated
 	 */
-	double getRot();
+	int getRot();
 
 	/**
 	 * Sets the value of the '{@link eaglemodel.Pin#getRot <em>Rot</em>}' attribute.
@@ -277,6 +277,6 @@ public interface Pin extends EObject {
 	 * @see #getRot()
 	 * @generated
 	 */
-	void setRot(double value);
+	void setRot(int value);
 
 } // Pin

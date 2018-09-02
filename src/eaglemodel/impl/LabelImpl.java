@@ -162,7 +162,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double ROT_EDEFAULT = 0.0;
+	protected static final int ROT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getRot() <em>Rot</em>}' attribute.
@@ -172,7 +172,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * @generated
 	 * @ordered
 	 */
-	protected double rot = ROT_EDEFAULT;
+	protected int rot = ROT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isXref() <em>Xref</em>}' attribute.
@@ -344,7 +344,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getRot() {
+	public int getRot() {
 		return rot;
 	}
 
@@ -353,8 +353,8 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRot(double newRot) {
-		double oldRot = rot;
+	public void setRot(int newRot) {
+		int oldRot = rot;
 		rot = newRot;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.LABEL__ROT, oldRot, rot));
@@ -436,7 +436,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 				setRatio((Integer)newValue);
 				return;
 			case EaglemodelPackage.LABEL__ROT:
-				setRot((Double)newValue);
+				setRot((Integer)newValue);
 				return;
 			case EaglemodelPackage.LABEL__XREF:
 				setXref((Boolean)newValue);

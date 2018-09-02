@@ -165,12 +165,12 @@ public interface Rectangle extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rot</em>' attribute.
-	 * @see #setRot(double)
+	 * @see #setRot(int)
 	 * @see eaglemodel.EaglemodelPackage#getRectangle_Rot()
 	 * @model
 	 * @generated
 	 */
-	double getRot();
+	int getRot();
 
 	/**
 	 * Sets the value of the '{@link eaglemodel.Rectangle#getRot <em>Rot</em>}' attribute.
@@ -180,6 +180,6 @@ public interface Rectangle extends EObject {
 	 * @see #getRot()
 	 * @generated
 	 */
-	void setRot(double value);
+	void setRot(int value);
 
 } // Rectangle

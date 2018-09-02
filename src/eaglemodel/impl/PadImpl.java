@@ -164,7 +164,7 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double ROT_EDEFAULT = 0.0;
+	protected static final int ROT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getRot() <em>Rot</em>}' attribute.
@@ -174,7 +174,7 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * @generated
 	 * @ordered
 	 */
-	protected double rot = ROT_EDEFAULT;
+	protected int rot = ROT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isStop() <em>Stop</em>}' attribute.
@@ -386,7 +386,7 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getRot() {
+	public int getRot() {
 		return rot;
 	}
 
@@ -395,8 +395,8 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRot(double newRot) {
-		double oldRot = rot;
+	public void setRot(int newRot) {
+		int oldRot = rot;
 		rot = newRot;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.PAD__ROT, oldRot, rot));
@@ -524,7 +524,7 @@ public class PadImpl extends MinimalEObjectImpl.Container implements Pad {
 				setShape((PadShape)newValue);
 				return;
 			case EaglemodelPackage.PAD__ROT:
-				setRot((Double)newValue);
+				setRot((Integer)newValue);
 				return;
 			case EaglemodelPackage.PAD__STOP:
 				setStop((Boolean)newValue);

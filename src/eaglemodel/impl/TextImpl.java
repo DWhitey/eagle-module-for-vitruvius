@@ -165,7 +165,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double ROT_EDEFAULT = 0.0;
+	protected static final int ROT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getRot() <em>Rot</em>}' attribute.
@@ -175,7 +175,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * @generated
 	 * @ordered
 	 */
-	protected double rot = ROT_EDEFAULT;
+	protected int rot = ROT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAlign() <em>Align</em>}' attribute.
@@ -387,7 +387,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getRot() {
+	public int getRot() {
 		return rot;
 	}
 
@@ -396,8 +396,8 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRot(double newRot) {
-		double oldRot = rot;
+	public void setRot(int newRot) {
+		int oldRot = rot;
 		rot = newRot;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.TEXT__ROT, oldRot, rot));
@@ -525,7 +525,7 @@ public class TextImpl extends MinimalEObjectImpl.Container implements Text {
 				setRatio((Integer)newValue);
 				return;
 			case EaglemodelPackage.TEXT__ROT:
-				setRot((Double)newValue);
+				setRot((Integer)newValue);
 				return;
 			case EaglemodelPackage.TEXT__ALIGN:
 				setAlign((Align)newValue);

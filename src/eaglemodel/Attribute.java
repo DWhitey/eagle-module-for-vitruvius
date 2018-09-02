@@ -252,12 +252,12 @@ public interface Attribute extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rot</em>' attribute.
-	 * @see #setRot(double)
+	 * @see #setRot(int)
 	 * @see eaglemodel.EaglemodelPackage#getAttribute_Rot()
 	 * @model
 	 * @generated
 	 */
-	double getRot();
+	int getRot();
 
 	/**
 	 * Sets the value of the '{@link eaglemodel.Attribute#getRot <em>Rot</em>}' attribute.
@@ -267,7 +267,7 @@ public interface Attribute extends EObject {
 	 * @see #getRot()
 	 * @generated
 	 */
-	void setRot(double value);
+	void setRot(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Display</b></em>' attribute.

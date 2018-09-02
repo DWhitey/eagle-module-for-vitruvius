@@ -150,7 +150,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double ROT_EDEFAULT = 0.0;
+	protected static final int ROT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getRot() <em>Rot</em>}' attribute.
@@ -160,7 +160,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * @generated
 	 * @ordered
 	 */
-	protected double rot = ROT_EDEFAULT;
+	protected int rot = ROT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
@@ -301,7 +301,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getRot() {
+	public int getRot() {
 		return rot;
 	}
 
@@ -310,8 +310,8 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRot(double newRot) {
-		double oldRot = rot;
+	public void setRot(int newRot) {
+		int oldRot = rot;
 		rot = newRot;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.INSTANCE__ROT, oldRot, rot));
@@ -394,7 +394,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
 				setSmashed((Boolean)newValue);
 				return;
 			case EaglemodelPackage.INSTANCE__ROT:
-				setRot((Double)newValue);
+				setRot((Integer)newValue);
 				return;
 			case EaglemodelPackage.INSTANCE__ATTRIBUTE:
 				getAttribute().clear();
