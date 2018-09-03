@@ -3727,8 +3727,8 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNet_Class() {
-		return (EReference)netEClass.getEStructuralFeatures().get(1);
+	public EAttribute getNet_Class() {
+		return (EAttribute)netEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4527,7 +4527,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 
 		netEClass = createEClass(NET);
 		createEAttribute(netEClass, NET__NAME);
-		createEReference(netEClass, NET__CLASS);
+		createEAttribute(netEClass, NET__CLASS);
 		createEReference(netEClass, NET__SEGMENT);
 
 		segmentEClass = createEClass(SEGMENT);
@@ -4999,7 +4999,7 @@ public class EaglemodelPackageImpl extends EPackageImpl implements EaglemodelPac
 
 		initEClass(netEClass, Net.class, "Net", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNet_Name(), ecorePackage.getEString(), "name", null, 1, 1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNet_Class(), this.getClass_(), null, "class", null, 0, 1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNet_Class(), ecorePackage.getEInt(), "class", null, 0, 1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNet_Segment(), this.getSegment(), null, "segment", null, 0, -1, Net.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(segmentEClass, Segment.class, "Segment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

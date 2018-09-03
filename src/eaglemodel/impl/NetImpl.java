@@ -59,14 +59,24 @@ public class NetImpl extends MinimalEObjectImpl.Container implements Net {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClass_() <em>Class</em>}' containment reference.
+	 * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getClass_()
 	 * @generated
 	 * @ordered
 	 */
-	protected eaglemodel.Class class_;
+	protected static final int CLASS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClass_()
+	 * @generated
+	 * @ordered
+	 */
+	protected int class_ = CLASS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSegment() <em>Segment</em>}' containment reference list.
@@ -123,7 +133,7 @@ public class NetImpl extends MinimalEObjectImpl.Container implements Net {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public eaglemodel.Class getClass_() {
+	public int getClass_() {
 		return class_;
 	}
 
@@ -132,33 +142,11 @@ public class NetImpl extends MinimalEObjectImpl.Container implements Net {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClass(eaglemodel.Class newClass, NotificationChain msgs) {
-		eaglemodel.Class oldClass = class_;
+	public void setClass(int newClass) {
+		int oldClass = class_;
 		class_ = newClass;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EaglemodelPackage.NET__CLASS, oldClass, newClass);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setClass(eaglemodel.Class newClass) {
-		if (newClass != class_) {
-			NotificationChain msgs = null;
-			if (class_ != null)
-				msgs = ((InternalEObject)class_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.NET__CLASS, null, msgs);
-			if (newClass != null)
-				msgs = ((InternalEObject)newClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EaglemodelPackage.NET__CLASS, null, msgs);
-			msgs = basicSetClass(newClass, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.NET__CLASS, newClass, newClass));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EaglemodelPackage.NET__CLASS, oldClass, class_));
 	}
 
 	/**
@@ -181,8 +169,6 @@ public class NetImpl extends MinimalEObjectImpl.Container implements Net {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EaglemodelPackage.NET__CLASS:
-				return basicSetClass(null, msgs);
 			case EaglemodelPackage.NET__SEGMENT:
 				return ((InternalEList<?>)getSegment()).basicRemove(otherEnd, msgs);
 		}
@@ -220,7 +206,7 @@ public class NetImpl extends MinimalEObjectImpl.Container implements Net {
 				setName((String)newValue);
 				return;
 			case EaglemodelPackage.NET__CLASS:
-				setClass((eaglemodel.Class)newValue);
+				setClass((Integer)newValue);
 				return;
 			case EaglemodelPackage.NET__SEGMENT:
 				getSegment().clear();
@@ -242,7 +228,7 @@ public class NetImpl extends MinimalEObjectImpl.Container implements Net {
 				setName(NAME_EDEFAULT);
 				return;
 			case EaglemodelPackage.NET__CLASS:
-				setClass((eaglemodel.Class)null);
+				setClass(CLASS_EDEFAULT);
 				return;
 			case EaglemodelPackage.NET__SEGMENT:
 				getSegment().clear();
@@ -262,7 +248,7 @@ public class NetImpl extends MinimalEObjectImpl.Container implements Net {
 			case EaglemodelPackage.NET__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EaglemodelPackage.NET__CLASS:
-				return class_ != null;
+				return class_ != CLASS_EDEFAULT;
 			case EaglemodelPackage.NET__SEGMENT:
 				return segment != null && !segment.isEmpty();
 		}
@@ -281,6 +267,8 @@ public class NetImpl extends MinimalEObjectImpl.Container implements Net {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", class: ");
+		result.append(class_);
 		result.append(')');
 		return result.toString();
 	}

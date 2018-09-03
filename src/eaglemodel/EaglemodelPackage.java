@@ -4149,7 +4149,7 @@ public interface EaglemodelPackage extends EPackage {
 	int NET__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Class</b></em>' containment reference.
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -8261,15 +8261,15 @@ public interface EaglemodelPackage extends EPackage {
 	EAttribute getNet_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link eaglemodel.Net#getClass_ <em>Class</em>}'.
+	 * Returns the meta object for the attribute '{@link eaglemodel.Net#getClass_ <em>Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Class</em>'.
+	 * @return the meta object for the attribute '<em>Class</em>'.
 	 * @see eaglemodel.Net#getClass_()
 	 * @see #getNet()
 	 * @generated
 	 */
-	EReference getNet_Class();
+	EAttribute getNet_Class();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link eaglemodel.Net#getSegment <em>Segment</em>}'.
@@ -11508,12 +11508,12 @@ public interface EaglemodelPackage extends EPackage {
 		EAttribute NET__NAME = eINSTANCE.getNet_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Class</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Class</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NET__CLASS = eINSTANCE.getNet_Class();
+		EAttribute NET__CLASS = eINSTANCE.getNet_Class();
 
 		/**
 		 * The meta object literal for the '<em><b>Segment</b></em>' containment reference list feature.

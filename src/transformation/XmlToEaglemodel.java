@@ -240,6 +240,9 @@ public class XmlToEaglemodel {
 		Net ne = factory.createNet();
 
 		ne.setName(net.getAttributes().getNamedItem("name").getNodeValue());
+		if (contains(net.getAttributes(), "class")) {
+			ne.setClass(Integer.valueOf(net.getAttributes().getNamedItem("class").getNodeValue()));
+		}
 		
 		if (net.hasChildNodes()) {
 			NodeList netList = net.getChildNodes();
@@ -247,9 +250,6 @@ public class XmlToEaglemodel {
 			for (int i = 0; i < netList.getLength(); i++) {
 				Node n = netList.item(i);
 				switch (n.getNodeName()) {
-				case "class":
-					ne.setClass(parseClass(n));
-					break;
 				case "segment":
 					ne.getSegment().add(parseSegment(n));
 					break;
@@ -1727,15 +1727,19 @@ public class XmlToEaglemodel {
 				l.setName(n.getAttributes().getNamedItem("name").getNodeValue());
 				l.setColor(Integer.valueOf(n.getAttributes().getNamedItem("color").getNodeValue()));
 				l.setFill(Integer.valueOf(n.getAttributes().getNamedItem("fill").getNodeValue()));
-				if (n.getAttributes().getNamedItem("visible").getNodeValue().equals("no")) {
-					l.setVisible(false);
-				} else {
-					l.setVisible(true);
+				if (contains(n.getAttributes(), "visible")) {
+					if (n.getAttributes().getNamedItem("visible").getNodeValue().equals("no")) {
+						l.setVisible(false);
+					} else {
+						l.setVisible(true);
+					}
 				}
-				if (n.getAttributes().getNamedItem("active").getNodeValue().equals("no")) {
-					l.setActive(false);
-				} else {
-					l.setActive(true);
+				if (contains(n.getAttributes(), "active")) {
+					if (n.getAttributes().getNamedItem("active").getNodeValue().equals("no")) {
+						l.setActive(false);
+					} else {
+						l.setActive(true);
+					}
 				}
 				ls.getLayers().add(l);
 			}

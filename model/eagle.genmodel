@@ -506,7 +506,7 @@
     </genClasses>
     <genClasses ecoreClass="eagle.ecore#//Net">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Net/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eagle.ecore#//Net/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute eagle.ecore#//Net/class"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference eagle.ecore#//Net/segment"/>
     </genClasses>
     <genClasses ecoreClass="eagle.ecore#//Segment">

@@ -15,7 +15,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -55,7 +54,7 @@ public class EaglemodelToXml {
 		
 		DOMSource source = new DOMSource(doc);
 		StreamResult result = new StreamResult(file);
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");	// several lines
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");	// linesbrakes in xml, not in one single line
 		transformer.transform(source, result);
 	}
 	
@@ -172,11 +171,6 @@ public class EaglemodelToXml {
 	}
 
 
-
-
-
-
-
 	private Node parseSchematic(Schematic sch) {
 		Element schematic = doc.createElement("schematic");
 		schematic.setAttribute("xreflabel", sch.getXreflabel());
@@ -203,18 +197,153 @@ public class EaglemodelToXml {
 		if (sch.getSheets() != null) {
 			schematic.appendChild(parseSheets(sch.getSheets()));
 		}
-//		if (sch.getErrors() != null) {
-//			Element errors = doc.createElement("errors");
-//			schematic.appendChild(errors);
-//		}
+		if (sch.getErrors() != null) {
+			schematic.appendChild(parseErrors(sch.getErrors()));
+		}
 		
 		return schematic;
 	}
 
 
-	private Node parseSheets(Sheets sheets) {
-		// TODO Auto-generated method stub
-		return null;
+	private Node parseErrors(Errors es) {
+		Element errors = doc.createElement("errors");
+		
+		for (int i = 0; i < es.getError().size(); i++) {
+			Element error = doc.createElement("error");
+			Approved e = es.getError().get(i);
+			error.setAttribute("hash", e.getHash());
+		}
+			
+		return errors;	
+	}
+
+
+	private Node parseSheets(Sheets ss) {
+		Element sheets = doc.createElement("sheets");
+		
+		for (int i = 0; i < ss.getSheet().size(); i++) {
+			Element sheet = doc.createElement("sheet");
+			Sheet s = ss.getSheet().get(i);
+			
+			if (s.getDescription() != null) {
+				sheet.appendChild(parseDescription(s.getDescription()));
+			}
+			if (s.getPlain() != null) {
+				sheet.appendChild(parsePlain(s.getPlain()));
+			}
+			sheet.appendChild(instances);
+			if (s.getBusses() != null) {
+				sheet.appendChild(parseBusses(s.getBusses()));
+			}
+			if (s.getNets() != null) {
+				sheet.appendChild(parseNets(s.getNets()));
+			}
+			
+			sheets.appendChild(sheet);
+		}
+		
+		return sheets;
+	}
+
+
+	private Node parseNets(Nets ns) {
+		Element nets = doc.createElement("nets");
+		
+		for (int i = 0; i < ns.getNet().size(); i++) {
+			Element net = doc.createElement("net");
+			Net n = ns.getNet().get(i);
+			
+			net.setAttribute("name", n.getName());
+			net.setAttribute("class", String.valueOf(n.getClass_()));
+
+			for (int j = 0; j < n.getSegment().size(); j++) {
+				net.appendChild(parseSegment(n.getSegment().get(j)));
+			}
+			
+			nets.appendChild(net);
+		}
+		
+		return nets;
+	}
+
+
+	private Node parseBusses(Busses bs) {
+		Element busses = doc.createElement("busses");
+		
+		for (int i = 0; i < bs.getBus().size(); i++) {
+			Element bus = doc.createElement("bus");
+			Bus b = bs.getBus().get(i);
+			
+			bus.setAttribute("name", b.getName());
+			
+			for (int j = 0; j < b.getSegment().size(); j++) {
+				bus.appendChild(parseSegment(b.getSegment().get(j)));
+			}
+			
+			busses.appendChild(bus);
+		}
+		
+		return busses;
+	}
+
+
+	private Node parseSegment(Segment s) {
+		Element segment = doc.createElement("segment");
+		
+		for (int k = 0; k < s.getPinref().size(); k++) {
+			Element pinref = doc.createElement("pinref");
+			Pinref p = s.getPinref().get(k);
+			
+			pinref.setAttribute("part", p.getPart());
+			pinref.setAttribute("gate", p.getGate());
+			pinref.setAttribute("pin", p.getPin());
+			
+			segment.appendChild(pinref);
+		}
+		for (int k = 0; k < s.getWire().size(); k++) {
+			segment.appendChild(parseWire(s.getWire().get(k)));
+		}
+		for (int k = 0; k < s.getJunction().size(); k++) {
+			Element junction = doc.createElement("junction");
+			Junction junc = s.getJunction().get(k);
+			
+			junction.setAttribute("x", String.valueOf(junc.getX()));
+			junction.setAttribute("y", String.valueOf(junc.getY()));
+			
+			segment.appendChild(junction);
+		}
+		for (int k = 0; k < s.getLabel().size(); k++) {
+			Element label = doc.createElement("label");
+			Label l = s.getLabel().get(k);
+			
+			label.setAttribute("x", String.valueOf(l.getX()));
+			label.setAttribute("y", String.valueOf(l.getY()));
+			label.setAttribute("size", String.valueOf(l.getSize()));
+			label.setAttribute("layer", String.valueOf(l.getLayer()));
+			
+			if (!l.getFont().getName().equals("proportional")) {
+				label.setAttribute("font", l.getFont().getName());
+			}
+			if (l.getRatio() != 8) {
+				label.setAttribute("ratio", String.valueOf(l.getRatio()));
+			}
+			if (l.getRot() != 0) {
+				label.setAttribute("rot", "R" + l.getRot());
+			}
+			if (l.isXref()) {
+				label.setAttribute("xref", "yes");
+			}
+			
+			segment.appendChild(label);
+		}
+		
+		return segment;
+	}
+
+
+	private Node parsePlain(Plain p) {
+		Element plain = doc.createElement("plain");
+		return plain;
 	}
 
 
@@ -250,15 +379,20 @@ public class EaglemodelToXml {
 			if (p.getAttribute() != null) {
 				for (int j = 0; j < p.getAttribute().size(); j++) {
 					part.appendChild(parsePartAttribute(p.getAttribute().get(j)));
-					instances.appendChild(parseInstancesAttribute(p.getAttribute().get(j)));
+					instance.appendChild(parseInstancesAttribute(p.getAttribute().get(j)));
 				}
-				
-				Element attributeUid = doc.createElement("attribute");
-				attributeUid.setAttribute("name", "uid");
-				attributeUid.setAttribute("value", String.valueOf(p.getUid()));
-				
-				part.appendChild(attributeUid);
 			}
+			
+			Element attributeUidPart = doc.createElement("attribute");
+			attributeUidPart.setAttribute("name", "UID");
+			attributeUidPart.setAttribute("value", String.valueOf(p.getUid()));
+			part.appendChild(attributeUidPart);
+			
+			Element attributeUidInstance = doc.createElement("attribute");
+			attributeUidInstance.setAttribute("name", "UID");
+			attributeUidInstance.setAttribute("value", String.valueOf(p.getUid()));
+			attributeUidInstance.setAttribute("layer", "96");
+			instance.appendChild(attributeUidInstance);
 			
 			if (p.getVariant() != null) {
 				for (int j = 0; j < p.getVariant().size(); j++) {
@@ -535,7 +669,7 @@ public class EaglemodelToXml {
 			connect.setAttribute("gate", c.getGate());
 			connect.setAttribute("pin", c.getPin());
 			connect.setAttribute("pad", c.getPad());
-			if (c.getRoute() != null || c.getRoute().getName().equals("all")) {
+			if (c.getRoute() != null && !c.getRoute().getName().equals("all")) {
 				connects.setAttribute("route", String.valueOf(c.getRoute().getName()));
 			}
 			
@@ -887,8 +1021,8 @@ public class EaglemodelToXml {
 		if (t.getRot() != 0) {
 			text.setAttribute("rot", "R" + t.getRot());
 		}
-		if (!t.getAlign().getName().equals("bottom-left")) {
-			text.setAttribute("align", t.getAlign().getName());
+		if (!t.getAlign().getName().equals("bottomleft")) {
+			text.setAttribute("align", t.getAlign().getLiteral());
 		}
 		if (t.getDistance() != 50) {
 			text.setAttribute("distance", String.valueOf(t.getDistance()));

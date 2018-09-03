@@ -52,30 +52,30 @@ public interface Net extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Class</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Class</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Class</em>' containment reference.
-	 * @see #setClass(eaglemodel.Class)
+	 * @return the value of the '<em>Class</em>' attribute.
+	 * @see #setClass(int)
 	 * @see eaglemodel.EaglemodelPackage#getNet_Class()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	eaglemodel.Class getClass_();
+	int getClass_();
 
 	/**
-	 * Sets the value of the '{@link eaglemodel.Net#getClass_ <em>Class</em>}' containment reference.
+	 * Sets the value of the '{@link eaglemodel.Net#getClass_ <em>Class</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Class</em>' containment reference.
+	 * @param value the new value of the '<em>Class</em>' attribute.
 	 * @see #getClass_()
 	 * @generated
 	 */
-	void setClass(eaglemodel.Class value);
+	void setClass(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Segment</b></em>' containment reference list.

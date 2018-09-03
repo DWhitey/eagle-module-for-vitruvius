@@ -534,8 +534,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Net">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="#//Class"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="segment" upperBound="-1"
         eType="#//Segment" containment="true"/>
   </eClassifiers>
