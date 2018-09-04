@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import eaglemodel.*;
 
-public class TransformationTest {
+public class TESTTransformationTest {
 
 	public void test() {
 		EaglemodelPackage.eINSTANCE.eClass();
@@ -66,7 +66,7 @@ public class TransformationTest {
 	}
 	
 	public static void main(String[] args) {
-		TransformationTest t = new TransformationTest();
+		TESTTransformationTest t = new TESTTransformationTest();
 		t.test();
 	}
 

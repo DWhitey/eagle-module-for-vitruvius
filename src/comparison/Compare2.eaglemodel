@@ -119,9 +119,9 @@
               <rectangle x1="-0.381" y1="-5.08" x2="0.381" y2="-3.429" layer="51"/>
               <rectangle x1="-2.921" y1="-5.08" x2="-2.159" y2="-3.429" layer="51"/>
               <hole y="17.78" drill="3.302"/>
-              <pad name="1" x="-2.54" y="-5.08" drill="1.1176" shape="long" rot="90.0"/>
-              <pad name="2" y="-5.08" drill="1.1176" shape="long" rot="90.0"/>
-              <pad name="3" x="2.54" y="-5.08" drill="1.1176" shape="long" rot="90.0"/>
+              <pad name="1" x="-2.54" y="-5.08" drill="1.1176" shape="long" rot="90"/>
+              <pad name="2" y="-5.08" drill="1.1176" shape="long" rot="90"/>
+              <pad name="3" x="2.54" y="-5.08" drill="1.1176" shape="long" rot="90"/>
             </package>
           </packages>
           <symbols>
@@ -139,8 +139,8 @@
               <wire x1="-1.143" y1="2.54" x2="-1.143" y2="-2.54" width="0.254" layer="94"/>
               <text x="-11.43" size="1.778" layer="96" value=">VALUE"/>
               <text x="-11.43" y="2.54" size="1.778" layer="95" value=">NAME"/>
-              <pin name="D" x="5.08" y="2.54" visible="off" length="middle" direction="pas" rot="180.0"/>
-              <pin name="S" x="5.08" y="-2.54" visible="off" length="middle" direction="pas" rot="180.0"/>
+              <pin name="D" x="5.08" y="2.54" visible="off" length="middle" direction="pas" rot="180"/>
+              <pin name="S" x="5.08" y="-2.54" visible="off" length="middle" direction="pas" rot="180"/>
               <pin name="G" x="-5.08" y="-2.54" visible="off" length="short" direction="pas"/>
             </symbol>
             <symbol name="IGFET-EN-GDS">
@@ -157,8 +157,8 @@
               <wire x1="-1.143" y1="2.54" x2="-1.143" y2="-2.54" width="0.254" layer="94"/>
               <text x="-11.43" size="1.778" layer="96" value=">VALUE"/>
               <text x="-11.43" y="2.54" size="1.778" layer="95" value=">NAME"/>
-              <pin name="D" x="5.08" y="2.54" visible="off" length="middle" direction="pas" rot="180.0"/>
-              <pin name="S" x="5.08" y="-2.54" visible="off" length="middle" direction="pas" rot="180.0"/>
+              <pin name="D" x="5.08" y="2.54" visible="off" length="middle" direction="pas" rot="180"/>
+              <pin name="S" x="5.08" y="-2.54" visible="off" length="middle" direction="pas" rot="180"/>
               <pin name="G" x="-5.08" y="-2.54" visible="off" length="short" direction="pas"/>
             </symbol>
           </symbols>
@@ -208,15 +208,15 @@
             <symbol name="GND">
               <wire x1="-1.905" x2="1.905" width="0.254" layer="94"/>
               <text x="-2.54" y="-2.54" size="1.778" layer="96" value=">VALUE"/>
-              <pin name="GND" y="2.54" visible="off" length="short" direction="sup" rot="270.0"/>
+              <pin name="GND" y="2.54" visible="off" length="short" direction="sup" rot="270"/>
             </symbol>
             <symbol name="VDD">
               <wire x1="1.27" y1="-1.905" width="0.254" layer="94"/>
               <wire x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
               <wire y1="1.27" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
               <wire x1="1.27" y1="-1.905" y2="1.27" width="0.254" layer="94"/>
-              <text x="-2.54" y="-2.54" size="1.778" layer="96" rot="90.0" value=">VALUE"/>
-              <pin name="VDD" y="-2.54" visible="off" length="short" direction="sup" rot="90.0"/>
+              <text x="-2.54" y="-2.54" size="1.778" layer="96" rot="90" value=">VALUE"/>
+              <pin name="VDD" y="-2.54" visible="off" length="short" direction="sup" rot="90"/>
             </symbol>
           </symbols>
           <devicesets>
@@ -304,7 +304,7 @@
         <class name="default"/>
       </classes>
       <parts>
-        <part name="Q1" library="transistor-fet" deviceset="BSS92" device="" technology="" gate="G$1" x="-182.88" y="172.72">
+        <part name="Q1" library="transistor-fet" deviceset="BSS92" device="" technology="" gate="G$1" x="-182.88" y="172.72" uid="8">
           <attribute name="P1" value="0001" x="-182.88" y="172.72" size="1.778" layer="96"/>
           <attribute name="TEST2" value="5" x="-182.88" y="172.72" size="1.778" layer="96"/>
         </part>
@@ -316,38 +316,15 @@
         <part name="GND1" library="supply1" deviceset="GND" device="" technology="" gate="1" x="-160.02" y="109.22"/>
         <part name="VDD1" library="supply1" deviceset="VDD" device="" technology="" gate="G$1" x="-177.8" y="193.04"/>
         <part name="NAND(A,B)" library="pinhead" deviceset="PINHD-1X1" device="" technology="" gate="G$1" x="-142.24" y="165.1"/>
-        <part name="A" library="pinhead" deviceset="PINHD-1X1" device="" technology="" gate="G$1" x="-215.9" y="137.16" rot="180.0"/>
-        <part name="B" library="pinhead" deviceset="PINHD-1X1" device="" technology="" gate="G$1" x="-215.9" y="119.38" rot="180.0"/>
-        <part name="Q5" library="transistor-fet" deviceset="BSS92" device="" technology="" gate="G$1" x="-213.36" y="185.42">
-          <attribute name="P1" value="0001" x="-213.36" y="185.42" size="1.778" layer="96"/>
-          <attribute name="TEST2" value="5" x="-213.36" y="185.42" size="1.778" layer="96"/>
-        </part>
+        <part name="A" library="pinhead" deviceset="PINHD-1X1" device="" technology="" gate="G$1" x="-215.9" y="137.16" rot="180"/>
+        <part name="B" library="pinhead" deviceset="PINHD-1X1" device="" technology="" gate="G$1" x="-215.9" y="119.38" rot="180"/>
+        <part name="Q5" library="transistor-fet" deviceset="BSS92" device="" technology="" gate="G$1" x="-205.74" y="185.42" uid="8"/>
       </parts>
       <sheets>
         <sheet>
           <plain>
             <text x="-231.14" y="167.64" size="1.778" layer="91" value="testtesttest"/>
           </plain>
-          <instances>
-            <instance part="Q1" gate="G$1" x="-182.88" y="172.72">
-              <attribute name="P1" x="-182.88" y="172.72" size="1.778" layer="96" display="off"/>
-              <attribute name="TEST2" x="-182.88" y="172.72" size="1.778" layer="96" display="off"/>
-            </instance>
-            <instance part="Q2" gate="G$1" x="-165.1" y="172.72">
-              <attribute name="P2" x="-165.1" y="172.72" size="1.778" layer="96" display="off"/>
-            </instance>
-            <instance part="Q3" gate="G$1" x="-165.1" y="121.92"/>
-            <instance part="Q4" gate="G$1" x="-165.1" y="139.7"/>
-            <instance part="GND1" gate="1" x="-160.02" y="109.22"/>
-            <instance part="VDD1" gate="G$1" x="-177.8" y="193.04"/>
-            <instance part="NAND(A,B)" gate="G$1" x="-142.24" y="165.1"/>
-            <instance part="A" gate="G$1" x="-215.9" y="137.16" rot="180.0"/>
-            <instance part="B" gate="G$1" x="-215.9" y="119.38" rot="180.0"/>
-            <instance part="Q5" gate="G$1" x="-213.36" y="185.42">
-              <attribute name="P1" x="-213.36" y="185.42" size="1.778" layer="96" display="off"/>
-              <attribute name="TEST2" x="-213.36" y="185.42" size="1.778" layer="96" display="off"/>
-            </instance>
-          </instances>
           <busses/>
           <nets>
             <net name="NAND(A,B)">

@@ -14,7 +14,7 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class WriteXMLFile {
+public class TESTWriteXMLFile {
 
 	public static void main(String argv[]) {
 
