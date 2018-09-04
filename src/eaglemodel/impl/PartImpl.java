@@ -278,7 +278,7 @@ public class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int UID_EDEFAULT = 0;
+	protected static final int UID_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getUid() <em>Uid</em>}' attribute.

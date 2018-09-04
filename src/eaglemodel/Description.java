@@ -34,7 +34,7 @@ public interface Description extends EObject {
 	 * @return the value of the '<em>Language</em>' attribute.
 	 * @see #setLanguage(String)
 	 * @see eaglemodel.EaglemodelPackage#getDescription_Language()
-	 * @model default="en" required="true"
+	 * @model default="en"
 	 * @generated
 	 */
 	String getLanguage();

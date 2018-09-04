@@ -325,6 +325,7 @@ public interface Part extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Uid</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Uid</em>' attribute isn't clear,
@@ -334,7 +335,7 @@ public interface Part extends EObject {
 	 * @return the value of the '<em>Uid</em>' attribute.
 	 * @see #setUid(int)
 	 * @see eaglemodel.EaglemodelPackage#getPart_Uid()
-	 * @model
+	 * @model default="-1" required="true"
 	 * @generated
 	 */
 	int getUid();

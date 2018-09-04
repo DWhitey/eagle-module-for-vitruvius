@@ -26,14 +26,17 @@ public class XmlToEaglemodel {
 	private File file;
 	private Document doc;
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
-	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";		// normal
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand3.sch";	// normal mit kopiertem transistor und uid
+
+//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";		// normal
+	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "MyModelTransformed.sch";	// .sch -> eaglemodel -> .sch
+	
 	private EaglemodelFactory factory;
 	private Instances instancesHelpList;
 	
-//	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
-	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest";	//Desktop PC
+	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
+//	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest";	//Desktop PC
 
 	public XmlToEaglemodel() throws SAXException, IOException, ParserConfigurationException {
 		file = new File(fileName);
@@ -47,8 +50,8 @@ public class XmlToEaglemodel {
 		
 //		path += "\\Compare1.eaglemodel";
 //		path += "\\Compare2.eaglemodel";
-		path += "\\MyModel.eaglemodel";
-//		path += "\\MyModel2.eaglemodel";
+//		path += "\\MyModel.eaglemodel";
+		path += "\\MyModel2.eaglemodel";
 		
 		// Create Eagle-Model
 		EaglemodelPackage.eINSTANCE.eClass();
@@ -546,8 +549,9 @@ public class XmlToEaglemodel {
 					Attribute partAttr = p.getAttribute().get(j);
 					if (partAttr.getName().equals("UID")) {
 						p.setUid(Integer.valueOf(partAttr.getValue()));
-						p.getAttribute().remove(j);
-						j--;
+						System.out.println(partAttr.getValue());
+//						p.getAttribute().remove(j);
+//						j--;
 						continue;
 					}
 					for (int k = 0; k < in.getAttribute().size(); k++) {
@@ -1706,7 +1710,9 @@ public class XmlToEaglemodel {
 
 	private Description parseDescription(Node description) {
 		Description d = factory.createDescription();
-		d.setLanguage(description.getAttributes().getNamedItem("language").getNodeValue());
+		if (contains(description.getAttributes(), "language")) {
+			d.setLanguage(description.getAttributes().getNamedItem("language").getNodeValue());
+		}
 		d.setValue(description.getFirstChild().getNodeValue());
 		return d;
 	}
