@@ -50,8 +50,8 @@ public class XmlToEaglemodel {
 		
 //		path += "\\Compare1.eaglemodel";
 //		path += "\\Compare2.eaglemodel";
-//		path += "\\MyModel.eaglemodel";
-		path += "\\MyModel2.eaglemodel";
+		path += "\\MyModel.eaglemodel";
+//		path += "\\MyModel2.eaglemodel";
 		
 		// Create Eagle-Model
 		EaglemodelPackage.eINSTANCE.eClass();
@@ -547,11 +547,12 @@ public class XmlToEaglemodel {
 				p.setRot(in.getRot());
 				for (int j = 0; j < p.getAttribute().size(); j++) {
 					Attribute partAttr = p.getAttribute().get(j);
+//					if (partAttr.getName().equals("UID") && Integer.valueOf(partAttr.getValue()) != 0) {
 					if (partAttr.getName().equals("UID")) {
+//						System.out.println(partAttr.getValue());
 						p.setUid(Integer.valueOf(partAttr.getValue()));
-						System.out.println(partAttr.getValue());
-//						p.getAttribute().remove(j);
-//						j--;
+						p.getAttribute().remove(j);
+						j--;
 						continue;
 					}
 					for (int k = 0; k < in.getAttribute().size(); k++) {
