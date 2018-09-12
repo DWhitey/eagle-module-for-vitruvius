@@ -35,11 +35,11 @@ public class EaglemodelToXml {
 
 	private Document doc;
 	
-//	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";					// Desktop PC
-//	private final File file = new File("C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch");
+	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";					// Desktop PC
+	private final File file = new File("C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch");
 	
-	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";									// Laptop
-	private final File file = new File("C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch");
+//	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";									// Laptop
+//	private final File file = new File("C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch");
 	
 	
 	private Element instances;
@@ -349,6 +349,32 @@ public class EaglemodelToXml {
 
 	private Node parsePlain(Plain p) {
 		Element plain = doc.createElement("plain");
+		
+		for (int i = 0; i < p.getPolygon().size(); i++) {
+			plain.appendChild(parsePolygon(p.getPolygon().get(i)));
+		}
+		for (int i = 0; i < p.getWire().size(); i++) {
+			plain.appendChild(parseWire(p.getWire().get(i)));
+		}
+		for (int i = 0; i < p.getText().size(); i++) {
+			plain.appendChild(parseText(p.getText().get(i)));
+		}
+		for (int i = 0; i < p.getDimension().size(); i++) {
+			plain.appendChild(parseDimension(p.getDimension().get(i)));
+		}
+		for (int i = 0; i < p.getCircle().size(); i++) {
+			plain.appendChild(parseCircle(p.getCircle().get(i)));
+		}
+		for (int i = 0; i < p.getRectangle().size(); i++) {
+			plain.appendChild(parseRectangle(p.getRectangle().get(i)));
+		}
+		for (int i = 0; i < p.getFrame().size(); i++) {
+			plain.appendChild(parseFrame(p.getFrame().get(i)));
+		}
+		for (int i = 0; i < p.getHole().size(); i++) {
+			plain.appendChild(parseHole(p.getHole().get(i)));
+		}
+		
 		return plain;
 	}
 

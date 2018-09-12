@@ -335,33 +335,35 @@ by R. Vogg  15.March.2002</description>
 </part>
 <part device="" deviceset="BSS92" library="transistor-fet" name="Q2">
 <attribute name="P2" value="0002"/>
-<attribute name="UID" value="0"/>
+<attribute name="UID" value="-1"/>
 </part>
 <part device="" deviceset="BSS97" library="transistor-fet" name="Q3">
-<attribute name="UID" value="0"/>
+<attribute name="UID" value="-1"/>
 </part>
 <part device="" deviceset="BSS97" library="transistor-fet" name="Q4">
-<attribute name="UID" value="0"/>
+<attribute name="UID" value="-1"/>
 </part>
 <part device="" deviceset="GND" library="supply1" name="GND1">
-<attribute name="UID" value="0"/>
+<attribute name="UID" value="-1"/>
 </part>
 <part device="" deviceset="VDD" library="supply1" name="VDD1">
-<attribute name="UID" value="0"/>
+<attribute name="UID" value="-1"/>
 </part>
 <part device="" deviceset="PINHD-1X1" library="pinhead" name="NAND(A,B)">
-<attribute name="UID" value="0"/>
+<attribute name="UID" value="-1"/>
 </part>
 <part device="" deviceset="PINHD-1X1" library="pinhead" name="A">
-<attribute name="UID" value="0"/>
+<attribute name="UID" value="-1"/>
 </part>
 <part device="" deviceset="PINHD-1X1" library="pinhead" name="B">
-<attribute name="UID" value="0"/>
+<attribute name="UID" value="-1"/>
 </part>
 </parts>
 <sheets>
 <sheet>
-<plain/>
+<plain>
+<text layer="91" size="1.778" x="-231.14" y="167.64">testtesttest</text>
+</plain>
 <instances>
 <instance gate="G$1" part="Q1" x="-182.88" y="172.72">
 <attribute display="value" layer="96" name="P1" size="1.778" x="-182.88" y="172.72"/>
@@ -370,28 +372,28 @@ by R. Vogg  15.March.2002</description>
 </instance>
 <instance gate="G$1" part="Q2" x="-165.1" y="172.72">
 <attribute display="value" layer="96" name="P2" size="1.778" x="-165.1" y="172.72"/>
-<attribute layer="96" name="UID" value="0"/>
+<attribute layer="96" name="UID" value="-1"/>
 </instance>
 <instance gate="G$1" part="Q3" x="-165.1" y="121.92">
-<attribute layer="96" name="UID" value="0"/>
+<attribute layer="96" name="UID" value="-1"/>
 </instance>
 <instance gate="G$1" part="Q4" x="-165.1" y="139.7">
-<attribute layer="96" name="UID" value="0"/>
+<attribute layer="96" name="UID" value="-1"/>
 </instance>
 <instance gate="1" part="GND1" x="-160.02" y="109.22">
-<attribute layer="96" name="UID" value="0"/>
+<attribute layer="96" name="UID" value="-1"/>
 </instance>
 <instance gate="G$1" part="VDD1" x="-177.8" y="193.04">
-<attribute layer="96" name="UID" value="0"/>
+<attribute layer="96" name="UID" value="-1"/>
 </instance>
 <instance gate="G$1" part="NAND(A,B)" x="-142.24" y="165.1">
-<attribute layer="96" name="UID" value="0"/>
+<attribute layer="96" name="UID" value="-1"/>
 </instance>
 <instance gate="G$1" part="A" rot="R180" x="-215.9" y="137.16">
-<attribute layer="96" name="UID" value="0"/>
+<attribute layer="96" name="UID" value="-1"/>
 </instance>
 <instance gate="G$1" part="B" rot="R180" x="-215.9" y="119.38">
-<attribute layer="96" name="UID" value="0"/>
+<attribute layer="96" name="UID" value="-1"/>
 </instance>
 </instances>
 <busses/>

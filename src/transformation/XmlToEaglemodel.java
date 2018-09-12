@@ -25,18 +25,22 @@ public class XmlToEaglemodel {
 
 	private File file;
 	private Document doc;
+	
+	
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
 //	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand3.sch";	// normal mit kopiertem transistor und uid
 
-//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";		// normal
-	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "MyModelTransformed.sch";	// .sch -> eaglemodel -> .sch
+	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";				// normal
+//	private final String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "MyModelTransformed.sch";	// .sch -> eaglemodel -> .sch
+	
+//	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";					//Laptop
+	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest";	//Desktop PC
+	
 	
 	private EaglemodelFactory factory;
 	private Instances instancesHelpList;
 	
-	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";	//Laptop
-//	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest";	//Desktop PC
 
 	public XmlToEaglemodel() throws SAXException, IOException, ParserConfigurationException {
 		file = new File(fileName);
