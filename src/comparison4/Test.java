@@ -1,4 +1,4 @@
-package comparison;
+package comparison4;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -23,7 +23,7 @@ import org.eclipse.emf.compare.*;
 import org.eclipse.emf.compare.scope.IComparisonScope;
 
 /*
- * Transistor Q5 hinzugefügt
+ * Transistor Name geändert, 4 Changes: 1 Part, 3 Segment in Net
  */
 public class Test {
 	
@@ -31,8 +31,8 @@ public class Test {
 	    // Load the two input models
 	    ResourceSet resourceSet1 = new ResourceSetImpl();
 	    ResourceSet resourceSet2 = new ResourceSetImpl();
-		String xmi1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison\\Compare1.eaglemodel";							// Dektop PC
-		String xmi2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison\\Compare2.eaglemodel";
+		String xmi1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison4\\Compare1.eaglemodel";							// Dektop PC
+		String xmi2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison4\\Compare2.eaglemodel";
 //		String xmi1 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison\\Compare1.eaglemodel";	// Laptop
 //		String xmi2 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison\\Compare2.eaglemodel";
 	    
@@ -86,12 +86,12 @@ public class Test {
 			System.out.println();
 			System.out.println();
 			
-			
-			printEObjectList(d.eCrossReferences());
+//			System.out.println(d.eCrossReferences().get(2));
 			
 //			printEObjectList(d.eCrossReferences().get(2).eContainingFeature().eContainer().eContents());
 //			printEObjectList(d.eCrossReferences().get(2).eContainingFeature().eContents());
 //			printEObjectList(d.eCrossReferences().get(2).eContainer().eContents());
+			printEObjectList(d.eCrossReferences());
 			
 			System.out.println();
 			System.out.println();
@@ -138,7 +138,5 @@ public class Test {
 			System.out.println();
 		}
 	}
-	
-	
 
 }
