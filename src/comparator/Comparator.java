@@ -24,23 +24,72 @@ import org.eclipse.emf.compare.merge.IBatchMerger;
 import org.eclipse.emf.compare.merge.IMerger;
 import org.eclipse.emf.compare.scope.IComparisonScope;
 
-
 /*
  * Transistor Q5 hinzugefügt (inkl. Diff mergen)
  */
+/**
+ * This class compares two models and merges the diffs from the newer model into
+ * the original one.
+ * 
+ * @author Daniel Weißer
+ * @version 1.0
+ */
 public class Comparator {
 
-	String model1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparator\\Compare1.eaglemodel"; // Dektop PC
-	String model2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparator\\Compare2.eaglemodel";
-//	String model1 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparator\\Compare1.eaglemodel";	// Laptop
-//	String model2 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparator\\Compare2.eaglemodel";
+	String model1;
+	String model2;
 
-	public Comparator() {
+	public Comparator(String modelpath1, String modelpath2) {
+		this.model1 = modelpath1;
+		this.model2 = modelpath2;
+
 		Properties prop = new Properties();
 		prop.setProperty("log4j.rootLogger", "WARN");
 		PropertyConfigurator.configure(prop);
 	}
 
+	/**
+	 * This method compares and merges both models.
+	 * 
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	private void compare() throws IOException, InterruptedException {
+		// Load the two input models
+		ResourceSet resourceSet1 = new ResourceSetImpl();
+		ResourceSet resourceSet2 = new ResourceSetImpl();
+	
+		Resource r1 = load(model1, resourceSet1);
+		Resource r2 = load(model2, resourceSet2);
+	
+		resourceSet1.getResources().add(r1);
+		resourceSet2.getResources().add(r2);
+	
+		Eagle e1 = (Eagle) r1.getContents().get(0);
+		Eagle e2 = (Eagle) r2.getContents().get(0);
+	
+		EList<Diff> differences = getDiffs(e1, e2);
+	
+		printDiffs(differences);
+	
+		// merge differences
+		IMerger.Registry mergerRegistry = IMerger.RegistryImpl.createStandaloneInstance();
+		IBatchMerger merger = new BatchMerger(mergerRegistry);
+		merger.copyAllLeftToRight(differences, new BasicMonitor());
+	
+		printDiffs(differences);
+	
+		saveModel(e1);
+	}
+
+	/**
+	 * 
+	 * @param e1 First model based on metamodel of Eagle
+	 * @param e2 Second model based on metamodel of Eagle to compare with
+	 * @return Difference between both models
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	private EList<Diff> getDiffs(Eagle e1, Eagle e2) throws IOException, InterruptedException {
 
 		// Configure EMF Compare
@@ -56,6 +105,14 @@ public class Comparator {
 		return comparison.getDifferences();
 	}
 
+	/**
+	 * This method loads a model and returns it as resource.
+	 * 
+	 * @param path        File path of the model
+	 * @param resourceSet ResourceSet of the model
+	 * @return The model as resource
+	 * @throws IOException
+	 */
 	private Resource load(String path, ResourceSet resourceSet) throws IOException {
 		EaglemodelPackage.eINSTANCE.eClass();
 
@@ -73,41 +130,30 @@ public class Comparator {
 		return resource;
 	}
 
-	private void compare() throws IOException, InterruptedException {
-		// Load the two input models
-		ResourceSet resourceSet1 = new ResourceSetImpl();
-		ResourceSet resourceSet2 = new ResourceSetImpl();
+	/**
+	 * This method persists the given model.
+	 * 
+	 * @param eag The model to be saved
+	 * @throws IOException
+	 */
+	private void saveModel(Eagle eag) throws IOException {
+		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+		Map<String, Object> m = reg.getExtensionToFactoryMap();
+		m.put("eaglemodel", new XMIResourceFactoryImpl());
 
-		Resource r1 = load(model1, resourceSet1);
-		Resource r2 = load(model2, resourceSet2);
+		ResourceSet resSet = new ResourceSetImpl();
 
-		resourceSet1.getResources().add(r1);
-		resourceSet2.getResources().add(r2);
+		Resource resource = resSet.createResource(URI.createFileURI(model1));
+		resource.getContents().add(eag);
 
-		Eagle e1 = (Eagle) r1.getContents().get(0);
-		Eagle e2 = (Eagle) r2.getContents().get(0);
-
-		EList<Diff> differences = getDiffs(e1, e2);
-
-		printDiffs(differences);
-
-		// merge differences
-		IMerger.Registry mergerRegistry = IMerger.RegistryImpl.createStandaloneInstance();
-		IBatchMerger merger = new BatchMerger(mergerRegistry);
-		merger.copyAllLeftToRight(differences, new BasicMonitor());
-
-		printDiffs(differences);
-
-		saveModel(e1);
+		resource.save(Collections.EMPTY_MAP);
 	}
 
-	public void printEObjectList(EList<EObject> list) {
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-		System.out.println();
-	}
-	
+	/**
+	 * This method prints all differences in the list.
+	 * 
+	 * @param differences The differences to print
+	 */
 	public void printDiffs(EList<Diff> differences) {
 		for (Diff d : differences) {
 			System.out.println("Art:    " + d.getKind());
@@ -121,26 +167,27 @@ public class Comparator {
 		System.out.println();
 	}
 
-	private void saveModel(Eagle eag) {
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("eaglemodel", new XMIResourceFactoryImpl());
-
-		ResourceSet resSet = new ResourceSetImpl();
-
-		Resource resource = resSet.createResource(URI.createFileURI(model1));
-		resource.getContents().add(eag);
-
-		try {
-			resource.save(Collections.EMPTY_MAP);
-		} catch (IOException e) {
-			e.printStackTrace();
+	/**
+	 * This method prints an EObjectList.
+	 * 
+	 * @param list
+	 */
+	public void printEObjectList(EList<EObject> list) {
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
 		}
+		System.out.println();
 	}
 
 	public static void main(String[] args) {
+
+		String model1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparator\\Compare1.eaglemodel"; // Dektop PC
+		String model2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparator\\Compare2.eaglemodel";
+//		String model1 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparator\\Compare1.eaglemodel";	// Laptop
+//		String model2 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparator\\Compare2.eaglemodel";
+
 		try {
-			Comparator c = new Comparator();
+			Comparator c = new Comparator(model1, model2);
 			c.compare();
 		} catch (Exception e) {
 			e.printStackTrace();
