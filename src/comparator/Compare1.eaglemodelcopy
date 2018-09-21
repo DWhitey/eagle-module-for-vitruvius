@@ -318,7 +318,6 @@
         <part name="NAND(A,B)" library="pinhead" deviceset="PINHD-1X1" device="" technology="" gate="G$1" x="-142.24" y="165.1"/>
         <part name="A" library="pinhead" deviceset="PINHD-1X1" device="" technology="" gate="G$1" x="-215.9" y="137.16" rot="180"/>
         <part name="B" library="pinhead" deviceset="PINHD-1X1" device="" technology="" gate="G$1" x="-215.9" y="119.38" rot="180"/>
-        <part name="Q5" library="transistor-fet" deviceset="BSS92" device="" technology="" gate="G$1" x="-205.74" y="185.42" uid="8"/>
       </parts>
       <sheets>
         <sheet>
