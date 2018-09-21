@@ -49,20 +49,26 @@ import org.eclipse.emf.compare.match.metamodel.MatchModel;
 import org.eclipse.emf.compare.match.service.MatchService;
 import org.eclipse.emf.compare.utils.*;
 
+/*
+ * Transistor Q5 hinzugefügt (inkl. Diff mergen)
+ */
 public class Test {
 
 	Eagle eag1;
 	Eagle eag2;
+	String path;
 
 	private Comparison compare() throws IOException, InterruptedException {
 		// Load the two input models
 		ResourceSet resourceSet1 = new ResourceSetImpl();
 		ResourceSet resourceSet2 = new ResourceSetImpl();
-		String xmi1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison5MergeTest\\Compare1.eaglemodel"; // Dektop PC
-		String xmi2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison5MergeTest\\Compare2.eaglemodel";
-//		String xmi1 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison\\Compare1.eaglemodel";	// Laptop
-//		String xmi2 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison\\Compare2.eaglemodel";
-
+//		String xmi1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison5MergeTest\\Compare1.eaglemodel"; // Dektop PC
+//		String xmi2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison5MergeTest\\Compare2.eaglemodel";
+		String xmi1 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison5MergeTest\\Compare1.eaglemodel";	// Laptop
+		String xmi2 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison5MergeTest\\Compare2.eaglemodel";
+		
+		path = xmi1;
+		
 		Resource r1 = load(xmi1, resourceSet1);
 		Resource r2 = load(xmi2, resourceSet2);
 
@@ -77,7 +83,7 @@ public class Test {
 
 		// Compare the two models
 		@SuppressWarnings("deprecation")
-		IComparisonScope scope = EMFCompare.createDefaultScope(r2, r1); // rechts ist Original und links das zu
+		IComparisonScope scope = EMFCompare.createDefaultScope(eag2, eag1); // rechts ist Original und links das zu
 																		// vergleichende Modell
 
 //		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
@@ -167,12 +173,15 @@ public class Test {
 		
 		// Funktioniert! Aber gleich wie d.copyLeftToRight()
 		
-//		IMerger.Registry mergerRegistry = IMerger.RegistryImpl.createStandaloneInstance();
-//		IBatchMerger merger = new BatchMerger(mergerRegistry);
-//		merger.copyAllLeftToRight(differences, new BasicMonitor());
+		IMerger.Registry mergerRegistry = IMerger.RegistryImpl.createStandaloneInstance();
+		IBatchMerger merger = new BatchMerger(mergerRegistry);
+		merger.copyAllLeftToRight(differences, new BasicMonitor());
 
 		
 		printDifferences(differences);
+		
+		
+		saveModel(eag1);
 	}
 
 	public void printDifferences(EList<Diff> differences) {
@@ -229,6 +238,29 @@ public class Test {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 			System.out.println();
+		}
+	}
+	
+	
+	private void saveModel(Eagle eag) {
+		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+        Map<String, Object> m = reg.getExtensionToFactoryMap();
+        m.put("eaglemodel", new XMIResourceFactoryImpl());
+		
+		
+		ResourceSet resSet = new ResourceSetImpl();
+		
+
+        
+        path = path.replace("\\", "/"); 
+        
+        Resource resource = resSet.createResource(URI.createFileURI(path));
+        resource.getContents().add(eag);
+		
+        try {
+			resource.save(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 

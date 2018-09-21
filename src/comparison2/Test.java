@@ -31,10 +31,10 @@ public class Test {
 	    // Load the two input models
 	    ResourceSet resourceSet1 = new ResourceSetImpl();
 	    ResourceSet resourceSet2 = new ResourceSetImpl();
-		String xmi1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison2\\Compare1.eaglemodel";							// Dektop PC
-		String xmi2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison2\\Compare2.eaglemodel";
-//		String xmi1 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison\\Compare1.eaglemodel";	// Laptop
-//		String xmi2 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison\\Compare2.eaglemodel";
+//		String xmi1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison2\\Compare1.eaglemodel";							// Dektop PC
+//		String xmi2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparison2\\Compare2.eaglemodel";
+		String xmi1 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison2\\Compare1.eaglemodel";	// Laptop
+		String xmi2 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparison2\\Compare2.eaglemodel";
 	    
 		Resource r1 = load(xmi1, resourceSet1);
 		Resource r2 = load(xmi2, resourceSet2);
