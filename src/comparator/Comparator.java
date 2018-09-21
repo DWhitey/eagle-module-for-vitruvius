@@ -10,6 +10,7 @@ import eaglemodel.Eagle;
 import eaglemodel.EaglemodelPackage;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
@@ -24,9 +25,6 @@ import org.eclipse.emf.compare.merge.IBatchMerger;
 import org.eclipse.emf.compare.merge.IMerger;
 import org.eclipse.emf.compare.scope.IComparisonScope;
 
-/*
- * Transistor Q5 hinzugefügt (inkl. Diff mergen)
- */
 /**
  * This class compares two models and merges the diffs from the newer model into
  * the original one.
@@ -36,8 +34,8 @@ import org.eclipse.emf.compare.scope.IComparisonScope;
  */
 public class Comparator {
 
-	String model1;
-	String model2;
+	private String model1;
+	private String model2;
 
 	public Comparator(String modelpath1, String modelpath2) {
 		this.model1 = modelpath1;
@@ -58,27 +56,27 @@ public class Comparator {
 		// Load the two input models
 		ResourceSet resourceSet1 = new ResourceSetImpl();
 		ResourceSet resourceSet2 = new ResourceSetImpl();
-	
+
 		Resource r1 = load(model1, resourceSet1);
 		Resource r2 = load(model2, resourceSet2);
-	
+
 		resourceSet1.getResources().add(r1);
 		resourceSet2.getResources().add(r2);
-	
+
 		Eagle e1 = (Eagle) r1.getContents().get(0);
 		Eagle e2 = (Eagle) r2.getContents().get(0);
-	
+
 		EList<Diff> differences = getDiffs(e1, e2);
-	
+
 		printDiffs(differences);
-	
+
 		// merge differences
 		IMerger.Registry mergerRegistry = IMerger.RegistryImpl.createStandaloneInstance();
 		IBatchMerger merger = new BatchMerger(mergerRegistry);
 		merger.copyAllLeftToRight(differences, new BasicMonitor());
-	
+
 		printDiffs(differences);
-	
+
 		saveModel(e1);
 	}
 
@@ -180,11 +178,8 @@ public class Comparator {
 	}
 
 	public static void main(String[] args) {
-
-		String model1 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparator\\Compare1.eaglemodel"; // Dektop PC
-		String model2 = "C:\\Users\\Daniel\\git\\Eagle\\src\\comparator\\Compare2.eaglemodel";
-//		String model1 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparator\\Compare1.eaglemodel";	// Laptop
-//		String model2 = "C:\\Users\\Daniel\\Documents\\Photon Workspace\\Eagle\\src\\comparator\\Compare2.eaglemodel";
+		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare1.eaglemodel";
+		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare2.eaglemodel";
 
 		try {
 			Comparator c = new Comparator(model1, model2);
