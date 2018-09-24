@@ -17,113 +17,149 @@ import eaglemodel.Text;
 import javax.xml.parsers.*;
 import java.io.*;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 
 public class XmlToEaglemodel {
 
-	private final File file;
+	private final File schematic;
+	private final String modelPath;
 	private Document doc;
-	private final String path;
 	
 	private EaglemodelFactory factory;
 	private Instances instancesHelpList;
 	
 
-	public XmlToEaglemodel(String fileName, String path) throws SAXException, IOException, ParserConfigurationException {
-		this.path = path;
-		file = new File(fileName);
-		
+	public XmlToEaglemodel(String schematicPath, String modelPath) {
+		this.modelPath = modelPath;
+		schematic = new File(schematicPath);
+	}
+
+	
+	public void parse() throws SAXException, IOException, ParserConfigurationException {
 		// XML reader for the .sch file
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		doc = dBuilder.parse(file);
+		doc = dBuilder.parse(schematic);
 		doc.getDocumentElement().normalize();
 		
 		// Create Eagle-Model
 		EaglemodelPackage.eINSTANCE.eClass();
 		factory = EaglemodelFactory.eINSTANCE;
 		
-		instancesHelpList = parseInstances(doc.getDocumentElement().getElementsByTagName("instances").item(0));
-	}
-
-	private void parseXmlToEaglemodel() {
-		Eagle eagle = factory.createEagle();
-		eagle.setVersion(doc.getDocumentElement().getAttribute("version"));
+		instancesHelpList = parseInstances(doc.getDocumentElement().getElementsByTagName("instances").item(0));		// used for redundancy in Instances and Parts object
 		
-		NodeList eagleList = doc.getDocumentElement().getChildNodes();
-		
-		if (contains(eagleList, "compatibility")) {
-			eagle.setCompatibility(parseCompatibility());
-		}
-		
-		if (contains(eagleList, "drawing")) {
-			eagle.setDrawing(parseDrawing());
-		}
-		saveModel(eagle);
+		saveModel(parseEagle(doc.getDocumentElement()));
 	}
 	
-	private Drawing parseDrawing() {
-		Drawing draw = factory.createDrawing();
-		NodeList drawingList = doc.getDocumentElement().getElementsByTagName("drawing").item(0).getChildNodes();
+	
+	private Eagle parseEagle(Node eagle) {
+		Eagle e = factory.createEagle();
 		
-		if (contains(drawingList, "settings")) {
-			draw.setSettings(parseSettings());
+		e.setVersion(eagle.getAttributes().getNamedItem("version").getNodeValue());
+		
+		if (eagle.hasChildNodes()) {
+			NodeList eagleList = eagle.getChildNodes();
+			
+			for (int i = 0; i < eagleList.getLength(); i++) {
+				Node n = eagleList.item(i);
+				if (n.getNodeName().startsWith("#")) {
+					continue;
+				} else {
+					switch (n.getNodeName()) {
+					case "compatibility":
+						e.setCompatibility(parseCompatibility(n));
+						break;
+					case "drawing":
+						e.setDrawing(parseDrawing(n));
+						break;
+					}
+				}
+			}
 		}
-		if (contains(drawingList, "grid")) {
-			draw.setGrid(parseGrid());
-		}
-		if (contains(drawingList, "layers")) {
-			draw.setLayers(parseLayers());
-		}
-		if (contains(drawingList, "schematic")) {
-			draw.setSchematic(parseSchematic());
-		}
-		return draw;
+		
+		return e;
 	}
 	
-	private Schematic parseSchematic() {
+	
+	private Drawing parseDrawing(Node draw) {
+		Drawing d = factory.createDrawing();
+		
+		if (draw.hasChildNodes()) {
+			NodeList drawingList = draw.getChildNodes();
+			
+			for (int i = 0; i < drawingList.getLength(); i++) {
+				Node n = drawingList.item(i);
+				if (n.getNodeName().startsWith("#")) {
+					continue;
+				} else {
+					switch (n.getNodeName()) {
+					case "settings":
+						d.setSettings(parseSettings(n));
+						break;
+					case "grid":
+						d.setGrid(parseGrid(n));
+						break;
+					case "layers":
+						d.setLayers(parseLayers(n));
+						break;
+					case "schematic":
+						d.setSchematic(parseSchematic(n));
+						break;
+					}
+				}
+			}
+		}
+		
+		return d;
+	}
+	
+	private Schematic parseSchematic(Node schemantic) {
 		Schematic sch = factory.createSchematic();
-		Node schemantic = doc.getDocumentElement().getElementsByTagName("schematic").item(0);
-		NodeList schemanticList = schemantic.getChildNodes();
+		
 		
 		sch.setXreflabel(schemantic.getAttributes().getNamedItem("xreflabel").getNodeValue());
 		sch.setXrefpart(schemantic.getAttributes().getNamedItem("xrefpart").getNodeValue());
 		
-		for (int i = 0; i < schemanticList.getLength(); i++) {
-			Node n = schemanticList.item(i);
-			if (n.getNodeName().startsWith("#")) {
-				continue;
-			} else {
-				switch (n.getNodeName()) {
-				case "description":
-					sch.setDescription(parseDescription(n));
-					break;
-				case "libraries":
-					sch.setLibraries(parseLibraries(n));
-					break;
-				case "attributes":
-					sch.setAttributes(parseAttributes(n));
-					break;
-				case "variantdefs":
-					sch.setVariantdefs(parseVariantdefs(n));
-					break;
-				case "classes":
-					sch.setClasses(parseClasses(n));
-					break;
-				case "parts":
-					sch.setParts(parseParts(n));
-					break;
-				case "sheets":
-					sch.setSheets(parseSheets(n));
-					break;
-				case "errors":
-					sch.setErrors(parseErrors(n));
-					break;
+		if (schemantic.hasChildNodes()) {
+			NodeList schemanticList = schemantic.getChildNodes();
+			
+			for (int i = 0; i < schemanticList.getLength(); i++) {
+				Node n = schemanticList.item(i);
+				if (n.getNodeName().startsWith("#")) {
+					continue;
+				} else {
+					switch (n.getNodeName()) {
+					case "description":
+						sch.setDescription(parseDescription(n));
+						break;
+					case "libraries":
+						sch.setLibraries(parseLibraries(n));
+						break;
+					case "attributes":
+						sch.setAttributes(parseAttributes(n));
+						break;
+					case "variantdefs":
+						sch.setVariantdefs(parseVariantdefs(n));
+						break;
+					case "classes":
+						sch.setClasses(parseClasses(n));
+						break;
+					case "parts":
+						sch.setParts(parseParts(n));
+						break;
+					case "sheets":
+						sch.setSheets(parseSheets(n));
+						break;
+					case "errors":
+						sch.setErrors(parseErrors(n));
+						break;
+					}
 				}
 			}
 		}
+		
 		return sch;
 	}
 	
@@ -502,7 +538,7 @@ public class XmlToEaglemodel {
 		p.setDeviceset(part.getAttributes().getNamedItem("deviceset").getNodeValue());
 		p.setDevice(part.getAttributes().getNamedItem("device").getNodeValue());
 		
-		if (contains(part.getAttributes(), "technology")) {
+		if (contains(part.getAttributes(), "technology") && !part.getAttributes().getNamedItem("technology").getNodeValue().equals("")) {
 			p.setTechnology(part.getAttributes().getNamedItem("technology").getNodeValue());
 		}
 		if (contains(part.getAttributes(), "value")) {
@@ -1706,46 +1742,46 @@ public class XmlToEaglemodel {
 		return d;
 	}
 
-	private Layers parseLayers() {
+	private Layers parseLayers(Node layers) {
 		Layers ls = factory.createLayers();
-		Node layers = doc.getDocumentElement().getElementsByTagName("layers").item(0);
 		
-		NodeList layersList = layers.getChildNodes();
-
-		for (int i = 0; i < layersList.getLength(); i++) {
-			Node n = layersList.item(i);
-			if (n.getNodeName().startsWith("#")) {
-				continue;
-			} else {
-				Layer l = factory.createLayer();
-				l.setNumber(Integer.valueOf(n.getAttributes().getNamedItem("number").getNodeValue()));
-				l.setName(n.getAttributes().getNamedItem("name").getNodeValue());
-				l.setColor(Integer.valueOf(n.getAttributes().getNamedItem("color").getNodeValue()));
-				l.setFill(Integer.valueOf(n.getAttributes().getNamedItem("fill").getNodeValue()));
-				if (contains(n.getAttributes(), "visible")) {
-					if (n.getAttributes().getNamedItem("visible").getNodeValue().equals("no")) {
-						l.setVisible(false);
-					} else {
-						l.setVisible(true);
+		if (layers.hasChildNodes()) {
+			NodeList layersList = layers.getChildNodes();
+			
+			for (int i = 0; i < layersList.getLength(); i++) {
+				Node n = layersList.item(i);
+				if (n.getNodeName().startsWith("#")) {
+					continue;
+				} else {
+					Layer l = factory.createLayer();
+					l.setNumber(Integer.valueOf(n.getAttributes().getNamedItem("number").getNodeValue()));
+					l.setName(n.getAttributes().getNamedItem("name").getNodeValue());
+					l.setColor(Integer.valueOf(n.getAttributes().getNamedItem("color").getNodeValue()));
+					l.setFill(Integer.valueOf(n.getAttributes().getNamedItem("fill").getNodeValue()));
+					if (contains(n.getAttributes(), "visible")) {
+						if (n.getAttributes().getNamedItem("visible").getNodeValue().equals("no")) {
+							l.setVisible(false);
+						} else {
+							l.setVisible(true);
+						}
 					}
-				}
-				if (contains(n.getAttributes(), "active")) {
-					if (n.getAttributes().getNamedItem("active").getNodeValue().equals("no")) {
-						l.setActive(false);
-					} else {
-						l.setActive(true);
+					if (contains(n.getAttributes(), "active")) {
+						if (n.getAttributes().getNamedItem("active").getNodeValue().equals("no")) {
+							l.setActive(false);
+						} else {
+							l.setActive(true);
+						}
 					}
+					ls.getLayers().add(l);
 				}
-				ls.getLayers().add(l);
 			}
 		}
+		
 		return ls;
 	}
 	
-	private Grid parseGrid() {
+	private Grid parseGrid(Node grid) {
 		Grid g = factory.createGrid();
-		
-		Node grid = doc.getDocumentElement().getElementsByTagName("grid").item(0);
 		
 		g.setDistance(Double.valueOf(grid.getAttributes().getNamedItem("distance").getNodeValue()));
 		
@@ -1831,70 +1867,72 @@ public class XmlToEaglemodel {
 	}
 	
 	
-	private Settings parseSettings() {
+	private Settings parseSettings(Node settings) {
 		Settings sets = factory.createSettings();
 		
-//		Node settings = doc.getDocumentElement().getElementsByTagName("settings").item(0);
-		NodeList settingsList = doc.getDocumentElement().getElementsByTagName("settings").item(0).getChildNodes();
-
-		Setting set = factory.createSetting();
-		for (int i = 0; i < settingsList.getLength(); i++) {
+		if (settings.hasChildNodes()) {
+			NodeList settingsList = doc.getDocumentElement().getElementsByTagName("settings").item(0).getChildNodes();
 			
-			Node n = settingsList.item(i);
-			
-			if (n.getNodeName().startsWith("#")) {
-				continue;
-			} else {
-				if (n.getAttributes().item(0).getNodeName().equals("alwaysvectorfont")) {
-					if (n.getAttributes().getNamedItem("alwaysvectorfont").getTextContent().equals("no")) {
-						set.setAlwaysvectorfont(false);
-					} else {
-						set.setAlwaysvectorfont(true);
-					}
-				} else if (n.getAttributes().item(0).getNodeName().equals("verticaltext")) {
-					if (n.getAttributes().getNamedItem("verticaltext").getTextContent().equals("up")) {
-						set.setVerticaltext(VerticalText.UP);
-					} else {
-						set.setVerticaltext(VerticalText.DOWN);
+			Setting set = factory.createSetting();
+			for (int i = 0; i < settingsList.getLength(); i++) {
+				
+				Node n = settingsList.item(i);
+				
+				if (n.getNodeName().startsWith("#")) {
+					continue;
+				} else {
+					if (n.getAttributes().item(0).getNodeName().equals("alwaysvectorfont")) {
+						if (n.getAttributes().getNamedItem("alwaysvectorfont").getTextContent().equals("no")) {
+							set.setAlwaysvectorfont(false);
+						} else {
+							set.setAlwaysvectorfont(true);
+						}
+					} else if (n.getAttributes().item(0).getNodeName().equals("verticaltext")) {
+						if (n.getAttributes().getNamedItem("verticaltext").getTextContent().equals("up")) {
+							set.setVerticaltext(VerticalText.UP);
+						} else {
+							set.setVerticaltext(VerticalText.DOWN);
+						}
 					}
 				}
+				
 			}
-			
+			/*
+			 *  usually two entities setting: alwaysvectorfont, verticaltext
+			 *  combined together because there is only need of these two values
+			 */
+			sets.getSettings().add(set);
 		}
-		/*
-		 *  usually two entities setting: alwaysvectorfont, verticaltext
-		 *  combined together because there is only need of these two values
-		 */
-		sets.getSettings().add(set);
 		return sets;
 	}
 	
-	private Compatibility parseCompatibility() {
+	private Compatibility parseCompatibility(Node compatibility) {
 		Compatibility c = factory.createCompatibility();
-		Node compatibility = doc.getDocumentElement().getElementsByTagName("compatibility").item(0);
-		NodeList compatibilityList = compatibility.getChildNodes();
 
-		
-		for (int i = 0; i < compatibilityList.getLength(); i++) {
-			Node n = compatibilityList.item(i);
-			if (n.getNodeName().startsWith("#")) {
-				continue;
-			} else {
-				Note note = factory.createNote();
-				note.setVersion(n.getAttributes().getNamedItem("version").getNodeValue());
-				switch(n.getAttributes().getNamedItem("severity").getNodeValue()) {
-				case "info":
-					note.setSeverity(Severity.INFO);
-					break;
-				case "warning":
-					note.setSeverity(Severity.WARNING);
-					break;
-				case "error":
-					note.setSeverity(Severity.ERROR);
-					break;
+		if (compatibility.hasChildNodes()) {
+			NodeList compatibilityList = compatibility.getChildNodes();
+			
+			for (int i = 0; i < compatibilityList.getLength(); i++) {
+				Node n = compatibilityList.item(i);
+				if (n.getNodeName().startsWith("#")) {
+					continue;
+				} else {
+					Note note = factory.createNote();
+					note.setVersion(n.getAttributes().getNamedItem("version").getNodeValue());
+					switch(n.getAttributes().getNamedItem("severity").getNodeValue()) {
+					case "info":
+						note.setSeverity(Severity.INFO);
+						break;
+					case "warning":
+						note.setSeverity(Severity.WARNING);
+						break;
+					case "error":
+						note.setSeverity(Severity.ERROR);
+						break;
+					}
+					note.setValue(n.getFirstChild().getNodeValue());
+					c.getNote().add(note);
 				}
-				note.setValue(n.getFirstChild().getNodeValue());
-				c.getNote().add(note);
 			}
 		}
 		return c;
@@ -1908,7 +1946,7 @@ public class XmlToEaglemodel {
 		
 		ResourceSet resSet = new ResourceSetImpl();
 		
-        Resource resource = resSet.createResource(URI.createFileURI(path));
+        Resource resource = resSet.createResource(URI.createFileURI(modelPath));
         resource.getContents().add(eag);
 		
         try {
@@ -1928,27 +1966,29 @@ public class XmlToEaglemodel {
 		return false;
 	}
 	
-	private boolean contains(NodeList list, String str) {
-		if (getChildNodesNames(list).contains(str)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 	
-	private ArrayList<String> getChildNodesNames(NodeList list) {
-		ArrayList<String> strList = new ArrayList<String>();
-		for (int i = 0; i < list.getLength(); i++) {
-			String s = list.item(i).getNodeName();
-			if (s.startsWith("#")) {
-				continue;
-			} else {
-				strList.add(s);
-			}
-		}
-		return strList;
-	}
-	
+//	private ArrayList<String> getChildNodesNames(NodeList list) {
+//		ArrayList<String> strList = new ArrayList<String>();
+//		for (int i = 0; i < list.getLength(); i++) {
+//			String s = list.item(i).getNodeName();
+//			if (s.startsWith("#")) {
+//				continue;
+//			} else {
+//				strList.add(s);
+//			}
+//		}
+//		return strList;
+//	}
+//	
+//	
+//	private boolean contains(NodeList list, String str) {
+//		if (getChildNodesNames(list).contains(str)) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
+//	
 //	private void printAllNodes(NodeList list) {
 //		for (String s : getChildNodesNames(list)) {
 //			System.out.println(s);
@@ -1965,26 +2005,26 @@ public class XmlToEaglemodel {
 	
 
 	public static void main(String[] args) {
-//		String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
-//		String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
-//		String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand3.sch";	// normal mit kopiertem transistor und uid
+//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
+//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
+//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand3.sch";	// normal mit kopiertem transistor und uid
 
-		String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";				// normal
-//		String fileName = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "MyModelTransformed.sch";	// .sch -> eaglemodel -> .sch
+		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";				// normal
+//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "MyModelTransformed.sch";	// .sch -> eaglemodel -> .sch
 		
 		
-//		String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";					//Laptop
-		String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest";	//Desktop PC
-//		path += "\\Compare1.eaglemodel";
-//		path += "\\Compare2.eaglemodel";
-		path += "\\MyModel.eaglemodel";
-//		path += "\\MyModel2.eaglemodel";
+//		String modelPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";					//Laptop
+		String modelPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest";	//Desktop PC
+//		modelPath += "\\Compare1.eaglemodel";
+//		modelPath += "\\Compare2.eaglemodel";
+		modelPath += "\\MyModel.eaglemodel";
+//		modelPath += "\\MyModel2.eaglemodel";
 		
 		
 		
 		try {
-			XmlToEaglemodel x = new XmlToEaglemodel(fileName, path);
-			x.parseXmlToEaglemodel();
+			XmlToEaglemodel x = new XmlToEaglemodel(schematicPath, modelPath);
+			x.parse();
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			e.printStackTrace();
 		}

@@ -32,20 +32,20 @@ import eaglemodel.Package;
 
 public class EaglemodelToXml {
 	
-
+	private String modelPath;
+	private File schemantic;
+	
 	private Document doc;
-	
-	private String path = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";					// Desktop PC
-	private final File file = new File("C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch");
-	
-//	private String path = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";									// Laptop
-//	private final File file = new File("C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch");
-	
 	
 	private Element instances;
 	
 	
-	private void parseEaglemodelToXml() throws ParserConfigurationException, TransformerException {
+	public EaglemodelToXml(String modelPath, String schemanticPath) {
+		this.modelPath = modelPath;
+		schemantic = new File(schemanticPath);
+	}
+	
+	private void parse() throws ParserConfigurationException, TransformerException {
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -59,7 +59,7 @@ public class EaglemodelToXml {
 		doc.appendChild(eagle);
 		
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(file);
+		StreamResult result = new StreamResult(schemantic);
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");	// linesbrakes in xml, not in one single line
 		transformer.transform(source, result);
 	}
@@ -1149,8 +1149,7 @@ public class EaglemodelToXml {
 
         ResourceSet resSet = new ResourceSetImpl();
 
-        path = path.replace("\\", "/"); 
-        Resource resource = resSet.createResource(URI.createFileURI(path));
+        Resource resource = resSet.createResource(URI.createFileURI(modelPath));
         
         try {
 			resource.load(Collections.EMPTY_MAP);
@@ -1164,9 +1163,16 @@ public class EaglemodelToXml {
 
 	
 	public static void main(String[] args) {
+			String modelPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";					// Desktop PC
+			String schemanticPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch";
+			
+//			String modelPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";									// Laptop
+//			String schemanticPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch";
+			
+			
+			EaglemodelToXml x = new EaglemodelToXml(modelPath, schemanticPath);
 		try {
-			EaglemodelToXml x = new EaglemodelToXml();
-			x.parseEaglemodelToXml();
+			x.parse();
 		} catch (ParserConfigurationException | TransformerException e) {
 			e.printStackTrace();
 		}
