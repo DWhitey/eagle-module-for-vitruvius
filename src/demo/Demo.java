@@ -14,6 +14,7 @@ import transformation.XmlToEaglemodel;
 
 public class Demo {
 
+	
 	private void parseXMLToEaglemodel() {
 //		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
 //		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
@@ -38,6 +39,7 @@ public class Demo {
 		}
 	}
 	
+
 	private void parseEaglemodelToXML() {
 		String modelPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";					// Desktop PC
 		String schemanticPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch";
@@ -54,13 +56,27 @@ public class Demo {
 		}
 	}
 	
+
 	private void compare() {
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare2.eaglemodel";
 
 		try {
 			Comparator c = new Comparator(model1, model2);
-			c.compare();
+			c.merge();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	private void getDiffs() {
+		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare1.eaglemodel";
+		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare2.eaglemodel";
+		
+		try {
+			Comparator c = new Comparator(model1, model2);
+			c.printDiffs(c.getDiffs());;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -72,11 +88,13 @@ public class Demo {
 	public static void main(String[] args) {
 		Demo d = new Demo();
 		
-		d.parseXMLToEaglemodel();
+//		d.parseXMLToEaglemodel();
 		
 //		d.parseEaglemodelToXML();
 		
 //		d.compare();
+		
+		d.getDiffs();
 	}
 
 }

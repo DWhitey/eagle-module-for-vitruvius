@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import eaglemodel.Eagle;
 import eaglemodel.EaglemodelPackage;
 
 import java.io.IOException;
@@ -33,38 +32,46 @@ import org.eclipse.emf.compare.scope.IComparisonScope;
  */
 public class Comparator {
 
-	private String model1;
-	private String model2;
+	private Resource r1;
+	private Resource r2;
 
-	public Comparator(String modelpath1, String modelpath2) {
-		this.model1 = modelpath1;
-		this.model2 = modelpath2;
+
+	/**
+	 * Constructor.
+	 * @param modelPath The path of the model before the change
+	 * @param newerModelPath The path of the changed model
+	 * @throws IOException If the loading of the models goes wrong
+	 */
+	public Comparator(String modelPath, String newerModelPath) throws IOException {
+		// Load the two input models
+		ResourceSet resourceSet1 = new ResourceSetImpl();
+		ResourceSet resourceSet2 = new ResourceSetImpl();
+
+		r1 = load(modelPath, resourceSet1);
+		r2 = load(newerModelPath, resourceSet2);
 
 		Properties prop = new Properties();
 		prop.setProperty("log4j.rootLogger", "WARN");
 		PropertyConfigurator.configure(prop);
 	}
 
+	
 	/**
 	 * This method compares and merges both models.
 	 * @throws IOException If the fetching of differences between models or the saving of the original model goes wrong 
 	 * @throws InterruptedException If the fetching of differences between models goes wrong
 	 */
-	public void compare() throws IOException, InterruptedException {
-		// Load the two input models
-		ResourceSet resourceSet1 = new ResourceSetImpl();
-		ResourceSet resourceSet2 = new ResourceSetImpl();
+	public void merge() throws IOException, InterruptedException {
 
-		Resource r1 = load(model1, resourceSet1);
-		Resource r2 = load(model2, resourceSet2);
-
-		resourceSet1.getResources().add(r1);
-		resourceSet2.getResources().add(r2);
-
-		Eagle e1 = (Eagle) r1.getContents().get(0);
-		Eagle e2 = (Eagle) r2.getContents().get(0);
-
-		EList<Diff> differences = getDiffs(e1, e2);
+//		resourceSet1.getResources().add(r1);
+//		resourceSet2.getResources().add(r2);
+//
+//		Eagle e1 = (Eagle) r1.getContents().get(0);
+//		Eagle e2 = (Eagle) r2.getContents().get(0);
+//
+//		EList<Diff> differences = getDiffs(e1, e2);
+		
+		EList<Diff> differences = getDiffs();
 
 		printDiffs(differences);
 
@@ -75,31 +82,33 @@ public class Comparator {
 
 		printDiffs(differences);
 
-		saveModel(e1);
+		saveModel(r1);
 	}
 
+	
 	/**
 	 * This method compares two models and returns the differences between both.
-	 * @param e1 First model based on meta-model of Eagle
-	 * @param e2 Second model based on meta-model of Eagle to compare with
+	 * @param r1 First model based on meta-model of Eagle
+	 * @param r2 Second model based on meta-model of Eagle to compare with
 	 * @return Difference between both models
 	 * @throws IOException If the the fetching of differences between models goes wrong
 	 * @throws InterruptedException If the the fetching of differences between models goes wrong
 	 */
-	private EList<Diff> getDiffs(Eagle e1, Eagle e2) throws IOException, InterruptedException {
+	public EList<Diff> getDiffs() throws IOException, InterruptedException {
 
 		EMFCompare comparator = EMFCompare.builder().build();
 
 		@SuppressWarnings("deprecation")
 		
 		// left: newer and changed model, right: original model
-		IComparisonScope scope = EMFCompare.createDefaultScope(e2, e1);
+		IComparisonScope scope = EMFCompare.createDefaultScope(r2, r1);
 
 		Comparison comparison = comparator.compare(scope);
 
 		return comparison.getDifferences();
 	}
 
+	
 	/**
 	 * This method loads a model and returns it as resource.
 	 * @param path File path of the model
@@ -124,29 +133,39 @@ public class Comparator {
 		return resource;
 	}
 
+	
 	/**
 	 * This method persists the given model.
-	 * @param eag The model to be saved
+	 * @param resource The model to be saved
 	 * @throws IOException If the saving of the model goes wrong
 	 */
-	private void saveModel(Eagle eag) throws IOException {
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("eaglemodel", new XMIResourceFactoryImpl());
-
-		ResourceSet resSet = new ResourceSetImpl();
-
-		Resource resource = resSet.createResource(URI.createFileURI(model1));
-		resource.getContents().add(eag);
-
+	private void saveModel(Resource resource) throws IOException {
 		resource.save(Collections.EMPTY_MAP);
 	}
+
+	/**
+	 * Getter.
+	 * @return The model
+	 */
+	public Resource getR1() {
+		return r1;
+	}
+
+
+	/**
+	 * Getter.
+	 * @return The newer model
+	 */
+	public Resource getR2() {
+		return r2;
+	}
+
 
 	/**
 	 * This method prints out all differences in the given differences list.
 	 * @param differences The differences to print
 	 */
-	private void printDiffs(EList<Diff> differences) {
+	public void printDiffs(EList<Diff> differences) {
 		for (Diff d : differences) {
 			System.out.println("Art:    " + d.getKind());
 			System.out.println("Match:  " + d.getMatch());
@@ -159,9 +178,10 @@ public class Comparator {
 		System.out.println();
 	}
 
+	
 	/**
 	 * This method prints an EObjectList.
-	 * @param list
+	 * @param list The list to print
 	 */
 	private void printEObjectList(EList<EObject> list) {
 		for (int i = 0; i < list.size(); i++) {
@@ -169,5 +189,6 @@ public class Comparator {
 		}
 		System.out.println();
 	}
-
+	
+	
 }
