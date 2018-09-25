@@ -45,6 +45,7 @@ public class EaglemodelToXml {
 	
 	private Element instances;
 	
+	
 	/**
 	 * Constructor.
 	 * @param modelPath The path of the given model
@@ -56,6 +57,11 @@ public class EaglemodelToXml {
 	}
 	
 	
+	/**
+	 * This method creates the necessary document builder, parses the model into a schematic and saves the file.
+	 * @throws ParserConfigurationException If the creation of the document builder goes wrong
+	 * @throws TransformerException If the transformation from the StreamResult onto the file goes wrong 
+	 */
 	public void parse() throws ParserConfigurationException, TransformerException {
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -76,6 +82,11 @@ public class EaglemodelToXml {
 	}
 	
 	
+	/**
+	 * This method parses the model root node and its attributes and references.
+	 * @param e The model element to parse
+	 * @return The parsed node element
+	 */
 	private Element parseEagle(Eagle e) {
 		Element eagle = doc.createElement("eagle");
 		if (!e.getVersion().equals("")) {
@@ -91,6 +102,11 @@ public class EaglemodelToXml {
 	}
 	
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param c The model element to parse
+	 * @return The parsed node element
+	 */
 	private Element parseCompatibility(Compatibility c) {
 		Element compatibility = doc.createElement("compatibility");
 
@@ -105,7 +121,12 @@ public class EaglemodelToXml {
 		return compatibility;
 	}
 	
-	
+
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param d The model element to parse
+	 * @return The parsed node element
+	 */
 	private Element parseDrawing(Drawing d) {
 		Element drawing = doc.createElement("drawing");
 		
@@ -188,6 +209,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param sch The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseSchematic(Schematic sch) {
 		Element schematic = doc.createElement("schematic");
 		schematic.setAttribute("xreflabel", sch.getXreflabel());
@@ -222,6 +248,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param es The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseErrors(Errors es) {
 		Element errors = doc.createElement("errors");
 		
@@ -235,6 +266,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ss The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseSheets(Sheets ss) {
 		Element sheets = doc.createElement("sheets");
 		
@@ -263,6 +299,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ns The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseNets(Nets ns) {
 		Element nets = doc.createElement("nets");
 		
@@ -284,6 +325,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param bs The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseBusses(Busses bs) {
 		Element busses = doc.createElement("busses");
 		
@@ -304,6 +350,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param s The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseSegment(Segment s) {
 		Element segment = doc.createElement("segment");
 		
@@ -358,6 +409,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param p The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parsePlain(Plain p) {
 		Element plain = doc.createElement("plain");
 		
@@ -390,6 +446,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ps The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseParts(Parts ps) {
 		Element parts = doc.createElement("parts");
 		
@@ -451,6 +512,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param v The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseVariant(Variant v) {
 		Element variant = doc.createElement("variant");
 		
@@ -469,6 +535,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param a
+	 * @return The parsed node element
+	 */
 	private Node parseInstancesAttribute(Attribute a) {
 		Element attribute = doc.createElement("attribute");
 		
@@ -483,6 +554,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param a The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parsePartAttribute(Attribute a) {
 		Element attribute = doc.createElement("attribute");
 		
@@ -493,6 +569,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param cs The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseClasses(Classes cs) {
 		Element classes = doc.createElement("classes");
 		
@@ -531,6 +612,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param vs The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseVariantdefs(Variantdefs vs) {
 		Element variantdefs = doc.createElement("variantdefs");
 		
@@ -548,6 +634,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param as The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseAttributes(Attributes as) {
 		Element attributes = doc.createElement("attributes");
 		
@@ -559,6 +650,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ls The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseLibraries(Libraries ls) {
 		Element libraries = doc.createElement("libraries");
 		
@@ -587,6 +683,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ds The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseDevicesets(Devicesets ds) {
 		Element devicesets = doc.createElement("devicesets");
 		
@@ -618,6 +719,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ds The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseDevices(Devices ds) {
 		Element devices = doc.createElement("devices");
 		
@@ -644,6 +750,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ts The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseTechnologies(Technologies ts) {
 		Element technologies = doc.createElement("technologies");
 		
@@ -663,6 +774,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param a The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseAttribute(Attribute a) {
 		Element attribute = doc.createElement("attribute");
 		
@@ -702,6 +818,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param cs The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseConnects(Connects cs) {
 		Element connects = doc.createElement("connects");
 		
@@ -723,6 +844,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param gs The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseGates(Gates gs) {
 		Element gates = doc.createElement("gates");
 		
@@ -749,6 +875,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ss The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseSymbols(Symbols ss) {
 		Element symbols = doc.createElement("symbols");
 		
@@ -792,6 +923,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param p The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parsePin(Pin p) {
 		Element pin = doc.createElement("pin");
 		
@@ -822,6 +958,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param ps The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parsePackages(Packages ps) {
 		Element packages = doc.createElement("packages");
 		
@@ -871,10 +1012,11 @@ public class EaglemodelToXml {
 	}
 
 
-
-
-
-
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param s The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseSmd(SMD s) {
 		Element smd = doc.createElement("smd");
 		
@@ -905,6 +1047,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param p The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parsePad(Pad p) {
 		Element pad = doc.createElement("pad");
 		
@@ -936,6 +1083,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param h The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseHole(Hole h) {
 		Element hole = doc.createElement("hole");
 		
@@ -947,6 +1099,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param f The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseFrame(Frame f) {
 		Element frame = doc.createElement("frame");
 		
@@ -975,6 +1132,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param r The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseRectangle(Rectangle r) {
 		Element rectangle = doc.createElement("rectangle");
 		
@@ -992,6 +1154,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param c The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseCircle(Circle c) {
 		Element circle = doc.createElement("circle");
 		
@@ -1005,6 +1172,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param d The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseDimension(Dimension d) {
 		Element dimension = doc.createElement("dimension");
 		
@@ -1047,6 +1219,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param t The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseText(Text t) {
 		Element text = doc.createElement("text");
 		
@@ -1078,6 +1255,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param w The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseWire(Wire w) {
 		Element wire = doc.createElement("wire");
 		wire.setAttribute("x1", String.valueOf(w.getX1()));
@@ -1104,6 +1286,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param p The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parsePolygon(Polygon p) {
 		Element polygon = doc.createElement("polygon");
 		polygon.setAttribute("width", String.valueOf(p.getWidth()));
@@ -1141,6 +1328,11 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method parses the given model element including its attributes and references.
+	 * @param d The model element to parse
+	 * @return The parsed node element
+	 */
 	private Node parseDescription(Description d) {
 		Element description = doc.createElement("description");
 		if (!d.getLanguage().equals("en")) {
@@ -1151,6 +1343,10 @@ public class EaglemodelToXml {
 	}
 
 
+	/**
+	 * This method loads a model based on the meta-model of Eagle.
+	 * @return The model
+	 */
 	public Eagle load() {
         EaglemodelPackage.eINSTANCE.eClass();
 
@@ -1171,6 +1367,6 @@ public class EaglemodelToXml {
         Eagle eag = (Eagle) resource.getContents().get(0);
         return eag;
     }
-
+	
 	
 }
