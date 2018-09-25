@@ -10,7 +10,6 @@ import eaglemodel.Eagle;
 import eaglemodel.EaglemodelPackage;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
@@ -48,11 +47,10 @@ public class Comparator {
 
 	/**
 	 * This method compares and merges both models.
-	 * 
-	 * @throws IOException
-	 * @throws InterruptedException
+	 * @throws IOException If the fetching of differences between models or the saving of the original model goes wrong 
+	 * @throws InterruptedException If the fetching of differences between models goes wrong
 	 */
-	private void compare() throws IOException, InterruptedException {
+	public void compare() throws IOException, InterruptedException {
 		// Load the two input models
 		ResourceSet resourceSet1 = new ResourceSetImpl();
 		ResourceSet resourceSet2 = new ResourceSetImpl();
@@ -81,22 +79,21 @@ public class Comparator {
 	}
 
 	/**
-	 * 
-	 * @param e1 First model based on metamodel of Eagle
-	 * @param e2 Second model based on metamodel of Eagle to compare with
+	 * This method compares two models and returns the differences between both.
+	 * @param e1 First model based on meta-model of Eagle
+	 * @param e2 Second model based on meta-model of Eagle to compare with
 	 * @return Difference between both models
-	 * @throws IOException
-	 * @throws InterruptedException
+	 * @throws IOException If the the fetching of differences between models goes wrong
+	 * @throws InterruptedException If the the fetching of differences between models goes wrong
 	 */
 	private EList<Diff> getDiffs(Eagle e1, Eagle e2) throws IOException, InterruptedException {
 
-		// Configure EMF Compare
 		EMFCompare comparator = EMFCompare.builder().build();
 
-		// Compare the two models
 		@SuppressWarnings("deprecation")
-		IComparisonScope scope = EMFCompare.createDefaultScope(e2, e1); // rechts ist Original und links das zu
-																		// vergleichende Modell
+		
+		// left: newer and changed model, right: original model
+		IComparisonScope scope = EMFCompare.createDefaultScope(e2, e1);
 
 		Comparison comparison = comparator.compare(scope);
 
@@ -105,11 +102,10 @@ public class Comparator {
 
 	/**
 	 * This method loads a model and returns it as resource.
-	 * 
-	 * @param path        File path of the model
+	 * @param path File path of the model
 	 * @param resourceSet ResourceSet of the model
 	 * @return The model as resource
-	 * @throws IOException
+	 * @throws IOException  If the the loading of the model goes wrong
 	 */
 	private Resource load(String path, ResourceSet resourceSet) throws IOException {
 		EaglemodelPackage.eINSTANCE.eClass();
@@ -130,9 +126,8 @@ public class Comparator {
 
 	/**
 	 * This method persists the given model.
-	 * 
 	 * @param eag The model to be saved
-	 * @throws IOException
+	 * @throws IOException If the saving of the model goes wrong
 	 */
 	private void saveModel(Eagle eag) throws IOException {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
@@ -148,11 +143,10 @@ public class Comparator {
 	}
 
 	/**
-	 * This method prints all differences in the list.
-	 * 
+	 * This method prints out all differences in the given differences list.
 	 * @param differences The differences to print
 	 */
-	public void printDiffs(EList<Diff> differences) {
+	private void printDiffs(EList<Diff> differences) {
 		for (Diff d : differences) {
 			System.out.println("Art:    " + d.getKind());
 			System.out.println("Match:  " + d.getMatch());
@@ -167,25 +161,13 @@ public class Comparator {
 
 	/**
 	 * This method prints an EObjectList.
-	 * 
 	 * @param list
 	 */
-	public void printEObjectList(EList<EObject> list) {
+	private void printEObjectList(EList<EObject> list) {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
 		System.out.println();
 	}
 
-	public static void main(String[] args) {
-		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare1.eaglemodel";
-		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare2.eaglemodel";
-
-		try {
-			Comparator c = new Comparator(model1, model2);
-			c.compare();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 }

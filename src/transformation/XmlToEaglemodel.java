@@ -16,27 +16,44 @@ import eaglemodel.Text;
 
 import javax.xml.parsers.*;
 import java.io.*;
-import java.nio.file.Paths;
-//import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 
+
+/**
+ * This class transforms a given schematic into a model-based on the Eagle meta-model.
+ * 
+ * @author	Daniel Weiﬂer
+ * @version	1.0
+ *
+ */
 public class XmlToEaglemodel {
 
 	private final File schematic;
 	private final String modelPath;
 	private Document doc;
 	
-	private EaglemodelFactory factory;
+	private EaglemodelFactory factory = EaglemodelFactory.eINSTANCE;
 	private Instances instancesHelpList;
 	
 
+	/**
+	 * Constructor.
+	 * @param schematicPath The path of the given schematic
+	 * @param modelPath The path of the model to save at
+	 */
 	public XmlToEaglemodel(String schematicPath, String modelPath) {
 		this.modelPath = modelPath;
 		schematic = new File(schematicPath);
 	}
 
 	
+	/**
+	 * This method creates the necessary document builder and parses the schematic into a model.
+	 * @throws SAXException If the reading of the schematic goes wrong
+	 * @throws IOException If the reading of the schematic or the saving of the model goes wrong
+	 * @throws ParserConfigurationException If the document builder can't be created
+	 */
 	public void parse() throws SAXException, IOException, ParserConfigurationException {
 		// XML reader for the .sch file
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -44,16 +61,17 @@ public class XmlToEaglemodel {
 		doc = dBuilder.parse(schematic);
 		doc.getDocumentElement().normalize();
 		
-		// Create Eagle-Model
-		EaglemodelPackage.eINSTANCE.eClass();
-		factory = EaglemodelFactory.eINSTANCE;
-		
-		instancesHelpList = parseInstances(doc.getDocumentElement().getElementsByTagName("instances").item(0));		// used for redundancy in Instances and Parts object
+		// used for redundancy in Instances and Parts object
+		instancesHelpList = parseInstances(doc.getDocumentElement().getElementsByTagName("instances").item(0));
 		
 		saveModel(parseEagle(doc.getDocumentElement()));
 	}
 	
-	
+	/**
+	 * This method starts parsing the XML based document at the root node.
+	 * @param eagle The root node of the document named eagle
+	 * @return The model-based element of eagle
+	 */
 	private Eagle parseEagle(Node eagle) {
 		Eagle e = factory.createEagle();
 		
@@ -83,6 +101,11 @@ public class XmlToEaglemodel {
 	}
 	
 	
+	/**
+	 * This method parses the XML node drawing and its direct children.
+	 * @param draw The node to be parsed
+	 * @return The model-based element of drawing
+	 */
 	private Drawing parseDrawing(Node draw) {
 		Drawing d = factory.createDrawing();
 		
@@ -115,18 +138,24 @@ public class XmlToEaglemodel {
 		return d;
 	}
 	
-	private Schematic parseSchematic(Node schemantic) {
+
+	/**
+	 * This method parses the XML node schematic and its direct children.
+	 * @param schematic The node to be parsed
+	 * @return The model-based element of schematic
+	 */
+	private Schematic parseSchematic(Node schematic) {
 		Schematic sch = factory.createSchematic();
 		
 		
-		sch.setXreflabel(schemantic.getAttributes().getNamedItem("xreflabel").getNodeValue());
-		sch.setXrefpart(schemantic.getAttributes().getNamedItem("xrefpart").getNodeValue());
+		sch.setXreflabel(schematic.getAttributes().getNamedItem("xreflabel").getNodeValue());
+		sch.setXrefpart(schematic.getAttributes().getNamedItem("xrefpart").getNodeValue());
 		
-		if (schemantic.hasChildNodes()) {
-			NodeList schemanticList = schemantic.getChildNodes();
+		if (schematic.hasChildNodes()) {
+			NodeList schematicList = schematic.getChildNodes();
 			
-			for (int i = 0; i < schemanticList.getLength(); i++) {
-				Node n = schemanticList.item(i);
+			for (int i = 0; i < schematicList.getLength(); i++) {
+				Node n = schematicList.item(i);
 				if (n.getNodeName().startsWith("#")) {
 					continue;
 				} else {
@@ -163,7 +192,11 @@ public class XmlToEaglemodel {
 		return sch;
 	}
 	
-
+	/**
+	 * This method parses the XML node errors and its direct children.
+	 * @param errors The node to be parsed
+	 * @return The model-based element of errors
+	 */
 	private Errors parseErrors(Node errors) {
 		Errors e = factory.createErrors();
 
@@ -183,6 +216,12 @@ public class XmlToEaglemodel {
 		return e;
 	}
 
+	
+	/**
+	 * This method parses the XML node approved and its direct children.
+	 * @param approved The node to be parsed
+	 * @return The model-based element of approved
+	 */
 	private Approved parseApproved(Node approved) {
 		Approved a = factory.createApproved();
 		
@@ -191,6 +230,12 @@ public class XmlToEaglemodel {
 		return a;
 	}
 
+	
+	/**
+	 * This method parses the XML node sheets and its direct children.
+	 * @param sheets The node to be parsed
+	 * @return The model-based element of approved
+	 */
 	private Sheets parseSheets(Node sheets) {
 		Sheets s = factory.createSheets();
 
@@ -210,6 +255,12 @@ public class XmlToEaglemodel {
 		return s;
 	}
 
+	
+	/**
+	 * This method parses the XML node sheet and its direct children.
+	 * @param sheet The node to be parsed
+	 * @return The model-based element of sheet
+	 */
 	private Sheet parseSheet(Node sheet) {
 		Sheet s = factory.createSheet();
 
@@ -244,6 +295,12 @@ public class XmlToEaglemodel {
 		return s;
 	}
 
+	
+	/**
+	 * This method parses the XML node nets and its direct children.
+	 * @param nets The node to be parsed
+	 * @return The model-based element of nets
+	 */
 	private Nets parseNets(Node nets) {
 		Nets ne = factory.createNets();
 
@@ -263,6 +320,12 @@ public class XmlToEaglemodel {
 		return ne;
 	}
 
+	
+	/**
+	 * This method parses the XML node net and its direct children.
+	 * @param net The node to be parsed
+	 * @return The model-based element of net
+	 */
 	private Net parseNet(Node net) {
 		Net ne = factory.createNet();
 
@@ -287,6 +350,12 @@ public class XmlToEaglemodel {
 		return ne;
 	}
 
+	
+	/**
+	 * This method parses the XML node busses and its direct children.
+	 * @param busses The node to be parsed
+	 * @return The model-based element of busses
+	 */
 	private Busses parseBusses(Node busses) {
 		Busses b = factory.createBusses();
 
@@ -306,6 +375,12 @@ public class XmlToEaglemodel {
 		return b;
 	}
 
+	
+	/**
+	 * This method parses the XML node bus and its direct children.
+	 * @param bus The node to be parsed
+	 * @return The model-based element of bus
+	 */
 	private Bus parseBus(Node bus) {
 		Bus b = factory.createBus();
 
@@ -325,6 +400,12 @@ public class XmlToEaglemodel {
 		return b;
 	}
 
+	
+	/**
+	 * This method parses the XML node segment and its direct children.
+	 * @param segment The node to be parsed
+	 * @return The model-based element of segment
+	 */
 	private Segment parseSegment(Node segment) {
 		Segment s = factory.createSegment();
 		
@@ -358,6 +439,11 @@ public class XmlToEaglemodel {
 	}
 	
 
+	/**
+	 * This method parses the XML node label and its direct children.
+	 * @param label The node to be parsed
+	 * @return The model-based element of label
+	 */
 	private Label parseLabel(Node label) {
 		Label l = factory.createLabel();
 
@@ -396,6 +482,12 @@ public class XmlToEaglemodel {
 		return l;
 	}
 
+	
+	/**
+	 * This method parses the XML node junction and its direct children.
+	 * @param junction The node to be parsed
+	 * @return The model-based element of junction
+	 */
 	private Junction parseJunction(Node junction) {
 		Junction j = factory.createJunction();
 		
@@ -406,6 +498,11 @@ public class XmlToEaglemodel {
 	}
 	
 
+	/**
+	 * This method parses the XML node pinref and its direct children.
+	 * @param pinref The node to be parsed
+	 * @return The model-based element of pinref
+	 */
 	private Pinref parsePinref(Node pinref) {
 		Pinref p = factory.createPinref();
 		
@@ -416,6 +513,12 @@ public class XmlToEaglemodel {
 		return p;
 	}
 
+	
+	/**
+	 * This method parses the XML node instances and its direct children.
+	 * @param instances The node to be parsed
+	 * @return The model-based element of instances
+	 */
 	private Instances parseInstances(Node instances) {
 		Instances in = factory.createInstances();
 
@@ -435,6 +538,12 @@ public class XmlToEaglemodel {
 		return in;
 	}
 
+	
+	/**
+	 * This method parses the XML node instance and its direct children.
+	 * @param instance The node to be parsed
+	 * @return The model-based element of instance
+	 */
 	private Instance parseInstance(Node instance) {
 		Instance in = factory.createInstance();
 
@@ -467,6 +576,12 @@ public class XmlToEaglemodel {
 		return in;
 	}
 
+	
+	/**
+	 * This method parses the XML node plain and its direct children.
+	 * @param plain The node to be parsed
+	 * @return The model-based element of plain
+	 */
 	private Plain parsePlain(Node plain) {
 		Plain p = factory.createPlain();
 		
@@ -510,6 +625,12 @@ public class XmlToEaglemodel {
 		return p;
 	}
 
+	
+	/**
+	 * This method parses the XML node parts and its direct children.
+	 * @param parts The node to be parsed
+	 * @return The model-based element of parts
+	 */
 	private Parts parseParts(Node parts) {
 		Parts p = factory.createParts();
 
@@ -530,6 +651,11 @@ public class XmlToEaglemodel {
 	}
 
 	
+	/**
+	 * This method parses the XML node parts and its direct children, also it includes all necessary information from the node instances
+	 * @param part The node to be parsed
+	 * @return The model-based element of parts including the information of instances and a specific UID
+	 */
 	private Part parsePart(Node part) {
 		Part p = factory.createPart();
 
@@ -602,6 +728,11 @@ public class XmlToEaglemodel {
 	}
 
 	
+	/**
+	 * This method parses the XML node variant and its direct children.
+	 * @param variant The node to be parsed
+	 * @return The model-based element of variant
+	 */
 	private Variant parseVariant(Node variant) {
 		Variant v = factory.createVariant();
 		
@@ -625,6 +756,11 @@ public class XmlToEaglemodel {
 	}
 	
 
+	/**
+	 * This method parses the XML node classes and its direct children.
+	 * @param classes The node to be parsed
+	 * @return The model-based element of classes
+	 */
 	private Classes parseClasses(Node classes) {
 		Classes c = factory.createClasses();
 		
@@ -644,6 +780,12 @@ public class XmlToEaglemodel {
 		return c;
 	}
 
+	
+	/**
+	 * This method parses the XML node class and its direct children.
+	 * @param cla The node to be parsed
+	 * @return The model-based element of class
+	 */
 	private Class parseClass(Node cla) {
 		Class c = factory.createClass();
 		
@@ -672,6 +814,12 @@ public class XmlToEaglemodel {
 		return c;
 	}
 
+	
+	/**
+	 * This method parses the XML node clearance and its direct children.
+	 * @param clearance The node to be parsed
+	 * @return The model-based element of clearance
+	 */
 	private Clearance parseClearance(Node clearance) {
 		Clearance c = factory.createClearance();
 		
@@ -683,6 +831,12 @@ public class XmlToEaglemodel {
 		return c;
 	}
 
+	
+	/**
+	 * This method parses the XML node variantdefs and its direct children.
+	 * @param variantdefs The node to be parsed
+	 * @return The model-based element of variantdefs
+	 */
 	private Variantdefs parseVariantdefs(Node variantdefs) {
 		Variantdefs v = factory.createVariantdefs();
 		
@@ -702,6 +856,12 @@ public class XmlToEaglemodel {
 		return v;
 	}
 
+	
+	/**
+	 * This method parses the XML node variantdef and its direct children.
+	 * @param variantdef The node to be parsed
+	 * @return The model-based element of variantdef
+	 */
 	private Variantdef parseVariantdef(Node variantdef) {
 		Variantdef v = factory.createVariantdef();
 		
@@ -718,6 +878,12 @@ public class XmlToEaglemodel {
 		return v;
 	}
 
+	
+	/**
+	 * This method parses the XML node attributes and its direct children.
+	 * @param attributes The node to be parsed
+	 * @return The model-based element of attributes
+	 */
 	private Attributes parseAttributes(Node attributes) {
 		Attributes a = factory.createAttributes();
 		
@@ -737,6 +903,12 @@ public class XmlToEaglemodel {
 		return a;
 	}
 
+	
+	/**
+	 * This method parses the XML node libraries and its direct children.
+	 * @param libraries The node to be parsed
+	 * @return The model-based element of libraries
+	 */
 	private Libraries parseLibraries(Node libraries) {
 		Libraries l = factory.createLibraries();
 		NodeList librariesList = libraries.getChildNodes();
@@ -752,6 +924,12 @@ public class XmlToEaglemodel {
 		return l;
 	}
 
+	
+	/**
+	 * This method parses the XML node library and its direct children.
+	 * @param library The node to be parsed
+	 * @return The model-based element of library
+	 */
 	private Library parseLibrary(Node library) {
 		Library l = factory.createLibrary();
 		NodeList libraryList = library.getChildNodes();
@@ -782,6 +960,12 @@ public class XmlToEaglemodel {
 		return l;
 	}
 
+	
+	/**
+	 * This method parses the XML node devicesets and its direct children.
+	 * @param devicesets The node to be parsed
+	 * @return The model-based element of devicesets
+	 */
 	private Devicesets parseDevicesets(Node devicesets) {
 		Devicesets d = factory.createDevicesets();
 		NodeList devicesetsList = devicesets.getChildNodes();
@@ -797,6 +981,12 @@ public class XmlToEaglemodel {
 		return d;
 	}
 
+	
+	/**
+	 * This method parses the XML node deviceset and its direct children.
+	 * @param deviceset The node to be parsed
+	 * @return The model-based element of deviceset
+	 */
 	private Deviceset parseDeviceset(Node deviceset) {
 		Deviceset d = factory.createDeviceset();
 		NodeList devicesetList = deviceset.getChildNodes();
@@ -836,6 +1026,12 @@ public class XmlToEaglemodel {
 		return d;
 	}
 
+	
+	/**
+	 * This method parses the XML node gates and its direct children.
+	 * @param gates The node to be parsed
+	 * @return The model-based element of gates
+	 */
 	private Gates parseGates(Node gates) {
 		Gates g = factory.createGates();
 		NodeList gatesList = gates.getChildNodes();
@@ -852,6 +1048,12 @@ public class XmlToEaglemodel {
 		return g;
 	}
 
+	
+	/**
+	 * This method parses the XML node gate and its direct children.
+	 * @param gate The node to be parsed
+	 * @return The model-based element of gate
+	 */
 	private Gate parseGate(Node gate) {
 		Gate g = factory.createGate();
 		
@@ -886,6 +1088,12 @@ public class XmlToEaglemodel {
 		return g;
 	}
 
+	
+	/**
+	 * This method parses the XML node devices and its direct children.
+	 * @param devices The node to be parsed
+	 * @return The model-based element of devices
+	 */
 	private Devices parseDevices(Node devices) {
 		Devices d = factory.createDevices();
 		
@@ -905,6 +1113,12 @@ public class XmlToEaglemodel {
 		return d;
 	}
 
+	
+	/**
+	 * This method parses the XML node device and its direct children.
+	 * @param device The node to be parsed
+	 * @return The model-based element of device
+	 */
 	private Device parseDevice(Node device) {
 		Device d = factory.createDevice();
 		
@@ -937,6 +1151,12 @@ public class XmlToEaglemodel {
 		return d;
 	}
 
+	
+	/**
+	 * This method parses the XML node technologies and its direct children.
+	 * @param technologies The node to be parsed
+	 * @return The model-based element of technologies
+	 */
 	private Technologies parseTechnologies(Node technologies) {
 		Technologies t = factory.createTechnologies();
 		
@@ -955,6 +1175,11 @@ public class XmlToEaglemodel {
 	}
 
 	
+	/**
+	 * This method parses the XML node technology and its direct children.
+	 * @param technology The node to be parsed
+	 * @return The model-based element of technology
+	 */
 	private Technology parseTechnology(Node technology) {
 		Technology t = factory.createTechnology();
 		
@@ -978,6 +1203,11 @@ public class XmlToEaglemodel {
 	}
 
 	
+	/**
+	 * This method parses the XML node attribute and its direct children.
+	 * @param attribute The node to be parsed
+	 * @return The model-based element of attribute
+	 */
 	private Attribute parseAttribute(Node attribute) {
 		Attribute a = factory.createAttribute();
 		
@@ -1044,6 +1274,12 @@ public class XmlToEaglemodel {
 		return a;
 	}
 
+	
+	/**
+	 * This method parses the XML node connects and its direct children.
+	 * @param connects The node to be parsed
+	 * @return The model-based element of connects
+	 */
 	private Connects parseConnects(Node connects) {
 		Connects c = factory.createConnects();
 		
@@ -1062,6 +1298,11 @@ public class XmlToEaglemodel {
 	}
 
 
+	/**
+	 * This method parses the XML node connect and its direct children.
+	 * @param connect The node to be parsed
+	 * @return The model-based element of connect
+	 */
 	private Connect parseConnect(Node connect) {
 		Connect c = factory.createConnect();
 		
@@ -1083,6 +1324,12 @@ public class XmlToEaglemodel {
 		return c;
 	}
 
+	
+	/**
+	 * This method parses the XML node symbols and its direct children.
+	 * @param symbols The node to be parsed
+	 * @return The model-based element of symbols
+	 */
 	private Symbols parseSymbols(Node symbols) {
 		Symbols s = factory.createSymbols();
 		NodeList symbolsList = symbols.getChildNodes();
@@ -1098,6 +1345,12 @@ public class XmlToEaglemodel {
 		return s;
 	}
 
+	
+	/**
+	 * This method parses the XML node symbol and its direct children.
+	 * @param symbol The node to be parsed
+	 * @return The model-based element of symbol
+	 */
 	private Symbol parseSymbol(Node symbol) {
 		Symbol s = factory.createSymbol();
 		NodeList symbolList = symbol.getChildNodes();
@@ -1144,6 +1397,12 @@ public class XmlToEaglemodel {
 		return s;
 	}
 
+	
+	/**
+	 * This method parses the XML node pin and its direct children.
+	 * @param pin The node to be parsed
+	 * @return The model-based element of pin
+	 */
 	private Pin parsePin(Node pin) {
 		Pin p = factory.createPin();
 
@@ -1240,6 +1499,12 @@ public class XmlToEaglemodel {
 		return p;
 	}
 
+	
+	/**
+	 * This method parses the XML node packages and its direct children.
+	 * @param packages The node to be parsed
+	 * @return The model-based element of packages
+	 */
 	private Packages parsePackages(Node packages) {
 		Packages p = factory.createPackages();
 		NodeList packagesList = packages.getChildNodes();
@@ -1256,6 +1521,11 @@ public class XmlToEaglemodel {
 	}
 	
 
+	/**
+	 * This method parses the XML node package and its direct children.
+	 * @param pack The node to be parsed
+	 * @return The model-based element of package
+	 */
 	private Package parsePackage(Node pack) {
 		Package p = factory.createPackage();
 		NodeList packList = pack.getChildNodes();
@@ -1308,6 +1578,12 @@ public class XmlToEaglemodel {
 		return p;
 	}
 
+	
+	/**
+	 * This method parses the XML node smd and its direct children.
+	 * @param smd The node to be parsed
+	 * @return The model-based element of smd
+	 */
 	private SMD parseSmd(Node smd) {
 		SMD s = factory.createSMD();
 		
@@ -1349,6 +1625,12 @@ public class XmlToEaglemodel {
 		return s;
 	}
 
+	
+	/**
+	 * This method parses the XML node pad and its direct children.
+	 * @param pad The node to be parsed
+	 * @return The model-based element of pad
+	 */
 	private Pad parsePad(Node pad) {
 		Pad p = factory.createPad();
 		
@@ -1407,6 +1689,12 @@ public class XmlToEaglemodel {
 		return p;
 	}
 
+	
+	/**
+	 * This method parses the XML node hole and its direct children.
+	 * @param hole The node to be parsed
+	 * @return The model-based element of hole
+	 */
 	private Hole parseHole(Node hole) {
 		Hole h = factory.createHole();
 		
@@ -1417,6 +1705,12 @@ public class XmlToEaglemodel {
 		return h;
 	}
 
+	
+	/**
+	 * This method parses the XML node frame and its direct children.
+	 * @param frame The node to be parsed
+	 * @return The model-based element of frame
+	 */
 	private Frame parseFrame(Node frame) {
 		Frame f = factory.createFrame();
 		
@@ -1460,6 +1754,12 @@ public class XmlToEaglemodel {
 		return f;
 	}
 
+	
+	/**
+	 * This method parses the XML node rectangle and its direct children.
+	 * @param rectangle The node to be parsed
+	 * @return The model-based element of rectangle
+	 */
 	private Rectangle parseRectangle(Node rectangle) {
 		Rectangle r = factory.createRectangle();
 		
@@ -1476,6 +1776,12 @@ public class XmlToEaglemodel {
 		return r;
 	}
 
+	
+	/**
+	 * This method parses the XML node circle and its direct children.
+	 * @param circle The node to be parsed
+	 * @return The model-based element of circle
+	 */
 	private Circle parseCircle(Node circle) {
 		Circle c = factory.createCircle();
 		
@@ -1488,6 +1794,12 @@ public class XmlToEaglemodel {
 		return c;
 	}
 
+	
+	/**
+	 * This method parses the XML node dimension and its direct children.
+	 * @param dimension The node to be parsed
+	 * @return The model-based element of dimension
+	 */
 	private Dimension parseDimension(Node dimension) {
 		Dimension d = factory.createDimension();
 		
@@ -1565,6 +1877,12 @@ public class XmlToEaglemodel {
 		return d;
 	}
 
+	
+	/**
+	 * This method parses the XML node text and its direct children.
+	 * @param text The node to be parsed
+	 * @return The model-based element of text
+	 */
 	private Text parseText(Node text) {
 		Text t = factory.createText();
 		
@@ -1634,6 +1952,12 @@ public class XmlToEaglemodel {
 		return t;
 	}
 
+	
+	/**
+	 * This method parses the XML node wire and its direct children.
+	 * @param wire The node to be parsed
+	 * @return The model-based element of wire
+	 */
 	private Wire parseWire(Node wire) {
 		Wire w = factory.createWire();
 
@@ -1680,9 +2004,14 @@ public class XmlToEaglemodel {
 		return w;
 	}
 
+	
+	/**
+	 * This method parses the XML node polygon and its direct children.
+	 * @param polygon The node to be parsed
+	 * @return The model-based element of polygon
+	 */
 	private Polygon parsePolygon(Node polygon) {
 		Polygon p = factory.createPolygon();
-		NodeList polygonList = polygon.getChildNodes();
 		
 		p.setWidth(Double.valueOf(polygon.getAttributes().getNamedItem("width").getNodeValue()));
 		p.setLayer(Integer.valueOf(polygon.getAttributes().getNamedItem("layer").getNodeValue()));
@@ -1715,33 +2044,59 @@ public class XmlToEaglemodel {
 			p.setThermals(true);
 		}
 		p.setRank(Integer.valueOf(polygon.getAttributes().getNamedItem("rank").getNodeValue()));
-		
-		for (int i = 0; i < polygonList.getLength(); i++) {
-			Node n = polygonList.item(i);
-			if (n.getNodeName().equals("vertex")) {
-				p.getVertex().add(parseVertex(n));
+
+		if (polygon.hasChildNodes()) {
+			NodeList polygonList = polygon.getChildNodes();
+			for (int i = 0; i < polygonList.getLength(); i++) {
+				Node n = polygonList.item(i);
+				if (n.getNodeName().equals("vertex")) {
+					p.getVertex().add(parseVertex(n));
+				}
 			}
 		}
+		
 		return p;
 	}
 
+	
+	/**
+	 * This method parses the XML node vertex and its direct children.
+	 * @param vertex The node to be parsed
+	 * @return The model-based element of vertex
+	 */
 	private Vertex parseVertex(Node vertex) {
 		Vertex v = factory.createVertex();
+		
 		v.setX(Double.valueOf(vertex.getAttributes().getNamedItem("x").getNodeValue()));
 		v.setY(Double.valueOf(vertex.getAttributes().getNamedItem("y").getNodeValue()));
 		v.setCurve(Double.valueOf(vertex.getAttributes().getNamedItem("curve").getNodeValue()));
+		
 		return v;
 	}
 
+	
+	/**
+	 * This method parses the XML node description and its direct children.
+	 * @param description The node to be parsed
+	 * @return The model-based element of description
+	 */
 	private Description parseDescription(Node description) {
 		Description d = factory.createDescription();
+		
 		if (contains(description.getAttributes(), "language")) {
 			d.setLanguage(description.getAttributes().getNamedItem("language").getNodeValue());
 		}
 		d.setValue(description.getFirstChild().getNodeValue());
+		
 		return d;
 	}
 
+	
+	/**
+	 * This method parses the XML node layers and its direct children.
+	 * @param layers The node to be parsed
+	 * @return The model-based element of layers
+	 */
 	private Layers parseLayers(Node layers) {
 		Layers ls = factory.createLayers();
 		
@@ -1780,6 +2135,12 @@ public class XmlToEaglemodel {
 		return ls;
 	}
 	
+	
+	/**
+	 * This method parses the XML node grid and its direct children.
+	 * @param grid The node to be parsed
+	 * @return The model-based element of grid
+	 */
 	private Grid parseGrid(Node grid) {
 		Grid g = factory.createGrid();
 		
@@ -1863,10 +2224,16 @@ public class XmlToEaglemodel {
 			g.setAltunit(GridUnit.INCH);
 			break;
 		}
+		
 		return g;
 	}
 	
 	
+	/**
+	 * This method parses the XML node settings and its direct children.
+	 * @param settings The node to be parsed
+	 * @return The model-based element of settings
+	 */
 	private Settings parseSettings(Node settings) {
 		Settings sets = factory.createSettings();
 		
@@ -1903,9 +2270,16 @@ public class XmlToEaglemodel {
 			 */
 			sets.getSettings().add(set);
 		}
+		
 		return sets;
 	}
 	
+	
+	/**
+	 * This method parses the XML node compatibility and its direct children.
+	 * @param compatibility The node to be parsed
+	 * @return The model-based element of compatibility
+	 */
 	private Compatibility parseCompatibility(Node compatibility) {
 		Compatibility c = factory.createCompatibility();
 
@@ -1935,10 +2309,17 @@ public class XmlToEaglemodel {
 				}
 			}
 		}
+		
 		return c;
 	}
 	
-	private void saveModel(Eagle eag) {
+	
+	/**
+	 * This method persists the created model.
+	 * @param eag The model-based root element to be saved
+	 * @throws IOException If the model can't be saved
+	 */
+	private void saveModel(Eagle eag) throws IOException {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
         Map<String, Object> m = reg.getExtensionToFactoryMap();
         m.put("eaglemodel", new XMIResourceFactoryImpl());
@@ -1949,17 +2330,19 @@ public class XmlToEaglemodel {
         Resource resource = resSet.createResource(URI.createFileURI(modelPath));
         resource.getContents().add(eag);
 		
-        try {
-			resource.save(Collections.EMPTY_MAP);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        resource.save(Collections.EMPTY_MAP);
 	}
 
 	
-	private boolean contains(NamedNodeMap list, String str) {
+	/**
+	 * This method examines if a given node list contains a specific node with the given name.
+	 * @param list The node list
+	 * @param name The expected node name
+	 * @return true if the list contains the node name, false instead
+	 */
+	private boolean contains(NamedNodeMap list, String name) {
 		for (int i = 0; i < list.getLength(); i++) {
-			if (list.item(i).getNodeName().equals(str)) {
+			if (list.item(i).getNodeName().equals(name)) {
 				return true;
 			}
 		}
@@ -2002,31 +2385,6 @@ public class XmlToEaglemodel {
 //			System.out.println(list.item(i).getNodeName());
 //		}
 //	}
+
 	
-
-	public static void main(String[] args) {
-//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
-//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
-//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand3.sch";	// normal mit kopiertem transistor und uid
-
-		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";				// normal
-//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "MyModelTransformed.sch";	// .sch -> eaglemodel -> .sch
-		
-		
-//		String modelPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";					//Laptop
-		String modelPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest";	//Desktop PC
-//		modelPath += "\\Compare1.eaglemodel";
-//		modelPath += "\\Compare2.eaglemodel";
-		modelPath += "\\MyModel.eaglemodel";
-//		modelPath += "\\MyModel2.eaglemodel";
-		
-		
-		
-		try {
-			XmlToEaglemodel x = new XmlToEaglemodel(schematicPath, modelPath);
-			x.parse();
-		} catch (ParserConfigurationException | SAXException | IOException e) {
-			e.printStackTrace();
-		}
-	}
 }

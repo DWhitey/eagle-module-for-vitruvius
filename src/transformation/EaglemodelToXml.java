@@ -29,23 +29,34 @@ import eaglemodel.Class;
 import eaglemodel.Package;
 
 
-
+/**
+ * This class transforms a given model based on the Eagle meta-model into a schematic.
+ * 
+ * @author	Daniel Weiﬂer
+ * @version	1.0
+ *
+ */
 public class EaglemodelToXml {
 	
 	private String modelPath;
-	private File schemantic;
+	private File schematic;
 	
 	private Document doc;
 	
 	private Element instances;
 	
-	
-	public EaglemodelToXml(String modelPath, String schemanticPath) {
+	/**
+	 * Constructor.
+	 * @param modelPath The path of the given model
+	 * @param schematicPath The path of the schematic to save at
+	 */
+	public EaglemodelToXml(String modelPath, String schematicPath) {
 		this.modelPath = modelPath;
-		schemantic = new File(schemanticPath);
+		schematic = new File(schematicPath);
 	}
 	
-	private void parse() throws ParserConfigurationException, TransformerException {
+	
+	public void parse() throws ParserConfigurationException, TransformerException {
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -59,7 +70,7 @@ public class EaglemodelToXml {
 		doc.appendChild(eagle);
 		
 		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(schemantic);
+		StreamResult result = new StreamResult(schematic);
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");	// linesbrakes in xml, not in one single line
 		transformer.transform(source, result);
 	}
@@ -1162,21 +1173,4 @@ public class EaglemodelToXml {
     }
 
 	
-	public static void main(String[] args) {
-			String modelPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";					// Desktop PC
-			String schemanticPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch";
-			
-//			String modelPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";									// Laptop
-//			String schemanticPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch";
-			
-			
-			EaglemodelToXml x = new EaglemodelToXml(modelPath, schemanticPath);
-		try {
-			x.parse();
-		} catch (ParserConfigurationException | TransformerException e) {
-			e.printStackTrace();
-		}
-	}
-
-
 }
