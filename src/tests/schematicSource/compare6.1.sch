@@ -348,16 +348,22 @@ by R. Vogg  15.March.2002</description>
 <part name="NAND(A,B)" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="A" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="B" library="pinhead" deviceset="PINHD-1X1" device=""/>
-<part name="Q5" library="transistor-fet" deviceset="BSS92" device="">
-<attribute name="P1" value="0001"/>
-<attribute name="TEST2" value="5"/>
-<attribute name="UID" value="8"/>
-</part>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="-231.14" y="167.64" size="1.778" layer="91">testtesttest</text>
+<text x="-243.84" y="185.42" size="1.778" layer="91">testText</text>
+<text x="-259.08" y="182.88" size="1.778" layer="91" rot="R90">testText</text>
+<circle x="-231.14" y="180.34" radius="2.54" width="0.1524" layer="91"/>
+<dimension x1="-232.93605" y1="182.13605" x2="-229.34395" y2="178.54395" x3="-223.519996875" y3="187.96" textsize="1.778" layer="91" dtype="diameter"/>
+<polygon width="0.1524" layer="91">
+<vertex x="-256.54" y="147.32"/>
+<vertex x="-256.54" y="129.54"/>
+<vertex x="-241.3" y="129.54"/>
+<vertex x="-241.3" y="139.7"/>
+<vertex x="-248.92" y="147.32"/>
+</polygon>
+<rectangle x1="-236.22" y1="132.08" x2="-223.52" y2="147.32" layer="91"/>
 </plain>
 <instances>
 <instance part="Q1" gate="G$1" x="-182.88" y="172.72">
@@ -375,13 +381,16 @@ by R. Vogg  15.March.2002</description>
 <instance part="NAND(A,B)" gate="G$1" x="-142.24" y="165.1"/>
 <instance part="A" gate="G$1" x="-215.9" y="137.16" rot="R180"/>
 <instance part="B" gate="G$1" x="-215.9" y="119.38" rot="R180"/>
-<instance part="Q5" gate="G$1" x="-205.74" y="190.5">
-<attribute name="P1" x="-205.74" y="190.5" size="1.778" layer="96" display="off"/>
-<attribute name="TEST2" x="-205.74" y="190.5" size="1.778" layer="96" display="off"/>
-<attribute name="UID" x="-205.74" y="190.5" size="1.778" layer="96" display="off"/>
-</instance>
 </instances>
 <busses>
+<bus name="B$1">
+<segment>
+<wire x1="-226.06" y1="172.72" x2="-226.06" y2="160.02" width="0.762" layer="92"/>
+<wire x1="-226.06" y1="160.02" x2="-215.9" y2="160.02" width="0.762" layer="92"/>
+<wire x1="-215.9" y1="160.02" x2="-226.06" y2="172.72" width="0.762" layer="92"/>
+<label x="-213.36" y="172.72" size="1.778" layer="95"/>
+</segment>
+</bus>
 </busses>
 <nets>
 <net name="NAND(A,B)" class="0">
@@ -446,6 +455,35 @@ by R. Vogg  15.March.2002</description>
 <junction x="-177.8" y="185.42"/>
 <pinref part="Q2" gate="G$1" pin="D"/>
 <wire x1="-160.02" y1="175.26" x2="-160.02" y2="185.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<wire x1="-256.54" y1="170.18" x2="-241.3" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="-241.3" y1="170.18" x2="-241.3" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="-241.3" y1="157.48" x2="-256.54" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="-256.54" y1="157.48" x2="-256.54" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-256.54" y1="162.56" x2="-256.54" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="-256.54" y1="170.18" x2="-261.62" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="-261.62" y1="170.18" x2="-264.16" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="-264.16" y1="167.64" x2="-264.16" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-264.16" y1="162.56" x2="-261.62" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="-261.62" y1="160.02" x2="-259.08" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="-259.08" y1="160.02" x2="-256.54" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-256.54" y1="162.56" x2="-243.84" y2="177.8" width="0.1524" layer="91"/>
+<junction x="-256.54" y="170.18"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<wire x1="-233.68" y1="154.94" x2="-220.98" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="-220.98" y1="154.94" x2="-228.6" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="-228.6" y1="149.86" x2="-233.68" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<wire x1="-215.9" y1="193.04" x2="-208.28" y2="182.88" width="0.1524" layer="91" curve="-211.328693"/>
 </segment>
 </net>
 </nets>

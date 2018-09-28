@@ -1833,7 +1833,9 @@ public class XmlToEaglemodel {
 				break;
 			}
 		}
-		d.setWidth(Double.valueOf(dimension.getAttributes().getNamedItem("width").getNodeValue()));
+		if (contains(dimension.getAttributes(), "width")) {
+			d.setWidth(Double.valueOf(dimension.getAttributes().getNamedItem("width").getNodeValue()));
+		}
 		if (contains(dimension.getAttributes(), "extwidth")) {
 			d.setExtwidth(Double.valueOf(dimension.getAttributes().getNamedItem("extwidth").getNodeValue()));
 		}
@@ -2015,35 +2017,48 @@ public class XmlToEaglemodel {
 		
 		p.setWidth(Double.valueOf(polygon.getAttributes().getNamedItem("width").getNodeValue()));
 		p.setLayer(Integer.valueOf(polygon.getAttributes().getNamedItem("layer").getNodeValue()));
-		p.setSpacing(Double.valueOf(polygon.getAttributes().getNamedItem("spacing").getNodeValue()));
-		
-		switch (polygon.getAttributes().getNamedItem("pour").getNodeValue()) {
-		case "solid":
-			p.setPour(PolygonPour.SOLID);
-			break;
-		case "hatch":
-			p.setPour(PolygonPour.HATCH);
-			break;
-		case "cutout":
-			p.setPour(PolygonPour.CUTOUT);
-			break;
-		default:
-			break;
+		if (contains(polygon.getAttributes(), "spacing")) {
+			p.setSpacing(Double.valueOf(polygon.getAttributes().getNamedItem("spacing").getNodeValue()));
 		}
 		
-		p.setIsolate(Double.valueOf(polygon.getAttributes().getNamedItem("isolate").getNodeValue()));
+		if (contains(polygon.getAttributes(), "pour")) {
+			switch (polygon.getAttributes().getNamedItem("pour").getNodeValue()) {
+			case "solid":
+				p.setPour(PolygonPour.SOLID);
+				break;
+			case "hatch":
+				p.setPour(PolygonPour.HATCH);
+				break;
+			case "cutout":
+				p.setPour(PolygonPour.CUTOUT);
+				break;
+			default:
+				break;
+			}
+		}
+		
+		if (contains(polygon.getAttributes(), "isolate")) {
+			p.setIsolate(Double.valueOf(polygon.getAttributes().getNamedItem("isolate").getNodeValue()));
+		}
 
-		if (polygon.getAttributes().getNamedItem("orphans").getNodeValue().equals("no")) {
-			p.setOrphans(false);
-		} else {
-			p.setOrphans(true);
+		if (contains(polygon.getAttributes(), "orphans")) {
+			if (polygon.getAttributes().getNamedItem("orphans").getNodeValue().equals("no")) {
+				p.setOrphans(false);
+			} else {
+				p.setOrphans(true);
+			}
 		}
-		if (polygon.getAttributes().getNamedItem("thermals").getNodeValue().equals("no")) {
-			p.setThermals(false);
-		} else {
-			p.setThermals(true);
+		if (contains(polygon.getAttributes(), "thermals")) {
+			if (polygon.getAttributes().getNamedItem("thermals").getNodeValue().equals("no")) {
+				p.setThermals(false);
+			} else {
+				p.setThermals(true);
+			}
 		}
-		p.setRank(Integer.valueOf(polygon.getAttributes().getNamedItem("rank").getNodeValue()));
+		
+		if (contains(polygon.getAttributes(), "rank")) {
+			p.setRank(Integer.valueOf(polygon.getAttributes().getNamedItem("rank").getNodeValue()));
+		}
 
 		if (polygon.hasChildNodes()) {
 			NodeList polygonList = polygon.getChildNodes();
@@ -2069,7 +2084,9 @@ public class XmlToEaglemodel {
 		
 		v.setX(Double.valueOf(vertex.getAttributes().getNamedItem("x").getNodeValue()));
 		v.setY(Double.valueOf(vertex.getAttributes().getNamedItem("y").getNodeValue()));
-		v.setCurve(Double.valueOf(vertex.getAttributes().getNamedItem("curve").getNodeValue()));
+		if (contains(vertex.getAttributes(), "curve")) {
+			v.setCurve(Double.valueOf(vertex.getAttributes().getNamedItem("curve").getNodeValue()));
+		}
 		
 		return v;
 	}

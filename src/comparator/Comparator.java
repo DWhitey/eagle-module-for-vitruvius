@@ -73,14 +73,10 @@ public class Comparator {
 		
 		EList<Diff> differences = getDiffs();
 
-		printDiffs(differences);
-
 		// merge differences
 		IMerger.Registry mergerRegistry = IMerger.RegistryImpl.createStandaloneInstance();
 		IBatchMerger merger = new BatchMerger(mergerRegistry);
 		merger.copyAllLeftToRight(differences, new BasicMonitor());
-
-		printDiffs(differences);
 
 		saveModel(r1);
 	}
