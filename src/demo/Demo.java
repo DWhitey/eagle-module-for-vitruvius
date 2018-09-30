@@ -10,7 +10,7 @@ import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
 
-import comparator.Comparator;
+import comparator.ModelComparator;
 import transformation.EaglemodelToXml;
 import transformation.XmlToEaglemodel;
 
@@ -66,7 +66,7 @@ public class Demo {
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare2.eaglemodel";
 
 		try {
-			Comparator c = new Comparator(model1, model2);
+			ModelComparator c = new ModelComparator(model1, model2);
 			c.merge();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,7 +78,7 @@ public class Demo {
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare2.eaglemodel";
 
 		try {
-			Comparator c = new Comparator(model1, model2);
+			ModelComparator c = new ModelComparator(model1, model2);
 			c.printDiffs(c.getDiffs());
 			;
 		} catch (Exception e) {

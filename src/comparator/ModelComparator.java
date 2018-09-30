@@ -30,7 +30,7 @@ import org.eclipse.emf.compare.scope.IComparisonScope;
  * @author Daniel Weiﬂer
  * @version 1.0
  */
-public class Comparator {
+public class ModelComparator {
 
 	private Resource r1;
 	private Resource r2;
@@ -42,7 +42,7 @@ public class Comparator {
 	 * @param newerModelPath The path of the changed model
 	 * @throws IOException If the loading of the models goes wrong
 	 */
-	public Comparator(String modelPath, String newerModelPath) throws IOException {
+	public ModelComparator(String modelPath, String newerModelPath) throws IOException {
 		// Load the two input models
 		ResourceSet resourceSet1 = new ResourceSetImpl();
 		ResourceSet resourceSet2 = new ResourceSetImpl();
