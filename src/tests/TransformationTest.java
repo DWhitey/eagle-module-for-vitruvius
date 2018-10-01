@@ -116,7 +116,7 @@ public class TransformationTest {
 	}
 	
 	
-	@Test
+//	@Test
 	public void testCompareSchematicToModelToSchematic() throws ParserConfigurationException, SAXException, IOException {
 //		for (int i = 0; i < schematicList.size(); i++) {
 //			String schematic1 = schematicSourceDirectory + schematicList.get(i);
