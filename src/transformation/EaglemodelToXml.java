@@ -1347,7 +1347,7 @@ public class EaglemodelToXml {
 	 * This method loads a model based on the meta-model of Eagle.
 	 * @return The model
 	 */
-	public Eagle load() {
+	private Eagle load() {
         EaglemodelPackage.eINSTANCE.eClass();
 
         Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
