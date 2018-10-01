@@ -117,7 +117,7 @@ public class TransformationTest {
 	
 	
 	@Test
-	public void testCompareEachSchematic() throws ParserConfigurationException, SAXException, IOException {
+	public void testCompareSchematicToModelToSchematic() throws ParserConfigurationException, SAXException, IOException {
 //		for (int i = 0; i < schematicList.size(); i++) {
 //			String schematic1 = schematicSourceDirectory + schematicList.get(i);
 //			String schematic2 = schematicTransformedList.get(i);
@@ -143,7 +143,7 @@ public class TransformationTest {
 			XMLUnit.setIgnoreAttributeOrder(true);
 			XMLUnit.setIgnoreDiffBetweenTextAndCDATA(true);
 			
-			System.out.println(XMLUnit.compareXML(doc1, doc2));
+//			System.out.println(XMLUnit.compareXML(doc1, doc2));
 			assertTrue(XMLUnit.compareXML(doc1, doc2).identical());
 //		}
 	}
