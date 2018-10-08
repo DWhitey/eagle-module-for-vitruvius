@@ -11,7 +11,12 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.eclipse.emf.compare.Diff;
 
@@ -33,6 +38,7 @@ import transformation.XmlToEaglemodel;
 public class TransformationTest {
 	
 	private static String schematicSourceDirectory = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\schematicSource\\";
+	private static String schematicFormedDirectory = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\schematicFormed\\";
 	private static String schematicDirectory = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\schematic\\";
 	private static String modelDirectory = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\";
 	private static String modelDirectory2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel2\\";
@@ -48,9 +54,10 @@ public class TransformationTest {
 		createModels();
 		transformToSchematic();
 		transformFromSchematicToModel();
+		createSchematicFormFromSchematicSource();
 	}
 	
-	
+
 	private static void createModels() throws SAXException, IOException, ParserConfigurationException, InterruptedException {
 		listFilesForFolder(new File(schematicSourceDirectory));
 		for (String fileName : schematicList) {
@@ -79,6 +86,29 @@ public class TransformationTest {
 			XmlToEaglemodel xe = new XmlToEaglemodel(schematicDirectory + fileName, model);
 			xe.parse();
 		}
+	}
+	
+	
+	private static void createSchematicFormFromSchematicSource() throws SAXException, IOException, ParserConfigurationException, TransformerException {
+		for (String fileName : schematicList) {
+			String schematic = schematicSourceDirectory + fileName;
+			String schematic2 = schematicFormedDirectory + fileName;
+			
+			// XML reader for the .sch file
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(schematic);
+			doc.getDocumentElement().normalize();
+			
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(schematic2);
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");	// linesbrakes in xml, not in one single line
+			transformer.transform(source, result);
+		}
+		
+		
 	}
 	
 	
@@ -184,6 +214,21 @@ public class TransformationTest {
 		boolean isDeleted = true;
 		for (String schematic : schematicList) {
 			File f = new File(schematicDirectory + schematic);
+			if (f.exists()) {
+				if (!f.delete()) {
+					isDeleted = false;
+				}
+			}
+		}
+		assertTrue(isDeleted);
+	}
+	
+	
+	@AfterClass
+	public static void deleteSchematics2() {
+		boolean isDeleted = true;
+		for (String schematic : schematicList) {
+			File f = new File(schematicFormedDirectory + schematic);
 			if (f.exists()) {
 				if (!f.delete()) {
 					isDeleted = false;

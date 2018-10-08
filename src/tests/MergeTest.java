@@ -47,7 +47,7 @@ public class MergeTest {
 	
 	
 	@Test
-	public void testCompare1() throws IOException, InterruptedException {	// 1 Transistor hinzugefügt --> 1 Add
+	public void testMerge1() throws IOException, InterruptedException {	// 1 Transistor hinzugefügt --> 1 Add
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare1.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare1.2.eaglemodel";
 		ModelComparator c = new ModelComparator(model1, model2);
@@ -58,7 +58,7 @@ public class MergeTest {
 	
 	
 	@Test
-	public void testCompare2() throws IOException, InterruptedException {	// 1 Transistor + 2 Attribute hinzugefügt --> 3 Add
+	public void testMerge2() throws IOException, InterruptedException {	// 1 Transistor + 2 Attribute hinzugefügt --> 3 Add
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare2.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare2.2.eaglemodel";
 		ModelComparator c = new ModelComparator(model1, model2);
@@ -69,7 +69,7 @@ public class MergeTest {
 	
 	
 	@Test
-	public void testCompare3() throws IOException, InterruptedException {	// Setting geändert --> 1 Delete, 1 Add
+	public void testMerge3() throws IOException, InterruptedException {	// Setting geändert --> 1 Delete, 1 Add
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare3.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare3.2.eaglemodel";
 		ModelComparator c = new ModelComparator(model1, model2);
@@ -80,7 +80,7 @@ public class MergeTest {
 	
 	
 	@Test
-	public void testCompare4() throws IOException, InterruptedException {	// Transistorname geändert --> 5 Changes: 1 Library, 1 Part, 3 Segment in Net
+	public void testMerge4() throws IOException, InterruptedException {	// Transistorname geändert --> 5 Changes: 1 Library, 1 Part, 3 Segment in Net
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare4.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare4.2.eaglemodel";
 		ModelComparator c = new ModelComparator(model1, model2);
@@ -91,7 +91,7 @@ public class MergeTest {
 	
 	
 	@Test
-	public void testCompare5() throws IOException, InterruptedException {	// Text hinzugefügt --> 1 Add
+	public void testMerge5() throws IOException, InterruptedException {	// Text hinzugefügt --> 1 Add
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare5.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare5.2.eaglemodel";
 		ModelComparator c = new ModelComparator(model1, model2);
@@ -102,7 +102,7 @@ public class MergeTest {
 	
 	
 	@Test
-	public void testCompare6() throws IOException, InterruptedException {	// Ganz viel entfernt --> 40 Delete
+	public void testMerge6() throws IOException, InterruptedException {	// Ganz viel entfernt --> 40 Delete
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare6.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare6.2.eaglemodel";
 		ModelComparator c = new ModelComparator(model1, model2);
