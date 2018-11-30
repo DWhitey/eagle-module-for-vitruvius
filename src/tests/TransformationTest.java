@@ -31,7 +31,9 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import comparator.ModelComparator;
+import eaglemodel.Eagle;
 import transformation.EaglemodelToXml;
+import transformation.Persisting;
 import transformation.XmlToEaglemodel;
 
 
@@ -60,18 +62,21 @@ public class TransformationTest {
 
 	private static void createModels() throws SAXException, IOException, ParserConfigurationException, InterruptedException {
 		listFilesForFolder(new File(schematicSourceDirectory));
+		Persisting p = new Persisting();
 		for (String fileName : schematicList) {
 			String model = modelDirectory + fileName.substring(0, fileName.length() - 3) + "eaglemodel";
 			modelList.add(model);
-			XmlToEaglemodel xe = new XmlToEaglemodel(schematicSourceDirectory + fileName, model);
-			xe.parse();
+			XmlToEaglemodel xe = new XmlToEaglemodel(schematicSourceDirectory + fileName);
+			p.save(xe.parse(), model);
 		}
 	}
 	
 	
 	private static void transformToSchematic() throws ParserConfigurationException, TransformerException {
+		Persisting p = new Persisting();
 		for (String fileName : schematicList) {
-			String model = modelDirectory + fileName.substring(0, fileName.length() - 3) + "eaglemodel";
+			String modelPath = modelDirectory + fileName.substring(0, fileName.length() - 3) + "eaglemodel";
+			Eagle model = p.load(modelPath);
 			EaglemodelToXml xe = new EaglemodelToXml(model, schematicDirectory + fileName);
 			schematicTransformedList.add(schematicDirectory + fileName);
 			xe.parse();
@@ -80,11 +85,12 @@ public class TransformationTest {
 	
 	
 	private static void transformFromSchematicToModel() throws SAXException, IOException, ParserConfigurationException {
+		Persisting p = new Persisting();
 		for (String fileName : schematicList) {
-			String model = modelDirectory2 + fileName.substring(0, fileName.length() - 3) + "eaglemodel";
-			modelList2.add(model);
-			XmlToEaglemodel xe = new XmlToEaglemodel(schematicDirectory + fileName, model);
-			xe.parse();
+			String modelPath = modelDirectory2 + fileName.substring(0, fileName.length() - 3) + "eaglemodel";
+			modelList2.add(modelPath);
+			XmlToEaglemodel xe = new XmlToEaglemodel(schematicDirectory + fileName);
+			p.save(xe.parse(), modelPath);;
 		}
 	}
 	
@@ -115,9 +121,13 @@ public class TransformationTest {
 	@Test
 	public void testDifferenceModelToSchematicToModel() throws IOException, InterruptedException {
 		boolean hasDifference = false;
+		Persisting p = new Persisting();
 		if (modelList.size() == modelList2.size()) {
 			for (int i = 0; i < modelList.size(); i++) {
-				ModelComparator c = new ModelComparator(modelList.get(i), modelList2.get(i));
+				Eagle e1 = p.load(modelList.get(i));
+				Eagle e2 = p.load(modelList2.get(i));
+				
+				ModelComparator c = new ModelComparator(e1, e2);
 				EList<Diff> differences = c.getDiffs();
 				if (differences.size() != 0) {
 					hasDifference = true;

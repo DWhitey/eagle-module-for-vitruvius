@@ -18,6 +18,8 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import comparator.ModelComparator;
+import eaglemodel.Eagle;
+import transformation.Persisting;
 import transformation.XmlToEaglemodel;
 
 public class ComparatorTest {
@@ -43,11 +45,12 @@ public class ComparatorTest {
 	
 	private static void createModels() throws SAXException, IOException, ParserConfigurationException, InterruptedException {
 		listFilesForFolder(new File(schematicSourceDirectory));
+		Persisting p = new Persisting();
 		for (String fileName : schematicList) {
 			String model = modelDirectory + fileName.substring(0, fileName.length() - 3) + "eaglemodel";
 			modelList.add(model);
-			XmlToEaglemodel xe = new XmlToEaglemodel(schematicSourceDirectory + fileName, model);
-			xe.parse();
+			XmlToEaglemodel xe = new XmlToEaglemodel(schematicSourceDirectory + fileName);
+			p.save(xe.parse(), model);
 		}
 	}
 	
@@ -56,7 +59,12 @@ public class ComparatorTest {
 	public void testDifferences1() throws IOException, InterruptedException {	// 1 Transistor hinzugefügt --> 1 Add
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare1.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare1.2.eaglemodel";
-		ModelComparator c = new ModelComparator(model1, model2);
+		
+		Persisting p = new Persisting();
+		Eagle e1 = p.load(model1);
+		Eagle e2 = p.load(model2);
+		
+		ModelComparator c = new ModelComparator(e1, e2);
 		EList<Diff> differences = c.getDiffs();
 		assertTrue(differences.size() == 1);
 	}
@@ -66,7 +74,12 @@ public class ComparatorTest {
 	public void testDifferences2() throws IOException, InterruptedException {	// 1 Transistor + 2 Attribute hinzugefügt --> 3 Add
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare2.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare2.2.eaglemodel";
-		ModelComparator c = new ModelComparator(model1, model2);
+		
+		Persisting p = new Persisting();
+		Eagle e1 = p.load(model1);
+		Eagle e2 = p.load(model2);
+		
+		ModelComparator c = new ModelComparator(e1, e2);
 		EList<Diff> differences = c.getDiffs();
 		assertTrue(differences.size() == 3);
 	}
@@ -76,7 +89,12 @@ public class ComparatorTest {
 	public void testDifferences3() throws IOException, InterruptedException {	// Setting geändert --> 1 Delete, 1 Add
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare3.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare3.2.eaglemodel";
-		ModelComparator c = new ModelComparator(model1, model2);
+		
+		Persisting p = new Persisting();
+		Eagle e1 = p.load(model1);
+		Eagle e2 = p.load(model2);
+		
+		ModelComparator c = new ModelComparator(e1, e2);
 		EList<Diff> differences = c.getDiffs();
 		assertTrue(differences.size() == 2);
 	}
@@ -88,7 +106,12 @@ public class ComparatorTest {
 	public void testDifferences4() throws IOException, InterruptedException {	// Transistorname geändert --> 5 Changes: 1 Library, 1 Part, 3 Segment in Net
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare4.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare4.2.eaglemodel";
-		ModelComparator c = new ModelComparator(model1, model2);
+		
+		Persisting p = new Persisting();
+		Eagle e1 = p.load(model1);
+		Eagle e2 = p.load(model2);
+		
+		ModelComparator c = new ModelComparator(e1, e2);
 		EList<Diff> differences = c.getDiffs();
 		assertTrue(differences.size() == 4);
 	}
@@ -98,7 +121,12 @@ public class ComparatorTest {
 	public void testDifferences5() throws IOException, InterruptedException {	// Text hinzugefügt --> 1 Add
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare5.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare5.2.eaglemodel";
-		ModelComparator c = new ModelComparator(model1, model2);
+		
+		Persisting p = new Persisting();
+		Eagle e1 = p.load(model1);
+		Eagle e2 = p.load(model2);
+		
+		ModelComparator c = new ModelComparator(e1, e2);
 		EList<Diff> differences = c.getDiffs();
 		assertTrue(differences.size() == 1);
 	}
@@ -108,7 +136,12 @@ public class ComparatorTest {
 	public void testDifferences6() throws IOException, InterruptedException {	// Ganz viel entfernt --> 40 Delete
 		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare6.1.eaglemodel";
 		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\compare6.2.eaglemodel";
-		ModelComparator c = new ModelComparator(model1, model2);
+		
+		Persisting p = new Persisting();
+		Eagle e1 = p.load(model1);
+		Eagle e2 = p.load(model2);
+		
+		ModelComparator c = new ModelComparator(e1, e2);
 		EList<Diff> differences = c.getDiffs();
 		assertTrue(differences.size() == 40);
 	}

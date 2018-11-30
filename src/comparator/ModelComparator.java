@@ -2,21 +2,16 @@ package comparator;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import eaglemodel.EaglemodelPackage;
+import eaglemodel.Eagle;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.*;
 import org.eclipse.emf.compare.merge.BatchMerger;
 import org.eclipse.emf.compare.merge.IBatchMerger;
@@ -32,24 +27,36 @@ import org.eclipse.emf.compare.scope.IComparisonScope;
  */
 public class ModelComparator {
 
-	private Resource r1;
-	private Resource r2;
+	private Eagle e1;
+	private Eagle e2;
+//	private Resource r1;
+//	private Resource r2;
 
 
-	/**
-	 * Constructor.
-	 * @param modelPath The path of the model before the change
-	 * @param newerModelPath The path of the changed model
-	 * @throws IOException If the loading of the models goes wrong
-	 */
-	public ModelComparator(String modelPath, String newerModelPath) throws IOException {
-		// Load the two input models
-		ResourceSet resourceSet1 = new ResourceSetImpl();
-		ResourceSet resourceSet2 = new ResourceSetImpl();
-
-		r1 = load(modelPath, resourceSet1);
-		r2 = load(newerModelPath, resourceSet2);
-
+//	/**
+//	 * Constructor.
+//	 * @param modelPath The path of the model before the change
+//	 * @param newerModelPath The path of the changed model
+//	 * @throws IOException If the loading of the models goes wrong
+//	 */
+//	public ModelComparator(String modelPath, String newerModelPath) throws IOException {
+//		// Load the two input models
+//		ResourceSet resourceSet1 = new ResourceSetImpl();
+//		ResourceSet resourceSet2 = new ResourceSetImpl();
+//
+//		r1 = load(modelPath, resourceSet1);
+//		r2 = load(newerModelPath, resourceSet2);
+//
+//		Properties prop = new Properties();
+//		prop.setProperty("log4j.rootLogger", "WARN");
+//		PropertyConfigurator.configure(prop);
+//	}
+	
+	
+	public ModelComparator(Eagle e1, Eagle e2) {
+		this.e1 = e1;
+		this.e2 = e2;
+		
 		Properties prop = new Properties();
 		prop.setProperty("log4j.rootLogger", "WARN");
 		PropertyConfigurator.configure(prop);
@@ -78,7 +85,7 @@ public class ModelComparator {
 		IBatchMerger merger = new BatchMerger(mergerRegistry);
 		merger.copyAllLeftToRight(differences, new BasicMonitor());
 
-		saveModel(r1);
+		saveModel(e1.eResource());
 	}
 
 	
@@ -97,36 +104,11 @@ public class ModelComparator {
 		@SuppressWarnings("deprecation")
 		
 		// left: newer and changed model, right: original model
-		IComparisonScope scope = EMFCompare.createDefaultScope(r2, r1);
+		IComparisonScope scope = EMFCompare.createDefaultScope(e2, e1);
 
 		Comparison comparison = comparator.compare(scope);
 
 		return comparison.getDifferences();
-	}
-
-	
-	/**
-	 * This method loads a model and returns it as resource.
-	 * @param path File path of the model
-	 * @param resourceSet ResourceSet of the model
-	 * @return The model as resource
-	 * @throws IOException  If the the loading of the model goes wrong
-	 */
-	private Resource load(String path, ResourceSet resourceSet) throws IOException {
-		EaglemodelPackage.eINSTANCE.eClass();
-
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("eaglemodel", new XMIResourceFactoryImpl());
-
-		ResourceSet resSet = new ResourceSetImpl();
-
-		path = path.replace("\\", "/");
-		Resource resource = resSet.createResource(URI.createFileURI(path));
-
-		resource.load(Collections.EMPTY_MAP);
-
-		return resource;
 	}
 
 	
@@ -140,20 +122,20 @@ public class ModelComparator {
 	}
 
 	/**
-	 * Getter.
+	 * Get the original model.
 	 * @return The model
 	 */
-	public Resource getR1() {
-		return r1;
+	public Eagle getE1() {
+		return e1;
 	}
 
 
 	/**
-	 * Getter.
+	 * Get the newer model.
 	 * @return The newer model
 	 */
-	public Resource getR2() {
-		return r2;
+	public Eagle getE2() {
+		return e2;
 	}
 
 

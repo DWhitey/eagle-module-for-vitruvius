@@ -11,7 +11,9 @@ import javax.xml.transform.TransformerException;
 import org.xml.sax.SAXException;
 
 import comparator.ModelComparator;
+import eaglemodel.Eagle;
 import transformation.EaglemodelToXml;
+import transformation.Persisting;
 import transformation.XmlToEaglemodel;
 
 public class Demo {
@@ -20,40 +22,28 @@ public class Demo {
 	
 	
 	private void parseXMLToEaglemodel() {
-//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand mit compatibility.sch";	// mit compatibility
-//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand2.sch";	// normal mit kopiertem transistor	(Compare 2)
-//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand3.sch";	// normal mit kopiertem transistor und uid
+		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/demo/nand.sch";
 
-//		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/" + "nand.sch";				// normal
-		String schematicPath = Paths.get("").toAbsolutePath().toString() + "/src/transformation/"
-				+ "MyModelTransformed.sch"; // .sch -> eaglemodel -> .sch
+		String modelPath = Paths.get("").toAbsolutePath().toString() + "/src/demofiles/MyModel.eaglemodel";	// move to Eclipse instance to see model structure 
 
-//		String modelPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest";					//Laptop
-		String modelPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest"; // Desktop
-																															// PC
-
-//		modelPath += "\\Compare1.eaglemodel";
-//		modelPath += "\\Compare2.eaglemodel";
-		modelPath += "\\MyModel.eaglemodel";
-//		modelPath += "\\MyModel2.eaglemodel";
-
+		Persisting p = new Persisting();
+		
 		try {
-			XmlToEaglemodel x = new XmlToEaglemodel(schematicPath, modelPath);
-			x.parse();
+			XmlToEaglemodel x = new XmlToEaglemodel(schematicPath);
+			p.save(x.parse(), modelPath);
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	private void parseEaglemodelToXML() {
-		String modelPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel"; // Desktop
-																																				// PC
-		String schemanticPath = "C:\\Users\\Daniel\\Documents\\Programmieren\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch";
+		String modelPath = Paths.get("").toAbsolutePath().toString() + "/src/demo/nandmodel.eaglemodel";
+		String schemanticPath = Paths.get("").toAbsolutePath().toString() + "/src/demofiles/nandmodelTransformed.sch";
 
-//		String modelPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModel.eaglemodel";									// Laptop
-//		String schemanticPath = "C:\\Users\\Daniel\\Documents\\runtime-EclipseApplication\\TransformationTest\\MyModelTransformed.sch";
+		Persisting p = new Persisting();
+		Eagle eag = p.load(modelPath);
 
-		EaglemodelToXml x = new EaglemodelToXml(modelPath, schemanticPath);
+		EaglemodelToXml x = new EaglemodelToXml(eag, schemanticPath);
 		try {
 			x.parse();
 		} catch (ParserConfigurationException | TransformerException e) {
@@ -61,12 +51,16 @@ public class Demo {
 		}
 	}
 
-	private void compare() {
-		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare1.eaglemodel";
-		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare2.eaglemodel";
+	private void merge() {		// Pay Attention! This will overwrite Compare1.eaglemodel
+		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\demo\\Compare1.eaglemodel";
+		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\demo\\Compare2.eaglemodel";
+		
+		Persisting p = new Persisting();
+		Eagle e1 = p.load(model1);
+		Eagle e2 = p.load(model2);
 
 		try {
-			ModelComparator c = new ModelComparator(model1, model2);
+			ModelComparator c = new ModelComparator(e1, e2);
 			c.merge();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,29 +68,33 @@ public class Demo {
 	}
 
 	private void getDiffs() {
-		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare1.eaglemodel";
-		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\comparator\\Compare2.eaglemodel";
+		String model1 = Paths.get("").toAbsolutePath().toString() + "\\src\\demo\\Compare1.eaglemodel";
+		String model2 = Paths.get("").toAbsolutePath().toString() + "\\src\\demo\\Compare2.eaglemodel";
 
+		Persisting p = new Persisting();
+		Eagle e1 = p.load(model1);
+		Eagle e2 = p.load(model2);
+		
 		try {
-			ModelComparator c = new ModelComparator(model1, model2);
+			ModelComparator c = new ModelComparator(e1, e2);
 			c.printDiffs(c.getDiffs());
-			;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	private void parseMultiple() throws SAXException, IOException, ParserConfigurationException {
-		String schematicDirectory = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\schematic\\";
+		String schematicDirectory = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\schematicSource\\";
 		String modelDirectory = Paths.get("").toAbsolutePath().toString() + "\\src\\tests\\eaglemodel\\";
 		listFilesForFolder(new File(schematicDirectory));
+		Persisting p = new Persisting();
 		for (String fileName : schematicList) {
 			if (fileName.equals("eagle.dtd")) {
 				continue;
 			}
 			String modelName = fileName.substring(0, fileName.length() - 3) + "eaglemodel";
-			XmlToEaglemodel xe = new XmlToEaglemodel(schematicDirectory + fileName, modelDirectory + modelName);
-			xe.parse();
+			XmlToEaglemodel xe = new XmlToEaglemodel(schematicDirectory + fileName);
+			p.save(xe.parse(), modelDirectory + modelName);
 //			System.out.println(schematicDirectory + fileName);
 //			System.out.println(modelDirectory + modelName);
 //			System.out.println();
@@ -115,15 +113,15 @@ public class Demo {
 	}
 
 	public void show() throws SAXException, IOException, ParserConfigurationException {
-//		parseXMLToEaglemodel();
+		parseXMLToEaglemodel();
 
-//		parseEaglemodelToXML();
-
-//		compare();
+		parseEaglemodelToXML();
 
 //		getDiffs();
 		
-		parseMultiple();
+//		merge();
+		
+//		parseMultiple();
 	}
 	
 	public static void main(String[] args) {

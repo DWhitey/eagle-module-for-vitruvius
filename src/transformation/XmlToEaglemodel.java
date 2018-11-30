@@ -1,11 +1,6 @@
 package transformation;
 
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
@@ -15,9 +10,8 @@ import eaglemodel.Package;
 import eaglemodel.Text;
 
 import javax.xml.parsers.*;
+
 import java.io.*;
-import java.util.Collections;
-import java.util.Map;
 
 
 /**
@@ -30,7 +24,6 @@ import java.util.Map;
 public class XmlToEaglemodel {
 
 	private final File schematic;
-	private final String modelPath;
 	private Document doc;
 	
 	private EaglemodelFactory factory = EaglemodelFactory.eINSTANCE;
@@ -42,8 +35,7 @@ public class XmlToEaglemodel {
 	 * @param schematicPath The path of the given schematic
 	 * @param modelPath The path of the model to save at
 	 */
-	public XmlToEaglemodel(String schematicPath, String modelPath) {
-		this.modelPath = modelPath;
+	public XmlToEaglemodel(String schematicPath) {
 		schematic = new File(schematicPath);
 	}
 
@@ -54,17 +46,16 @@ public class XmlToEaglemodel {
 	 * @throws IOException If the reading of the schematic or the saving of the model goes wrong
 	 * @throws ParserConfigurationException If the document builder can't be created
 	 */
-	public void parse() throws SAXException, IOException, ParserConfigurationException {
+	public Eagle parse() throws SAXException, IOException, ParserConfigurationException {
 		// XML reader for the .sch file
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		doc = dBuilder.parse(schematic);
-		doc.getDocumentElement().normalize();
 		
 		// used for redundancy in Instances and Parts object
 		instancesHelpList = parseInstances(doc.getDocumentElement().getElementsByTagName("instances").item(0));
 		
-		saveModel(parseEagle(doc.getDocumentElement()));
+		return parseEagle(doc.getDocumentElement());
 	}
 	
 	/**
@@ -2331,25 +2322,6 @@ public class XmlToEaglemodel {
 	}
 	
 	
-	/**
-	 * This method persists the created model.
-	 * @param eag The model-based root element to be saved
-	 * @throws IOException If the model can't be saved
-	 */
-	private void saveModel(Eagle eag) throws IOException {
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-        Map<String, Object> m = reg.getExtensionToFactoryMap();
-        m.put("eaglemodel", new XMIResourceFactoryImpl());
-		
-		
-		ResourceSet resSet = new ResourceSetImpl();
-		
-        Resource resource = resSet.createResource(URI.createFileURI(modelPath));
-        resource.getContents().add(eag);
-		
-        resource.save(Collections.EMPTY_MAP);
-	}
-
 	
 	/**
 	 * This method examines if a given node list contains a specific node with the given name.
